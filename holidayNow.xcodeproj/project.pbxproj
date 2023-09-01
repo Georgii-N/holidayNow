@@ -71,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				7E42DD3F2AA1CF38007391AB /* Application */,
-				7E42DD462AA1CF99007391AB /* Services */,
 				7E42DD402AA1CF3F007391AB /* Scenes */,
 				7E42DD3E2AA1CEBD007391AB /* SupportingFiles */,
 				7E42DD452AA1CF92007391AB /* Components */,
@@ -134,13 +133,6 @@
 				7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		7E42DD462AA1CF99007391AB /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		7E42DD472AA1D6E3007391AB /* Localizable */ = {
