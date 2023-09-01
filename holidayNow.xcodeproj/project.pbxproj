@@ -19,6 +19,7 @@
 		7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */; };
 		7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */; };
 		7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */; };
+		7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD5A2AA1F21C007391AB /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomButton.swift; sourceTree = "<group>"; };
 		7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		7E42DD5A2AA1F21C007391AB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		7E42DD402AA1CF3F007391AB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7E42DD5C2AA1F21F007391AB /* OnboardingScreen */,
 				40152F612AA1C39E0049E309 /* ViewController.swift */,
 			);
 			path = Scenes;
@@ -147,6 +150,14 @@
 				7E42DD4C2AA1D711007391AB /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		7E42DD5C2AA1F21F007391AB /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E42DD5A2AA1F21C007391AB /* OnboardingViewController.swift */,
+			);
+			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
+				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
 				40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
 			);
