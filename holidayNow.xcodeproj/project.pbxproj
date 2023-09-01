@@ -12,6 +12,7 @@
 		40152F622AA1C39E0049E309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F612AA1C39E0049E309 /* ViewController.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
+		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
 		40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkService.swift */; };
 		7E42DD422AA1CF68007391AB /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD412AA1CF68007391AB /* Resources.swift */; };
 		7E42DD4A2AA1D711007391AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E42DD4C2AA1D711007391AB /* Localizable.strings */; };
@@ -31,6 +32,7 @@
 		40152F662AA1C3A00049E309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		40F6E0352AA22DA800F75858 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7E42DD412AA1CF68007391AB /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		7E42DD4B2AA1D711007391AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -75,11 +77,20 @@
 				7E42DD3F2AA1CF38007391AB /* Application */,
 				7E42DD402AA1CF3F007391AB /* Scenes */,
 				40F6E0342AA22D9100F75858 /* Services */,
-				7E42DD3E2AA1CEBD007391AB /* SupportingFiles */,
+				405373A02AA23D9B00704904 /* Models */,
 				7E42DD452AA1CF92007391AB /* Components */,
+				7E42DD3E2AA1CEBD007391AB /* SupportingFiles */,
 				7E42DD442AA1CF89007391AB /* Extensions */,
 			);
 			path = holidayNow;
+			sourceTree = "<group>";
+		};
+		405373A02AA23D9B00704904 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				405373A12AA23DBA00704904 /* Response.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		40F6E0342AA22D9100F75858 /* Services */ = {
@@ -260,6 +271,7 @@
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
 				40152F622AA1C39E0049E309 /* ViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
+				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
