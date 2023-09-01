@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  holidayNow
-//
-//  Created by Georgiy Neguritsa on 1/9/23.
-//
-
 import UIKit
 
 @main
