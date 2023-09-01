@@ -17,6 +17,8 @@
 		7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD4F2AA1D7A6007391AB /* Strings+Generated.swift */; };
 		7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD522AA1D979007391AB /* UIColor + Extension.swift */; };
 		7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */; };
+		7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */; };
+		7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		7E42DD4F2AA1D7A6007391AB /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		7E42DD522AA1D979007391AB /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomButton.swift; sourceTree = "<group>"; };
+		7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			children = (
 				7E42DD522AA1D979007391AB /* UIColor + Extension.swift */,
 				7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */,
+				7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 		7E42DD452AA1CF92007391AB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -239,10 +245,12 @@
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
 				40152F622AA1C39E0049E309 /* ViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
+				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */,
+				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
