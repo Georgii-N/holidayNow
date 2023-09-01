@@ -13,6 +13,7 @@ final class BaseCustomButton: UIButton {
     private var ButtonText: String
     private var buttonColor: UIColor?
     private var buttonTextColor: UIColor?
+    private var action: (() -> (Void))?
     
     // MARK: - Lifecycle:
     init(buttonState: ButtonState, ButtonText: String) {
@@ -20,7 +21,7 @@ final class BaseCustomButton: UIButton {
         self.ButtonText = ButtonText
         super.init(frame: .zero)
         setupConstraints()
-        setupButton()
+        setupButton()        
     }
     
     required init?(coder: NSCoder) {
@@ -60,8 +61,6 @@ final class BaseCustomButton: UIButton {
     
     // MARK: - Private Methods:
     private func setupButton() {
-        layer.cornerRadius = 24
-
         switch buttonState {
         case .normal:
             buttonColor = .universalRed
@@ -71,6 +70,7 @@ final class BaseCustomButton: UIButton {
             buttonTextColor = .black
         }
         
+        layer.cornerRadius = 24
         backgroundColor = buttonColor
         setTitle(ButtonText, for: .normal)
         setTitleColor(buttonTextColor, for: .normal)
