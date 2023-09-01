@@ -1,1 +1,4 @@
-
+// MARK: - Onboarding:
+"onboarding.title" = "Holiday Now";
+"onboarding.description" = "Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление";
+"onboarding.startButton.title" = "Начать";
