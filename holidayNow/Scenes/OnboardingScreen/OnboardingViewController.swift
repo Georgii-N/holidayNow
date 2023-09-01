@@ -6,13 +6,14 @@ final class OnboardingViewController: UIViewController {
     private lazy var onboardingImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Resources.Images.onboardingImage
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = 25
+        imageView.layer.masksToBounds = true
         imageView.backgroundColor = .gray
         
         return imageView
     }()
     
-    private lazy var onboardintTitleLabel: UILabel = {
+    private lazy var onboardingTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .headerLargeBoldFont
@@ -31,7 +32,7 @@ final class OnboardingViewController: UIViewController {
         return label
     }()
     
-    private lazy var onboardintStartButton = BaseCustomButton(buttonState: .normal,
+    private lazy var onboardingStartButton = BaseCustomButton(buttonState: .normal,
                                                               ButtonText: L10n.Onboarding.StartButton.title)
     
     // MARK: - LifeCycle:
@@ -49,9 +50,9 @@ private extension OnboardingViewController {
         view.backgroundColor = .whiteDay
         
         setupView(onboardingImageView)
-        setupView(onboardintTitleLabel)
+        setupView(onboardingTitleLabel)
         setupView(onboardingDescriptionLabel)
-        setupView(onboardintStartButton)
+        setupView(onboardingStartButton)
     }
     
     func setupConstraints() {
@@ -61,17 +62,17 @@ private extension OnboardingViewController {
             onboardingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             onboardingImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor),
             
-            onboardintTitleLabel.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: 20),
-            onboardintTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            onboardintTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            onboardingTitleLabel.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: 20),
+            onboardingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            onboardingTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
         
-            onboardingDescriptionLabel.topAnchor.constraint(equalTo: onboardintTitleLabel.bottomAnchor, constant: 30),
+            onboardingDescriptionLabel.topAnchor.constraint(equalTo: onboardingTitleLabel.bottomAnchor, constant: 30),
             onboardingDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             onboardingDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
-            onboardintStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            onboardintStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            onboardintStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            onboardingStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            onboardingStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            onboardingStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
     }
     
