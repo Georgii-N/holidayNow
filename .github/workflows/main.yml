@@ -1,0 +1,19 @@
+name: HolidayNow
+
+on:
+  push:
+    branches:
+      - develop  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up environment
+        run: |
+          echo "DEEPAI_API_KEY=${{ secrets.DEEPAI_API_KEY }}" >> $GITHUB_ENV
+
+      - name: Build and deploy
+        run: ./build-and-deploy-script.sh
