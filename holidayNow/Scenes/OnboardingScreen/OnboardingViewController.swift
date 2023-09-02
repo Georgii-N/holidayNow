@@ -85,6 +85,6 @@ private extension OnboardingViewController {
     }
     
     func setupTargets() {
-        onboardingStartButton.setTarget(action: switchToSelectCongratulationTypeVC)
+        onboardingStartButton.addTarget(self, action: #selector(switchToSelectCongratulationTypeVC), for: .touchUpInside)
     }
 }

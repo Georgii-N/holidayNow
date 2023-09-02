@@ -36,6 +36,7 @@ final class BaseCustomButton: UIButton {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         transform = .identity
         backgroundColor = buttonColor
     }
