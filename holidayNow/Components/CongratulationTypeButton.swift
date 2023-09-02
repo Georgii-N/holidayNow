@@ -36,7 +36,7 @@ final class CongratulationTypeButton: UIView {
         return label
     }()
     
-    private var outsideCircleView: UIView = {
+    private lazy var outsideCircleView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
         view.layer.borderWidth = 1
@@ -45,7 +45,7 @@ final class CongratulationTypeButton: UIView {
         return view
     }()
     
-    private var insideCircleView: UIView = {
+    private lazy var insideCircleView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 5
         
@@ -76,6 +76,7 @@ final class CongratulationTypeButton: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         transform = .identity
         backgroundColor = buttonColor
         isSelected = !isSelected
@@ -121,12 +122,9 @@ final class CongratulationTypeButton: UIView {
 // MARK: - Setup Views:
 extension CongratulationTypeButton {
     private func setupViews() {
-        addSubview(titleLabel)
-        addSubview(outsideCircleView)
-        addSubview(insideCircleView)
-        
         [titleLabel, outsideCircleView, insideCircleView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
+            addSubview($0)
         }
     }
     private func setupConstraints() {

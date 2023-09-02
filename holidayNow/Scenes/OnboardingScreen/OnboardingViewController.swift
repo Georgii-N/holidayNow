@@ -58,9 +58,8 @@ private extension OnboardingViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
         
-        [onboardingImageView, onboardingTitleLabel, onboardingDescriptionLabel, onboardingStartButton].forEach {
-            setupView($0)
-        }
+        [onboardingImageView, onboardingTitleLabel, onboardingDescriptionLabel,
+         onboardingStartButton].forEach(setupView)
     }
     
     func setupConstraints() {

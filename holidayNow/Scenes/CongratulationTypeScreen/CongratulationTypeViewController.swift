@@ -13,7 +13,7 @@ final class CongratulationTypeViewController: UIViewController {
         return stackView
     }()
     
-    private var congratulationLenghLabel: UILabel = {
+    private lazy var congratulationLenghLabel: UILabel = {
        let label = UILabel()
         label.font = .captionMediumBoldFont
         label.text = L10n.Congratulation.congratulationLengh
@@ -21,7 +21,7 @@ final class CongratulationTypeViewController: UIViewController {
         return label
     }()
     
-    private var lenghSlider: UISlider = {
+    private lazy var lenghSlider: UISlider = {
        let slider = UISlider()
         slider.tintColor = .universalRed
         slider.thumbTintColor = .universalRed
@@ -61,7 +61,6 @@ extension CongratulationTypeViewController: CongratulationTypeButtonDelegate {
 // MARK: - Setup Views:
 private extension CongratulationTypeViewController {
     func setupViews() {
-        title = L10n.Congratulation.title
         view.backgroundColor = .white
         
         [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
@@ -86,16 +85,17 @@ private extension CongratulationTypeViewController {
             
             lenghSlider.heightAnchor.constraint(equalToConstant: 5),
             lenghSlider.topAnchor.constraint(equalTo: congratulationLenghLabel.bottomAnchor, constant: 50),
-            lenghSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            lenghSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
         
         [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
             $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor, constant: 20).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        }
+        
+        [lenghSlider, continueButton].forEach {
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
     }
