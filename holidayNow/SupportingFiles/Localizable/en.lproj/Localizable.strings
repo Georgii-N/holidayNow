@@ -2,3 +2,10 @@
 "onboarding.title" = "Holiday Now";
 "onboarding.description" = "Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление";
 "onboarding.startButton.title" = "Начать";
+
+
+// MARK: - ResultScreen:
+"success.result" = "Успех! Ваше праздничное поздравление создано";
+"success.backToStartButton.title" = "Начать заново";
+"success.shareButton.title" = "Поделиться";
+
