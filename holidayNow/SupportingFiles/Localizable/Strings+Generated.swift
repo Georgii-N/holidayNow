@@ -10,6 +10,26 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Congratulation {
+    /// Длина поздравления
+    internal static let congratulationLengh = L10n.tr("Localizable", "congratulation.congratulationLengh", fallback: "Длина поздравления")
+    /// Далее
+    internal static let contitnue = L10n.tr("Localizable", "congratulation.contitnue", fallback: "Далее")
+    /// Длинное
+    internal static let long = L10n.tr("Localizable", "congratulation.long", fallback: "Длинное")
+    /// Короткое
+    internal static let short = L10n.tr("Localizable", "congratulation.short", fallback: "Короткое")
+    /// Выберите тип контента
+    internal static let title = L10n.tr("Localizable", "congratulation.title", fallback: "Выберите тип контента")
+    internal enum Button {
+      /// Хокку
+      internal static let haiku = L10n.tr("Localizable", "congratulation.button.haiku", fallback: "Хокку")
+      /// Стихотворение
+      internal static let poetry = L10n.tr("Localizable", "congratulation.button.poetry", fallback: "Стихотворение")
+      /// Простое
+      internal static let text = L10n.tr("Localizable", "congratulation.button.text", fallback: "Простое")
+    }
+  }
   internal enum Onboarding {
     /// Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление
     internal static let description = L10n.tr("Localizable", "onboarding.description", fallback: "Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление")

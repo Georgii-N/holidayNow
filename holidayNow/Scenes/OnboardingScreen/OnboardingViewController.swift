@@ -42,6 +42,15 @@ final class OnboardingViewController: UIViewController {
         setupConstraints()
         setupTargets()
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func switchToSelectCongratulationTypeVC() {
+        let viewController = CongratulationTypeViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+    
+        present(navigationController, animated: true)
+    }
 }
 
 // MARK: - Setup Views:
@@ -49,10 +58,8 @@ private extension OnboardingViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
         
-        setupView(onboardingImageView)
-        setupView(onboardingTitleLabel)
-        setupView(onboardingDescriptionLabel)
-        setupView(onboardingStartButton)
+        [onboardingImageView, onboardingTitleLabel, onboardingDescriptionLabel,
+         onboardingStartButton].forEach(setupView)
     }
     
     func setupConstraints() {
@@ -77,6 +84,6 @@ private extension OnboardingViewController {
     }
     
     func setupTargets() {
-        
+        onboardingStartButton.addTarget(self, action: #selector(switchToSelectCongratulationTypeVC), for: .touchUpInside)
     }
 }

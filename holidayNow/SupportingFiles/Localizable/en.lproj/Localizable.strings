@@ -1,11 +1,19 @@
-// MARK: - Onboarding:
+// MARK: - Onboarding screen:
 "onboarding.title" = "Holiday Now";
 "onboarding.description" = "Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление";
 "onboarding.startButton.title" = "Начать";
-
 
 // MARK: - ResultScreen:
 "success.result" = "Успех! Ваше праздничное поздравление создано";
 "success.backToStartButton.title" = "Начать заново";
 "success.shareButton.title" = "Поделиться";
 
+// MARK: - CongratulationType screen:
+"congratulation.title" = "Выберите тип контента";
+"congratulation.button.text" = "Простое";
+"congratulation.button.poetry" = "Стихотворение";
+"congratulation.button.haiku" = "Хокку";
+"congratulation.congratulationLengh" = "Длина поздравления";
+"congratulation.short" = "Короткое";
+"congratulation.long" = "Длинное";
+"congratulation.contitnue" = "Далее";

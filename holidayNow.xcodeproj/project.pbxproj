@@ -24,6 +24,9 @@
 		7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */; };
 		7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */; };
 		7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD5A2AA1F21C007391AB /* OnboardingViewController.swift */; };
+		7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD5D2AA207A8007391AB /* CongratulationTypeViewController.swift */; };
+		7E42DD612AA2092F007391AB /* CongratulationTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD602AA2092F007391AB /* CongratulationTypeButton.swift */; };
+		7E42DD632AA21842007391AB /* CongratulationTypeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD622AA21842007391AB /* CongratulationTypeButtonDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomButton.swift; sourceTree = "<group>"; };
 		7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		7E42DD5A2AA1F21C007391AB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		7E42DD5D2AA207A8007391AB /* CongratulationTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewController.swift; sourceTree = "<group>"; };
+		7E42DD602AA2092F007391AB /* CongratulationTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeButton.swift; sourceTree = "<group>"; };
+		7E42DD622AA21842007391AB /* CongratulationTypeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeButtonDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +101,8 @@
 				405373A12AA23DBA00704904 /* Response.swift */,
 			);
 			path = Models;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		40F2A8FA2AA31DD4009E345B /* ResponseScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +145,7 @@
 			children = (
 				7E42DD5C2AA1F21F007391AB /* OnboardingScreen */,
 				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
+				7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */,
 				40152F612AA1C39E0049E309 /* ViewController.swift */,
 			);
 			path = Scenes;
@@ -165,7 +172,8 @@
 		7E42DD452AA1CF92007391AB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */,
+				7E42DD642AA2184B007391AB /* Protocols */,
+				7E42DD652AA36CEE007391AB /* Buttons */,
 				40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */,
 			);
 			path = Components;
@@ -186,6 +194,31 @@
 				7E42DD5A2AA1F21C007391AB /* OnboardingViewController.swift */,
 			);
 			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
+		7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E42DD5D2AA207A8007391AB /* CongratulationTypeViewController.swift */,
+			);
+			path = CongratulationTypeScreen;
+			sourceTree = "<group>";
+		};
+		7E42DD642AA2184B007391AB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E42DD622AA21842007391AB /* CongratulationTypeButtonDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E42DD652AA36CEE007391AB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */,
+				7E42DD602AA2092F007391AB /* CongratulationTypeButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,12 +321,15 @@
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
+				7E42DD632AA21842007391AB /* CongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
+				7E42DD612AA2092F007391AB /* CongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
 				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
 				40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */,
+				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B76F947LP3;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B76F947LP3;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
