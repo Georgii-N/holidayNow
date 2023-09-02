@@ -16,7 +16,7 @@ final class NetworkService {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue(apiKey, forHTTPHeaderField: Resources.API.deepAI)
+        request.addValue(apiKey, forHTTPHeaderField: "api-key")
         
         let postString = "text=\(text)"
         request.httpBody = postString.data(using: .utf8)
@@ -29,6 +29,8 @@ final class NetworkService {
             }
             
             if let data = data {
+                let responseString = String(data: data, encoding: .utf8)
+                
                 do {
                     let response = try JSONDecoder().decode(Response.self, from: data)
                     if let decodedText = response.output.removingPercentEncoding {
