@@ -2,11 +2,15 @@ import Foundation
 
 final class NetworkService {
     
-    var apiKey: String
-    
+    // MARK: - Constants and Variables:
+    private var apiKey: String
+ 
+    // MARK: - LifeCycle:
     init(apiKey: String) {
         self.apiKey = apiKey
     }
+    
+    // MARK: - Public Methods
     
     func fetchGreeting(text: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: Resources.URLs.defaultURL) else {
