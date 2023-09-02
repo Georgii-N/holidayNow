@@ -3,8 +3,7 @@ import UIKit
 final class SuccessViewController: UIViewController {
     
     // MARK: - UI:
-    private lazy var resultLabel = BaseResultLabel(text: L10n.Success.result)
-    
+   
     private lazy var resultView: UIView = {
         let resultView = UIView()
         resultView.backgroundColor = .lightUniversalRed
@@ -29,6 +28,7 @@ final class SuccessViewController: UIViewController {
         return button
     }()
     
+    private lazy var resultLabel = BaseResultLabel(text: L10n.Success.result)
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, ButtonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.Success.ShareButton.title)
     
