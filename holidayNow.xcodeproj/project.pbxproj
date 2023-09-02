@@ -13,6 +13,8 @@
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
+		40F2A8FC2AA31E9B009E345B /* SuccessResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */; };
+		40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */; };
 		40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkService.swift */; };
 		7E42DD422AA1CF68007391AB /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD412AA1CF68007391AB /* Resources.swift */; };
 		7E42DD4A2AA1D711007391AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E42DD4C2AA1D711007391AB /* Localizable.strings */; };
@@ -33,6 +35,8 @@
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseViewController.swift; sourceTree = "<group>"; };
+		40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultLabel.swift; sourceTree = "<group>"; };
 		40F6E0352AA22DA800F75858 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7E42DD412AA1CF68007391AB /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		7E42DD4B2AA1D711007391AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -91,6 +95,14 @@
 				405373A12AA23DBA00704904 /* Response.swift */,
 			);
 			path = Models;
+            sourceTree = "<group>";
+        };
+		40F2A8FA2AA31DD4009E345B /* ResponseScreens */ = {
+			isa = PBXGroup;
+			children = (
+				40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */,
+			);
+			path = ResponseScreens;
 			sourceTree = "<group>";
 		};
 		40F6E0342AA22D9100F75858 /* Services */ = {
@@ -126,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				7E42DD5C2AA1F21F007391AB /* OnboardingScreen */,
+				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
 				40152F612AA1C39E0049E309 /* ViewController.swift */,
 			);
 			path = Scenes;
@@ -153,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				7E42DD562AA1E3F9007391AB /* BaseCustomButton.swift */,
+				40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */,
+				40F2A8FC2AA31E9B009E345B /* SuccessResponseViewController.swift in Sources */,
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
 				40152F622AA1C39E0049E309 /* ViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
@@ -277,6 +292,7 @@
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
+				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
 				40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
 			);

@@ -20,6 +20,18 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "onboarding.startButton.title", fallback: "Начать")
     }
   }
+  internal enum Success {
+    /// Успех! Ваше праздничное поздравление создано
+    internal static let result = L10n.tr("Localizable", "success.result", fallback: "Успех! Ваше праздничное поздравление создано")
+    internal enum BackToStartButton {
+      /// Начать заново
+      internal static let title = L10n.tr("Localizable", "success.backToStartButton.title", fallback: "Начать заново")
+    }
+    internal enum ShareButton {
+      /// Поделиться
+      internal static let title = L10n.tr("Localizable", "success.shareButton.title", fallback: "Поделиться")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
