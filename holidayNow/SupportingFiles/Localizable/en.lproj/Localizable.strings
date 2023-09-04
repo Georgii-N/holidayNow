@@ -17,24 +17,26 @@
 "congratulation.congratulationLengh" = "Длина поздравления";
 "congratulation.short" = "Короткое";
 "congratulation.long" = "Длинное";
-"congratulation.contitnue" = "Далее";
+"congratulation.continue" = "Далее";
 
-// MARK: - SetupGreetings screen:
-"setupGreeting.turn" = "Шаг 2/3";
-"setupGreeting.tellAboutPerson" = "Расскажите подробнее о том, кого хотите поздравить";
-"setupGreeting.name" = "Имя";
-"setupGreeting.interests.title" = "Интересы";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.sport" = "";
-"setupGreeting.interests.movies" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
-"setupGreeting.interests.cooking" = "";
+// MARK: - FirstForm screen:
+"firstForm.turn" = "Шаг 2/3";
+"firstForm.tellAboutPerson" = "Расскажите подробнее о том, кого хотите поздравить";
+"firstForm.name" = "Имя";
+"firstForm.interests.title" = "Интересы";
+"firstForm.interests.cooking" = "Готовка";
+"firstForm.interests.sport" = "Спорт";
+"firstForm.interests.movies" = "Фильмы";
+"firstForm.interests.travelling" = "Путешествия";
+"firstForm.interests.boardGames" = "Настольные игры";
+"firstForm.interests.nature" = "Природа";
+"firstForm.interests.music" = "Музыка";
+"firstForm.interests.theatre" = "Театр";
+"firstForm.interests.videoGames" = "Видео игры";
+"firstForm.interests.animals" = "Животные";
+"firstForm.interests.tastyFoods" = "Вкусная еда";
+"firstForm.interests.programming" = "Программирование";
+"firstForm.interests.addMyOwn" = "Добавить своё";
+
 
 

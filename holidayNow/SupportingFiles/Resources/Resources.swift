@@ -2,7 +2,23 @@ import UIKit
 
 enum Resources {
     enum Images {
+        // Onboarding:
         static let onboardingImage = UIImage(named: "OnboardingImage")
+        
+        // First Form:
+        static let cooking = UIImage(named: "outdoor_grill") ?? UIImage()
+        static let sport = UIImage(named: "fitness_center") ?? UIImage()
+        static let movies = UIImage(named: "movie_filter") ?? UIImage()
+        static let travelling = UIImage(named: "local_airport") ?? UIImage()
+        static let boardGames = UIImage(named: "extension") ?? UIImage()
+        static let nature = UIImage(named: "volcano") ?? UIImage()
+        static let music = UIImage(named: "music_note") ?? UIImage()
+        static let theatre = UIImage(named: "theater_comedy") ?? UIImage()
+        static let videoGames = UIImage(named: "sports_esports") ?? UIImage()
+        static let animals = UIImage(named: "pets") ?? UIImage()
+        static let tastyFood = UIImage(named: "ramen_dining") ?? UIImage()
+        static let programming = UIImage(named: "terminal") ?? UIImage()
+        static let addMyOwn = UIImage(named: "subdirectory_arrow_right") ?? UIImage()
     }
     
     enum URLs {
