@@ -1,6 +1,6 @@
 // MARK: - Onboarding screen:
-"onboarding.title" = "Holiday Now";
-"onboarding.description" = "Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление";
+"onboarding.title" = "Magic Text";
+"onboarding.description" = "Создай своё уникальное праздничное поздравление на базе искусственного интеллекта";
 "onboarding.startButton.title" = "Начать";
 
 // MARK: - ResultScreen:

@@ -68,9 +68,7 @@ private extension CongratulationTypeViewController {
             $0.delegate = self
         }
         
-        [buttonsStack, congratulationLenghLabel, lenghSlider, continueButton].forEach {
-            setupView($0)
-        }
+        [buttonsStack, congratulationLenghLabel, lenghSlider, continueButton].forEach(view.setupView)
     }
     
     func setupConstraints() {
