@@ -50,8 +50,7 @@ private extension SuccessViewController {
          responseLabel,
          copyResponseButton,
          backToStartButton,
-         shareButton].forEach(self.setupView)
-        
+         shareButton].forEach(view.setupView)
     }
     
     func setupConstraints() {

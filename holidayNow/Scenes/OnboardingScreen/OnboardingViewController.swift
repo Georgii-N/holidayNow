@@ -79,11 +79,8 @@ private extension OnboardingViewController {
     func setupViews() {
         view.backgroundColor = .blackDay
         
-        [onboardingImageView, onboardingDescriptionView].forEach(setupView)
-        [onboardingTitleLabel,onboardingDescriptionLabel, onboardingStartButton].forEach {
-            onboardingDescriptionView.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+        [onboardingImageView, onboardingDescriptionView].forEach(view.setupView)
+        [onboardingTitleLabel,onboardingDescriptionLabel, onboardingStartButton].forEach(onboardingDescriptionView.setupView)
     }
     
     func setupConstraints() {
