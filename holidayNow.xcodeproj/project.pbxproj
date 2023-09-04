@@ -12,6 +12,8 @@
 		40152F622AA1C39E0049E309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F612AA1C39E0049E309 /* ViewController.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
+		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
+		401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */; };
 		40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */; };
@@ -37,6 +39,8 @@
 		40152F662AA1C3A00049E309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseViewController.swift; sourceTree = "<group>"; };
 		40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultLabel.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		40152F5C2AA1C39E0049E309 /* holidayNow */ = {
 			isa = PBXGroup;
 			children = (
+				401FD5AA2AA60C3D0041D4F9 /* Coordinators */,
 				7E42DD3F2AA1CF38007391AB /* Application */,
 				7E42DD402AA1CF3F007391AB /* Scenes */,
 				40F6E0342AA22D9100F75858 /* Services */,
@@ -93,6 +98,15 @@
 				7E42DD442AA1CF89007391AB /* Extensions */,
 			);
 			path = holidayNow;
+			sourceTree = "<group>";
+		};
+		401FD5AA2AA60C3D0041D4F9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */,
+				401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		405373A02AA23D9B00704904 /* Models */ = {
@@ -322,10 +336,12 @@
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				7E42DD632AA21842007391AB /* CongratulationTypeButtonDelegate.swift in Sources */,
+				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7E42DD612AA2092F007391AB /* CongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
+				401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */,
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
 				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
 				40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */,
