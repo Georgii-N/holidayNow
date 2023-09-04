@@ -40,7 +40,7 @@ final class CongratulationTypeButton: UIView {
         let view = UIView()
         view.layer.cornerRadius = 10
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.universalRed?.cgColor
+        view.layer.borderColor = UIColor.universalRed.cgColor
         
         return view
     }()
@@ -108,7 +108,7 @@ final class CongratulationTypeButton: UIView {
         layer.cornerRadius = 24
         backgroundColor = buttonColor
         
-        layer.shadowColor = UIColor.lightGray?.cgColor
+        layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 1
         layer.shadowOffset = .zero
         layer.shadowRadius = 10

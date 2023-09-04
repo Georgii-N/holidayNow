@@ -9,6 +9,7 @@
 "success.shareButton.title" = "Поделиться";
 
 // MARK: - CongratulationType screen:
+"congratulation.turn" = "Шаг 1/3";
 "congratulation.title" = "Выберите тип контента";
 "congratulation.button.text" = "Простое";
 "congratulation.button.poetry" = "Стихотворение";
@@ -17,3 +18,23 @@
 "congratulation.short" = "Короткое";
 "congratulation.long" = "Длинное";
 "congratulation.contitnue" = "Далее";
+
+// MARK: - SetupGreetings screen:
+"setupGreeting.turn" = "Шаг 2/3";
+"setupGreeting.tellAboutPerson" = "Расскажите подробнее о том, кого хотите поздравить";
+"setupGreeting.name" = "Имя";
+"setupGreeting.interests.title" = "Интересы";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.sport" = "";
+"setupGreeting.interests.movies" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+"setupGreeting.interests.cooking" = "";
+
+

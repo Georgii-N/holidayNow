@@ -44,7 +44,7 @@ final class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        setupTargets()
+        setupTargets()        
     }
     
     override func viewDidAppear(_ animated: Bool) {
