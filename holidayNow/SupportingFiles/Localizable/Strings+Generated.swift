@@ -31,10 +31,10 @@ internal enum L10n {
     }
   }
   internal enum Onboarding {
-    /// Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление
-    internal static let description = L10n.tr("Localizable", "onboarding.description", fallback: "Найдите повод для радости каждый день и создайте своё уникальное праздничное поздравление")
-    /// Holiday Now
-    internal static let title = L10n.tr("Localizable", "onboarding.title", fallback: "Holiday Now")
+    /// Создай своё уникальное праздничное поздравление на базе искусственного интеллекта
+    internal static let description = L10n.tr("Localizable", "onboarding.description", fallback: "Создай своё уникальное праздничное поздравление на базе искусственного интеллекта")
+    /// Magic Text
+    internal static let title = L10n.tr("Localizable", "onboarding.title", fallback: "Magic Text")
     internal enum StartButton {
       /// Начать
       internal static let title = L10n.tr("Localizable", "onboarding.startButton.title", fallback: "Начать")

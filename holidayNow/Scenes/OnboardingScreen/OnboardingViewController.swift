@@ -5,6 +5,7 @@ final class OnboardingViewController: UIViewController {
     // MARK: - UI:
     private lazy var onboardingImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.image = Resources.Images.onboardingImage
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
@@ -12,10 +13,11 @@ final class OnboardingViewController: UIViewController {
         
         return imageView
     }()
-    
+        
     private lazy var onboardingTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = .white
         label.font = .headerLargeBoldFont
         label.text = L10n.Onboarding.title
         
@@ -26,12 +28,14 @@ final class OnboardingViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = .white
         label.font = .bodyLargeRegularFont
         label.text = L10n.Onboarding.description
         
         return label
     }()
     
+    private lazy var onboardingDescriptionView = UIView()
     private lazy var onboardingStartButton = BaseCustomButton(buttonState: .normal,
                                                               ButtonText: L10n.Onboarding.StartButton.title)
     
@@ -41,6 +45,23 @@ final class OnboardingViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupGradient()
+    }
+    
+    // MARK: - Private Methods:
+    private func setupGradient() {
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = CGRect(x: 0, y: 0, width: onboardingDescriptionView.bounds.width,
+                                            height: onboardingDescriptionView.bounds.height)
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradient.startPoint = CGPoint(x: 1, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 0.35)
+        onboardingDescriptionView.layer.insertSublayer(gradient, at: 0)
     }
     
     // MARK: - Objc Methods:
@@ -56,24 +77,34 @@ final class OnboardingViewController: UIViewController {
 // MARK: - Setup Views:
 private extension OnboardingViewController {
     func setupViews() {
-        view.backgroundColor = .whiteDay
+        view.backgroundColor = .blackDay
         
-        [onboardingImageView, onboardingTitleLabel, onboardingDescriptionLabel,
-         onboardingStartButton].forEach(setupView)
+        [onboardingImageView, onboardingDescriptionView].forEach(setupView)
+        [onboardingTitleLabel,onboardingDescriptionLabel, onboardingStartButton].forEach {
+            onboardingDescriptionView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
     
     func setupConstraints() {
+        let height = view.frame.height
+        
         NSLayoutConstraint.activate([
-            onboardingImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            onboardingImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            onboardingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            onboardingImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor),
+            onboardingImageView.heightAnchor.constraint(equalToConstant: height * 0.7),
+            onboardingImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            onboardingImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            onboardingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            onboardingTitleLabel.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: 20),
+            onboardingDescriptionView.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: -height * 0.2),
+            onboardingDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            onboardingDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            onboardingDescriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            onboardingTitleLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: height * 0.1),
             onboardingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             onboardingTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
         
-            onboardingDescriptionLabel.topAnchor.constraint(equalTo: onboardingTitleLabel.bottomAnchor, constant: 30),
+            onboardingDescriptionLabel.topAnchor.constraint(equalTo: onboardingTitleLabel.bottomAnchor, constant: 10),
             onboardingDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             onboardingDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
