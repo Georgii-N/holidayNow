@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */; };
+		400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */; };
 		40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F5D2AA1C39E0049E309 /* AppDelegate.swift */; };
-		40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F5F2AA1C39E0049E309 /* SceneDelegate.swift */; };
 		40152F622AA1C39E0049E309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F612AA1C39E0049E309 /* ViewController.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
+		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
+		401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */; };
 		40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */; };
@@ -35,13 +38,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryProtocol.swift; sourceTree = "<group>"; };
 		40152F5A2AA1C39E0049E309 /* holidayNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = holidayNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40152F5D2AA1C39E0049E309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40152F5F2AA1C39E0049E309 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		40152F612AA1C39E0049E309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40152F662AA1C3A00049E309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseViewController.swift; sourceTree = "<group>"; };
 		40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultLabel.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 		40152F5C2AA1C39E0049E309 /* holidayNow */ = {
 			isa = PBXGroup;
 			children = (
+				401FD5AA2AA60C3D0041D4F9 /* Coordinators */,
 				7E42DD3F2AA1CF38007391AB /* Application */,
 				7E42DD402AA1CF3F007391AB /* Scenes */,
 				40F6E0342AA22D9100F75858 /* Services */,
@@ -103,6 +110,15 @@
 				7E42DD442AA1CF89007391AB /* Extensions */,
 			);
 			path = holidayNow;
+			sourceTree = "<group>";
+		};
+		401FD5AA2AA60C3D0041D4F9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */,
+				401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		405373A02AA23D9B00704904 /* Models */ = {
@@ -127,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				40F6E0352AA22DA800F75858 /* NetworkService.swift */,
+				400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */,
+				400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -157,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				40152F5D2AA1C39E0049E309 /* AppDelegate.swift */,
-				40152F5F2AA1C39E0049E309 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -339,6 +356,7 @@
 			files = (
 				40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */,
 				7E3757CD2AA5FD030093A3C5 /* CustomCollectionViewCell.swift in Sources */,
+				400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */,
 				40F2A8FC2AA31E9B009E345B /* SuccessResponseViewController.swift in Sources */,
 				7E3757D42AA60F7B0093A3C5 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
@@ -348,16 +366,18 @@
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				7E42DD632AA21842007391AB /* CongratulationTypeButtonDelegate.swift in Sources */,
+				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */,
 				7E42DD612AA2092F007391AB /* CongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
+				401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */,
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
 				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
-				40152F602AA1C39E0049E309 /* SceneDelegate.swift in Sources */,
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
+				400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
