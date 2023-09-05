@@ -70,10 +70,7 @@ final class CongratulationTypeViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func switchToFirstFormVC() {
-        let viewController = FirstFormViewController()
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        present(viewController, animated: true)
+        coordinator?.goToFirstFormViewController()
     }
 }
 

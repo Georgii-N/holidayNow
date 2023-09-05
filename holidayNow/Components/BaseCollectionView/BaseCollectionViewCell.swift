@@ -2,10 +2,17 @@ import UIKit
 
 final class BaseCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Dependencies:
+    weak var delegate: BaseCollectionViewCellDelegate?
+    
     // MARK: - Constants and Variables:
     override var isSelected: Bool {
         didSet {
             changeCellState()
+            
+            if let interestModel {
+                delegate?.changeInterestState(isAdded: isSelected, model: interestModel)
+            }
         }
     }
     
@@ -52,7 +59,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
             interestImageView.image = interestImageView.image?.withTintColor(.black, renderingMode: .alwaysOriginal)
             nameLabel.textColor = .black
         } else {
-            layer.borderColor = UIColor.gray.cgColor
+            layer.borderColor = UIColor.lightGray.cgColor
             layer.borderWidth = 1
             interestImageView.image = interestImageView.image?.withTintColor(.gray, renderingMode: .alwaysOriginal)
             nameLabel.textColor = .gray

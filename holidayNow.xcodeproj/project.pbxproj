@@ -13,7 +13,6 @@
 		400E1D5D2AA75A4800CF4BCC /* SuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D5C2AA75A4800CF4BCC /* SuccessViewModel.swift */; };
 		400E1D5F2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */; };
 		40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F5D2AA1C39E0049E309 /* AppDelegate.swift */; };
-		40152F622AA1C39E0049E309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F612AA1C39E0049E309 /* ViewController.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
 		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
@@ -39,6 +38,9 @@
 		7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */; };
 		7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */; };
 		7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABC82AA705410018196F /* FirstFormViewController.swift */; };
+		7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */; };
+		7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */; };
+		7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABD52AA74CB80018196F /* BaseCollectionViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +51,6 @@
 		400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewModelProtocol.swift; sourceTree = "<group>"; };
 		40152F5A2AA1C39E0049E309 /* holidayNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = holidayNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40152F5D2AA1C39E0049E309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40152F612AA1C39E0049E309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40152F662AA1C3A00049E309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +77,9 @@
 		7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButton.swift; sourceTree = "<group>"; };
 		7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButtonDelegate.swift; sourceTree = "<group>"; };
 		7EFFABC82AA705410018196F /* FirstFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewController.swift; sourceTree = "<group>"; };
+		7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModel.swift; sourceTree = "<group>"; };
+		7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModelProtocol.swift; sourceTree = "<group>"; };
+		7EFFABD52AA74CB80018196F /* BaseCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +136,10 @@
 		405373A02AA23D9B00704904 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				405373A12AA23DBA00704904 /* Response.swift */,
 				7E3757D62AA612930093A3C5 /* GreetingTarget.swift */,
 				7E3757D82AA62A4D0093A3C5 /* Interests.swift */,
 				400E1D5A2AA7416D00CF4BCC /* Observable.swift */,
+				405373A12AA23DBA00704904 /* Response.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,9 +157,9 @@
 		40F6E0342AA22D9100F75858 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7EFFABD22AA73DE00018196F /* Protocols */,
 				40F6E0352AA22DA800F75858 /* NetworkService.swift */,
 				400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */,
-				400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -163,6 +167,7 @@
 		7E3757CE2AA60F120093A3C5 /* BaseCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				7EFFABD72AA74CBB0018196F /* Protocols */,
 				7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */,
 				7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */,
 				7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */,
@@ -197,7 +202,6 @@
 				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
 				7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */,
 				7EFFABCA2AA705450018196F /* FirstFormScreen */,
-				40152F612AA1C39E0049E309 /* ViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -276,9 +280,35 @@
 		7EFFABCA2AA705450018196F /* FirstFormScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7EFFABD12AA73B330018196F /* Protocols */,
+				7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */,
 				7EFFABC82AA705410018196F /* FirstFormViewController.swift */,
 			);
 			path = FirstFormScreen;
+			sourceTree = "<group>";
+		};
+		7EFFABD12AA73B330018196F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7EFFABD22AA73DE00018196F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7EFFABD72AA74CBB0018196F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABD52AA74CB80018196F /* BaseCollectionViewCellDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,17 +412,19 @@
 				7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */,
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
-				40152F622AA1C39E0049E309 /* ViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
+				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
 				400E1D5B2AA7416D00CF4BCC /* Observable.swift in Sources */,
 				7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
+				7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */,
+				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
