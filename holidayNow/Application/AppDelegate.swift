@@ -9,10 +9,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let navigationController = UINavigationController()
         let viewControllerFactory = ViewControllerFactory()
-        let coordinator = AppCoordinator(navigationController: navigationController, viewControllerFactory: viewControllerFactory)
+        coordinator = AppCoordinator(navigationController: navigationController, viewControllerFactory: viewControllerFactory)
         viewControllerFactory.coordinator = coordinator
-        coordinator.start()
-        
+        if let coordinator {
+            coordinator.start()
+        }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

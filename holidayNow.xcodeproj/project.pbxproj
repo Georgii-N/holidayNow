@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */; };
 		400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */; };
+		400E1D5B2AA7416D00CF4BCC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D5A2AA7416D00CF4BCC /* Observable.swift */; };
 		40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F5D2AA1C39E0049E309 /* AppDelegate.swift */; };
 		40152F622AA1C39E0049E309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F612AA1C39E0049E309 /* ViewController.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryProtocol.swift; sourceTree = "<group>"; };
+		400E1D5A2AA7416D00CF4BCC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		40152F5A2AA1C39E0049E309 /* holidayNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = holidayNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40152F5D2AA1C39E0049E309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40152F612AA1C39E0049E309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				405373A12AA23DBA00704904 /* Response.swift */,
 				7E3757D62AA612930093A3C5 /* GreetingTarget.swift */,
 				7E3757D82AA62A4D0093A3C5 /* Interests.swift */,
+				400E1D5A2AA7416D00CF4BCC /* Observable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
+				400E1D5B2AA7416D00CF4BCC /* Observable.swift in Sources */,
 				7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
