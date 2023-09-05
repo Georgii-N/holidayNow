@@ -21,7 +21,6 @@ enum Resources {
         static let addMyOwn = UIImage(named: "subdirectory_arrow_right") ?? UIImage()
         
         enum ResponseScreens {
-            static let cooking = UIImage(named: "outdoor_grill") ?? UIImage()
             static let responseAIError = UIImage(named: "response_ai_error") ?? UIImage()
             static let responseNetworkError = UIImage(named: "response_network_error") ?? UIImage()
             static let responseSuccess = UIImage(named: "response_success") ?? UIImage()
