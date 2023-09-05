@@ -20,18 +20,18 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     @Observable
     private(set) var interests = [
         Interests(name: L10n.FirstForm.Interests.title, interests: [
-            GreetingTarget(image: Resources.Images.cooking, name: L10n.FirstForm.Interests.cooking),
-            GreetingTarget(image: Resources.Images.sport, name: L10n.FirstForm.Interests.sport),
-            GreetingTarget(image: Resources.Images.movies, name: L10n.FirstForm.Interests.movies),
-            GreetingTarget(image: Resources.Images.travelling, name: L10n.FirstForm.Interests.travelling),
-            GreetingTarget(image: Resources.Images.boardGames, name: L10n.FirstForm.Interests.boardGames),
-            GreetingTarget(image: Resources.Images.nature, name: L10n.FirstForm.Interests.nature),
-            GreetingTarget(image: Resources.Images.music, name: L10n.FirstForm.Interests.music),
-            GreetingTarget(image: Resources.Images.theatre, name: L10n.FirstForm.Interests.theatre),
-            GreetingTarget(image: Resources.Images.videoGames, name: L10n.FirstForm.Interests.videoGames),
-            GreetingTarget(image: Resources.Images.animals, name: L10n.FirstForm.Interests.animals),
-            GreetingTarget(image: Resources.Images.tastyFood, name: L10n.FirstForm.Interests.tastyFoods),
-            GreetingTarget(image: Resources.Images.programming, name: L10n.FirstForm.Interests.programming)
+            GreetingTarget(image: Resources.Images.FirstForm.cooking, name: L10n.FirstForm.Interests.cooking),
+            GreetingTarget(image: Resources.Images.FirstForm.sport, name: L10n.FirstForm.Interests.sport),
+            GreetingTarget(image: Resources.Images.FirstForm.movies, name: L10n.FirstForm.Interests.movies),
+            GreetingTarget(image: Resources.Images.FirstForm.travelling, name: L10n.FirstForm.Interests.travelling),
+            GreetingTarget(image: Resources.Images.FirstForm.boardGames, name: L10n.FirstForm.Interests.boardGames),
+            GreetingTarget(image: Resources.Images.FirstForm.nature, name: L10n.FirstForm.Interests.nature),
+            GreetingTarget(image: Resources.Images.FirstForm.music, name: L10n.FirstForm.Interests.music),
+            GreetingTarget(image: Resources.Images.FirstForm.theatre, name: L10n.FirstForm.Interests.theatre),
+            GreetingTarget(image: Resources.Images.FirstForm.videoGames, name: L10n.FirstForm.Interests.videoGames),
+            GreetingTarget(image: Resources.Images.FirstForm.animals, name: L10n.FirstForm.Interests.animals),
+            GreetingTarget(image: Resources.Images.FirstForm.tastyFood, name: L10n.FirstForm.Interests.tastyFoods),
+            GreetingTarget(image: Resources.Images.FirstForm.programming, name: L10n.FirstForm.Interests.programming)
         ])
     ]
     

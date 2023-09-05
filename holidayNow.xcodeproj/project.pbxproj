@@ -10,7 +10,6 @@
 		400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */; };
 		400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */; };
 		40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F5D2AA1C39E0049E309 /* AppDelegate.swift */; };
-		40152F622AA1C39E0049E309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F612AA1C39E0049E309 /* ViewController.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
 		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
@@ -46,7 +45,6 @@
 		400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryProtocol.swift; sourceTree = "<group>"; };
 		40152F5A2AA1C39E0049E309 /* holidayNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = holidayNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40152F5D2AA1C39E0049E309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40152F612AA1C39E0049E309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40152F662AA1C3A00049E309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
 				7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */,
 				7EFFABCA2AA705450018196F /* FirstFormScreen */,
-				40152F612AA1C39E0049E309 /* ViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -405,7 +402,6 @@
 				7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */,
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
-				40152F622AA1C39E0049E309 /* ViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
