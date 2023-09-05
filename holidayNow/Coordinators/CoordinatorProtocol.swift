@@ -7,4 +7,5 @@ protocol CoordinatorProtocol: AnyObject {
     func start()
     func goToSuccessResultViewController()
     func goToCongratulationTypeViewController()
+    func goToFirstFormViewController()
 }

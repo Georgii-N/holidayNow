@@ -27,4 +27,9 @@ final class AppCoordinator: CoordinatorProtocol {
         let congratulationTypeViewController = viewControllerFactory.createCongratulationTypeViewController()
         navigationController.pushViewController(congratulationTypeViewController, animated: true)
     }
+    
+    func goToFirstFormViewController() {
+        let firstFormViewController = viewControllerFactory.createFirstFormViewController()
+        navigationController.pushViewController(firstFormViewController, animated: true)
+    }
 }
