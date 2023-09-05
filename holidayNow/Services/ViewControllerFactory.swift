@@ -7,16 +7,21 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     // MARK: - Public Methods
     func createOnboardingViewController() -> OnboardingViewController {
         let onboardingViewController = OnboardingViewController(coordinator: coordinator ?? nil)
-            return onboardingViewController
-        }
+        return onboardingViewController
+    }
     
     func createSuccessViewController() -> SuccessViewController {
         let successViewController = SuccessViewController(coordinator: coordinator ?? nil)
-            return successViewController
-        }
+        return successViewController
+    }
     
     func createCongratulationTypeViewController() -> CongratulationTypeViewController {
         let congratulationTypeViewController = CongratulationTypeViewController(coordinator: coordinator ?? nil)
-            return congratulationTypeViewController
+        return congratulationTypeViewController
+    }
+    
+    func createFirstFormViewController() -> FirstFormViewController {
+        let firstViewModel = FirstFormViewModel()
+        return FirstFormViewController(coordinator: coordinator, viewModel: firstViewModel)
     }
 }

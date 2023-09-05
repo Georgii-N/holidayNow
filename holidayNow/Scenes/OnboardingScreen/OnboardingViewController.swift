@@ -9,7 +9,7 @@ final class OnboardingViewController: UIViewController {
     private lazy var onboardingImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = Resources.Images.onboardingImage
+        imageView.image = Resources.Images.Onboarding.onboardingImage
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .gray
