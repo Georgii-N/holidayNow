@@ -22,4 +22,9 @@ final class AppCoordinator: CoordinatorProtocol {
         let successViewController = viewControllerFactory.createSuccessViewController()
         navigationController.pushViewController(successViewController, animated: true)
     }
+    
+    func goToCongratulationTypeViewController() {
+        let congratulationTypeViewController = viewControllerFactory.createCongratulationTypeViewController()
+        navigationController.pushViewController(congratulationTypeViewController, animated: true)
+    }
 }

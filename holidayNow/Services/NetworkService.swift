@@ -11,7 +11,6 @@ final class NetworkService {
     }
     
     // MARK: - Public Methods
-    
     func fetchGreeting(text: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: Resources.URLs.defaultURL) else {
             assertionFailure("Invalid URL")
@@ -24,7 +23,6 @@ final class NetworkService {
         
         let postString = "text=\(text)"
         request.httpBody = postString.data(using: .utf8)
-        
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

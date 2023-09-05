@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
         let viewControllerFactory = ViewControllerFactory()
         let coordinator = AppCoordinator(navigationController: navigationController, viewControllerFactory: viewControllerFactory)
+        viewControllerFactory.coordinator = coordinator
         coordinator.start()
         
         window = UIWindow(frame: UIScreen.main.bounds)
