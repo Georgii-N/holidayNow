@@ -3,6 +3,16 @@ import UIKit
 final class CongratulationTypeViewController: UIViewController {
     
     // MARK: - UI:
+    private lazy var titleLabel: UILabel = {
+       let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .captionMediumRegularFont
+        label.textColor = .gray
+        label.text = L10n.Congratulation.title
+        
+        return label
+    }()
+    
     private lazy var buttonsStack: UIStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,9 +43,9 @@ final class CongratulationTypeViewController: UIViewController {
         return slider
     }()
     
-    private lazy var textCongratulationButton = CongratulationTypeButton(buttonState: .text)
-    private lazy var poetryCongratulationButton = CongratulationTypeButton(buttonState: .poetry)
-    private lazy var haikuCongratulationButton = CongratulationTypeButton(buttonState: .haiku)
+    private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
+    private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
+    private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.Congratulation.continue)
     
     // MARK: - Lifecycle:
@@ -45,10 +55,18 @@ final class CongratulationTypeViewController: UIViewController {
         setupConstraints()
         setupTargets()
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func switchToFirstFormVC() {
+        let viewController = FirstFormViewController()
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        present(viewController, animated: true)
+    }
 }
 
 // MARK: - CongratulationTypeButtonDelegate:
-extension CongratulationTypeViewController: CongratulationTypeButtonDelegate {
+extension CongratulationTypeViewController: BaseCongratulationTypeButtonDelegate {
     func synchronizeOtherButtons(title: String, state: Bool) {
         [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
             if $0.title != title && $0.selectedState == state {
@@ -68,13 +86,15 @@ private extension CongratulationTypeViewController {
             $0.delegate = self
         }
         
-        [buttonsStack, congratulationLenghLabel, lenghSlider, continueButton].forEach(view.setupView)
+        [titleLabel, buttonsStack, congratulationLenghLabel, lenghSlider, continueButton].forEach(view.setupView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            
             buttonsStack.heightAnchor.constraint(equalToConstant: 240),
-            buttonsStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            buttonsStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
@@ -87,7 +107,7 @@ private extension CongratulationTypeViewController {
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
         
-        [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [titleLabel, textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
             $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
@@ -99,6 +119,6 @@ private extension CongratulationTypeViewController {
     }
     
     func setupTargets() {
-        
+        continueButton.addTarget(self, action: #selector(switchToFirstFormVC), for: .touchUpInside)
     }
 }

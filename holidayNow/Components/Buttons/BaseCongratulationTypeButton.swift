@@ -1,9 +1,9 @@
 import UIKit
 
-final class CongratulationTypeButton: UIView {
+final class BaseCongratulationTypeButton: UIView {
     
     // MARK: - Dependencies:
-    weak var delegate: CongratulationTypeButtonDelegate?
+    weak var delegate: BaseCongratulationTypeButtonDelegate?
     
     // MARK: - Constants and Variables:
     enum ButtonState {
@@ -120,7 +120,7 @@ final class CongratulationTypeButton: UIView {
 }
 
 // MARK: - Setup Views:
-extension CongratulationTypeButton {
+extension BaseCongratulationTypeButton {
     private func setupViews() {
         [titleLabel, outsideCircleView, insideCircleView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

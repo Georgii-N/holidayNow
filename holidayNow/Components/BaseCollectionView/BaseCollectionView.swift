@@ -1,10 +1,10 @@
 import UIKit
 
-final class CustomCollectionView: UICollectionView {
+final class BaseCollectionView: UICollectionView {
     
     // MARK: - Lifecycle:
     init() {
-        let layout = CustomCollectionViewFlowLayout()
+        let layout = BaseCollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(frame: .zero, collectionViewLayout: layout)
         setupViews()
@@ -16,7 +16,7 @@ final class CustomCollectionView: UICollectionView {
 }
 
 // MARK: - Setup Views:
-extension CustomCollectionView {
+extension BaseCollectionView {
     private func setupViews() {
         backgroundColor = .whiteDay
         allowsMultipleSelection = true
