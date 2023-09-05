@@ -19,6 +19,15 @@ enum Resources {
         static let tastyFood = UIImage(named: "ramen_dining") ?? UIImage()
         static let programming = UIImage(named: "terminal") ?? UIImage()
         static let addMyOwn = UIImage(named: "subdirectory_arrow_right") ?? UIImage()
+        
+        enum ResponseScreens {
+            static let cooking = UIImage(named: "outdoor_grill") ?? UIImage()
+            static let responseAIError = UIImage(named: "response_ai_error") ?? UIImage()
+            static let responseNetworkError = UIImage(named: "response_network_error") ?? UIImage()
+            static let responseSuccess = UIImage(named: "response_success") ?? UIImage()
+            static let responseWaitingFirst = UIImage(named: "response_waiting_ver1") ?? UIImage()
+            static let responseWaitingSecond = UIImage(named: "response_waiting_ver2") ?? UIImage()
+        }
     }
     
     enum URLs {
