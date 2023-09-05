@@ -67,10 +67,9 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Objc Methods:
     @objc private func switchToSelectCongratulationTypeVC() {
         let viewController = CongratulationTypeViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .overFullScreen
+        viewController.modalPresentationStyle = .overFullScreen
     
-        present(navigationController, animated: true)
+        present(viewController, animated: true)
     }
 }
 

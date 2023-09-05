@@ -9,6 +9,8 @@ extension UIFont {
     static let captionMediumBoldFont = UIFont.boldSystemFont(ofSize: 16)
     static let captionSmallBoldFont = UIFont.boldSystemFont(ofSize: 14)
     
+    static let captionMediumRegularFont = UIFont.systemFont(ofSize: 16)
+    
     static let bodyExtraLargeBoldFont = UIFont.boldSystemFont(ofSize: 24)
     static let bodyLargeRegularFont = UIFont.systemFont(ofSize: 20)
     static let bodyMediumRegularFont = UIFont.systemFont(ofSize: 18)

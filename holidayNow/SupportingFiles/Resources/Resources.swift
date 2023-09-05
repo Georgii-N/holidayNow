@@ -24,7 +24,13 @@ enum Resources {
     enum URLs {
         static let defaultURL = "https://api.deepai.org/api/text-generator"
     }
+    
     enum API {
         static let deepAI = "13fc0b0b-50a8-4acd-8ced-0ad045c64746"
+    }
+    
+    enum Identifiers {
+        static let firstFormInterestsCell = "FirstFormCollectionViewCell"
+        static let firstFormEnterInterestCell = "firstFormEnterInterestCell"
     }
 }

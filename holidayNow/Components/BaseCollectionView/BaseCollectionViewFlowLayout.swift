@@ -1,6 +1,6 @@
 import UIKit
 
-final class CustomCollectionViewFlowLayout: UICollectionViewFlowLayout {
+final class BaseCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     // MARK: - Constants and Variables:
     let cellSpacing: CGFloat = 10
@@ -22,7 +22,7 @@ final class CustomCollectionViewFlowLayout: UICollectionViewFlowLayout {
             
             layoutAttribute.frame.origin.x = leftMargin
             leftMargin += layoutAttribute.frame.width + cellSpacing
-            maxY = max(layoutAttribute.frame.maxX, maxY)
+            maxY = max(layoutAttribute.frame.maxY, maxY)
         }
         
         return attributes

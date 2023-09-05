@@ -1,6 +1,6 @@
 import UIKit
 
-final class CustomCollectionViewCell: UICollectionViewCell {
+final class BaseCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Constants and Variables:
     override var isSelected: Bool {
@@ -61,7 +61,7 @@ final class CustomCollectionViewCell: UICollectionViewCell {
 }
 
 // MARK: - Setup Views:
-private extension CustomCollectionViewCell {
+private extension BaseCollectionViewCell {
     func setupViews() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1

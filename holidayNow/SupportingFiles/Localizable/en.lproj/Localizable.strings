@@ -21,8 +21,9 @@
 
 // MARK: - FirstForm screen:
 "firstForm.turn" = "Шаг 2/3";
-"firstForm.tellAboutPerson" = "Расскажите подробнее о том, кого хотите поздравить";
+"firstForm.title" = "Расскажите подробнее о том, кого хотите поздравить";
 "firstForm.name" = "Имя";
+"firstForm.namePlaceholder" = "Введите имя";
 "firstForm.interests.title" = "Интересы";
 "firstForm.interests.cooking" = "Готовка";
 "firstForm.interests.sport" = "Спорт";
