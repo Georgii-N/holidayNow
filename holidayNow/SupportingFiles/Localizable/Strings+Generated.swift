@@ -14,13 +14,15 @@ internal enum L10n {
     /// Длина поздравления
     internal static let congratulationLengh = L10n.tr("Localizable", "congratulation.congratulationLengh", fallback: "Длина поздравления")
     /// Далее
-    internal static let contitnue = L10n.tr("Localizable", "congratulation.contitnue", fallback: "Далее")
+    internal static let `continue` = L10n.tr("Localizable", "congratulation.continue", fallback: "Далее")
     /// Длинное
     internal static let long = L10n.tr("Localizable", "congratulation.long", fallback: "Длинное")
     /// Короткое
     internal static let short = L10n.tr("Localizable", "congratulation.short", fallback: "Короткое")
     /// Выберите тип контента
     internal static let title = L10n.tr("Localizable", "congratulation.title", fallback: "Выберите тип контента")
+    /// Шаг 1/3
+    internal static let turn = L10n.tr("Localizable", "congratulation.turn", fallback: "Шаг 1/3")
     internal enum Button {
       /// Хокку
       internal static let haiku = L10n.tr("Localizable", "congratulation.button.haiku", fallback: "Хокку")
@@ -28,6 +30,44 @@ internal enum L10n {
       internal static let poetry = L10n.tr("Localizable", "congratulation.button.poetry", fallback: "Стихотворение")
       /// Простое
       internal static let text = L10n.tr("Localizable", "congratulation.button.text", fallback: "Простое")
+    }
+  }
+  internal enum FirstForm {
+    /// Имя
+    internal static let name = L10n.tr("Localizable", "firstForm.name", fallback: "Имя")
+    /// Расскажите подробнее о том, кого хотите поздравить
+    internal static let tellAboutPerson = L10n.tr("Localizable", "firstForm.tellAboutPerson", fallback: "Расскажите подробнее о том, кого хотите поздравить")
+    /// Шаг 2/3
+    internal static let turn = L10n.tr("Localizable", "firstForm.turn", fallback: "Шаг 2/3")
+    internal enum Interests {
+      /// Добавить своё
+      internal static let addMyOwn = L10n.tr("Localizable", "firstForm.interests.addMyOwn", fallback: "Добавить своё")
+      /// Животные
+      internal static let animals = L10n.tr("Localizable", "firstForm.interests.animals", fallback: "Животные")
+      /// Настольные игры
+      internal static let boardGames = L10n.tr("Localizable", "firstForm.interests.boardGames", fallback: "Настольные игры")
+      /// Готовка
+      internal static let cooking = L10n.tr("Localizable", "firstForm.interests.cooking", fallback: "Готовка")
+      /// Фильмы
+      internal static let movies = L10n.tr("Localizable", "firstForm.interests.movies", fallback: "Фильмы")
+      /// Музыка
+      internal static let music = L10n.tr("Localizable", "firstForm.interests.music", fallback: "Музыка")
+      /// Природа
+      internal static let nature = L10n.tr("Localizable", "firstForm.interests.nature", fallback: "Природа")
+      /// Программирование
+      internal static let programming = L10n.tr("Localizable", "firstForm.interests.programming", fallback: "Программирование")
+      /// Спорт
+      internal static let sport = L10n.tr("Localizable", "firstForm.interests.sport", fallback: "Спорт")
+      /// Вкусная еда
+      internal static let tastyFoods = L10n.tr("Localizable", "firstForm.interests.tastyFoods", fallback: "Вкусная еда")
+      /// Театр
+      internal static let theatre = L10n.tr("Localizable", "firstForm.interests.theatre", fallback: "Театр")
+      /// Интересы
+      internal static let title = L10n.tr("Localizable", "firstForm.interests.title", fallback: "Интересы")
+      /// Путешествия
+      internal static let travelling = L10n.tr("Localizable", "firstForm.interests.travelling", fallback: "Путешествия")
+      /// Видео игры
+      internal static let videoGames = L10n.tr("Localizable", "firstForm.interests.videoGames", fallback: "Видео игры")
     }
   }
   internal enum Onboarding {
