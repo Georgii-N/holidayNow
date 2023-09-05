@@ -78,7 +78,6 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func switchToSelectCongratulationTypeVC() {
-        print(coordinator)
         coordinator?.goToCongratulationTypeViewController()
     }
 }
