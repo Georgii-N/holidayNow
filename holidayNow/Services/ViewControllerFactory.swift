@@ -1,8 +1,10 @@
 import UIKit
 
 final class ViewControllerFactory: ViewControllerFactoryProtocol {
+    // MARK: - Dependencies
     weak var coordinator: CoordinatorProtocol?
     
+    // MARK: - Public Methods
     func createOnboardingViewController() -> OnboardingViewController {
         let onboardingViewController = OnboardingViewController(coordinator: coordinator ?? nil)
             return onboardingViewController

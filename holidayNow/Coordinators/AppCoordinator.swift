@@ -2,7 +2,7 @@ import UIKit
 
 final class AppCoordinator: CoordinatorProtocol {
     
-    // MARK: - Constants and Variables:
+    // MARK: - Constants and Variables
     internal var navigationController: UINavigationController
     internal var viewControllerFactory: ViewControllerFactoryProtocol
     
