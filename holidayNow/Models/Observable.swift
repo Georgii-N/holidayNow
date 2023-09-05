@@ -10,12 +10,12 @@ final class Observable<Value> {
         }
     }
     
-    var projetedValue: Observable<Value>{
+    var projectedValue: Observable<Value>{
         return self
     }
     
-    init(wrapperValue: Value) {
-        self.wrappedValue = wrapperValue
+    init(wrappedValue: Value) {
+        self.wrappedValue = wrappedValue
     }
     
     func bind(action: @escaping (Value) -> Void) {
