@@ -89,7 +89,6 @@ private extension SuccessViewController {
             shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64),
             shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
             shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
         ])
     }
     
