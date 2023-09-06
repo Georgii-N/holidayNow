@@ -18,6 +18,8 @@
 		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
 		401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
+		40F147162AA84825006EC7EE /* BaseResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147152AA84824006EC7EE /* BaseResultViewController.swift */; };
+		40F147182AA8486E006EC7EE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationController.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */; };
 		40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */; };
 		40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkService.swift */; };
@@ -57,6 +59,8 @@
 		401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		40F147152AA84824006EC7EE /* BaseResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultViewController.swift; sourceTree = "<group>"; };
+		40F147172AA8486E006EC7EE /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultLabel.swift; sourceTree = "<group>"; };
 		40F6E0352AA22DA800F75858 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -144,9 +148,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		40F147142AA8478B006EC7EE /* WaitingScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WaitingScreen;
+			sourceTree = "<group>";
+		};
 		40F2A8FA2AA31DD4009E345B /* ResponseScreens */ = {
 			isa = PBXGroup;
 			children = (
+				40F147142AA8478B006EC7EE /* WaitingScreen */,
 				40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */,
 				400E1D5C2AA75A4800CF4BCC /* SuccessViewModel.swift */,
 				400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */,
@@ -231,6 +243,8 @@
 				7E42DD652AA36CEE007391AB /* Buttons */,
 				7E3757CE2AA60F120093A3C5 /* BaseCollectionView */,
 				40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */,
+				40F147152AA84824006EC7EE /* BaseResultViewController.swift */,
+				40F147172AA8486E006EC7EE /* BaseNavigationController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -422,6 +436,7 @@
 				7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */,
+				40F147162AA84825006EC7EE /* BaseResultViewController.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
@@ -432,6 +447,7 @@
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
 				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
+				40F147182AA8486E006EC7EE /* BaseNavigationController.swift in Sources */,
 				400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */,
 				400E1D5D2AA75A4800CF4BCC /* SuccessViewModel.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
