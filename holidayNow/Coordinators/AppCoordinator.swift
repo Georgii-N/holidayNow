@@ -18,11 +18,6 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController.pushViewController(onboardingViewController, animated: true)
     }
     
-    func goToSuccessResultViewController() {
-        let successViewController = viewControllerFactory.createSuccessViewController()
-        navigationController.pushViewController(successViewController, animated: true)
-    }
-    
     func goToCongratulationTypeViewController() {
         let congratulationTypeViewController = viewControllerFactory.createCongratulationTypeViewController()
         navigationController.pushViewController(congratulationTypeViewController, animated: true)
@@ -31,5 +26,26 @@ final class AppCoordinator: CoordinatorProtocol {
     func goToFirstFormViewController() {
         let firstFormViewController = viewControllerFactory.createFirstFormViewController()
         navigationController.pushViewController(firstFormViewController, animated: true)
+    }
+    
+    // Response Screens
+    func goToWaitingViewController() {
+        let waitingViewController = viewControllerFactory.createWaitingViewController()
+        navigationController.pushViewController(waitingViewController, animated: true)
+    }
+    
+    func goToSuccessResultViewController() {
+        let successViewController = viewControllerFactory.createSuccessViewController()
+        navigationController.pushViewController(successViewController, animated: true)
+    }
+    
+    func goToErrorNetworkViewController() {
+        let errorNetworkViewController = viewControllerFactory.createErrorNetworkViewController()
+        navigationController.pushViewController(errorNetworkViewController, animated: true)
+    }
+    
+    func goToErrorAPIViewController() {
+        let errorAPIViewController = viewControllerFactory.createErrorAPIViewController()
+        navigationController.pushViewController(errorAPIViewController, animated: true)
     }
 }

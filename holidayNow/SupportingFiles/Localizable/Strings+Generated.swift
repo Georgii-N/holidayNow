@@ -82,6 +82,31 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "onboarding.startButton.title", fallback: "Начать")
     }
   }
+  internal enum ResultScreen {
+    /// В Начало
+    internal static let goToStart = L10n.tr("Localizable", "resultScreen.goToStart", fallback: "В Начало")
+    /// Попробуйте снова
+    internal static let repeatButton = L10n.tr("Localizable", "resultScreen.repeatButton", fallback: "Попробуйте снова")
+    /// Результаты
+    internal static let title = L10n.tr("Localizable", "resultScreen.title", fallback: "Результаты")
+    internal enum APIErrorText {
+      /// Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(
+      internal static let var1 = L10n.tr("Localizable", "resultScreen.APIErrorText.var1", fallback: "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(")
+    }
+    internal enum NetworkErrorText {
+      /// Магии не произошло, попробуйте еще раз:(
+      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз:(")
+    }
+    internal enum WaitingText {
+      /// Происходит магия Хогвартса...Скоро все будет!
+      internal static let var1 = L10n.tr("Localizable", "resultScreen.WaitingText.var1", fallback: "Происходит магия Хогвартса...Скоро все будет!")
+      /// Скоро все будет...
+      ///  ИИ готовит инструмены
+      internal static let var2 = L10n.tr("Localizable", "resultScreen.WaitingText.var2", fallback: "Скоро все будет...\n ИИ готовит инструмены")
+      /// Нейросеть уже проснулась...Ждем результата...
+      internal static let var3 = L10n.tr("Localizable", "resultScreen.WaitingText.var3", fallback: "Нейросеть уже проснулась...Ждем результата...")
+    }
+  }
   internal enum Success {
     /// Успех! Ваше праздничное поздравление создано
     internal static let result = L10n.tr("Localizable", "success.result", fallback: "Успех! Ваше праздничное поздравление создано")

@@ -13,7 +13,7 @@ final class BaseNavigationBar: UIView {
     
     private lazy var backButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "back"), for: .normal)
+        button.setImage(Resources.Images.NavigationBar.backButtonIcon, for: .normal)
         return button
     }()
     
@@ -48,7 +48,7 @@ private extension BaseNavigationBar {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 70),
+            heightAnchor.constraint(equalToConstant: 30),
             
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             backButton.centerYAnchor.constraint(equalTo: centerYAnchor),

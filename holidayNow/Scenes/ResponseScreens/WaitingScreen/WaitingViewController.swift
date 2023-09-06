@@ -1,21 +1,22 @@
 import UIKit
 
-final class BaseResultViewController: UIViewController {
+final class WaitingViewController: UIViewController {
     
-    // MARK: - Constants and Variables
-    private var titleScreen: String
-    private var isBackButton: Bool
-    private var buttonText: String?
+    // MARK: - Dependencies:
+    weak var coordinator: CoordinatorProtocol?
+    
+    var waitingViewModel: WaitingViewModelProtocol
     
     //MARK: - UI
-    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     private lazy var textLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = .bodyExtraLargeBoldFont
@@ -23,20 +24,13 @@ final class BaseResultViewController: UIViewController {
         return label
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: titleScreen, isBackButton: isBackButton)
-    private lazy var actionButton = BaseCustomButton(buttonState: .normal, ButtonText: buttonText ?? "")
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true)
     
-    // MARK: - Lifecycle
-    init(titleScreen: String, isBackButton: Bool, actionButtonText: String?) {
-        self.titleScreen = titleScreen
-        self.isBackButton = isBackButton
-        self.buttonText = actionButtonText
-        
+    // MARK: - LifeCycle:
+    init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {
+        self.waitingViewModel = waitingViewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
-        
-        if buttonText == nil {
-            actionButton.isHidden = true
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -47,31 +41,36 @@ final class BaseResultViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        
+        imageView.image = waitingViewModel.getRandomImage()
+        textLabel.text = waitingViewModel.getRandomText()
     }
 }
 
 // MARK: - Setup Views
-private extension BaseResultViewController {
+private extension WaitingViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
+        navigationController?.navigationBar.isHidden = true
         
         [customNavigationBar, imageView, textLabel].forEach(view.setupView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            customNavigationBar.topAnchor.constraint(equalTo: view.topAnchor),
+            customNavigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             customNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             customNavigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 220),
             
             textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
-            textLabel.heightAnchor.constraint(equalToConstant: 500)
+            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            textLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
 }

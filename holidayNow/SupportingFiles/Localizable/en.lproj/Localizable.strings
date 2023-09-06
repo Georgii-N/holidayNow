@@ -39,5 +39,15 @@
 "firstForm.interests.programming" = "Программирование";
 "firstForm.interests.addMyOwn" = "Добавить своё";
 
+// MARK: - Result screen:
+"resultScreen.title" = "Результаты";
+"resultScreen.repeatButton" = "Попробуйте снова";
+"resultScreen.goToStart" = "В Начало";
 
+"resultScreen.WaitingText.var1" = "Происходит магия Хогвартса...Скоро все будет!";
+"resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструмены";
+"resultScreen.WaitingText.var3" = "Нейросеть уже проснулась...Ждем результата...";
 
+"resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз:(";
+
+"resultScreen.APIErrorText.var1" = "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(";
