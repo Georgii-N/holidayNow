@@ -50,6 +50,9 @@ enum Resources {
     enum Identifiers {
         // Cells:
         static let firstFormInterestsCell = "FirstFormCollectionViewCell"
-        static let firstFormEnterInterestCell = "firstFormEnterInterestCell"
+        static let firstFormEnterInterestCell = "FirstFormEnterInterestCell"
+        
+        // Reusable view:
+        static let firstFormReusableView = "FirstFormReusableView"
     }
 }
