@@ -175,11 +175,9 @@
 		7E3757CE2AA60F120093A3C5 /* BaseCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				7EFFABD72AA74CBB0018196F /* Protocols */,
+				7EFFABE22AA8C1770018196F /* CollectionCells */,
 				7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */,
 				7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */,
-				7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */,
-				7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */,
 				7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */,
 			);
 			path = BaseCollectionView;
@@ -321,6 +319,16 @@
 				7EFFABDA2AA7AA080018196F /* BaseCollectionViewEnterCellDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7EFFABE22AA8C1770018196F /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABD72AA74CBB0018196F /* Protocols */,
+				7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */,
+				7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */,
+			);
+			path = CollectionCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -3,7 +3,7 @@ import UIKit
 final class BaseCollectionViewReusableView: UICollectionReusableView {
     
     // MARK: - UI:
-    private lazy var headerLabel: UILabel = {
+    lazy var headerLabel: UILabel = {
        let label = UILabel()
         label.font = .captionLargeBoldFont
         label.textColor = .blackDay
@@ -36,9 +36,9 @@ private extension BaseCollectionViewReusableView {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            headerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            headerLabel.topAnchor.constraint(equalTo: topAnchor),
+            headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }
