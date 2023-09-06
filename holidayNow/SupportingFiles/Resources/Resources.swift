@@ -29,6 +29,10 @@ enum Resources {
             static let responseWaitingFirst = UIImage(named: "response_waiting_ver1") ?? UIImage()
             static let responseWaitingSecond = UIImage(named: "response_waiting_ver2") ?? UIImage()
         }
+        
+        enum CollectionCell {
+            static let enterButton = UIImage(systemName: "plus")?.withTintColor(.white, renderingMode: .alwaysOriginal) ?? UIImage()
+        }
     }
     
     enum URLs {
@@ -40,6 +44,7 @@ enum Resources {
     }
     
     enum Identifiers {
+        // Cells:
         static let firstFormInterestsCell = "FirstFormCollectionViewCell"
         static let firstFormEnterInterestCell = "firstFormEnterInterestCell"
     }

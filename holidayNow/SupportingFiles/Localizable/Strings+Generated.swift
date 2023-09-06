@@ -56,6 +56,8 @@ internal enum L10n {
       internal static let music = L10n.tr("Localizable", "firstForm.interests.music", fallback: "Музыка")
       /// Природа
       internal static let nature = L10n.tr("Localizable", "firstForm.interests.nature", fallback: "Природа")
+      /// Больше недоступно
+      internal static let noAvailable = L10n.tr("Localizable", "firstForm.interests.noAvailable", fallback: "Больше недоступно")
       /// Программирование
       internal static let programming = L10n.tr("Localizable", "firstForm.interests.programming", fallback: "Программирование")
       /// Спорт
