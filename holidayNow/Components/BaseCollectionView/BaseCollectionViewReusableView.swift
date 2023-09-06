@@ -3,7 +3,7 @@ import UIKit
 final class BaseCollectionViewReusableView: UICollectionReusableView {
     
     // MARK: - UI:
-    lazy var headerLabel: UILabel = {
+    private lazy var headerLabel: UILabel = {
        let label = UILabel()
         label.font = .captionLargeBoldFont
         label.textColor = .blackDay
