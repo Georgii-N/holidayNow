@@ -2,6 +2,10 @@ import UIKit
 
 enum Resources {
     enum Images {
+        enum NavigationBar {
+            static let backButtonIcon = UIImage(named: "arrow_back") ?? UIImage()
+        }
+        
         enum Onboarding {
             static let onboardingImage = UIImage(named: "OnboardingImage")
         }
