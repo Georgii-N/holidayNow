@@ -1,27 +1,32 @@
 import UIKit
 
-final class BaseNavigationController: UIView {
+final class BaseNavigationBar: UIView {
     
     //MARK: - UI
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textAlignment = .left
         titleLabel.font = .headerSmallBoldFont
+        titleLabel.textColor = .blackDay
         return titleLabel
     }()
     
     private lazy var backButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setImage(UIImage(systemName: "back"), for: .normal)
         return button
     }()
     
     // MARK: - Lifecycle
-    init(title: String) {
+    init(title: String, isBackButton: Bool) {
         super.init(frame: .zero)
         self.titleLabel.text = title
         setupViews()
         setupConstraints()
+        
+        if !isBackButton {
+            backButton.isHidden = true
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -30,12 +35,12 @@ final class BaseNavigationController: UIView {
     
     // MARK: - Public Methods
     func addTargetToBackButton(target: Any?, action: Selector, for event: UIControl.Event) {
-           backButton.addTarget(target, action: action, for: event)
-       }
+        backButton.addTarget(target, action: action, for: event)
+    }
 }
 
 // MARK: - Setup Views
-private extension BaseNavigationController {
+private extension BaseNavigationBar {
     func setupViews() {
         self.backgroundColor = .whiteDay
         [titleLabel, backButton].forEach(setupView)
