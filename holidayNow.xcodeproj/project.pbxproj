@@ -45,6 +45,7 @@
 		7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABDA2AA7AA080018196F /* BaseCollectionViewEnterCellDelegate.swift */; };
 		7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */; };
 		7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */; };
+		7EFFABE42AA8D1620018196F /* SecondFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		7EFFABDA2AA7AA080018196F /* BaseCollectionViewEnterCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewEnterCellDelegate.swift; sourceTree = "<group>"; };
 		7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewReusableView.swift; sourceTree = "<group>"; };
+		7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
 				7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */,
 				7EFFABCA2AA705450018196F /* FirstFormScreen */,
+				7EFFABE52AA8D1660018196F /* SecondFormScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -323,6 +326,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		7EFFABE52AA8D1660018196F /* SecondFormScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */,
+			);
+			path = SecondFormScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,6 +435,7 @@
 				7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */,
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
+				7EFFABE42AA8D1620018196F /* SecondFormViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
 				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,

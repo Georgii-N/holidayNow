@@ -40,6 +40,27 @@
 "firstForm.interests.addMyOwn" = "Добавить своё";
 "firstForm.interests.noAvailable" = "Больше недоступно";
 
+// MARK: - SecondForm screen:
+"secondForm.turn" = "Шаг 3/3";
+"secondForm.title" = "Расскажите подробнее о празднике и Magic Text начнёт творить свое волшебство";
+"secondForm.greetingsName" = "Название праздника";
+"secondForm.happyBirthday" = "День рождения";
+"secondForm.newYear" = "Новый год";
+"secondForm.mansDay" = "23 февраля";
+"secondForm.womensDay" = "8 марта";
+"secondForm.greetingsIntonation" = "Интонация поздравления";
+"secondForm.cute" = "Милое";
+"secondForm.gentle" = "Нежное";
+"secondForm.kind" = "Доброе";
+"secondForm.sensual" = "Чувственное";
+"secondForm.respectful" = "Уважительное";
+"secondForm.funny" = "Весёлое";
+"secondForm.creative" = "Креативное";
+"secondForm.bold" = "Дерзкое";
+"secondForm.witty" = "Остроумное";
+"secondForm.startMagic" = "Запустить магию";
+
+
 
 
 

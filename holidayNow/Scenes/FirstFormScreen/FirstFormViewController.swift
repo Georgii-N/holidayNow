@@ -45,13 +45,14 @@ final class FirstFormViewController: UIViewController {
     
     private lazy var firstFormCollectionView: BaseCollectionView = {
         let collection = BaseCollectionView()
+        collection.isScrollEnabled = false
         collection.dataSource = self
         collection.delegate = self
         collection.register(BaseCollectionViewCell.self,
                             forCellWithReuseIdentifier: Resources.Identifiers.firstFormInterestsCell)
         collection.register(BaseCollectionViewEnterCell.self,
                             forCellWithReuseIdentifier: Resources.Identifiers.firstFormEnterInterestCell)
-        collection.isScrollEnabled = false
+        collection.backgroundColor = .whiteDay
         
         return collection
     }()
