@@ -53,4 +53,11 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
             }
         }
     }
+    
+    func addNewOwnInterest(name: String) {
+        let index = interests[0].interests.count
+        interests[0].interests.insert(
+            GreetingTarget(image: Resources.Images.FirstForm.animals,
+                           name: name), at: index)
+    }
 }

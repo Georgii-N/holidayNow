@@ -41,6 +41,10 @@
 		7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */; };
 		7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */; };
 		7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABD52AA74CB80018196F /* BaseCollectionViewCellDelegate.swift */; };
+		7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */; };
+		7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABDA2AA7AA080018196F /* BaseCollectionViewEnterCellDelegate.swift */; };
+		7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */; };
+		7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,10 @@
 		7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModel.swift; sourceTree = "<group>"; };
 		7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModelProtocol.swift; sourceTree = "<group>"; };
 		7EFFABD52AA74CB80018196F /* BaseCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewEnterCell.swift; sourceTree = "<group>"; };
+		7EFFABDA2AA7AA080018196F /* BaseCollectionViewEnterCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewEnterCellDelegate.swift; sourceTree = "<group>"; };
+		7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,8 @@
 				7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */,
 				7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */,
 				7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */,
+				7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */,
+				7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */,
 			);
 			path = BaseCollectionView;
 			sourceTree = "<group>";
@@ -220,6 +230,7 @@
 				7E42DD522AA1D979007391AB /* UIColor + Extension.swift */,
 				7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */,
 				7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */,
+				7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				7EFFABD52AA74CB80018196F /* BaseCollectionViewCellDelegate.swift */,
+				7EFFABDA2AA7AA080018196F /* BaseCollectionViewEnterCellDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -414,16 +426,20 @@
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
+				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
+				7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */,
 				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
+				7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */,
 				400E1D5B2AA7416D00CF4BCC /* Observable.swift in Sources */,
 				7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */,
+				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,

@@ -47,7 +47,11 @@ final class FirstFormViewController: UIViewController {
         let collection = BaseCollectionView()
         collection.dataSource = self
         collection.delegate = self
-        collection.register(BaseCollectionViewCell.self, forCellWithReuseIdentifier: Resources.Identifiers.firstFormInterestsCell)
+        collection.register(BaseCollectionViewCell.self,
+                            forCellWithReuseIdentifier: Resources.Identifiers.firstFormInterestsCell)
+        collection.register(BaseCollectionViewEnterCell.self,
+                            forCellWithReuseIdentifier: Resources.Identifiers.firstFormEnterInterestCell)
+        collection.isScrollEnabled = false
         
         return collection
     }()
@@ -83,14 +87,27 @@ final class FirstFormViewController: UIViewController {
     private func bind() {
         viewModel?.interestsObservable.bind { [weak self] _ in
             guard let self else { return }
+            self.resumeOnMainThread(self.updateCollection, with: ())
         }
         
         viewModel?.userNameObservable.bind { [weak self] newValue in
             guard let self else { return }
-            DispatchQueue.main.async {
-                newValue == nil ? self.continueButton.block() : self.continueButton.unblock()
+            if newValue == nil {
+                self.resumeOnMainThread(self.continueButton.block, with: ())
+            } else {
+                self.resumeOnMainThread(self.continueButton.unblock, with: ())
             }
         }
+    }
+    
+    private func updateCollection() {
+        let indexPath = IndexPath(row: firstFormCollectionView.visibleCells.count - 1, section: 0)
+        
+        firstFormCollectionView.performBatchUpdates {
+            firstFormCollectionView.insertItems(at: [indexPath])
+        }
+        
+        firstFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
     }
 }
 
@@ -101,6 +118,13 @@ extension FirstFormViewController: BaseCollectionViewCellDelegate {
     }
 }
 
+extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
+    func addNewInterest(name: String) {
+        viewModel?.addNewOwnInterest(name: name)
+    }
+}
+
+// MARK: - UITextFieldDelegate
 extension FirstFormViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -117,21 +141,36 @@ extension FirstFormViewController: UITextFieldDelegate {
 // MARK: - UICollectionViewDataSource
 extension FirstFormViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let interests = viewModel?.interestsObservable.wrappedValue[0].interests
-        return interests?.count ?? 0
+        guard let interests = viewModel?.interestsObservable.wrappedValue[0].interests else { return 0 }
+        
+        return interests.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Resources.Identifiers.firstFormInterestsCell, for: indexPath) as? BaseCollectionViewCell,
-              let interests = viewModel?.interestsObservable.wrappedValue[0].interests else { return UICollectionViewCell() }
+        guard let interests = viewModel?.interestsObservable.wrappedValue[0].interests else { return UICollectionViewCell() }
         
-        let model = interests[indexPath.row]
-        
-        cell.delegate = self
-        cell.setupInterestModel(model: model)
-        
-        return cell
+        if indexPath.row == interests.count {
+            // Enter cell:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: Resources.Identifiers.firstFormEnterInterestCell,
+                for: indexPath) as? BaseCollectionViewEnterCell else { return UICollectionViewCell() }
+            cell.delegate = self
+            cell.setupCellWidht(value: view.frame.width)
+            
+            return cell
+        } else {
+            // Default cell:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: Resources.Identifiers.firstFormInterestsCell,
+                for: indexPath) as? BaseCollectionViewCell else { return UICollectionViewCell() }
+            
+            let model = interests[indexPath.row]
+            
+            cell.delegate = self
+            cell.setupInterestModel(model: model)
+            
+            return cell
+        }
     }
 }
 
@@ -161,7 +200,7 @@ private extension FirstFormViewController {
             
             firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: 30),
             firstFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            firstFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -100),
+            firstFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
             firstFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
