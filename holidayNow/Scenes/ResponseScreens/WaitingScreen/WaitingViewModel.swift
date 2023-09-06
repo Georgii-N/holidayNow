@@ -2,6 +2,7 @@ import UIKit
 
 final class WaitingViewModel: WaitingViewModelProtocol {
     
+    // MARK: - Constants and Variables
     private var texts = [
         L10n.ResultScreen.WaitingText.var1,
         L10n.ResultScreen.WaitingText.var2,
@@ -13,6 +14,7 @@ final class WaitingViewModel: WaitingViewModelProtocol {
                     Resources.Images.ResponseScreens.responseWaitingSecond
                 ]
     
+    // MARK: - Public Methods
     func getRandomText() -> String {
         texts.randomElement() ?? L10n.ResultScreen.WaitingText.var1
     }
