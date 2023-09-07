@@ -15,9 +15,9 @@ final class BaseCustomButton: UIButton {
     private var buttonTextColor: UIColor?
     
     // MARK: - Lifecycle:
-    init(buttonState: ButtonState, ButtonText: String) {
+    init(buttonState: ButtonState, buttonText: String) {
         self.buttonState = buttonState
-        self.ButtonText = ButtonText
+        self.ButtonText = buttonText
         super.init(frame: .zero)
         setupConstraints()
         setupButton()        

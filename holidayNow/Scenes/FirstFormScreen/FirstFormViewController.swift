@@ -57,7 +57,7 @@ final class FirstFormViewController: UIViewController {
         return collection
     }()
     
-    private lazy var continueButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.Congratulation.continue)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol) {

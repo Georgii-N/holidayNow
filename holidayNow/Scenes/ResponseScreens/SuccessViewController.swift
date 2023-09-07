@@ -31,8 +31,8 @@ final class SuccessViewController: UIViewController {
     }()
     
     private lazy var resultLabel = BaseResultLabel(text: L10n.Success.result)
-    private lazy var backToStartButton = BaseCustomButton(buttonState: .back, ButtonText: L10n.Success.BackToStartButton.title)
-    private lazy var shareButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.Success.ShareButton.title)
+    private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
+    private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?) {

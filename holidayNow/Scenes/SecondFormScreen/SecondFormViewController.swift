@@ -25,7 +25,7 @@ final class SecondFormViewController: UIViewController {
         return collection
     }()
     
-    private lazy var startMagicButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.SecondForm.startMagic)
+    private lazy var startMagicButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.SecondForm.startMagic)
     
     // MARK: - Lifecycle:
     override func viewDidLoad() {
