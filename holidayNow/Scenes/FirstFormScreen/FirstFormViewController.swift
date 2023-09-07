@@ -45,6 +45,7 @@ final class FirstFormViewController: UIViewController {
     
     private lazy var firstFormCollectionView: BaseCollectionView = {
         let collection = BaseCollectionView()
+        collection.isScrollEnabled = false
         collection.dataSource = self
         collection.delegate = self
         collection.isScrollEnabled = false
@@ -55,11 +56,12 @@ final class FirstFormViewController: UIViewController {
         collection.register(BaseCollectionViewReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: Resources.Identifiers.firstFormReusableView)
+        collection.backgroundColor = .whiteDay
         
         return collection
     }()
     
-    private lazy var continueButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.Congratulation.continue)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol) {

@@ -40,7 +40,7 @@ final class OnboardingViewController: UIViewController {
     
     private lazy var onboardingDescriptionView = UIView()
     private lazy var onboardingStartButton = BaseCustomButton(buttonState: .normal,
-                                                              ButtonText: L10n.Onboarding.StartButton.title)
+                                                              buttonText: L10n.Onboarding.StartButton.title)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?) {

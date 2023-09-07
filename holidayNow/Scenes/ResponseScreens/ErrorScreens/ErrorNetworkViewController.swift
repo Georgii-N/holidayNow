@@ -25,7 +25,7 @@ final class ErrorNetworkViewController: UIViewController {
     }()
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true)
-    private lazy var actionButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.ResultScreen.repeatButton)
+    private lazy var actionButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.ResultScreen.repeatButton)
     
     // MARK: - Lifecycle
     init(coordinator: CoordinatorProtocol?) {

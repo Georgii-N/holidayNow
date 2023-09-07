@@ -49,7 +49,7 @@ final class CongratulationTypeViewController: UIViewController {
     private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
     private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
     private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)
-    private lazy var continueButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.Congratulation.continue)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?) {

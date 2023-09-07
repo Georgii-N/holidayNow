@@ -28,7 +28,7 @@ final class ErrorAPIViewController: UIViewController {
     }()
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true)
-    private lazy var actionButton = BaseCustomButton(buttonState: .normal, ButtonText: L10n.ResultScreen.goToStart)
+    private lazy var actionButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.ResultScreen.goToStart)
     
     // MARK: - Lifecycle
     init(coordinator: CoordinatorProtocol?) {

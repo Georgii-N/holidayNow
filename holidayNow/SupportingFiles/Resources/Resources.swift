@@ -26,6 +26,10 @@ enum Resources {
             static let addMyOwn = UIImage(named: "subdirectory_arrow_right") ?? UIImage()
         }
         
+        enum SecondForm {
+            
+        }
+        
         enum ResponseScreens {
             static let responseAIError = UIImage(named: "response_ai_error") ?? UIImage()
             static let responseNetworkError = UIImage(named: "response_network_error") ?? UIImage()
@@ -51,8 +55,10 @@ enum Resources {
         // Cells:
         static let firstFormInterestsCell = "FirstFormCollectionViewCell"
         static let firstFormEnterInterestCell = "FirstFormEnterInterestCell"
+        static let secondFormInterestsCell = "SecondFormInterestsCell"
+        static let secondFormEnterInterestCell = "SecondFormEnterInterestCell"
         
         // Reusable view:
-        static let firstFormReusableView = "FirstFormReusableView"
+        static let firstFormReusableView = "FirstFormReusableView"       
     }
 }
