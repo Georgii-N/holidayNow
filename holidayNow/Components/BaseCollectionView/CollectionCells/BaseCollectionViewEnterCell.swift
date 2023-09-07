@@ -85,15 +85,15 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     }
     
     // MARK: - Objc Methods:
-    @objc private func addNewInterest() {
+    @objc private func addNewTarget() {
         guard let text = enterNameTextField.text else { return }
-        delegate?.addNewInterest(name: text)
+        delegate?.addNewTarget(name: text)
         interestCounter += 1
         enterNameTextField.text = nil
         
         if interestCounter == 4 {
+            isUserInteractionEnabled = false
             changeButtonState(isEnable: false)
-            enterNameTextField.isUserInteractionEnabled = false
             enterNameTextField.placeholder = L10n.FirstForm.Interests.noAvailable
         }
     }
@@ -156,6 +156,6 @@ private extension BaseCollectionViewEnterCell {
     }
     
     func setupTargets() {
-        enterButton.addTarget(self, action: #selector(addNewInterest), for: .touchUpInside)
+        enterButton.addTarget(self, action: #selector(addNewTarget), for: .touchUpInside)
     }
 }

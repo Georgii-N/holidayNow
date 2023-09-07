@@ -42,11 +42,11 @@
 
 // MARK: - SecondForm screen:
 "secondForm.turn" = "Шаг 3/3";
-"secondForm.title" = "Расскажите подробнее о празднике и Magic Text начнёт творить свое волшебство";
+"secondForm.title" = "Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство";
 "secondForm.greetingsName" = "Название праздника";
 "secondForm.happyBirthday" = "День рождения";
 "secondForm.newYear" = "Новый год";
-"secondForm.mansDay" = "23 февраля";
+"secondForm.mensDay" = "23 февраля";
 "secondForm.womensDay" = "8 марта";
 "secondForm.greetingsIntonation" = "Интонация поздравления";
 "secondForm.cute" = "Милое";

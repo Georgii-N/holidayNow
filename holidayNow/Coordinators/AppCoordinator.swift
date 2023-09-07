@@ -28,6 +28,11 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController.pushViewController(firstFormViewController, animated: true)
     }
     
+    func goToSecondFormViewController() {
+        let secondFormViewController = viewControllerFactory.createSecondFormViewController()
+        navigationController.pushViewController(secondFormViewController, animated: true)
+    }
+    
     // Response Screens
     func goToWaitingViewController() {
         let waitingViewController = viewControllerFactory.createWaitingViewController()

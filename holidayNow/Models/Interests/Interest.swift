@@ -1,6 +1,6 @@
 import Foundation
 
-struct Interests {
+struct Interest {
     let name: String
     var interests: [GreetingTarget]
 }

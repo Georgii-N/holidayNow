@@ -10,7 +10,7 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
         $userName
     }
     
-    var interestsObservable: Observable<[Interests]> {
+    var interestsObservable: Observable<Interest> {
         $interests
     }
     
@@ -18,22 +18,20 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     private var userName: String?
     
     @Observable
-    private(set) var interests = [
-        Interests(name: L10n.FirstForm.Interests.title, interests: [
-            GreetingTarget(image: Resources.Images.FirstForm.cooking, name: L10n.FirstForm.Interests.cooking),
-            GreetingTarget(image: Resources.Images.FirstForm.sport, name: L10n.FirstForm.Interests.sport),
-            GreetingTarget(image: Resources.Images.FirstForm.movies, name: L10n.FirstForm.Interests.movies),
-            GreetingTarget(image: Resources.Images.FirstForm.travelling, name: L10n.FirstForm.Interests.travelling),
-            GreetingTarget(image: Resources.Images.FirstForm.boardGames, name: L10n.FirstForm.Interests.boardGames),
-            GreetingTarget(image: Resources.Images.FirstForm.nature, name: L10n.FirstForm.Interests.nature),
-            GreetingTarget(image: Resources.Images.FirstForm.music, name: L10n.FirstForm.Interests.music),
-            GreetingTarget(image: Resources.Images.FirstForm.theatre, name: L10n.FirstForm.Interests.theatre),
-            GreetingTarget(image: Resources.Images.FirstForm.videoGames, name: L10n.FirstForm.Interests.videoGames),
-            GreetingTarget(image: Resources.Images.FirstForm.animals, name: L10n.FirstForm.Interests.animals),
-            GreetingTarget(image: Resources.Images.FirstForm.tastyFood, name: L10n.FirstForm.Interests.tastyFoods),
-            GreetingTarget(image: Resources.Images.FirstForm.programming, name: L10n.FirstForm.Interests.programming)
+    private(set) var interests = Interest(name: L10n.FirstForm.Interests.title, interests: [
+            GreetingTarget(name: L10n.FirstForm.Interests.cooking, image: Resources.Images.FirstForm.cooking),
+            GreetingTarget(name: L10n.FirstForm.Interests.sport, image: Resources.Images.FirstForm.sport),
+            GreetingTarget(name: L10n.FirstForm.Interests.movies, image: Resources.Images.FirstForm.movies),
+            GreetingTarget(name: L10n.FirstForm.Interests.travelling, image: Resources.Images.FirstForm.travelling),
+            GreetingTarget(name: L10n.FirstForm.Interests.boardGames, image: Resources.Images.FirstForm.boardGames),
+            GreetingTarget(name: L10n.FirstForm.Interests.nature, image: Resources.Images.FirstForm.nature),
+            GreetingTarget(name: L10n.FirstForm.Interests.music, image: Resources.Images.FirstForm.music),
+            GreetingTarget(name: L10n.FirstForm.Interests.theatre, image: Resources.Images.FirstForm.theatre),
+            GreetingTarget(name: L10n.FirstForm.Interests.videoGames, image: Resources.Images.FirstForm.videoGames),
+            GreetingTarget(name: L10n.FirstForm.Interests.animals, image: Resources.Images.FirstForm.animals),
+            GreetingTarget(name: L10n.FirstForm.Interests.tastyFoods, image: Resources.Images.FirstForm.tastyFood),
+            GreetingTarget(name: L10n.FirstForm.Interests.programming, image: Resources.Images.FirstForm.programming)
         ])
-    ]
     
     // MARK: - Public Methods:
     func setupUsername(_ name: String?) {
@@ -55,9 +53,9 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     }
     
     func addNewOwnInterest(name: String) {
-        let index = interests[0].interests.count
-        interests[0].interests.insert(
-            GreetingTarget(image: Resources.Images.FirstForm.animals,
-                           name: name), at: index)
+        let index = interests.interests.count
+        interests.interests.insert(
+            GreetingTarget(name: name,
+                           image: Resources.Images.FirstForm.animals), at: index)
     }
 }
