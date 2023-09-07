@@ -31,7 +31,7 @@
 		7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */; };
 		7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */; };
 		7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D62AA612930093A3C5 /* GreetingTarget.swift */; };
-		7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D82AA62A4D0093A3C5 /* Interests.swift */; };
+		7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D82AA62A4D0093A3C5 /* Interest.swift */; };
 		7E42DD422AA1CF68007391AB /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD412AA1CF68007391AB /* Resources.swift */; };
 		7E42DD4A2AA1D711007391AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E42DD4C2AA1D711007391AB /* Localizable.strings */; };
 		7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD4F2AA1D7A6007391AB /* Strings+Generated.swift */; };
@@ -52,6 +52,14 @@
 		7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */; };
 		7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */; };
 		7EFFABE42AA8D1620018196F /* SecondFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */; };
+		7EFFABE72AA992270018196F /* SecondFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE62AA992270018196F /* SecondFormViewModel.swift */; };
+		7EFFABE92AA992470018196F /* SecondFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABE82AA992470018196F /* SecondFormViewModelProtocol.swift */; };
+		7EFFABEC2AA992B00018196F /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABEB2AA992B00018196F /* Holiday.swift */; };
+		7EFFABF02AA993570018196F /* HolidaysTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABEF2AA993570018196F /* HolidaysTarget.swift */; };
+		7EFFABF22AA9944F0018196F /* Intonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABF12AA9944F0018196F /* Intonation.swift */; };
+		7EFFABF52AA994A90018196F /* IntonationsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABF42AA994A90018196F /* IntonationsTarget.swift */; };
+		7EFFABF72AA99DD30018196F /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABF62AA99DD30018196F /* CellModel.swift */; };
+		7EFFABF92AA9CB640018196F /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABF82AA9CB640018196F /* UICollectionView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +89,7 @@
 		7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		7E3757D62AA612930093A3C5 /* GreetingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingTarget.swift; sourceTree = "<group>"; };
-		7E3757D82AA62A4D0093A3C5 /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
+		7E3757D82AA62A4D0093A3C5 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		7E42DD412AA1CF68007391AB /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		7E42DD4B2AA1D711007391AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E42DD4F2AA1D7A6007391AB /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -102,6 +110,14 @@
 		7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		7EFFABE02AA87CF30018196F /* BaseCollectionViewReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewReusableView.swift; sourceTree = "<group>"; };
 		7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormViewController.swift; sourceTree = "<group>"; };
+		7EFFABE62AA992270018196F /* SecondFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormViewModel.swift; sourceTree = "<group>"; };
+		7EFFABE82AA992470018196F /* SecondFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormViewModelProtocol.swift; sourceTree = "<group>"; };
+		7EFFABEB2AA992B00018196F /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		7EFFABEF2AA993570018196F /* HolidaysTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysTarget.swift; sourceTree = "<group>"; };
+		7EFFABF12AA9944F0018196F /* Intonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intonation.swift; sourceTree = "<group>"; };
+		7EFFABF42AA994A90018196F /* IntonationsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntonationsTarget.swift; sourceTree = "<group>"; };
+		7EFFABF62AA99DD30018196F /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		7EFFABF82AA9CB640018196F /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +174,10 @@
 		405373A02AA23D9B00704904 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7E3757D62AA612930093A3C5 /* GreetingTarget.swift */,
-				7E3757D82AA62A4D0093A3C5 /* Interests.swift */,
+				7EFFABED2AA992D80018196F /* Interests */,
+				7EFFABF32AA994A10018196F /* Intonation */,
+				7EFFABEE2AA992FD0018196F /* Holidays */,
+				7EFFABF62AA99DD30018196F /* CellModel.swift */,
 				400E1D5A2AA7416D00CF4BCC /* Observable.swift */,
 				405373A12AA23DBA00704904 /* Response.swift */,
 			);
@@ -273,6 +291,7 @@
 				7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */,
 				7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */,
 				7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */,
+				7EFFABF82AA9CB640018196F /* UICollectionView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,14 +393,51 @@
 				7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */,
 			);
 			path = CollectionCells;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		7EFFABE52AA8D1660018196F /* SecondFormScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7EFFABEA2AA992580018196F /* Protocols */,
+				7EFFABE62AA992270018196F /* SecondFormViewModel.swift */,
 				7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */,
 			);
 			path = SecondFormScreen;
+			sourceTree = "<group>";
+		};
+		7EFFABEA2AA992580018196F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABE82AA992470018196F /* SecondFormViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7EFFABED2AA992D80018196F /* Interests */ = {
+			isa = PBXGroup;
+			children = (
+				7E3757D82AA62A4D0093A3C5 /* Interest.swift */,
+				7E3757D62AA612930093A3C5 /* GreetingTarget.swift */,
+			);
+			path = Interests;
+			sourceTree = "<group>";
+		};
+		7EFFABEE2AA992FD0018196F /* Holidays */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABEB2AA992B00018196F /* Holiday.swift */,
+				7EFFABEF2AA993570018196F /* HolidaysTarget.swift */,
+			);
+			path = Holidays;
+			sourceTree = "<group>";
+		};
+		7EFFABF32AA994A10018196F /* Intonation */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFABF12AA9944F0018196F /* Intonation.swift */,
+				7EFFABF42AA994A90018196F /* IntonationsTarget.swift */,
+			);
+			path = Intonation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EFFABF92AA9CB640018196F /* UICollectionView + Extension.swift in Sources */,
 				40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */,
 				400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */,
 				7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */,
@@ -488,6 +545,7 @@
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
 				7EFFABE42AA8D1620018196F /* SecondFormViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
+				7EFFABE72AA992270018196F /* SecondFormViewModel.swift in Sources */,
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
 				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,
 				40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */,
@@ -497,13 +555,17 @@
 				7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */,
 				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
 				7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */,
+				7EFFABEC2AA992B00018196F /* Holiday.swift in Sources */,
 				400E1D5B2AA7416D00CF4BCC /* Observable.swift in Sources */,
+				7EFFABE92AA992470018196F /* SecondFormViewModelProtocol.swift in Sources */,
+				7EFFABF22AA9944F0018196F /* Intonation.swift in Sources */,
 				7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
-				7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */,
+				7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
+				7EFFABF52AA994A90018196F /* IntonationsTarget.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
@@ -515,8 +577,10 @@
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
 				40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */,
 				40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */,
+				7EFFABF02AA993570018196F /* HolidaysTarget.swift in Sources */,
 				40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */,
 				400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */,
+				7EFFABF72AA99DD30018196F /* CellModel.swift in Sources */,
 				400E1D5D2AA75A4800CF4BCC /* SuccessViewModel.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
 			);

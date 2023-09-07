@@ -27,7 +27,19 @@ enum Resources {
         }
         
         enum SecondForm {
-            
+            static let birthday = UIImage(named: "cake") ?? UIImage()
+            static let newYear = UIImage(named: "forest") ?? UIImage()
+            static let mensDay = UIImage(named: "man_3") ?? UIImage()
+            static let womensDay = UIImage(named: "spa") ?? UIImage()
+            static let cute = UIImage(named: "volunteer_activism") ?? UIImage()
+            static let gentle = UIImage(named: "cake") ?? UIImage()
+            static let kind = UIImage(named: "self_improvement") ?? UIImage()
+            static let sensual = UIImage(named: "interests") ?? UIImage()
+            static let respectful = UIImage(named: "thumb_up_alt") ?? UIImage()
+            static let funny = UIImage(named: "mood") ?? UIImage()
+            static let creative = UIImage(named: "emoji_objects") ?? UIImage()
+            static let bold = UIImage(named: "whatshot") ?? UIImage()
+            static let witty = UIImage(named: "psychology") ?? UIImage()
         }
         
         enum ResponseScreens {
@@ -53,12 +65,10 @@ enum Resources {
     
     enum Identifiers {
         // Cells:
-        static let firstFormInterestsCell = "FirstFormCollectionViewCell"
-        static let firstFormEnterInterestCell = "FirstFormEnterInterestCell"
-        static let secondFormInterestsCell = "SecondFormInterestsCell"
-        static let secondFormEnterInterestCell = "SecondFormEnterInterestCell"
+        static let formInterestCollectionVewCell = "FirstFormCollectionViewCell"
+        static let formEnterInterestCollectionVewCell = "FirstFormEnterInterestCell"
         
         // Reusable view:
-        static let firstFormReusableView = "FirstFormReusableView"       
+        static let collectionReusableView = "FirstFormReusableView"
     }
 }

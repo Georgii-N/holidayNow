@@ -1,5 +1,5 @@
 import Foundation
 
 protocol BaseCollectionViewEnterCellDelegate: AnyObject {
-    func addNewInterest(name: String)
+    func addNewTarget(name: String)
 }

@@ -129,7 +129,7 @@ internal enum L10n {
     /// Доброе
     internal static let kind = L10n.tr("Localizable", "secondForm.kind", fallback: "Доброе")
     /// 23 февраля
-    internal static let mansDay = L10n.tr("Localizable", "secondForm.mansDay", fallback: "23 февраля")
+    internal static let mensDay = L10n.tr("Localizable", "secondForm.mensDay", fallback: "23 февраля")
     /// Новый год
     internal static let newYear = L10n.tr("Localizable", "secondForm.newYear", fallback: "Новый год")
     /// Уважительное
@@ -138,8 +138,8 @@ internal enum L10n {
     internal static let sensual = L10n.tr("Localizable", "secondForm.sensual", fallback: "Чувственное")
     /// Запустить магию
     internal static let startMagic = L10n.tr("Localizable", "secondForm.startMagic", fallback: "Запустить магию")
-    /// Расскажите подробнее о празднике и Magic Text начнёт творить свое волшебство
-    internal static let title = L10n.tr("Localizable", "secondForm.title", fallback: "Расскажите подробнее о празднике и Magic Text начнёт творить свое волшебство")
+    /// Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство
+    internal static let title = L10n.tr("Localizable", "secondForm.title", fallback: "Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство")
     /// Шаг 3/3
     internal static let turn = L10n.tr("Localizable", "secondForm.turn", fallback: "Шаг 3/3")
     /// Остроумное

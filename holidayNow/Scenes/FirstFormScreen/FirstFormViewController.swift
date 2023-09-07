@@ -45,17 +45,17 @@ final class FirstFormViewController: UIViewController {
     
     private lazy var firstFormCollectionView: BaseCollectionView = {
         let collection = BaseCollectionView()
+        collection.register(BaseCollectionViewCell.self,
+                            forCellWithReuseIdentifier: Resources.Identifiers.formInterestCollectionVewCell)
+        collection.register(BaseCollectionViewEnterCell.self,
+                            forCellWithReuseIdentifier: Resources.Identifiers.formEnterInterestCollectionVewCell)
+        collection.register(BaseCollectionViewReusableView.self,
+                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                            withReuseIdentifier: Resources.Identifiers.collectionReusableView)
         collection.isScrollEnabled = false
         collection.dataSource = self
         collection.delegate = self
         collection.isScrollEnabled = false
-        collection.register(BaseCollectionViewCell.self,
-                            forCellWithReuseIdentifier: Resources.Identifiers.firstFormInterestsCell)
-        collection.register(BaseCollectionViewEnterCell.self,
-                            forCellWithReuseIdentifier: Resources.Identifiers.firstFormEnterInterestCell)
-        collection.register(BaseCollectionViewReusableView.self,
-                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                            withReuseIdentifier: Resources.Identifiers.firstFormReusableView)
         collection.backgroundColor = .whiteDay
         
         return collection
@@ -78,6 +78,7 @@ final class FirstFormViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupTargets()
         
         continueButton.block()
         bind()
@@ -114,17 +115,25 @@ final class FirstFormViewController: UIViewController {
         
         firstFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func goToSecondFormVC() {
+        coordinator?.goToSecondFormViewController()
+    }
 }
 
 // MARK: - BaseCollectionViewCellDelegate
 extension FirstFormViewController: BaseCollectionViewCellDelegate {
-    func changeInterestState(isAdded: Bool, model: GreetingTarget) {
-        viewModel?.controlInterestState(isAdd: isAdded, interest: model)
+    func changeTargetState(isAdded: Bool, cell: BaseCollectionViewCell) {
+        guard let model = cell.cellModel else { return }
+        
+        viewModel?.controlInterestState(isAdd: isAdded, interest: GreetingTarget(name: model.name,
+                                                                                 image: model.image))
     }
 }
 
 extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
-    func addNewInterest(name: String) {
+    func addNewTarget(name: String) {
         viewModel?.addNewOwnInterest(name: name)
     }
 }
@@ -146,51 +155,54 @@ extension FirstFormViewController: UITextFieldDelegate {
 // MARK: - UICollectionViewDataSource
 extension FirstFormViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let interests = viewModel?.interestsObservable.wrappedValue[0].interests else { return 0 }
+        guard let interests = viewModel?.interestsObservable.wrappedValue.interests else { return 0 }
         
         return interests.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let interests = viewModel?.interestsObservable.wrappedValue[0].interests else { return UICollectionViewCell() }
+        guard let interests = viewModel?.interestsObservable.wrappedValue.interests else { return UICollectionViewCell() }
         
         if indexPath.row == interests.count {
             // Enter cell:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Resources.Identifiers.firstFormEnterInterestCell,
-                for: indexPath) as? BaseCollectionViewEnterCell else { return UICollectionViewCell() }
+            let cell: BaseCollectionViewEnterCell = collectionView.dequeueReusableCell(
+                indexPath: indexPath,
+                with: Resources.Identifiers.formEnterInterestCollectionVewCell)
+            
             cell.delegate = self
             cell.setupCellWidht(value: view.frame.width)
             
             return cell
         } else {
             // Default cell:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Resources.Identifiers.firstFormInterestsCell,
-                for: indexPath) as? BaseCollectionViewCell else { return UICollectionViewCell() }
+            let cell: BaseCollectionViewCell = collectionView.dequeueReusableCell(
+                indexPath: indexPath,
+                with: Resources.Identifiers.formInterestCollectionVewCell)
             
             let model = interests[indexPath.row]
             
             cell.delegate = self
-            cell.setupInterestModel(model: model)
+            cell.setupInterestModel(model: CellModel(name: model.name, image: model.image))
             
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let text = viewModel?.interestsObservable.wrappedValue[0].name
+        let text = viewModel?.interestsObservable.wrappedValue.name
         var id: String
         
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            id = Resources.Identifiers.firstFormReusableView
+            id = Resources.Identifiers.collectionReusableView
         default:
             id = ""
         }
         
         guard let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind, withReuseIdentifier: id, for: indexPath) as? BaseCollectionViewReusableView else { return UICollectionReusableView() }
+            ofKind: kind,
+            withReuseIdentifier: id,
+            for: indexPath) as? BaseCollectionViewReusableView else { return UICollectionReusableView() }
         
         headerView.setupLabelName(with: text ?? "")
         
@@ -246,5 +258,9 @@ private extension FirstFormViewController {
             $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
+    }
+    
+    func setupTargets() {
+        continueButton.addTarget(self, action: #selector(goToSecondFormVC), for: .touchUpInside)
     }
 }

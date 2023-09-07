@@ -6,21 +6,18 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     weak var delegate: BaseCollectionViewCellDelegate?
     
     // MARK: - Constants and Variables:
-    private var interestModel: GreetingTarget? {
+    private(set) var cellModel: CellModel? {
         didSet {
-            guard let interestModel else { return }
-            interestImageView.image = interestModel.image
-            nameLabel.text = interestModel.name
+            guard let cellModel else { return }
+            interestImageView.image = cellModel.image
+            nameLabel.text = cellModel.name
         }
     }
     
     override var isSelected: Bool {
         didSet {
             changeCellState()
-            
-            if let interestModel {
-                delegate?.changeInterestState(isAdded: isSelected, model: interestModel)
-            }
+            delegate?.changeTargetState(isAdded: isSelected, cell: self)
         }
     }
     
@@ -47,8 +44,8 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Public Methods:
-    func setupInterestModel(model: GreetingTarget) {
-        interestModel = model
+    func setupInterestModel(model: CellModel) {
+        cellModel = model
     }
     
     // MARK: - Private Methods:

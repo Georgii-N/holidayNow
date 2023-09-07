@@ -8,4 +8,5 @@ protocol CoordinatorProtocol: AnyObject {
     func goToSuccessResultViewController()
     func goToCongratulationTypeViewController()
     func goToFirstFormViewController()
+    func goToSecondFormViewController()
 }

@@ -1,5 +1,5 @@
-import Foundation
+import UIKit
 
 protocol BaseCollectionViewCellDelegate: AnyObject {
-    func changeInterestState(isAdded: Bool, model: GreetingTarget)
+    func changeTargetState(isAdded: Bool, cell: BaseCollectionViewCell)
 }

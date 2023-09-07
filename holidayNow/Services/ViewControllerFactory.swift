@@ -21,6 +21,11 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
         return FirstFormViewController(coordinator: coordinator, viewModel: firstViewModel)
     }
     
+    func createSecondFormViewController() -> SecondFormViewController {
+        let secondViewModel = SecondFormViewModel()
+        return SecondFormViewController(coordinator: coordinator, viewModel: secondViewModel)
+    }
+    
     // Response screens
     func createWaitingViewController() -> WaitingViewController {
         let waitingViewModel = WaitingViewModel()
