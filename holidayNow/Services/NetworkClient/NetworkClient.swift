@@ -1,6 +1,6 @@
 import Foundation
 
-final class NetworkService {
+final class NetworkClient {
     
     // MARK: - Constants and Variables:
     private var apiKey: String
@@ -31,8 +31,6 @@ final class NetworkService {
             }
             
             if let data = data {
-                let responseString = String(data: data, encoding: .utf8)
-                
                 do {
                     let response = try JSONDecoder().decode(Response.self, from: data)
                     if let decodedText = response.output.removingPercentEncoding {

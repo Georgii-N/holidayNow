@@ -5,7 +5,7 @@ final class WaitingViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
-    var waitingViewModel: WaitingViewModelProtocol
+    private var waitingViewModel: WaitingViewModelProtocol
     
     //MARK: - UI
     private lazy var imageView: UIImageView = {

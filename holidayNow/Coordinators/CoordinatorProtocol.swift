@@ -5,7 +5,11 @@ protocol CoordinatorProtocol: AnyObject {
     var viewControllerFactory: ViewControllerFactoryProtocol { get set }
     
     func start()
-    func goToSuccessResultViewController()
     func goToCongratulationTypeViewController()
     func goToFirstFormViewController()
+    
+    func goToWaitingViewController()
+    func goToSuccessResultViewController()
+    func goToErrorNetworkViewController()
+    func goToErrorAPIViewController()
 }
