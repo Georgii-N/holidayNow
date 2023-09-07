@@ -1,17 +1,18 @@
 import UIKit
 
+enum BaseCongratulationButtonState {
+    case text
+    case poetry
+    case haiku
+    case none
+}
+
 final class BaseCongratulationTypeButton: UIView {
     
     // MARK: - Dependencies:
     weak var delegate: BaseCongratulationTypeButtonDelegate?
     
     // MARK: - Constants and Variables:
-    enum ButtonState {
-        case text
-        case poetry
-        case haiku
-    }
-    
     var title: String {
         titleLabel.text ?? ""
     }
@@ -20,7 +21,7 @@ final class BaseCongratulationTypeButton: UIView {
         isSelected
     }
     
-    private let buttonState: ButtonState
+    private let buttonState: BaseCongratulationButtonState
     private var isSelected = false {
         didSet {
             changeSelectionColor()
@@ -55,7 +56,7 @@ final class BaseCongratulationTypeButton: UIView {
     private let buttonColor: UIColor = .white
     
     // MARK: - Lifecycle:
-    init(buttonState: ButtonState) {
+    init(buttonState: BaseCongratulationButtonState) {
         self.buttonState = buttonState
         super.init(frame: .zero)
         setupViews()
@@ -80,7 +81,12 @@ final class BaseCongratulationTypeButton: UIView {
         transform = .identity
         backgroundColor = buttonColor
         isSelected = !isSelected
-        delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "", state: isSelected)
+        
+        if isSelected {
+            delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "", state: isSelected, buttonType: buttonState)
+        } else {
+            delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "", state: isSelected, buttonType: .none)
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -103,6 +109,8 @@ final class BaseCongratulationTypeButton: UIView {
             titleLabel.text = L10n.Congratulation.Button.poetry
         case .haiku:
             titleLabel.text = L10n.Congratulation.Button.haiku
+        default:
+            return
         }
         
         layer.cornerRadius = 24
