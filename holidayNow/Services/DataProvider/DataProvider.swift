@@ -49,10 +49,7 @@ final class DataProvider: DataProviderProtocol {
     }
     
     func createRequestText() {
-        guard let creatingModel = createGreetingModel() else {
-            assertionFailure("greetingModel is nil")
-            return
-        }
+        guard let creatingModel = createGreetingModel() else { return }
         
         requestText = greetingRequestFactory.createRequestText(greetingRequestModel: creatingModel)
         
