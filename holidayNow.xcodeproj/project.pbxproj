@@ -26,7 +26,13 @@
 		40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */; };
 		40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */; };
-		40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkService.swift */; };
+		40F6E0362AA22DA800F75858 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkClient.swift */; };
+		40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */; };
+		40FD19522AA9BA2E0041FFFF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD19512AA9BA2E0041FFFF /* DataProvider.swift */; };
+		40FD19542AA9BAA70041FFFF /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */; };
+		40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD19572AA9BB700041FFFF /* GreetingRequest.swift */; };
+		40FD195B2AA9BE220041FFFF /* GreetingRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD195A2AA9BE220041FFFF /* GreetingRequestFactory.swift */; };
+		40FD195D2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */; };
 		7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */; };
 		7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */; };
 		7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */; };
@@ -76,7 +82,13 @@
 		40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultLabel.swift; sourceTree = "<group>"; };
-		40F6E0352AA22DA800F75858 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		40F6E0352AA22DA800F75858 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
+		40FD19512AA9BA2E0041FFFF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
+		40FD19572AA9BB700041FFFF /* GreetingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequest.swift; sourceTree = "<group>"; };
+		40FD195A2AA9BE220041FFFF /* GreetingRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequestFactory.swift; sourceTree = "<group>"; };
+		40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequestFactoryProtocol.swift; sourceTree = "<group>"; };
 		7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -162,6 +174,7 @@
 				7E3757D82AA62A4D0093A3C5 /* Interests.swift */,
 				400E1D5A2AA7416D00CF4BCC /* Observable.swift */,
 				405373A12AA23DBA00704904 /* Response.swift */,
+				40FD19572AA9BB700041FFFF /* GreetingRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,11 +221,48 @@
 		40F6E0342AA22D9100F75858 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7EFFABD22AA73DE00018196F /* Protocols */,
-				40F6E0352AA22DA800F75858 /* NetworkService.swift */,
-				400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */,
+				40FD19592AA9BE0F0041FFFF /* RequestFactory */,
+				40FD194E2AA9B9F50041FFFF /* DataProvider */,
+				40FD19552AA9BABA0041FFFF /* NetworkClient */,
+				40FD19562AA9BAD80041FFFF /* ViewControllerFactory */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		40FD194E2AA9B9F50041FFFF /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */,
+				40FD19512AA9BA2E0041FFFF /* DataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		40FD19552AA9BABA0041FFFF /* NetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */,
+				40F6E0352AA22DA800F75858 /* NetworkClient.swift */,
+			);
+			path = NetworkClient;
+			sourceTree = "<group>";
+		};
+		40FD19562AA9BAD80041FFFF /* ViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */,
+				400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */,
+			);
+			path = ViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		40FD19592AA9BE0F0041FFFF /* RequestFactory */ = {
+			isa = PBXGroup;
+			children = (
+				40FD195A2AA9BE220041FFFF /* GreetingRequestFactory.swift */,
+				40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */,
+			);
+			path = RequestFactory;
 			sourceTree = "<group>";
 		};
 		7E3757CE2AA60F120093A3C5 /* BaseCollectionView */ = {
@@ -349,14 +399,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		7EFFABD22AA73DE00018196F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		7EFFABD72AA74CBB0018196F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,8 +416,8 @@
 				7EFFABD82AA766190018196F /* BaseCollectionViewEnterCell.swift */,
 			);
 			path = CollectionCells;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		7EFFABE52AA8D1660018196F /* SecondFormScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,10 +519,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F6E0362AA22DA800F75858 /* NetworkService.swift in Sources */,
+				40F6E0362AA22DA800F75858 /* NetworkClient.swift in Sources */,
 				400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */,
 				7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */,
 				400E1D5F2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift in Sources */,
+				40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */,
 				40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */,
 				40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */,
 				7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */,
@@ -495,13 +538,16 @@
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */,
+				40FD195B2AA9BE220041FFFF /* GreetingRequestFactory.swift in Sources */,
 				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
 				7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */,
 				400E1D5B2AA7416D00CF4BCC /* Observable.swift in Sources */,
 				7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */,
 				7E42DD532AA1D979007391AB /* UIColor + Extension.swift in Sources */,
 				7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */,
+				40FD195D2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
+				40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interests.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
@@ -514,11 +560,13 @@
 				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
 				40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */,
+				40FD19522AA9BA2E0041FFFF /* DataProvider.swift in Sources */,
 				40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */,
 				40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */,
 				400E1D522AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift in Sources */,
 				400E1D5D2AA75A4800CF4BCC /* SuccessViewModel.swift in Sources */,
 				7E42DD592AA1E7C5007391AB /* UIView + Extension.swift in Sources */,
+				40FD19542AA9BAA70041FFFF /* NetworkClientProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
