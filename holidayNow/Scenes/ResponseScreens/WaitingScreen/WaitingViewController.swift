@@ -24,7 +24,7 @@ final class WaitingViewController: UIViewController {
         return label
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {

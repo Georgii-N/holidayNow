@@ -36,7 +36,7 @@ final class SecondFormViewController: UIViewController {
         return collection
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.SecondForm.turn, isBackButton: true)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.SecondForm.turn, isBackButton: true, coordinator: coordinator)
     private lazy var startMagicButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.SecondForm.startMagic)
     
     // MARK: - Lifecycle:

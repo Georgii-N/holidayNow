@@ -72,7 +72,7 @@ final class CongratulationTypeViewController: UIViewController {
         return label
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false, coordinator: coordinator)
     private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
     private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
     private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)

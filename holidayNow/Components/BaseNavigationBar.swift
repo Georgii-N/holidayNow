@@ -2,7 +2,10 @@ import UIKit
 
 final class BaseNavigationBar: UIView {
     
-    //MARK: - UI
+    // MARK: - Dependencies:
+    weak var coordinator: CoordinatorProtocol?
+    
+    //MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textAlignment = .left
@@ -17,10 +20,11 @@ final class BaseNavigationBar: UIView {
         return button
     }()
     
-    // MARK: - Lifecycle
-    init(title: String, isBackButton: Bool) {
+    // MARK: - Lifecycle:
+    init(title: String, isBackButton: Bool, coordinator: CoordinatorProtocol?) {
         super.init(frame: .zero)
         self.titleLabel.text = title
+        self.coordinator = coordinator
         
         if !isBackButton {
             backButton.isHidden = true
@@ -28,17 +32,14 @@ final class BaseNavigationBar: UIView {
         
         setupViews()
         setupConstraints()
+        setupTargets()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Public Methods
-    func addTargetToBackButton(target: Any?, action: Selector, for event: UIControl.Event) {
-        backButton.addTarget(target, action: action, for: event)
-    }
-    
+    // MARK: - Public Methods:
     func setupNavigationBar(with view: UIView, controller: UIViewController) {
         view.setupView(self)
     
@@ -50,9 +51,14 @@ final class BaseNavigationBar: UIView {
             trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func goBack() {
+        coordinator?.goBack()
+    }
 }
 
-// MARK: - Setup Views
+// MARK: - Setup Views:
 private extension BaseNavigationBar {
     func setupViews() {
         self.backgroundColor = .whiteDay
@@ -79,5 +85,9 @@ private extension BaseNavigationBar {
             titleLabel.leadingAnchor.constraint(equalTo: isHidden ? leadingAnchor : backButton.trailingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+    }
+    
+    func setupTargets() {
+        backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
     }
 }
