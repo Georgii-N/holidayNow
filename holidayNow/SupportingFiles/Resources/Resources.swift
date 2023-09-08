@@ -72,9 +72,9 @@ enum Resources {
         static let collectionReusableView = "FirstFormReusableView"
     }
     
-    enum Strings {
-        static let congratulationMinSliderValue = "50"
-        static let congratulationMediumSliderValue = "150"
-        static let congratulationMaxSliderValue = "200"
+    enum Int {
+        static let textMinSliderValue = 1
+        static let poetryMinSliderValue = 4
+        static let maxSliderValue = 12
     }
 }

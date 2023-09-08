@@ -31,7 +31,7 @@ final class CongratulationTypeViewController: UIViewController {
     private lazy var congratulationLenghLabel: UILabel = {
         let label = UILabel()
         label.font = .captionMediumBoldFont
-        label.text = L10n.Congratulation.congratulationLengh
+        label.text = L10n.Congratulation.sentencesLengh
         
         return label
     }()
@@ -43,7 +43,7 @@ final class CongratulationTypeViewController: UIViewController {
         slider.maximumTrackTintColor = .black
         slider.minimumValue = 0
         slider.maximumValue = 1
-        slider.value = 0.3
+        slider.value = 0
         
         return slider
     }()
@@ -100,34 +100,44 @@ final class CongratulationTypeViewController: UIViewController {
     
     // MARK: - Private Methods:
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
-        let minNumber: String
-        var maxNumber: String
+        var minNumber: Int?
+        var maxNumber: Int?
+        var text: String?
         
         continueButton.unblock()
         
         switch type {
         case .text:
-            minNumber = Resources.Strings.congratulationMinSliderValue
-            maxNumber = Resources.Strings.congratulationMaxSliderValue
+            minNumber = Resources.Int.textMinSliderValue
+            maxNumber = Resources.Int.maxSliderValue
+            text = L10n.Congratulation.sentencesLengh
+            lenghSlider.value = Float(Resources.Int.textMinSliderValue)
         case .poetry:
-            minNumber = Resources.Strings.congratulationMinSliderValue
-            maxNumber = Resources.Strings.congratulationMediumSliderValue
+            minNumber = Resources.Int.poetryMinSliderValue
+            maxNumber = Resources.Int.maxSliderValue
+            text = L10n.Congratulation.numberOfRows
         case .haiku:
-            minNumber = Resources.Strings.congratulationMinSliderValue
-            maxNumber = Resources.Strings.congratulationMediumSliderValue
+            minNumber = Resources.Int.poetryMinSliderValue
+            maxNumber = Resources.Int.maxSliderValue
+            text = L10n.Congratulation.numberOfRows
         case .none:
-            minNumber = ""
-            maxNumber = ""
+            minNumber = nil
+            maxNumber = nil
             continueButton.block()
         }
         
-        minCountOfSentensesLabel.text = minNumber
-        maxCountOfSentensesLabel.text = maxNumber
+        minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
+        maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
+        
+        lenghSlider.minimumValue = Float(minNumber ?? 0)
+        lenghSlider.maximumValue = Float(maxNumber ?? 0)
+        congratulationLenghLabel.text = text ?? ""
     }
     
     // MARK: - Objc Methods:
     @objc private func switchToFirstFormVC() {
         coordinator?.goToFirstFormViewController()
+        viewModel.sentCongratulationType()
     }
     
     @objc private func setupCurrentSentensesValue() {

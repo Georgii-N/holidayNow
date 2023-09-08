@@ -6,4 +6,5 @@ protocol FirstFormViewModelProtocol: AnyObject {
     func setupUsername(_ name: String?)
     func controlInterestState(isAdd: Bool, interest: GreetingTarget)
     func addNewOwnInterest(name: String)
+    func sentInterests()
 }

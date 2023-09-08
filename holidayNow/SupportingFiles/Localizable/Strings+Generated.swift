@@ -11,12 +11,14 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   internal enum Congratulation {
-    /// Длина поздравления
-    internal static let congratulationLengh = L10n.tr("Localizable", "congratulation.congratulationLengh", fallback: "Длина поздравления")
     /// Далее
     internal static let `continue` = L10n.tr("Localizable", "congratulation.continue", fallback: "Далее")
     /// Длинное
     internal static let long = L10n.tr("Localizable", "congratulation.long", fallback: "Длинное")
+    /// Количество строк
+    internal static let numberOfRows = L10n.tr("Localizable", "congratulation.numberOfRows", fallback: "Количество строк")
+    /// Количество предложений
+    internal static let sentencesLengh = L10n.tr("Localizable", "congratulation.sentencesLengh", fallback: "Количество предложений")
     /// Короткое
     internal static let short = L10n.tr("Localizable", "congratulation.short", fallback: "Короткое")
     /// Выберите тип контента

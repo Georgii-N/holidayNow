@@ -2,6 +2,9 @@ import Foundation
 
 final class SecondFormViewModel: SecondFormViewModelProtocol {
     
+    // MARK: - Dependencies:
+    weak var dataProvider: DataProviderProtocol?
+    
     // MARK: - Constants and Variables:
     var intonations = Intonation(name: L10n.SecondForm.greetingsIntonation, intonations: [
         IntonationsTarget(name: L10n.SecondForm.cute, image: Resources.Images.SecondForm.cute),
@@ -31,6 +34,11 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         HolidaysTarget(name: L10n.SecondForm.womensDay, image: Resources.Images.SecondForm.womensDay),
     ])
     
+    // MARK: - Lifecycle:
+    init(dataProvider: DataProviderProtocol) {
+        self.dataProvider = dataProvider
+    }
+    
     // MARK: - Public Methods:
     func setupHoliday(name: String?) {
         selectedHoliday = name
@@ -42,5 +50,15 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     
     func addNewHoliday(with name: String) {
         holidays.holidays.append(HolidaysTarget(name: name, image: Resources.Images.SecondForm.birthday))
+    }
+    
+    func sentGreetingsInfo() {
+        if let selectedHoliday {
+            dataProvider?.setHoliday(holiday: selectedHoliday)
+        }
+        
+        if let selectedIntonation {
+            dataProvider?.setIntonation(intonation: selectedIntonation)
+        }
     }
 }
