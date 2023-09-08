@@ -34,13 +34,15 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     // Response screens
     func createWaitingViewController() -> WaitingViewController {
-        let waitingViewModel = WaitingViewModel()
+        let waitingViewModel = WaitingViewModel(dataProvider: dataProvider)
         let waitingViewController = WaitingViewController(coordinator: coordinator, waitingViewModel: waitingViewModel)
         return waitingViewController
     }
     
     func createSuccessViewController() -> SuccessViewController {
-        let successViewController = SuccessViewController(coordinator: coordinator)
+        let resultText = dataProvider.getResultText()
+        let successViewModel = SuccessViewModel(textResult: resultText)
+        let successViewController = SuccessViewController(coordinator: coordinator, successViewModel: successViewModel)
         return successViewController
     }
     

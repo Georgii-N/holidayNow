@@ -8,5 +8,6 @@ protocol DataProviderProtocol: AnyObject {
     func setInterests(interests: [String])
     func setIntonation(intonation: String)
     
-    func createRequestText()
+    func createRequestText(completion: @escaping (Result<String, Error>) -> Void)
+    func getResultText() -> String
 }

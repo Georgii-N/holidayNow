@@ -2,6 +2,9 @@ import UIKit
 
 final class WaitingViewModel: WaitingViewModelProtocol {
     
+    // MARK: - Dependencies
+    private var dataProvider: DataProviderProtocol
+    
     // MARK: - Constants and Variables
     private var texts = [
         L10n.ResultScreen.WaitingText.var1,
@@ -13,6 +16,32 @@ final class WaitingViewModel: WaitingViewModelProtocol {
                     Resources.Images.ResponseScreens.responseWaitingFirst,
                     Resources.Images.ResponseScreens.responseWaitingSecond
                 ]
+    
+    private var responseText: String?
+   
+    // MARK: - Observable Values:
+    var isResponseSuccessObservable: Observable<Bool?> {
+        $isResponseSuccess
+    }
+    
+    @Observable
+    private(set) var isResponseSuccess: Bool?
+    
+    // MARK: - Lifecycle
+    init(dataProvider: DataProviderProtocol) {
+        self.dataProvider = dataProvider
+        
+        dataProvider.createRequestText { result in
+            switch result {
+            case .success(_):
+                self.isResponseSuccess = true
+                
+            case .failure(let error):
+                self.isResponseSuccess = false
+                assertionFailure(error.localizedDescription)
+            }
+        }
+    }
     
     // MARK: - Public Methods
     func getRandomText() -> String {

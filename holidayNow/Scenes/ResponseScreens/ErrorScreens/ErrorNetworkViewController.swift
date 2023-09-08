@@ -42,6 +42,11 @@ final class ErrorNetworkViewController: UIViewController {
         setupViews()
         setupConstraints()
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func didTapActionButton() {
+        coordinator?.goToCongratulationTypeViewController()
+    }
 }
 
 // MARK: - Setup Views
@@ -69,5 +74,9 @@ private extension ErrorNetworkViewController {
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
+    }
+    
+    func setupTargets() {
+        actionButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
     }
 }

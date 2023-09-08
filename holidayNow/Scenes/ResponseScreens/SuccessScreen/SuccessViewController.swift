@@ -4,6 +4,7 @@ final class SuccessViewController: UIViewController {
     
     // MARK: - Dependencies
     weak var coordinator: CoordinatorProtocol?
+    private var successViewModel: SuccessViewModelProtocol
     
     // MARK: - UI:
     private lazy var resultView: UIView = {
@@ -35,9 +36,10 @@ final class SuccessViewController: UIViewController {
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
     
     // MARK: - LifeCycle:
-    init(coordinator: CoordinatorProtocol?) {
-        super.init(nibName: nil, bundle: nil)
+    init(coordinator: CoordinatorProtocol?, successViewModel: SuccessViewModelProtocol) {
+        self.successViewModel = successViewModel
         self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -49,6 +51,16 @@ final class SuccessViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+    }
+    
+    // MARK: - Objc Methods:
+    @objc private func didTapGoToStartButton() {
+    // TODO: - Дописать обнуление контроллеров в навбаре
+        coordinator?.goToCongratulationTypeViewController()
+    }
+    
+    @objc private func didTapShareButton() {
+        let activityViewController = UIActivityViewController(activityItems: [successViewModel.textResultObservable], applicationActivities: nil)
     }
 }
 
@@ -93,7 +105,8 @@ private extension SuccessViewController {
     }
     
     func setupTargets() {
-        
+        backToStartButton.addTarget(self, action: #selector(didTapGoToStartButton), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
     }
 }
 
