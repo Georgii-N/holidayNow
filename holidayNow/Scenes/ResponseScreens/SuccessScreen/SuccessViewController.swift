@@ -7,11 +7,13 @@ final class SuccessViewController: UIViewController {
     private var successViewModel: SuccessViewModelProtocol
     
     // MARK: - UI:
-    private lazy var resultView: UIView = {
-        let resultView = UIView()
-        resultView.backgroundColor = .lightUniversalRed
-        resultView.layer.cornerRadius = 24
-        return resultView
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = Resources.Images.ResponseScreens.responseSuccess
+        return imageView
     }()
     
     private lazy var responseLabel: UILabel = {
@@ -26,12 +28,13 @@ final class SuccessViewController: UIViewController {
     
     private lazy var copyResponseButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
+        button.setImage(Resources.Images.ResponseScreens.contentCopyIcon, for: .normal)
         button.tintColor = .blackDay
+        button.backgroundColor = .lightGray
+        button.layer.cornerRadius = 27.5
         return button
     }()
     
-    private lazy var resultLabel = BaseResultLabel(text: L10n.Success.result)
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
     
@@ -62,14 +65,19 @@ final class SuccessViewController: UIViewController {
     @objc private func didTapShareButton() {
         let activityViewController = UIActivityViewController(activityItems: [successViewModel.textResultObservable], applicationActivities: nil)
     }
+    
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false, coordinator: coordinator)
 }
 
 // MARK: - Setup Views:
 private extension SuccessViewController {
     func setupViews() {
+        
         view.backgroundColor = .whiteDay
-        [resultLabel,
-         resultView,
+        
+        customNavigationBar.setupNavigationBar(with: view, controller: self)
+        
+        [imageView,
          responseLabel,
          copyResponseButton,
          backToStartButton,
@@ -78,21 +86,19 @@ private extension SuccessViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            resultLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 220),
             
-            resultView.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
-            resultView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            resultView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            responseLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            responseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            responseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            responseLabel.topAnchor.constraint(equalTo: resultView.topAnchor, constant: 16),
-            responseLabel.leadingAnchor.constraint(equalTo: resultView.leadingAnchor, constant: 16),
-            responseLabel.trailingAnchor.constraint(equalTo: resultView.trailingAnchor, constant: -16),
-            
-            copyResponseButton.topAnchor.constraint(equalTo: responseLabel.bottomAnchor, constant: 16),
-            copyResponseButton.trailingAnchor.constraint(equalTo: resultView.trailingAnchor, constant: -16),
-            copyResponseButton.bottomAnchor.constraint(equalTo: resultView.bottomAnchor, constant: -16),
+            copyResponseButton.topAnchor.constraint(equalTo: responseLabel.bottomAnchor, constant: 20),
+            copyResponseButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            copyResponseButton.heightAnchor.constraint(equalToConstant: 55),
+            copyResponseButton.widthAnchor.constraint(equalToConstant: 55),
             
             backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64),
             backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -102,6 +108,14 @@ private extension SuccessViewController {
             shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
             shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
+        
+        let topConstraint = responseLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20)
+           topConstraint.priority = .defaultHigh
+           
+           let bottomConstraint = responseLabel.bottomAnchor.constraint(lessThanOrEqualTo: copyResponseButton.topAnchor, constant: -20)
+           bottomConstraint.priority = .defaultHigh
+           
+           NSLayoutConstraint.activate([topConstraint, bottomConstraint])
     }
     
     func setupTargets() {
