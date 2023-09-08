@@ -61,6 +61,7 @@ final class FirstFormViewController: UIViewController {
         return collection
     }()
     
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: true)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
     
     // MARK: - Lifecycle:
@@ -233,13 +234,14 @@ extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
 private extension FirstFormViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
+        customNavigationBar.setupNavigationBar(with: view, controller: self)
         
         [titleLabel, nameLabel, enterNameTextField, firstFormCollectionView, continueButton].forEach(view.setupView)
     }
     
     func setupConstraints() {        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
             
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             
