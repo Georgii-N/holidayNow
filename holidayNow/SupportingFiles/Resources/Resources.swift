@@ -73,8 +73,8 @@ enum Resources {
     }
     
     enum Int {
-        static let congratulationMinSliderValue = 50
-        static let congratulationMediumSliderValue = 150
-        static let congratulationMaxSliderValue = 200
+        static let textMinSliderValue = 1
+        static let poetryMinSliderValue = 4
+        static let maxSliderValue = 12
     }
 }

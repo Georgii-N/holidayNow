@@ -14,7 +14,8 @@
 "congratulation.button.text" = "Простое";
 "congratulation.button.poetry" = "Стихотворение";
 "congratulation.button.haiku" = "Хокку";
-"congratulation.congratulationLengh" = "Длина поздравления";
+"congratulation.sentencesLengh" = "Количество предложений";
+"congratulation.numberOfRows" = "Количество строк";
 "congratulation.short" = "Короткое";
 "congratulation.long" = "Длинное";
 "congratulation.continue" = "Далее";
