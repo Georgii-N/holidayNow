@@ -4,6 +4,12 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     // MARK: - Dependencies
     weak var coordinator: CoordinatorProtocol?
+    private var dataProvider: DataProviderProtocol
+    
+    // MARK: - Lifecycle
+    init(dataProvider: DataProviderProtocol) {
+        self.dataProvider = dataProvider
+    }
     
     // MARK: - Public Methods
     func createOnboardingViewController() -> OnboardingViewController {
