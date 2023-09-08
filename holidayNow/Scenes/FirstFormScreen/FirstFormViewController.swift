@@ -80,10 +80,16 @@ final class FirstFormViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        setupObservers()
         
         continueButton.block()
         bind()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
     // MARK: - Override Methods:
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

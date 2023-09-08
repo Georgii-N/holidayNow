@@ -35,6 +35,7 @@
 		40FD195D2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */; };
 		7E0213762AA9F8A000B29565 /* CongratulationTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */; };
 		7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */; };
+		7E2494142AAB0A8B002B1D48 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */; };
 		7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */; };
 		7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */; };
 		7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */; };
@@ -101,6 +102,7 @@
 		40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequestFactoryProtocol.swift; sourceTree = "<group>"; };
 		7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModel.swift; sourceTree = "<group>"; };
 		7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModelProtocol.swift; sourceTree = "<group>"; };
+		7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
 		7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -350,10 +352,11 @@
 			isa = PBXGroup;
 			children = (
 				7E42DD522AA1D979007391AB /* UIColor + Extension.swift */,
+				7EFFABF82AA9CB640018196F /* UICollectionView + Extension.swift */,
 				7E42DD542AA1DA63007391AB /* UIFont + Extension.swift */,
 				7E42DD582AA1E7C5007391AB /* UIView + Extension.swift */,
 				7EFFABDE2AA84B130018196F /* UIViewController + Extension.swift */,
-				7EFFABF82AA9CB640018196F /* UICollectionView + Extension.swift */,
+				7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */,
 				7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */,
+				7E2494142AAB0A8B002B1D48 /* UIResponder + Extension.swift in Sources */,
 				7E42DD502AA1D7A6007391AB /* Strings+Generated.swift in Sources */,
 				7EFFABE42AA8D1620018196F /* SecondFormViewController.swift in Sources */,
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,

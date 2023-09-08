@@ -1,51 +1,46 @@
 import UIKit
 
+// MARK: - Resuming Methods on the main thread:
 extension UIViewController {
-    // MARK: - Resuming Methods on the main thread:
     func resumeOnMainThread<T>(_ method: @escaping ((T) -> Void), with argument: (T)) {
         DispatchQueue.main.async {
             method(argument)
         }
     }
-    
-    // MARK: - Keyboard Settings:
-    private var scrollView: UIScrollView? {
-        view.subviews.first { $0 is UIScrollView } as? UIScrollView
-    }
-    
+}
+
+// MARK: - Keyboard Settings:
+extension UIViewController {
     func setupObservers() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardDidShow),
-                                               name: UIResponder.keyboardDidShowNotification,
+                                               name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardDidHide),
-                                               name: UIResponder.keyboardDidHideNotification,
+                                               name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
     
-    func initializeHideKeyboard() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
-        view.addGestureRecognizer(gesture)
-    }
     
     @objc private func keyboardDidShow(_ notification: Notification) {
-        guard let usetInfo = notification.userInfo,
-              let keyboardFrameSize = (usetInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
         
-        UIView.animate(withDuration: 0.3) {
-            self.scrollView?.contentSize.height = (self.scrollView?.frame.height ?? 0) + keyboardFrameSize.height
-            self.scrollView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrameSize.height, right: 0)
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+        
+        if textFieldBottomY > keyboardTopY {
+            let textBoxY = convertedTextFieldFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+            
+            view.frame.origin.y = newFrameY
         }
     }
     
     @objc private func keyboardDidHide() {
-        UIView.animate(withDuration: 0.3) {
-            self.scrollView?.contentSize.height = self.view.frame.height
-        }
-    }
-    
-    @objc private func dismissMyKeyboard() {
-        view.endEditing(true)
+        view.frame.origin.y = 0
     }
 }
