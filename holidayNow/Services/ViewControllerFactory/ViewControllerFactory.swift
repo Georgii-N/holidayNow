@@ -18,17 +18,17 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     }
     
     func createCongratulationTypeViewController() -> CongratulationTypeViewController {
-        let congratulationViewModel = CongratulationTypeViewModel()
+        let congratulationViewModel = CongratulationTypeViewModel(dataProvider: dataProvider)
         return CongratulationTypeViewController(coordinator: coordinator, viewModel: congratulationViewModel)
     }
     
     func createFirstFormViewController() -> FirstFormViewController {
-        let firstViewModel = FirstFormViewModel()
+        let firstViewModel = FirstFormViewModel(dataProvider: dataProvider)
         return FirstFormViewController(coordinator: coordinator, viewModel: firstViewModel)
     }
     
     func createSecondFormViewController() -> SecondFormViewController {
-        let secondViewModel = SecondFormViewModel()
+        let secondViewModel = SecondFormViewModel(dataProvider: dataProvider)
         return SecondFormViewController(coordinator: coordinator, viewModel: secondViewModel)
     }
     

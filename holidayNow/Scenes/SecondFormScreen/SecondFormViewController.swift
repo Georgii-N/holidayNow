@@ -117,6 +117,11 @@ final class SecondFormViewController: UIViewController {
             return defaultEnterCell
         }
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func startMagic() {
+        viewModel.sentGreetingsInfo()
+    }
 }
 
 // MARK: - BaseCollectionViewCellDelegate:

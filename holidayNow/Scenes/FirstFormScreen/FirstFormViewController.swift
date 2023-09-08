@@ -126,6 +126,7 @@ final class FirstFormViewController: UIViewController {
     // MARK: - Objc Methods:
     @objc private func goToSecondFormVC() {
         coordinator?.goToSecondFormViewController()
+        viewModel?.sentInterests()
     }
 }
 

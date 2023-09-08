@@ -100,34 +100,38 @@ final class CongratulationTypeViewController: UIViewController {
     
     // MARK: - Private Methods:
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
-        let minNumber: String
-        var maxNumber: String
+        let minNumber: Int?
+        var maxNumber: Int?
         
         continueButton.unblock()
         
         switch type {
         case .text:
-            minNumber = Resources.Strings.congratulationMinSliderValue
-            maxNumber = Resources.Strings.congratulationMaxSliderValue
+            minNumber = Resources.Int.congratulationMinSliderValue
+            maxNumber = Resources.Int.congratulationMaxSliderValue
         case .poetry:
-            minNumber = Resources.Strings.congratulationMinSliderValue
-            maxNumber = Resources.Strings.congratulationMediumSliderValue
+            minNumber = Resources.Int.congratulationMinSliderValue
+            maxNumber = Resources.Int.congratulationMediumSliderValue
         case .haiku:
-            minNumber = Resources.Strings.congratulationMinSliderValue
-            maxNumber = Resources.Strings.congratulationMediumSliderValue
+            minNumber = Resources.Int.congratulationMinSliderValue
+            maxNumber = Resources.Int.congratulationMediumSliderValue
         case .none:
-            minNumber = ""
-            maxNumber = ""
+            minNumber = nil
+            maxNumber = nil
             continueButton.block()
         }
         
-        minCountOfSentensesLabel.text = minNumber
-        maxCountOfSentensesLabel.text = maxNumber
+        minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
+        maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
+        
+        lenghSlider.minimumValue = Float(minNumber ?? 0)
+        lenghSlider.maximumValue = Float(maxNumber ?? 0)
     }
     
     // MARK: - Objc Methods:
     @objc private func switchToFirstFormVC() {
         coordinator?.goToFirstFormViewController()
+        viewModel.sentCongratulationType()
     }
     
     @objc private func setupCurrentSentensesValue() {

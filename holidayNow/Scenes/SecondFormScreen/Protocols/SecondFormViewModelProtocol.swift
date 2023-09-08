@@ -6,5 +6,6 @@ protocol SecondFormViewModelProtocol: AnyObject {
     func setupHoliday(name: String?)
     func setupIntonation(name: String?)
     func addNewHoliday(with name: String)
+    func sentGreetingsInfo()
 }
 
