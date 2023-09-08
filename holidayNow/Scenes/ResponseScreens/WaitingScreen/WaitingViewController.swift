@@ -49,13 +49,14 @@ final class WaitingViewController: UIViewController {
         waitingViewModel.isResponseSuccessObservable.bind { [weak self] isSuccess in
             guard
                 let isSuccess,
-                let self
+                let self,
+                let coordinator
             else { return }
             
             if isSuccess {
-                self.coordinator?.goToSuccessResultViewController()
+                self.resumeOnMainThread(coordinator.goToSuccessResultViewController, with: ())
             } else {
-                self.coordinator?.goToErrorNetworkViewController()
+                self.resumeOnMainThread(coordinator.goToErrorNetworkViewController, with: ())
             }
         }
     }

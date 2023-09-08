@@ -119,8 +119,9 @@ final class SecondFormViewController: UIViewController {
     }
     
     // MARK: - Objc Methods:
-    @objc private func startMagic() {
+    @objc private func didTapStartMagicButton() {
         viewModel.sentGreetingsInfo()
+        coordinator?.goToWaitingViewController()
     }
 }
 
@@ -286,6 +287,6 @@ private extension SecondFormViewController {
     }
     
     func setupTargets() {
-        
+        startMagicButton.addTarget(self, action: #selector(didTapStartMagicButton), for: .touchUpInside)
     }
 }

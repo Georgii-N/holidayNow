@@ -13,5 +13,6 @@ final class SuccessViewModel: SuccessViewModelProtocol {
     
     init(textResult: String) {
         self.textResult = textResult
+        
     }
 }

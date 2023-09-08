@@ -126,6 +126,8 @@ final class CongratulationTypeViewController: UIViewController {
             continueButton.block()
         }
         
+        viewModel.setupGreetingsLength(with: minNumber ?? 1)
+        
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
         maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
         

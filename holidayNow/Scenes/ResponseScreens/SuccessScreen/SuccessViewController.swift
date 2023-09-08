@@ -19,7 +19,7 @@ final class SuccessViewController: UIViewController {
         responseLabel.font = .bodyMediumRegularFont
         responseLabel.textColor = .blackDay
         responseLabel.numberOfLines = 0
-        responseLabel.text = "Сегодня наш праздник — День Бани! Пусть даже самое обыденное событие становится особенным в этот день, ведь баня — это место, где мы находим не только тепло и чистоту, но и настоящую душевную близость и отдых от повседневных забот."
+        responseLabel.text = successViewModel.textResultObservable.wrappedValue
         responseLabel.textAlignment = .center
         return responseLabel
     }()
@@ -61,6 +61,7 @@ final class SuccessViewController: UIViewController {
     
     @objc private func didTapShareButton() {
         let activityViewController = UIActivityViewController(activityItems: [successViewModel.textResultObservable], applicationActivities: nil)
+        present(activityViewController, animated: true)
     }
 }
 
