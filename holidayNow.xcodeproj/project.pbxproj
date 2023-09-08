@@ -166,8 +166,8 @@
 		40152F5C2AA1C39E0049E309 /* holidayNow */ = {
 			isa = PBXGroup;
 			children = (
+				40152F5D2AA1C39E0049E309 /* AppDelegate.swift */,
 				401FD5AA2AA60C3D0041D4F9 /* Coordinators */,
-				7E42DD3F2AA1CF38007391AB /* Application */,
 				7E42DD402AA1CF3F007391AB /* Scenes */,
 				40F6E0342AA22D9100F75858 /* Services */,
 				405373A02AA23D9B00704904 /* Models */,
@@ -316,14 +316,6 @@
 				40152F6B2AA1C3A00049E309 /* Info.plist */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		7E42DD3F2AA1CF38007391AB /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				40152F5D2AA1C39E0049E309 /* AppDelegate.swift */,
-			);
-			path = Application;
 			sourceTree = "<group>";
 		};
 		7E42DD402AA1CF3F007391AB /* Scenes */ = {
