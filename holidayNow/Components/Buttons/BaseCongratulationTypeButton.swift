@@ -82,11 +82,9 @@ final class BaseCongratulationTypeButton: UIView {
         backgroundColor = buttonColor
         isSelected = !isSelected
         
-        if isSelected {
-            delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "", state: isSelected, buttonType: buttonState)
-        } else {
-            delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "", state: isSelected, buttonType: .none)
-        }
+        delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "",
+                                          state: isSelected,
+                                          buttonType: isSelected ? buttonState : .none)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

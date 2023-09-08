@@ -59,9 +59,12 @@ final class OnboardingViewController: UIViewController {
         setupTargets()        
     }
     
+    override func viewDidLayoutSubviews() {
+        setupGradient()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupGradient()
     }
     
     // MARK: - Private Methods:

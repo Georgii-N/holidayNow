@@ -9,13 +9,17 @@ final class BaseCollectionViewFlowLayout: UICollectionViewFlowLayout {
     // MARK: - Override Methods:
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         minimumLineSpacing = cellSpacing
-        sectionInset = UIEdgeInsets(top: cellSpacing, left: sideSpacing, bottom: cellSpacing, right: sideSpacing)
+        sectionInset = UIEdgeInsets(top: sideSpacing, left: sideSpacing, bottom: sideSpacing, right: sideSpacing)
         
         let attributes = super.layoutAttributesForElements(in: rect)
         var leftMargin = sectionInset.left
         var maxY: CGFloat = -1.0
         
         attributes?.forEach { layoutAttribute in
+            guard layoutAttribute.representedElementCategory == .cell else {
+                return
+            }
+            
             if layoutAttribute.frame.origin.y >= maxY {
                 leftMargin = sectionInset.left
             }

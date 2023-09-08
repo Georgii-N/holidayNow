@@ -51,16 +51,13 @@ final class ErrorAPIViewController: UIViewController {
 private extension ErrorAPIViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
+        customNavigationBar.setupNavigationBar(with: view, controller: self)
         
-        [customNavigationBar, imageView, textLabel, actionButton].forEach(view.setupView)
+        [imageView, textLabel, actionButton].forEach(view.setupView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            customNavigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            customNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            customNavigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
             imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

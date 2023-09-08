@@ -72,6 +72,7 @@ final class CongratulationTypeViewController: UIViewController {
         return label
     }()
     
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false)
     private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
     private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
     private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)
@@ -154,6 +155,7 @@ extension CongratulationTypeViewController: BaseCongratulationTypeButtonDelegate
 private extension CongratulationTypeViewController {
     func setupViews() {
         view.backgroundColor = .white
+        customNavigationBar.setupNavigationBar(with: view, controller: self)
         
         [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
             buttonsStack.addArrangedSubview($0)
@@ -168,7 +170,7 @@ private extension CongratulationTypeViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
             
             buttonsStack.heightAnchor.constraint(equalToConstant: 240),
             buttonsStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
