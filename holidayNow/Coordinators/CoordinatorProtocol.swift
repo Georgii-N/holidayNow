@@ -13,4 +13,6 @@ protocol CoordinatorProtocol: AnyObject {
     func goToSuccessResultViewController()
     func goToErrorNetworkViewController()
     func goToErrorAPIViewController()
+    
+    func goBack()
 }

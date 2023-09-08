@@ -53,4 +53,9 @@ final class AppCoordinator: CoordinatorProtocol {
         let errorAPIViewController = viewControllerFactory.createErrorAPIViewController()
         navigationController.pushViewController(errorAPIViewController, animated: true)
     }
+    
+    // Pop:
+    func goBack() {
+        navigationController.popViewController(animated: true)
+    }
 }
