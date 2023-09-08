@@ -58,7 +58,8 @@ final class DataProvider: DataProviderProtocol {
             return
         }
         
-        networkClient.fetchGreeting(text: requestText) { result in
+        networkClient.fetchGreeting(text: requestText) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let responseText):
                 self.responseText = responseText

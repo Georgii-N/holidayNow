@@ -48,8 +48,8 @@ final class WaitingViewController: UIViewController {
     private func bind() {
         waitingViewModel.isResponseSuccessObservable.bind { [weak self] isSuccess in
             guard
-                let isSuccess = isSuccess,
-                let self = self
+                let isSuccess,
+                let self
             else { return }
             
             if isSuccess {

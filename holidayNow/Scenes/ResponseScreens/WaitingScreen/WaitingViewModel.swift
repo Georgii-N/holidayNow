@@ -31,9 +31,10 @@ final class WaitingViewModel: WaitingViewModelProtocol {
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
         
-        dataProvider.createRequestText { result in
+        dataProvider.createRequestText { [weak self ] result in
+            guard let self else { return }
             switch result {
-            case .success(_):
+            case .success:
                 self.isResponseSuccess = true
                 
             case .failure(let error):
