@@ -1,6 +1,6 @@
 import Foundation
 
-protocol DataProviderProtocol {
+protocol DataProviderProtocol: AnyObject {
     func setType(type: String)
     func setcountSentences(countSentences: Int)
     func setName(name: String)

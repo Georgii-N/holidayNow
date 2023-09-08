@@ -1,6 +1,6 @@
 import Foundation
 
-final class NetworkClient {
+final class NetworkClient: NetworkClientProtocol {
     
     // MARK: - Constants and Variables:
     private var apiKey: String
