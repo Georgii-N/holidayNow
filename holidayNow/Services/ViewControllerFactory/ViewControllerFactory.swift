@@ -12,8 +12,8 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     }
     
     func createCongratulationTypeViewController() -> CongratulationTypeViewController {
-        let congratulationTypeViewController = CongratulationTypeViewController(coordinator: coordinator)
-        return congratulationTypeViewController
+        let congratulationViewModel = CongratulationTypeViewModel()
+        return CongratulationTypeViewController(coordinator: coordinator, viewModel: congratulationViewModel)
     }
     
     func createFirstFormViewController() -> FirstFormViewController {

@@ -33,6 +33,8 @@
 		40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD19572AA9BB700041FFFF /* GreetingRequest.swift */; };
 		40FD195B2AA9BE220041FFFF /* GreetingRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD195A2AA9BE220041FFFF /* GreetingRequestFactory.swift */; };
 		40FD195D2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */; };
+		7E0213762AA9F8A000B29565 /* CongratulationTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */; };
+		7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */; };
 		7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */; };
 		7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */; };
 		7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */; };
@@ -97,6 +99,8 @@
 		40FD19572AA9BB700041FFFF /* GreetingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequest.swift; sourceTree = "<group>"; };
 		40FD195A2AA9BE220041FFFF /* GreetingRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequestFactory.swift; sourceTree = "<group>"; };
 		40FD195C2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingRequestFactoryProtocol.swift; sourceTree = "<group>"; };
+		7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModel.swift; sourceTree = "<group>"; };
+		7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModelProtocol.swift; sourceTree = "<group>"; };
 		7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -283,6 +287,14 @@
 			path = RequestFactory;
 			sourceTree = "<group>";
 		};
+		7E0213792AA9F8C900B29565 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		7E3757CE2AA60F120093A3C5 /* BaseCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +390,8 @@
 		7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E0213792AA9F8C900B29565 /* Protocols */,
+				7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */,
 				7E42DD5D2AA207A8007391AB /* CongratulationTypeViewController.swift */,
 			);
 			path = CongratulationTypeScreen;
@@ -590,6 +604,7 @@
 				7E42DD422AA1CF68007391AB /* Resources.swift in Sources */,
 				7EFFABE72AA992270018196F /* SecondFormViewModel.swift in Sources */,
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
+				7E0213762AA9F8A000B29565 /* CongratulationTypeViewModel.swift in Sources */,
 				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,
 				40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */,
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
@@ -612,6 +627,7 @@
 				7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
 				7EFFABF52AA994A90018196F /* IntonationsTarget.swift in Sources */,
+				7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
