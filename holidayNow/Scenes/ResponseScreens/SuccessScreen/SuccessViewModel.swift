@@ -1,6 +1,6 @@
 import Foundation
 
-final class SuccessViewModel {
+final class SuccessViewModel: SuccessViewModelProtocol {
     
     // MARK: - Observable Values
     var textResultObservable:

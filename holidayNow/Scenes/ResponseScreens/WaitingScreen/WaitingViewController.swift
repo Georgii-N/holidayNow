@@ -41,9 +41,23 @@ final class WaitingViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        
-        imageView.image = waitingViewModel.getRandomImage()
-        textLabel.text = waitingViewModel.getRandomText()
+        bind()
+    }
+    
+    // MARK: - Private Methods:
+    private func bind() {
+        waitingViewModel.isResponseSuccessObservable.bind { [weak self] isSuccess in
+            guard
+                let isSuccess,
+                let self
+            else { return }
+            
+            if isSuccess {
+                self.coordinator?.goToSuccessResultViewController()
+            } else {
+                self.coordinator?.goToErrorNetworkViewController()
+            }
+        }
     }
 }
 
@@ -51,6 +65,10 @@ final class WaitingViewController: UIViewController {
 private extension WaitingViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
+        
+        imageView.image = waitingViewModel.getRandomImage()
+        textLabel.text = waitingViewModel.getRandomText()
+        
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
         [imageView, textLabel].forEach(view.setupView)

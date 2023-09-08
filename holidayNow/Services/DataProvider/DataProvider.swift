@@ -48,7 +48,7 @@ final class DataProvider: DataProviderProtocol {
         self.intonation = intonation
     }
     
-    func createRequestText() {
+    func createRequestText(completion: @escaping (Result<String, Error>) -> Void) {
         guard let creatingModel = createGreetingModel() else { return }
         
         requestText = greetingRequestFactory.createRequestText(greetingRequestModel: creatingModel)
@@ -58,14 +58,25 @@ final class DataProvider: DataProviderProtocol {
             return
         }
         
-        networkClient.fetchGreeting(text: requestText) { result in
+        networkClient.fetchGreeting(text: requestText) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let responseText):
                 self.responseText = responseText
+                completion(.success(responseText))
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
+                completion(.failure(error))
             }
         }
+    }
+    
+    func getResultText() -> String {
+        guard let responseText else {
+            assertionFailure("responseText does not exist in dataProvider")
+            return "Something went wrong...Please try later."}
+        
+        return responseText
     }
     
     // MARK: - Private Methods
