@@ -55,8 +55,18 @@ final class SecondFormViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        setupObservers()
         
         bind()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Override Methods:
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     // MARK: - Private Methods:
