@@ -28,7 +28,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         let textField = UITextField()
         textField.delegate = self
         textField.clearButtonMode = .whileEditing
-        textField.font = .bodySmallRegularFont
+        textField.font = .captionSmallBoldFont
         textField.placeholder = L10n.FirstForm.Interests.addMyOwn
         
         return textField

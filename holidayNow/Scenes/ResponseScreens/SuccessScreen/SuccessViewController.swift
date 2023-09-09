@@ -18,7 +18,7 @@ final class SuccessViewController: UIViewController {
     
     private lazy var responseLabel: UILabel = {
         let responseLabel = UILabel()
-        responseLabel.font = .bodyMediumRegularFont
+        responseLabel.font = .bodyMediumBoldFont
         responseLabel.textColor = .blackDay
         responseLabel.numberOfLines = 0
         responseLabel.text = successViewModel.textResultObservable.wrappedValue

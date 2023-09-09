@@ -18,7 +18,7 @@ final class ErrorNetworkViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .bodyExtraLargeBoldFont
+        label.font = .bodyMediumBoldFont
         label.textColor = .blackDay
         label.text = L10n.ResultScreen.NetworkErrorText.var1
         return label

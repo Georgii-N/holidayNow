@@ -11,7 +11,7 @@ final class CongratulationTypeViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .captionMediumRegularFont
+        label.font = .bodySmallRegularFont
         label.textColor = .gray
         label.text = L10n.Congratulation.title
         
@@ -58,7 +58,7 @@ final class CongratulationTypeViewController: UIViewController {
     
     private lazy var minCountOfSentensesLabel: UILabel = {
         let label = UILabel()
-        label.font = .bodyExtraSmallRegularFont
+        label.font = .captionExtraSmallRegularFont
         label.textAlignment = .left
         
         return label
@@ -66,7 +66,7 @@ final class CongratulationTypeViewController: UIViewController {
     
     private lazy var maxCountOfSentensesLabel: UILabel = {
         let label = UILabel()
-        label.font = .bodyExtraSmallRegularFont
+        label.font = .captionExtraSmallRegularFont
         label.textAlignment = .right
         
         return label

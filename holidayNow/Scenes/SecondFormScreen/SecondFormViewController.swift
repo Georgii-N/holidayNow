@@ -11,7 +11,7 @@ final class SecondFormViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .captionMediumRegularFont
+        label.font = .bodySmallRegularFont
         label.textColor = .gray
         label.text = L10n.SecondForm.title
         

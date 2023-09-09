@@ -25,7 +25,6 @@
 		40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */; };
 		40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */; };
-		40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */; };
 		40F6E0362AA22DA800F75858 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkClient.swift */; };
 		40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */; };
 		40FD19522AA9BA2E0041FFFF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD19512AA9BA2E0041FFFF /* DataProvider.swift */; };
@@ -92,7 +91,6 @@
 		40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModelProtocol.swift; sourceTree = "<group>"; };
 		40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResultLabel.swift; sourceTree = "<group>"; };
 		40F6E0352AA22DA800F75858 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
 		40FD19512AA9BA2E0041FFFF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				7E42DD642AA2184B007391AB /* Protocols */,
 				7E42DD652AA36CEE007391AB /* Buttons */,
 				7E3757CE2AA60F120093A3C5 /* BaseCollectionView */,
-				40F2A8FD2AA32161009E345B /* BaseResultLabel.swift */,
 				40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */,
 			);
 			path = Components;
@@ -631,7 +628,6 @@
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */,
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
-				40F2A8FE2AA32161009E345B /* BaseResultLabel.swift in Sources */,
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
 				40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */,
 				40FD19522AA9BA2E0041FFFF /* DataProvider.swift in Sources */,

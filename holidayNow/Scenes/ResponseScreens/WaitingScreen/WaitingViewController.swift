@@ -19,7 +19,7 @@ final class WaitingViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .bodyExtraLargeBoldFont
+        label.font = .bodyMediumBoldFont
         label.textColor = .blackDay
         return label
     }()
