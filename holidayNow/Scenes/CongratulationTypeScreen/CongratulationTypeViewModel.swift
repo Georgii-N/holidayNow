@@ -9,7 +9,6 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
     private var selectedGreetingsType: String?
     private var selectedGreetingsLength: Int?
     
-    
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
@@ -27,7 +26,6 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
     func sentCongratulationType() {
         guard let selectedGreetingsType,
               let selectedGreetingsLength else { return }
-        
         dataProvider?.setType(type: selectedGreetingsType)
         dataProvider?.setcountSentences(countSentences: selectedGreetingsLength)
     }
