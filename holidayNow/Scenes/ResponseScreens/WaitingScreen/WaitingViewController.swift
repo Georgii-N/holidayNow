@@ -1,4 +1,5 @@
 import UIKit
+import Lottie
 
 final class WaitingViewController: UIViewController {
     
@@ -25,6 +26,7 @@ final class WaitingViewController: UIViewController {
     }()
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
+    
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {
