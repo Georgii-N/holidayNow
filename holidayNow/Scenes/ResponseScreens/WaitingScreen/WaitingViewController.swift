@@ -1,4 +1,5 @@
 import UIKit
+import Lottie
 
 final class WaitingViewController: UIViewController {
     
@@ -25,6 +26,8 @@ final class WaitingViewController: UIViewController {
     }()
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
+    private lazy var animationView = LottieAnimationView(name: "magic")
+    
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {
@@ -41,6 +44,7 @@ final class WaitingViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupAnimation()
         bind()
     }
     
@@ -71,8 +75,7 @@ private extension WaitingViewController {
         textLabel.text = waitingViewModel.getRandomText()
         
         customNavigationBar.setupNavigationBar(with: view, controller: self)
-        
-        [imageView, textLabel].forEach(view.setupView)
+        [imageView, textLabel, animationView].forEach(view.setupView)
     }
     
     func setupConstraints() {
@@ -85,7 +88,17 @@ private extension WaitingViewController {
             textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            textLabel.heightAnchor.constraint(equalToConstant: 100)
+            textLabel.heightAnchor.constraint(equalToConstant: 100),
+            
+            animationView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 20),
+            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animationView.heightAnchor.constraint(equalToConstant: 200),
+            animationView.widthAnchor.constraint(equalToConstant: 200)
         ])
+    }
+    
+    func setupAnimation() {
+        animationView.play()
+        animationView.loopMode = .loop
     }
 }

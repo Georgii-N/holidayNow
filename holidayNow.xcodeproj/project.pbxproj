@@ -23,6 +23,8 @@
 		40A71EAA2AA892D700346E8D /* ErrorNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA92AA892D700346E8D /* ErrorNetworkViewController.swift */; };
 		40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */; };
 		40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */; };
+		40BE590E2AAEF8BA00300A2C /* magic.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BE590D2AAEF8BA00300A2C /* magic.json */; };
+		40E30DB02AAC7836005C0F8B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 40E30DAF2AAC7836005C0F8B /* Lottie */; };
 		40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */; };
 		40F6E0362AA22DA800F75858 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkClient.swift */; };
@@ -89,6 +91,7 @@
 		40A71EA92AA892D700346E8D /* ErrorNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNetworkViewController.swift; sourceTree = "<group>"; };
 		40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPIViewController.swift; sourceTree = "<group>"; };
 		40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModelProtocol.swift; sourceTree = "<group>"; };
+		40BE590D2AAEF8BA00300A2C /* magic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = magic.json; sourceTree = "<group>"; };
 		40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		40F6E0352AA22DA800F75858 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E30DB02AAC7836005C0F8B /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +316,7 @@
 				7E42DD472AA1D6E3007391AB /* Localizable */,
 				7E42DD432AA1CF6B007391AB /* Resources */,
 				40152F662AA1C3A00049E309 /* Assets.xcassets */,
+				40BE590D2AAEF8BA00300A2C /* magic.json */,
 				40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */,
 				40152F6B2AA1C3A00049E309 /* Info.plist */,
 			);
@@ -505,6 +510,9 @@
 			dependencies = (
 			);
 			name = holidayNow;
+			packageProductDependencies = (
+				40E30DAF2AAC7836005C0F8B /* Lottie */,
+			);
 			productName = holidayNow;
 			productReference = 40152F5A2AA1C39E0049E309 /* holidayNow.app */;
 			productType = "com.apple.product-type.application";
@@ -533,6 +541,9 @@
 				Base,
 			);
 			mainGroup = 40152F512AA1C39E0049E309;
+			packageReferences = (
+				40E30DAE2AAC7836005C0F8B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 40152F5B2AA1C39E0049E309 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -548,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */,
+				40BE590E2AAEF8BA00300A2C /* magic.json in Resources */,
 				7E42DD4A2AA1D711007391AB /* Localizable.strings in Resources */,
 				40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */,
 			);
@@ -858,6 +870,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		40E30DAE2AAC7836005C0F8B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		40E30DAF2AAC7836005C0F8B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40E30DAE2AAC7836005C0F8B /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 40152F522AA1C39E0049E309 /* Project object */;
 }
