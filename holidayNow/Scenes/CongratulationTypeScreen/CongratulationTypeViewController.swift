@@ -72,11 +72,11 @@ final class CongratulationTypeViewController: UIViewController {
         return label
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false, coordinator: coordinator)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: true, coordinator: coordinator)
     private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
     private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
     private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)
-    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.startMagic)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: CongratulationTypeViewModelProtocol) {
@@ -95,7 +95,7 @@ final class CongratulationTypeViewController: UIViewController {
         setupConstraints()
         setupTargets()
         
-        continueButton.block()
+        startSetupType()
     }
     
     // MARK: - Private Methods:
@@ -103,9 +103,7 @@ final class CongratulationTypeViewController: UIViewController {
         var minNumber: Int?
         var maxNumber: Int?
         var text: String?
-        
-        continueButton.unblock()
-        
+                
         switch type {
         case .text:
             minNumber = Resources.Int.textMinSliderValue
@@ -125,9 +123,7 @@ final class CongratulationTypeViewController: UIViewController {
             maxNumber = nil
             continueButton.block()
         }
-        
-        viewModel.setupGreetingsLength(with: minNumber ?? 1)
-        
+                
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
         maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
         
@@ -136,10 +132,17 @@ final class CongratulationTypeViewController: UIViewController {
         congratulationLenghLabel.text = text ?? ""
     }
     
+    private func startSetupType() {
+        textCongratulationButton.tapButton()
+        setupSentensesNumberLabel(with: .text)
+        viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
+        viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
+    }
+    
     // MARK: - Objc Methods:
-    @objc private func switchToFirstFormVC() {
-        coordinator?.goToFirstFormViewController()
+    @objc private func startMagic() {
         viewModel.sentCongratulationType()
+        coordinator?.goToWaitingViewController()
     }
     
     @objc private func setupCurrentSentensesValue() {
@@ -189,13 +192,13 @@ private extension CongratulationTypeViewController {
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            congratulationLenghLabel.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 100),
+            congratulationLenghLabel.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 30),
             congratulationLenghLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             lenghSlider.heightAnchor.constraint(equalToConstant: 5),
-            lenghSlider.topAnchor.constraint(equalTo: congratulationLenghLabel.bottomAnchor, constant: 50),
+            lenghSlider.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 80),
             
-            numberOfSentensesStackView.topAnchor.constraint(equalTo: lenghSlider.bottomAnchor, constant: 10),
+            numberOfSentensesStackView.topAnchor.constraint(equalTo: lenghSlider.bottomAnchor, constant: 20),
             numberOfSentensesStackView.leadingAnchor.constraint(equalTo: lenghSlider.leadingAnchor),
             numberOfSentensesStackView.trailingAnchor.constraint(equalTo: lenghSlider.trailingAnchor),
             
@@ -214,7 +217,7 @@ private extension CongratulationTypeViewController {
     }
     
     func setupTargets() {
-        continueButton.addTarget(self, action: #selector(switchToFirstFormVC), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(startMagic), for: .touchUpInside)
         lenghSlider.addTarget(self, action: #selector(setupCurrentSentensesValue), for: .valueChanged)
     }
 }

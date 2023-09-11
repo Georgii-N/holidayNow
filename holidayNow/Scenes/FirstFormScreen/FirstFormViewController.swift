@@ -61,8 +61,8 @@ final class FirstFormViewController: UIViewController {
         return collection
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: true, coordinator: coordinator)
-    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: false, coordinator: coordinator)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.FirstForm.continueButton)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol) {

@@ -80,8 +80,8 @@ final class OnboardingViewController: UIViewController {
     }
     
     // MARK: - Objc Methods:
-    @objc private func switchToSelectCongratulationTypeVC() {
-        coordinator?.goToCongratulationTypeViewController()
+    @objc private func switchToFirstFormVC() {
+        coordinator?.goToFirstFormViewController()
     }
 }
 
@@ -123,6 +123,6 @@ private extension OnboardingViewController {
     }
     
     func setupTargets() {
-        onboardingStartButton.addTarget(self, action: #selector(switchToSelectCongratulationTypeVC), for: .touchUpInside)
+        onboardingStartButton.addTarget(self, action: #selector(switchToFirstFormVC), for: .touchUpInside)
     }
 }

@@ -113,6 +113,8 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        addNewTarget()
+        
         return false
     }
     

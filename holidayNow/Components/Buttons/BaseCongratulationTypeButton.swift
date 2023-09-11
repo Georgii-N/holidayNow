@@ -80,7 +80,7 @@ final class BaseCongratulationTypeButton: UIView {
         super.touchesEnded(touches, with: event)
         transform = .identity
         backgroundColor = buttonColor
-        isSelected = !isSelected
+        tapButton()
         
         delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "",
                                           state: isSelected,
@@ -95,6 +95,10 @@ final class BaseCongratulationTypeButton: UIView {
     
     // MARK: - Public Methods:
     func changeSelectionState() {
+        isSelected = !isSelected
+    }
+    
+    func tapButton() {
         isSelected = !isSelected
     }
     
