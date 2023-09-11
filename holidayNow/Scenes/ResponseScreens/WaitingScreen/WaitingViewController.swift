@@ -6,9 +6,7 @@ final class WaitingViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
-    
     private var waitingViewModel: WaitingViewModelProtocol
-    private var animationView: LottieAnimationView?
     
     //MARK: - UI
     private lazy var imageView: UIImageView = {
@@ -28,13 +26,13 @@ final class WaitingViewController: UIViewController {
     }()
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
+    private lazy var animationView = LottieAnimationView(name: "magic")
     
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {
         self.waitingViewModel = waitingViewModel
         self.coordinator = coordinator
-        self.animationView = LottieAnimationView(name: "magic")
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,6 +44,7 @@ final class WaitingViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupAnimation()
         bind()
     }
     
@@ -76,15 +75,10 @@ private extension WaitingViewController {
         textLabel.text = waitingViewModel.getRandomText()
         
         customNavigationBar.setupNavigationBar(with: view, controller: self)
-        guard let animationView else { return }
         [imageView, textLabel, animationView].forEach(view.setupView)
-        
-        animationView.play()
-        animationView.loopMode = .loop
     }
     
     func setupConstraints() {
-        guard let animationView else { return }
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -101,5 +95,10 @@ private extension WaitingViewController {
             animationView.heightAnchor.constraint(equalToConstant: 200),
             animationView.widthAnchor.constraint(equalToConstant: 200)
         ])
+    }
+    
+    func setupAnimation() {
+        animationView.play()
+        animationView.loopMode = .loop
     }
 }
