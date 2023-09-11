@@ -24,6 +24,7 @@
 		40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */; };
 		40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */; };
 		40BE590E2AAEF8BA00300A2C /* magic.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BE590D2AAEF8BA00300A2C /* magic.json */; };
+		40DE51722AAF39D800C81506 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 40DE51712AAF39D800C81506 /* Amplitude */; };
 		40E30DB02AAC7836005C0F8B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 40E30DAF2AAC7836005C0F8B /* Lottie */; };
 		40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */; };
@@ -148,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40DE51722AAF39D800C81506 /* Amplitude in Frameworks */,
 				40E30DB02AAC7836005C0F8B /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +528,7 @@
 			name = holidayNow;
 			packageProductDependencies = (
 				40E30DAF2AAC7836005C0F8B /* Lottie */,
+				40DE51712AAF39D800C81506 /* Amplitude */,
 			);
 			productName = holidayNow;
 			productReference = 40152F5A2AA1C39E0049E309 /* holidayNow.app */;
@@ -557,6 +560,7 @@
 			mainGroup = 40152F512AA1C39E0049E309;
 			packageReferences = (
 				40E30DAE2AAC7836005C0F8B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				40DE51702AAF39D800C81506 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
 			);
 			productRefGroup = 40152F5B2AA1C39E0049E309 /* Products */;
 			projectDirPath = "";
@@ -888,6 +892,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		40DE51702AAF39D800C81506 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amplitude/Amplitude-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.17.1;
+			};
+		};
 		40E30DAE2AAC7836005C0F8B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -899,6 +911,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		40DE51712AAF39D800C81506 /* Amplitude */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40DE51702AAF39D800C81506 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */;
+			productName = Amplitude;
+		};
 		40E30DAF2AAC7836005C0F8B /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 40E30DAE2AAC7836005C0F8B /* XCRemoteSwiftPackageReference "lottie-ios" */;

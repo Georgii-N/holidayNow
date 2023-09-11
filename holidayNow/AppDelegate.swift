@@ -1,4 +1,5 @@
 import UIKit
+import Amplitude
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Amplitude.instance().initializeApiKey("5166bb136a4e6148b573f7c585315038")
+        
         let navigationController = UINavigationController()
         
         let networkClient = NetworkClient(apiKey: Resources.API.deepAI)
