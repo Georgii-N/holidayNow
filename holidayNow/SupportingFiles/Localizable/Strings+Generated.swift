@@ -37,8 +37,8 @@ internal enum L10n {
   internal enum FirstForm {
     /// Далее
     internal static let continueButton = L10n.tr("Localizable", "firstForm.continueButton", fallback: "Далее")
-    /// Имя
-    internal static let name = L10n.tr("Localizable", "firstForm.name", fallback: "Имя")
+    /// Кого поздравляем
+    internal static let name = L10n.tr("Localizable", "firstForm.name", fallback: "Кого поздравляем")
     /// Введите имя
     internal static let namePlaceholder = L10n.tr("Localizable", "firstForm.namePlaceholder", fallback: "Введите имя")
     /// Расскажите подробнее о том, кого хотите поздравить

@@ -109,7 +109,6 @@ final class CongratulationTypeViewController: UIViewController {
             minNumber = Resources.Int.textMinSliderValue
             maxNumber = Resources.Int.maxSliderValue
             text = L10n.Congratulation.sentencesLengh
-            lenghSlider.value = Float(Resources.Int.textMinSliderValue)
         case .poetry:
             minNumber = Resources.Int.poetryMinSliderValue
             maxNumber = Resources.Int.maxSliderValue
@@ -126,15 +125,22 @@ final class CongratulationTypeViewController: UIViewController {
                 
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
         maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
+       
+        UIView.animate(withDuration: 0.3) {
+            self.lenghSlider.minimumValue = Float(minNumber ?? 0)
+            self.lenghSlider.maximumValue = Float(maxNumber ?? 0)
+            self.lenghSlider.layoutIfNeeded()
+        }
         
-        lenghSlider.minimumValue = Float(minNumber ?? 0)
-        lenghSlider.maximumValue = Float(maxNumber ?? 0)
         congratulationLenghLabel.text = text ?? ""
     }
     
     private func startSetupType() {
-        textCongratulationButton.tapButton()
-        setupSentensesNumberLabel(with: .text)
+        minCountOfSentensesLabel.text = String(Resources.Int.textMinSliderValue)
+        maxCountOfSentensesLabel.text = String(Resources.Int.maxSliderValue)
+        congratulationLenghLabel.text = L10n.Congratulation.sentencesLengh
+        
+        textCongratulationButton.changeSelectionState()
         viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
         viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
     }

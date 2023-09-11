@@ -12,9 +12,9 @@ final class EnteringService {
     
     private var isFirstEnter: Bool? {
         get {
-            userDefaults.value(forKey: "isFirstEnter") as? Bool ?? nil
+            userDefaults.value(forKey: Resources.UserDefaults.key) as? Bool ?? nil
         } set {
-            userDefaults.set(newValue, forKey: "isFirstEnter")
+            userDefaults.set(newValue, forKey: Resources.UserDefaults.key)
         }
     }
     
