@@ -7,13 +7,20 @@ final class SuccessViewController: UIViewController {
     private var successViewModel: SuccessViewModelProtocol
     
     // MARK: - UI:
-    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = Resources.Images.ResponseScreens.responseSuccess
         return imageView
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .white
+        scrollView.isScrollEnabled = true
+
+        return scrollView
     }()
     
     private lazy var responseLabel: UILabel = {
@@ -23,6 +30,7 @@ final class SuccessViewController: UIViewController {
         responseLabel.numberOfLines = 0
         responseLabel.text = successViewModel.textResultObservable.wrappedValue
         responseLabel.textAlignment = .center
+        
         return responseLabel
     }()
     
@@ -58,7 +66,7 @@ final class SuccessViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func didTapGoToStartButton() {
-    // TODO: - Дописать обнуление контроллеров в навбаре
+        // TODO: - Дописать обнуление контроллеров в навбаре
         coordinator?.goToCongratulationTypeViewController()
     }
     
@@ -79,10 +87,12 @@ private extension SuccessViewController {
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
         [imageView,
-         responseLabel,
+         scrollView,
          copyResponseButton,
          backToStartButton,
          shareButton].forEach(view.setupView)
+        
+        scrollView.setupView(responseLabel)
     }
     
     func setupConstraints() {
@@ -92,31 +102,31 @@ private extension SuccessViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 220),
             
-            responseLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            responseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            responseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            scrollView.heightAnchor.constraint(equalToConstant: 250),
             
-            copyResponseButton.topAnchor.constraint(equalTo: responseLabel.bottomAnchor, constant: 20),
-            copyResponseButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            responseLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            responseLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            responseLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            responseLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            responseLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            
+            copyResponseButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20),
+            copyResponseButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             copyResponseButton.heightAnchor.constraint(equalToConstant: 55),
             copyResponseButton.widthAnchor.constraint(equalToConstant: 55),
             
             backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64),
-            backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -8),
             
             shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64),
             shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
-            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
-        
-        let topConstraint = responseLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20)
-           topConstraint.priority = .defaultHigh
-           
-           let bottomConstraint = responseLabel.bottomAnchor.constraint(lessThanOrEqualTo: copyResponseButton.topAnchor, constant: -20)
-           bottomConstraint.priority = .defaultHigh
-           
-           NSLayoutConstraint.activate([topConstraint, bottomConstraint])
     }
     
     func setupTargets() {
