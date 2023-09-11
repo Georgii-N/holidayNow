@@ -19,7 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewControllerFactory.coordinator = coordinator
         
         if let coordinator {
-            coordinator.start()
+            let enteringService = EnteringService()
+            if enteringService.isFirstEntering == nil {
+                coordinator.start()
+                enteringService.setupNewValue()
+            } else {
+                coordinator.goToFirstFormViewController()
+            }
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)

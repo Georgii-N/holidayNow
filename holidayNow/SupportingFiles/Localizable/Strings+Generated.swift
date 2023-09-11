@@ -11,8 +11,6 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   internal enum Congratulation {
-    /// Далее
-    internal static let `continue` = L10n.tr("Localizable", "congratulation.continue", fallback: "Далее")
     /// Длинное
     internal static let long = L10n.tr("Localizable", "congratulation.long", fallback: "Длинное")
     /// Количество строк
@@ -21,28 +19,34 @@ internal enum L10n {
     internal static let sentencesLengh = L10n.tr("Localizable", "congratulation.sentencesLengh", fallback: "Количество предложений")
     /// Короткое
     internal static let short = L10n.tr("Localizable", "congratulation.short", fallback: "Короткое")
-    /// Выберите тип контента
-    internal static let title = L10n.tr("Localizable", "congratulation.title", fallback: "Выберите тип контента")
-    /// Шаг 1/3
-    internal static let turn = L10n.tr("Localizable", "congratulation.turn", fallback: "Шаг 1/3")
+    /// Запустить магию
+    internal static let startMagic = L10n.tr("Localizable", "congratulation.startMagic", fallback: "Запустить магию")
+    /// Выберите тип поздравления и Magic Text начнёт творить волшебство
+    internal static let title = L10n.tr("Localizable", "congratulation.title", fallback: "Выберите тип поздравления и Magic Text начнёт творить волшебство")
+    /// Шаг 3/3
+    internal static let turn = L10n.tr("Localizable", "congratulation.turn", fallback: "Шаг 3/3")
     internal enum Button {
       /// Хокку
       internal static let haiku = L10n.tr("Localizable", "congratulation.button.haiku", fallback: "Хокку")
       /// Стихотворение
       internal static let poetry = L10n.tr("Localizable", "congratulation.button.poetry", fallback: "Стихотворение")
-      /// Простое
-      internal static let text = L10n.tr("Localizable", "congratulation.button.text", fallback: "Простое")
+      /// Обычное поздравление
+      internal static let text = L10n.tr("Localizable", "congratulation.button.text", fallback: "Обычное поздравление")
     }
   }
   internal enum FirstForm {
+    /// Далее
+    internal static let continueButton = L10n.tr("Localizable", "firstForm.continueButton", fallback: "Далее")
     /// Имя
     internal static let name = L10n.tr("Localizable", "firstForm.name", fallback: "Имя")
     /// Введите имя
     internal static let namePlaceholder = L10n.tr("Localizable", "firstForm.namePlaceholder", fallback: "Введите имя")
     /// Расскажите подробнее о том, кого хотите поздравить
     internal static let title = L10n.tr("Localizable", "firstForm.title", fallback: "Расскажите подробнее о том, кого хотите поздравить")
-    /// Шаг 2/3
-    internal static let turn = L10n.tr("Localizable", "firstForm.turn", fallback: "Шаг 2/3")
+    /// Шаг 1/3
+    internal static let turn = L10n.tr("Localizable", "firstForm.turn", fallback: "Шаг 1/3")
+    /// Максимальное количество опций - 3
+    internal static let warningOptionLimits = L10n.tr("Localizable", "firstForm.warningOptionLimits", fallback: "Максимальное количество опций - 3")
     internal enum Interests {
       /// Добавить своё
       internal static let addMyOwn = L10n.tr("Localizable", "firstForm.interests.addMyOwn", fallback: "Добавить своё")
@@ -114,6 +118,8 @@ internal enum L10n {
   internal enum SecondForm {
     /// Дерзкое
     internal static let bold = L10n.tr("Localizable", "secondForm.bold", fallback: "Дерзкое")
+    /// Далее
+    internal static let continueButton = L10n.tr("Localizable", "secondForm.continueButton", fallback: "Далее")
     /// Креативное
     internal static let creative = L10n.tr("Localizable", "secondForm.creative", fallback: "Креативное")
     /// Милое
@@ -138,12 +144,10 @@ internal enum L10n {
     internal static let respectful = L10n.tr("Localizable", "secondForm.respectful", fallback: "Уважительное")
     /// Чувственное
     internal static let sensual = L10n.tr("Localizable", "secondForm.sensual", fallback: "Чувственное")
-    /// Запустить магию
-    internal static let startMagic = L10n.tr("Localizable", "secondForm.startMagic", fallback: "Запустить магию")
     /// Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство
     internal static let title = L10n.tr("Localizable", "secondForm.title", fallback: "Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство")
-    /// Шаг 3/3
-    internal static let turn = L10n.tr("Localizable", "secondForm.turn", fallback: "Шаг 3/3")
+    /// Шаг 2/3
+    internal static let turn = L10n.tr("Localizable", "secondForm.turn", fallback: "Шаг 2/3")
     /// Остроумное
     internal static let witty = L10n.tr("Localizable", "secondForm.witty", fallback: "Остроумное")
     /// 8 марта

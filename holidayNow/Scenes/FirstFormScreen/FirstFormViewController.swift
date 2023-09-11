@@ -61,8 +61,9 @@ final class FirstFormViewController: UIViewController {
         return collection
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: true, coordinator: coordinator)
-    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.continue)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: false, coordinator: coordinator)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.FirstForm.continueButton)
+    private lazy var warningLabel = BaseWarningLabel(with: L10n.FirstForm.warningOptionLimits)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol) {
@@ -111,6 +112,11 @@ final class FirstFormViewController: UIViewController {
                 self.resumeOnMainThread(self.continueButton.unblock, with: ())
             }
         }
+        
+        viewModel?.selectedInterestsObservable.bind { [weak self] interests in
+            guard let self else { return }
+            self.resumeOnMainThread(self.controlCellsAvailability, with: interests.count)
+        }
     }
     
     private func updateCollection() {
@@ -121,6 +127,48 @@ final class FirstFormViewController: UIViewController {
         }
         
         firstFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+    }
+    
+    private func controlCellsAvailability(with number: Int) {
+        let cells = firstFormCollectionView.visibleCells
+        
+        if number == 3 {
+            cells.forEach { cell in
+                cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
+            }
+            
+            controlStateWarningLabel(isShow: true)
+        } else {
+            cells.forEach { cell in
+                guard cell == cell as? BaseCollectionViewCell else { return }
+                cell.isUserInteractionEnabled = true
+            }
+            
+            controlStateWarningLabel(isShow: false)
+        }
+    }
+    
+    private func controlStateWarningLabel(isShow: Bool) {
+        let indexPath = IndexPath(row: firstFormCollectionView.visibleCells.count - 1, section: 0)
+        guard let lastCell = firstFormCollectionView.cellForItem(at: indexPath) as? BaseCollectionViewEnterCell else { return }
+
+        if isShow {
+            view.setupView(warningLabel)
+            
+            NSLayoutConstraint.activate([
+                warningLabel.topAnchor.constraint(equalTo: lastCell.bottomAnchor, constant: 10),
+                warningLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                warningLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            ])
+            
+            lastCell.controlStateButton(isBlock: true)
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.warningLabel.removeFromSuperview()
+            }
+            
+            lastCell.controlStateButton(isBlock: false)
+        }
     }
     
     // MARK: - Objc Methods:

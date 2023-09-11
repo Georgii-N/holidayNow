@@ -5,9 +5,6 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     // MARK: - Dependencies:
     weak var dataProvider: DataProviderProtocol?
     
-    // MARK: - Constants and Variables:
-    private var selectedInterests: [GreetingTarget] = []
-    
     // MARK: - Observable Values:
     var userNameObservable: Observable<String?> {
         $userName
@@ -15,6 +12,10 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     var interestsObservable: Observable<Interest> {
         $interests
+    }
+    
+    var selectedInterestsObservable: Observable<[GreetingTarget]> {
+        $selectedInterests
     }
     
     @Observable
@@ -36,6 +37,9 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
         GreetingTarget(name: L10n.FirstForm.Interests.programming, image: Resources.Images.FirstForm.programming)
     ])
     
+    @Observable
+    private(set) var selectedInterests: [GreetingTarget] = []
+
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider

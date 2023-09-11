@@ -37,7 +37,7 @@ final class SecondFormViewController: UIViewController {
     }()
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.SecondForm.turn, isBackButton: true, coordinator: coordinator)
-    private lazy var startMagicButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.SecondForm.startMagic)
+    private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.SecondForm.continueButton)
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: SecondFormViewModelProtocol) {
@@ -119,9 +119,9 @@ final class SecondFormViewController: UIViewController {
     }
     
     // MARK: - Objc Methods:
-    @objc private func didTapStartMagicButton() {
+    @objc private func switchToCongratulationType() {
         viewModel.sentGreetingsInfo()
-        coordinator?.goToWaitingViewController()
+        coordinator?.goToCongratulationTypeViewController()
     }
 }
 
@@ -265,7 +265,7 @@ private extension SecondFormViewController {
         view.backgroundColor = .whiteDay
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
-        [titleLabel, secondFormCollectionView, startMagicButton].forEach(view.setupView)
+        [titleLabel, secondFormCollectionView, continueButton].forEach(view.setupView)
     }
     
     func setupConstraints() {
@@ -275,18 +275,18 @@ private extension SecondFormViewController {
             secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: startMagicButton.topAnchor, constant: -30),
+            secondFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
             
-            startMagicButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
         
-        [titleLabel, startMagicButton].forEach {
+        [titleLabel, continueButton].forEach {
             $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
     }
     
     func setupTargets() {
-        startMagicButton.addTarget(self, action: #selector(didTapStartMagicButton), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)
     }
 }

@@ -9,22 +9,23 @@
 "success.shareButton.title" = "Поделиться";
 
 // MARK: - CongratulationType screen:
-"congratulation.turn" = "Шаг 1/3";
-"congratulation.title" = "Выберите тип контента";
-"congratulation.button.text" = "Простое";
+"congratulation.turn" = "Шаг 3/3";
+"congratulation.title" = "Выберите тип поздравления и Magic Text начнёт творить волшебство";
+"congratulation.button.text" = "Обычное поздравление";
 "congratulation.button.poetry" = "Стихотворение";
 "congratulation.button.haiku" = "Хокку";
 "congratulation.sentencesLengh" = "Количество предложений";
 "congratulation.numberOfRows" = "Количество строк";
 "congratulation.short" = "Короткое";
 "congratulation.long" = "Длинное";
-"congratulation.continue" = "Далее";
+"congratulation.startMagic" = "Запустить магию";
 
 // MARK: - FirstForm screen:
-"firstForm.turn" = "Шаг 2/3";
+"firstForm.turn" = "Шаг 1/3";
 "firstForm.title" = "Расскажите подробнее о том, кого хотите поздравить";
 "firstForm.name" = "Имя";
 "firstForm.namePlaceholder" = "Введите имя";
+"firstForm.warningOptionLimits" = "Максимальное количество опций - 3";
 "firstForm.interests.title" = "Интересы";
 "firstForm.interests.cooking" = "Готовка";
 "firstForm.interests.sport" = "Спорт";
@@ -40,9 +41,10 @@
 "firstForm.interests.programming" = "Программирование";
 "firstForm.interests.addMyOwn" = "Добавить своё";
 "firstForm.interests.noAvailable" = "Больше недоступно";
+"firstForm.continueButton" = "Далее";
 
 // MARK: - SecondForm screen:
-"secondForm.turn" = "Шаг 3/3";
+"secondForm.turn" = "Шаг 2/3";
 "secondForm.title" = "Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство";
 "secondForm.greetingsName" = "Название праздника";
 "secondForm.happyBirthday" = "День рождения";
@@ -59,10 +61,7 @@
 "secondForm.creative" = "Креативное";
 "secondForm.bold" = "Дерзкое";
 "secondForm.witty" = "Остроумное";
-"secondForm.startMagic" = "Запустить магию";
-
-
-
+"secondForm.continueButton" = "Далее";
 
 // MARK: - Result screen:
 "resultScreen.title" = "Результаты";

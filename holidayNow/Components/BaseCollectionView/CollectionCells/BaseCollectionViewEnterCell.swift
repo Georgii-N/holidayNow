@@ -38,7 +38,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 18
         button.backgroundColor = .lightGray
-    
+        
         return button
     }()
     
@@ -70,6 +70,19 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         cellWidht = value - totalInsets - elementWidht
     }
     
+    func controlStateButton(isBlock: Bool) {
+        if isBlock {
+            isUserInteractionEnabled = false
+            changeButtonState(isEnable: false)
+            enterNameTextField.placeholder = L10n.FirstForm.Interests.noAvailable
+        } else {
+            if interestCounter != 3 {
+                isUserInteractionEnabled = true
+                enterNameTextField.placeholder = L10n.FirstForm.Interests.addMyOwn
+            }
+        }
+    }
+    
     // MARK: - Private Methods:
     private func changeButtonState(isEnable: Bool) {
         if isEnable {
@@ -87,14 +100,15 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     // MARK: - Objc Methods:
     @objc private func addNewTarget() {
         guard let text = enterNameTextField.text else { return }
-        delegate?.addNewTarget(name: text)
-        interestCounter += 1
-        enterNameTextField.text = nil
         
-        if interestCounter == 4 {
-            isUserInteractionEnabled = false
-            changeButtonState(isEnable: false)
-            enterNameTextField.placeholder = L10n.FirstForm.Interests.noAvailable
+        if text != "" {
+            delegate?.addNewTarget(name: text)
+            interestCounter += 1
+            enterNameTextField.text = nil
+        }
+        
+        if interestCounter == 3 {
+           controlStateButton(isBlock: true)
         }
     }
 }
@@ -113,6 +127,8 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        addNewTarget()
+        
         return false
     }
     
