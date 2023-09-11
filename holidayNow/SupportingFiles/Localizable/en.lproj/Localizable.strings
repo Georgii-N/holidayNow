@@ -25,6 +25,7 @@
 "firstForm.title" = "Расскажите подробнее о том, кого хотите поздравить";
 "firstForm.name" = "Имя";
 "firstForm.namePlaceholder" = "Введите имя";
+"firstForm.warningOptionLimits" = "Максимальное количество опций - 3";
 "firstForm.interests.title" = "Интересы";
 "firstForm.interests.cooking" = "Готовка";
 "firstForm.interests.sport" = "Спорт";

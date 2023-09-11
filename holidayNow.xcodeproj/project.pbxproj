@@ -52,6 +52,7 @@
 		7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */; };
 		7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */; };
 		7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */; };
+		7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */; };
 		7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABC82AA705410018196F /* FirstFormViewController.swift */; };
 		7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */; };
 		7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */; };
@@ -119,6 +120,7 @@
 		7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButton.swift; sourceTree = "<group>"; };
 		7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButtonDelegate.swift; sourceTree = "<group>"; };
 		7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringService.swift; sourceTree = "<group>"; };
+		7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWarningLabel.swift; sourceTree = "<group>"; };
 		7EFFABC82AA705410018196F /* FirstFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewController.swift; sourceTree = "<group>"; };
 		7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModel.swift; sourceTree = "<group>"; };
 		7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				7E42DD652AA36CEE007391AB /* Buttons */,
 				7E3757CE2AA60F120093A3C5 /* BaseCollectionView */,
 				40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */,
+				7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */,
 				7E0213762AA9F8A000B29565 /* CongratulationTypeViewModel.swift in Sources */,
 				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,
+				7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */,
 				40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */,
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
