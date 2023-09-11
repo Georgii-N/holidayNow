@@ -2,11 +2,13 @@ import Foundation
 
 final class EnteringService {
     
+    // MARK: - Classes:
+    private let userDefaults = UserDefaults.standard
+    
+    // MARK: - Constants and Variables:
     var isFirstEntering: Bool? {
         isFirstEnter
     }
-    
-    private let userDefaults = UserDefaults.standard
     
     private var isFirstEnter: Bool? {
         get {
@@ -16,6 +18,7 @@ final class EnteringService {
         }
     }
     
+    // MARK: - Public Methods:
     func setupNewValue() {
         isFirstEnter = true
     }
