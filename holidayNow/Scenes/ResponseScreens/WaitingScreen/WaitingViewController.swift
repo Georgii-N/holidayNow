@@ -6,7 +6,9 @@ final class WaitingViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
+    
     private var waitingViewModel: WaitingViewModelProtocol
+    private var animationView: LottieAnimationView?
     
     //MARK: - UI
     private lazy var imageView: UIImageView = {
@@ -32,6 +34,7 @@ final class WaitingViewController: UIViewController {
     init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {
         self.waitingViewModel = waitingViewModel
         self.coordinator = coordinator
+        self.animationView = LottieAnimationView(name: "magic")
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -73,11 +76,15 @@ private extension WaitingViewController {
         textLabel.text = waitingViewModel.getRandomText()
         
         customNavigationBar.setupNavigationBar(with: view, controller: self)
+        guard let animationView else { return }
+        [imageView, textLabel, animationView].forEach(view.setupView)
         
-        [imageView, textLabel].forEach(view.setupView)
+        animationView.play()
+        animationView.loopMode = .loop
     }
     
     func setupConstraints() {
+        guard let animationView else { return }
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -87,7 +94,12 @@ private extension WaitingViewController {
             textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            textLabel.heightAnchor.constraint(equalToConstant: 100)
+            textLabel.heightAnchor.constraint(equalToConstant: 100),
+            
+            animationView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 20),
+            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animationView.heightAnchor.constraint(equalToConstant: 200),
+            animationView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
