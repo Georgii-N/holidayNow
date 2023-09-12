@@ -18,7 +18,7 @@ final class ErrorNetworkViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .bodyMediumBoldFont
+        label.font = .bodyMediumRegularFont
         label.textColor = .blackDay
         label.text = L10n.ResultScreen.NetworkErrorText.var1
         return label
@@ -60,19 +60,19 @@ private extension ErrorNetworkViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 10),
+            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 220),
             
             textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             textLabel.heightAnchor.constraint(equalToConstant: 100),
             
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
     

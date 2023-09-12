@@ -5,7 +5,7 @@ final class BaseCollectionViewReusableView: UICollectionReusableView {
     // MARK: - UI:
     private lazy var headerLabel: UILabel = {
        let label = UILabel()
-        label.font = .captionLargeBoldFont
+        label.font = .headerSmallBoldFont
         label.textColor = .blackDay
         
         return label

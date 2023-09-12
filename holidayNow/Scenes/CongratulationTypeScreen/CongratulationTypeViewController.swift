@@ -11,9 +11,18 @@ final class CongratulationTypeViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .bodySmallRegularFont
+        label.font = .bodyMediumRegularFont
         label.textColor = .gray
         label.text = L10n.Congratulation.title
+        
+        return label
+    }()
+    
+    private lazy var congratulationTypeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .headerSmallBoldFont
+        label.textAlignment = .left
+        label.text = L10n.Congratulation.chooseType
         
         return label
     }()
@@ -23,16 +32,16 @@ final class CongratulationTypeViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
-        stackView.spacing = 10
+        stackView.spacing = 20
         
         return stackView
     }()
     
     private lazy var congratulationLenghLabel: UILabel = {
         let label = UILabel()
-        label.font = .captionMediumBoldFont
+        label.font = .headerSmallBoldFont
         label.text = L10n.Congratulation.sentencesLengh
-        
+        label.textAlignment = .left
         return label
     }()
     
@@ -58,7 +67,7 @@ final class CongratulationTypeViewController: UIViewController {
     
     private lazy var minCountOfSentensesLabel: UILabel = {
         let label = UILabel()
-        label.font = .captionExtraSmallRegularFont
+        label.font = .captionSmallRegularFont
         label.textAlignment = .left
         
         return label
@@ -66,7 +75,7 @@ final class CongratulationTypeViewController: UIViewController {
     
     private lazy var maxCountOfSentensesLabel: UILabel = {
         let label = UILabel()
-        label.font = .captionExtraSmallRegularFont
+        label.font = .captionSmallRegularFont
         label.textAlignment = .right
         
         return label
@@ -183,7 +192,7 @@ private extension CongratulationTypeViewController {
             $0.delegate = self
         }
         
-        [titleLabel, buttonsStack, congratulationLenghLabel, lenghSlider, continueButton,
+        [titleLabel, congratulationTypeLabel, buttonsStack, congratulationLenghLabel, lenghSlider, continueButton,
          numberOfSentensesStackView].forEach(view.setupView)
         
         [minCountOfSentensesLabel, maxCountOfSentensesLabel].forEach(numberOfSentensesStackView.addArrangedSubview)
@@ -193,13 +202,14 @@ private extension CongratulationTypeViewController {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
             
+            congratulationTypeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            
             buttonsStack.heightAnchor.constraint(equalToConstant: 240),
-            buttonsStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
+            buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: 30),
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             congratulationLenghLabel.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 30),
-            congratulationLenghLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             lenghSlider.heightAnchor.constraint(equalToConstant: 5),
             lenghSlider.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 80),
@@ -208,10 +218,10 @@ private extension CongratulationTypeViewController {
             numberOfSentensesStackView.leadingAnchor.constraint(equalTo: lenghSlider.leadingAnchor),
             numberOfSentensesStackView.trailingAnchor.constraint(equalTo: lenghSlider.trailingAnchor),
             
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
         
-        [titleLabel, textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [titleLabel, congratulationTypeLabel, congratulationLenghLabel, textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
             $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }

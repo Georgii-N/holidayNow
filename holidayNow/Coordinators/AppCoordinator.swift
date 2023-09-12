@@ -58,4 +58,8 @@ final class AppCoordinator: CoordinatorProtocol {
     func goBack() {
         navigationController.popViewController(animated: true)
     }
+    
+    func removeAllviewControllers() {
+        navigationController.viewControllers.removeAll()
+    }
 }
