@@ -26,6 +26,7 @@
 "firstForm.name" = "Кого поздравляем";
 "firstForm.namePlaceholder" = "Введите имя";
 "firstForm.warningOptionLimits" = "Максимальное количество опций - 3";
+"firstForm.warningCharacterLimits" = "Максимальное количество символов - 15";
 "firstForm.interests.title" = "Интересы";
 "firstForm.interests.cooking" = "Готовка";
 "firstForm.interests.sport" = "Спорт";

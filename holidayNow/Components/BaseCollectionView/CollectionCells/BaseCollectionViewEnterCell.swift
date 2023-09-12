@@ -103,6 +103,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         
         if text != "" {
             delegate?.addNewTarget(name: text)
+            delegate?.changeStateWarningLabel(isShow: false)
             interestCounter += 1
             enterNameTextField.text = nil
         }
@@ -118,8 +119,19 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.length == 1 && !string.isEmpty || range.length == 1 && string.isEmpty && textField.text?.count == 1 {
             changeButtonState(isEnable: false)
+            delegate?.changeStateWarningLabel(isShow: false)
         } else {
             changeButtonState(isEnable: true)
+        }
+        
+        if let currentText = textField.text {
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            let result = updatedText.count <= 15
+            
+            delegate?.changeStateWarningLabel(isShow: !result)
+            
+            return result
         }
         
         return true
@@ -128,12 +140,14 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         addNewTarget()
+        delegate?.changeStateWarningLabel(isShow: false)
         
         return false
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField.hasText {
+            delegate?.changeStateWarningLabel(isShow: false)
             changeButtonState(isEnable: false)
         }
         

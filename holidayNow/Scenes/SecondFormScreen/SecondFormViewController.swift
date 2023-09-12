@@ -38,6 +38,7 @@ final class SecondFormViewController: UIViewController {
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.SecondForm.turn, isBackButton: true, coordinator: coordinator)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.SecondForm.continueButton)
+    private lazy var warningLabel = BaseWarningLabel()
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: SecondFormViewModelProtocol) {
@@ -160,6 +161,18 @@ extension SecondFormViewController: BaseCollectionViewEnterCellDelegate {
         }
         
         viewModel.addNewHoliday(with: name)
+    }
+    
+    func changeStateWarningLabel(isShow: Bool) {
+        if isShow {
+            controlStateWarningLabel(label: warningLabel,
+                                     isShow: true,
+                                     from: secondFormCollectionView,
+                                     with: L10n.FirstForm.warningCharacterLimits)
+        } else {
+            controlStateWarningLabel(label: warningLabel,
+                                     isShow: false)
+        }
     }
 }
 

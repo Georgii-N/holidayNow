@@ -45,6 +45,8 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "firstForm.title", fallback: "Расскажите подробнее о том, кого хотите поздравить")
     /// Шаг 1/3
     internal static let turn = L10n.tr("Localizable", "firstForm.turn", fallback: "Шаг 1/3")
+    /// Максимальное количество символов - 15
+    internal static let warningCharacterLimits = L10n.tr("Localizable", "firstForm.warningCharacterLimits", fallback: "Максимальное количество символов - 15")
     /// Максимальное количество опций - 3
     internal static let warningOptionLimits = L10n.tr("Localizable", "firstForm.warningOptionLimits", fallback: "Максимальное количество опций - 3")
     internal enum Interests {

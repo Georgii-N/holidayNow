@@ -44,3 +44,31 @@ extension UIViewController {
         view.frame.origin.y = 0
     }
 }
+
+// MARK: - Warning Label:
+extension UIViewController {
+    func controlStateWarningLabel(label: UILabel,
+                                  isShow: Bool,
+                                  from collection: UICollectionView? = .none,
+                                  with text: String? = .none) {
+        if !isShow {
+            label.removeFromSuperview()
+        } else {
+            guard let collection else { return }
+            let countOfCell = collection.numberOfItems(inSection: 0)
+            let indexPath = IndexPath(row: countOfCell - 1, section: 0)
+            guard let lastCell = collection.cellForItem(at: indexPath) as? BaseCollectionViewEnterCell else { return }
+            
+            if isShow {
+                view.setupView(label)
+                label.text = text
+                
+                NSLayoutConstraint.activate([
+                    label.topAnchor.constraint(equalTo: lastCell.bottomAnchor, constant: 10),
+                    label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                    label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                ])
+            }
+        }
+    }
+}
