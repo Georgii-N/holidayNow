@@ -69,7 +69,7 @@
 "resultScreen.goToStart" = "В Начало";
 
 "resultScreen.WaitingText.var1" = "Происходит магия Хогвартса...Скоро все будет!";
-"resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструмены";
+"resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструменты";
 "resultScreen.WaitingText.var3" = "Нейросеть уже проснулась...Ждем результата...";
 
 "resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз:(";

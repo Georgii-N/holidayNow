@@ -36,7 +36,7 @@ final class SuccessViewController: UIViewController {
     
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false, coordinator: coordinator)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: false, coordinator: coordinator)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, successViewModel: SuccessViewModelProtocol) {
@@ -89,12 +89,12 @@ private extension SuccessViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 220),
             
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -20),
