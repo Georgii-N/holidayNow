@@ -11,7 +11,7 @@ final class FirstFormViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .bodySmallRegularFont
+        label.font = .bodyMediumRegularFont
         label.textColor = .gray
         label.text = L10n.FirstForm.title
         
@@ -20,7 +20,7 @@ final class FirstFormViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .captionLargeBoldFont
+        label.font = .headerSmallBoldFont
         label.textColor = .blackDay
         label.text = L10n.FirstForm.name
         
@@ -39,6 +39,7 @@ final class FirstFormViewController: UIViewController {
         textField.placeholder = L10n.FirstForm.namePlaceholder
         textField.backgroundColor = .whiteDay
         textField.textColor = .blackDay
+        textField.font = .captionMediumRegularFont
         
         return textField
     }()
@@ -308,7 +309,7 @@ private extension FirstFormViewController {
             firstFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
             firstFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
         
         [titleLabel, nameLabel, enterNameTextField, continueButton].forEach {

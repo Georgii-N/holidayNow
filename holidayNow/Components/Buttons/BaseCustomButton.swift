@@ -66,7 +66,7 @@ final class BaseCustomButton: UIButton {
             buttonColor = .universalRed
             buttonTextColor = .white
         case .back:
-            buttonColor = .lightUniversalRed
+            buttonColor = .lightGray
             buttonTextColor = .black
         }
         
@@ -74,13 +74,13 @@ final class BaseCustomButton: UIButton {
         backgroundColor = buttonColor
         setTitle(ButtonText, for: .normal)
         setTitleColor(buttonTextColor, for: .normal)
-        titleLabel?.font = .captionSmallBoldFont
+        titleLabel?.font = .captionMediumBoldFont
     }
 }
 
 // MARK: - Setup Views
 private extension BaseCustomButton {
     func setupConstraints() {
-        heightAnchor.constraint(equalToConstant: 60).isActive = true
+        heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }

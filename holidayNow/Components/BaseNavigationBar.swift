@@ -9,7 +9,7 @@ final class BaseNavigationBar: UIView {
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textAlignment = .left
-        titleLabel.font = .headerSmallBoldFont
+        titleLabel.font = .captionMediumBoldFont
         titleLabel.textColor = .blackDay
         return titleLabel
     }()
@@ -46,7 +46,7 @@ final class BaseNavigationBar: UIView {
         controller.navigationController?.navigationBar.isHidden = true
         
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.topAnchor),
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             leadingAnchor.constraint(equalTo: view.leadingAnchor),
             trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
@@ -74,14 +74,14 @@ private extension BaseNavigationBar {
         let isHidden = backButton.isHidden
         
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 80),
+            heightAnchor.constraint(equalToConstant: 50),
             
-            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
+            backButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             backButton.heightAnchor.constraint(equalToConstant: 24),
             backButton.widthAnchor.constraint(equalToConstant: 24),
             
-            titleLabel.topAnchor.constraint(equalTo: backButton.topAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: isHidden ? leadingAnchor : backButton.trailingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])

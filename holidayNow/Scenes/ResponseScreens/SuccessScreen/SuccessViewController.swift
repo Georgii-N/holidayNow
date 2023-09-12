@@ -25,7 +25,7 @@ final class SuccessViewController: UIViewController {
     
     private lazy var responseLabel: UILabel = {
         let responseLabel = UILabel()
-        responseLabel.font = .bodyMediumBoldFont
+        responseLabel.font = .bodyMediumRegularFont
         responseLabel.textColor = .blackDay
         responseLabel.numberOfLines = 0
         responseLabel.text = successViewModel.textResultObservable.wrappedValue
@@ -58,6 +58,7 @@ final class SuccessViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func didTapGoToStartButton() {
+        coordinator?.removeAllviewControllers()
         coordinator?.goToFirstFormViewController()
     }
     
@@ -94,7 +95,7 @@ private extension SuccessViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 220),
             
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
+            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -20),
@@ -105,12 +106,12 @@ private extension SuccessViewController {
             responseLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             responseLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64),
+            backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -8),
+            backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -10),
             
-            shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64),
-            shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
+            shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+            shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
             shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
     }

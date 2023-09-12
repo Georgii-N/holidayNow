@@ -24,7 +24,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     // MARK: - UI:
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .captionSmallBoldFont
+        label.font = .captionMediumRegularFont
         label.textColor = .gray
         
         return label

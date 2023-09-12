@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   internal enum Congratulation {
+    /// Тип поздравления
+    internal static let chooseType = L10n.tr("Localizable", "congratulation.chooseType", fallback: "Тип поздравления")
     /// Длинное
     internal static let long = L10n.tr("Localizable", "congratulation.long", fallback: "Длинное")
     /// Количество строк

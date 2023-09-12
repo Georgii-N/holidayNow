@@ -15,4 +15,5 @@ protocol CoordinatorProtocol: AnyObject {
     func goToErrorAPIViewController()
     
     func goBack()
+    func removeAllviewControllers()
 }

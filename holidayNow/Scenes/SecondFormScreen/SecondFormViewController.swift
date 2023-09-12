@@ -11,7 +11,7 @@ final class SecondFormViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .bodySmallRegularFont
+        label.font = .bodyMediumRegularFont
         label.textColor = .gray
         label.text = L10n.SecondForm.title
         
@@ -300,7 +300,7 @@ private extension SecondFormViewController {
             secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             secondFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
             
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
         
         [titleLabel, continueButton].forEach {

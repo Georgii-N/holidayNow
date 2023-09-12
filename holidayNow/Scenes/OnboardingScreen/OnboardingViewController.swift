@@ -32,7 +32,7 @@ final class OnboardingViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .white
-        label.font = .bodyLargeRegularFont
+        label.font = .bodyMediumRegularFont
         label.text = L10n.Onboarding.description
         
         return label
@@ -118,7 +118,7 @@ private extension OnboardingViewController {
             
             onboardingStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             onboardingStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            onboardingStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            onboardingStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
     }
     

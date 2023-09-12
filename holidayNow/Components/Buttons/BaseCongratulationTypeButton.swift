@@ -32,7 +32,7 @@ final class BaseCongratulationTypeButton: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .captionLargeBoldFont
+        label.font = .captionMediumRegularFont
         
         return label
     }()
@@ -135,7 +135,7 @@ extension BaseCongratulationTypeButton {
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 70),
+            heightAnchor.constraint(equalToConstant: 56),
             
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

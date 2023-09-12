@@ -334,10 +334,10 @@
 			isa = PBXGroup;
 			children = (
 				7E42DD5C2AA1F21F007391AB /* OnboardingScreen */,
-				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
-				7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */,
 				7EFFABCA2AA705450018196F /* FirstFormScreen */,
 				7EFFABE52AA8D1660018196F /* SecondFormScreen */,
+				7E42DD5F2AA207AC007391AB /* CongratulationTypeScreen */,
+				40F2A8FA2AA31DD4009E345B /* ResponseScreens */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

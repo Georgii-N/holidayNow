@@ -11,6 +11,7 @@
 // MARK: - CongratulationType screen:
 "congratulation.turn" = "Шаг 3/3";
 "congratulation.title" = "Выберите тип поздравления и Magic Text начнёт творить волшебство";
+"congratulation.chooseType" = "Тип поздравления";
 "congratulation.button.text" = "Обычное поздравление";
 "congratulation.button.poetry" = "Стихотворение";
 "congratulation.button.haiku" = "Хокку";

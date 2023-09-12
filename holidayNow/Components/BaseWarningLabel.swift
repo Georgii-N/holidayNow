@@ -21,7 +21,7 @@ final class BaseWarningLabel: UILabel {
 // MARK: - Setup Views:
 extension BaseWarningLabel {
     private func setupViews() {
-        font = .captionExtraSmallRegularFont
+        font = .captionSmallRegularFont
         textColor = .universalRed
     }
 }
