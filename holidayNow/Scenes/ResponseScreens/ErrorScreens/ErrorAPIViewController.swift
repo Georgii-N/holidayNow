@@ -45,6 +45,11 @@ final class ErrorAPIViewController: UIViewController {
         setupViews()
         setupConstraints()
     }
+    
+    // MARK: - Objc Methods:
+    @objc private func didTapActionButton() {
+        coordinator?.goToFirstFormViewController()
+    }
 }
 
 // MARK: - Setup Views
@@ -72,5 +77,9 @@ private extension ErrorAPIViewController {
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
+    }
+    
+    func setupTargets() {
+        actionButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
     }
 }

@@ -45,7 +45,7 @@ final class ErrorNetworkViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func didTapActionButton() {
-        coordinator?.goToCongratulationTypeViewController()
+        coordinator?.goToFirstFormViewController()
     }
 }
 
