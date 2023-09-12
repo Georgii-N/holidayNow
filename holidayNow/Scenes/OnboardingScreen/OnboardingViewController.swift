@@ -108,13 +108,13 @@ private extension OnboardingViewController {
             onboardingDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             onboardingDescriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            onboardingTitleLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: height * 0.1),
+            onboardingTitleLabel.bottomAnchor.constraint(equalTo: onboardingDescriptionLabel.topAnchor, constant: -20),
             onboardingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             onboardingTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
         
-            onboardingDescriptionLabel.topAnchor.constraint(equalTo: onboardingTitleLabel.bottomAnchor, constant: 10),
             onboardingDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             onboardingDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            onboardingDescriptionLabel.bottomAnchor.constraint(equalTo: onboardingStartButton.topAnchor, constant: -20),
             
             onboardingStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             onboardingStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),

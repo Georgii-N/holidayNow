@@ -100,6 +100,8 @@ final class CongratulationTypeViewController: UIViewController {
     
     // MARK: - Private Methods:
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
+        continueButton.unblock()
+
         var minNumber: Int?
         var maxNumber: Int?
         var text: String?
