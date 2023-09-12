@@ -45,6 +45,7 @@ final class SuccessViewController: UIViewController {
     
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false, coordinator: coordinator)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, successViewModel: SuccessViewModelProtocol) {
@@ -62,6 +63,7 @@ final class SuccessViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        copyResponseButton.isHidden = true
     }
     
     // MARK: - Objc Methods:
@@ -71,11 +73,13 @@ final class SuccessViewController: UIViewController {
     }
     
     @objc private func didTapShareButton() {
-        let activityViewController = UIActivityViewController(activityItems: [successViewModel.textResultObservable], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [responseLabel.text], applicationActivities: nil)
         present(activityViewController, animated: true)
     }
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: false, coordinator: coordinator)
+    @objc private func didTapCopyButton() {
+        UIPasteboard.general.string = responseLabel.text
+    }
 }
 
 // MARK: - Setup Views:
@@ -130,6 +134,7 @@ private extension SuccessViewController {
     }
     
     func setupTargets() {
+        copyResponseButton.addTarget(self, action: #selector(didTapCopyButton), for: .touchUpInside)
         backToStartButton.addTarget(self, action: #selector(didTapGoToStartButton), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
     }
