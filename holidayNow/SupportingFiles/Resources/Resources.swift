@@ -42,6 +42,10 @@ enum Resources {
             static let witty = UIImage(named: "psychology") ?? UIImage()
         }
         
+        enum ownCell {
+            static let star = UIImage(named: "star_border") ?? UIImage()
+        }
+        
         enum ResponseScreens {
             static let responseAIError = UIImage(named: "response_ai_error") ?? UIImage()
             static let responseNetworkError = UIImage(named: "response_network_error") ?? UIImage()

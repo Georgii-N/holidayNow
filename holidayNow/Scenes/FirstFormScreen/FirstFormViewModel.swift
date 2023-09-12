@@ -5,6 +5,15 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     // MARK: - Dependencies:
     weak var dataProvider: DataProviderProtocol?
     
+    // MARK: - Constants and Variables:
+    var cellImages = [
+        Resources.Images.ownCell.star,
+        Resources.Images.SecondForm.respectful,
+        Resources.Images.SecondForm.funny
+    ]
+    
+    private var ownCellCounter = 0
+    
     // MARK: - Observable Values:
     var userNameObservable: Observable<String?> {
         $userName
@@ -66,9 +75,9 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     func addNewOwnInterest(name: String) {
         let index = interests.interests.count
-        interests.interests.insert(
-            GreetingTarget(name: name,
-                           image: Resources.Images.FirstForm.animals), at: index)
+        
+        interests.interests.insert(GreetingTarget(name: name, image: cellImages[ownCellCounter]), at: index)
+        ownCellCounter += 1
     }
     
     func sentInterests() {

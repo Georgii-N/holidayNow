@@ -18,6 +18,13 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         IntonationsTarget(name: L10n.SecondForm.witty, image: Resources.Images.SecondForm.witty)
     ])
     
+    var cellImages = [
+        Resources.Images.ownCell.star,
+        Resources.Images.SecondForm.respectful,
+        Resources.Images.SecondForm.funny
+    ]
+    
+    private var ownCellCounter = 0
     private var selectedIntonation: String?
     
     // MARK: - Observable Values:
@@ -55,7 +62,8 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     }
     
     func addNewHoliday(with name: String) {
-        holidays.holidays.append(HolidaysTarget(name: name, image: Resources.Images.SecondForm.birthday))
+        holidays.holidays.append(HolidaysTarget(name: name, image: cellImages[ownCellCounter]))
+        ownCellCounter += 1
     }
     
     func sentGreetingsInfo() {

@@ -134,6 +134,10 @@ final class FirstFormViewController: UIViewController {
         
         if number == 3 {
             cells.forEach { cell in
+                if let cell = cell as? BaseCollectionViewEnterCell {
+                    cell.controlStateButton(isBlock: true)
+                }
+                
                 cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
             }
             
@@ -143,7 +147,10 @@ final class FirstFormViewController: UIViewController {
                                      with: L10n.FirstForm.warningOptionLimits)
         } else {
             cells.forEach { cell in
-                guard cell == cell as? BaseCollectionViewCell else { return }
+                if let cell = cell as? BaseCollectionViewEnterCell {
+                    cell.controlStateButton(isBlock: false)
+                }
+                
                 cell.isUserInteractionEnabled = true
             }
             
