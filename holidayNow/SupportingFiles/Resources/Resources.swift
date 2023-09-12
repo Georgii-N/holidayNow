@@ -62,6 +62,7 @@ enum Resources {
     
     enum API {
         static let deepAI = "13fc0b0b-50a8-4acd-8ced-0ad045c64746"
+        static let amplitude = "5166bb136a4e6148b573f7c585315038"
     }
     
     enum Identifiers {

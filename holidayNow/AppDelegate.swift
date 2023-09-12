@@ -1,5 +1,5 @@
 import UIKit
-import Amplitude
+import AmplitudeSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,7 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Amplitude.instance().initializeApiKey("5166bb136a4e6148b573f7c585315038")
+        let amplitude = Amplitude(configuration: Configuration(
+            apiKey: Resources.API.amplitude
+        ))
         
         let navigationController = UINavigationController()
         
