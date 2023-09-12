@@ -72,11 +72,13 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     
     func controlStateButton(isBlock: Bool) {
         if isBlock {
+            enterNameTextField.isUserInteractionEnabled = false
             isUserInteractionEnabled = false
             changeButtonState(isEnable: false)
             enterNameTextField.placeholder = L10n.FirstForm.Interests.noAvailable
         } else {
             if interestCounter != 3 {
+                enterNameTextField.isUserInteractionEnabled = true
                 isUserInteractionEnabled = true
                 enterNameTextField.placeholder = L10n.FirstForm.Interests.addMyOwn
             }
@@ -106,10 +108,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
             delegate?.changeStateWarningLabel(isShow: false)
             interestCounter += 1
             enterNameTextField.text = nil
-        }
-        
-        if interestCounter == 3 {
-           controlStateButton(isBlock: true)
+            enterNameTextField.resignFirstResponder()
         }
     }
 }

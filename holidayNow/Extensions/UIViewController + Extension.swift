@@ -22,21 +22,22 @@ extension UIViewController {
                                                object: nil)
     }
     
-    
     @objc private func keyboardDidShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
               let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
         
-        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
         let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let keyboardFrameInView = view.convert(keyboardFrame.cgRectValue, from: nil)
         let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
         
         if textFieldBottomY > keyboardTopY {
-            let textBoxY = convertedTextFieldFrame.origin.y
-            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+            let newY = view.frame.origin.y - keyboardFrameInView.size.height
             
-            view.frame.origin.y = newFrameY
+            if newY < 0 {
+                view.frame.origin.y = newY
+            }
         }
     }
     
