@@ -23,7 +23,7 @@
 // MARK: - FirstForm screen:
 "firstForm.turn" = "Шаг 1/3";
 "firstForm.title" = "Расскажите подробнее о том, кого хотите поздравить";
-"firstForm.name" = "Имя";
+"firstForm.name" = "Кого поздравляем";
 "firstForm.namePlaceholder" = "Введите имя";
 "firstForm.warningOptionLimits" = "Максимальное количество опций - 3";
 "firstForm.interests.title" = "Интересы";

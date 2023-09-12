@@ -78,4 +78,8 @@ enum Resources {
         static let poetryMinSliderValue = 4
         static let maxSliderValue = 12
     }
+    
+    enum UserDefaults {
+        static let key = "isFirstEnter"
+    }
 }

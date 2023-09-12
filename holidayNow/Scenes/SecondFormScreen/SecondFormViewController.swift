@@ -58,6 +58,7 @@ final class SecondFormViewController: UIViewController {
         setupObservers()
         
         bind()
+        continueButton.block()
     }
     
     deinit {
@@ -74,6 +75,15 @@ final class SecondFormViewController: UIViewController {
         viewModel.holidaysObserver.bind { [weak self] _ in
             guard let self else { return }
             self.resumeOnMainThread(self.updateCollection, with: ())
+        }
+        
+        viewModel.selectedHolidayObservable.bind { [weak self] _ in
+            guard let self else { return }
+            if self.secondFormCollectionView.indexPathsForSelectedItems?.count == 0 {
+                self.resumeOnMainThread(self.continueButton.block, with: ())
+            } else {
+                self.resumeOnMainThread(self.continueButton.unblock, with: ())
+            }
         }
     }
     

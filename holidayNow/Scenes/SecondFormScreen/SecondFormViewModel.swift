@@ -18,13 +18,19 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         IntonationsTarget(name: L10n.SecondForm.witty, image: Resources.Images.SecondForm.witty)
     ])
     
-    private var selectedHoliday: String?
     private var selectedIntonation: String?
     
     // MARK: - Observable Values:
+    var selectedHolidayObservable: Observable<String?> {
+        $selectedHoliday
+    }
+    
     var holidaysObserver: Observable<Holiday> {
         $holidays
     }
+    
+    @Observable
+    private var selectedHoliday: String?
     
     @Observable
     private(set) var holidays = Holiday(name: L10n.SecondForm.greetingsName, holidays: [
