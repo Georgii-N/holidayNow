@@ -80,7 +80,7 @@ private extension WaitingViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 10),
+            imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 220),
