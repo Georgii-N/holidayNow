@@ -48,8 +48,4 @@ final class WaitingViewModel: WaitingViewModelProtocol {
     func getRandomText() -> String {
         texts.randomElement() ?? L10n.ResultScreen.WaitingText.var1
     }
-    
-    func getRandomImage() -> UIImage {
-        images.randomElement() ?? Resources.Images.ResponseScreens.responseWaitingFirst
-    }
 }
