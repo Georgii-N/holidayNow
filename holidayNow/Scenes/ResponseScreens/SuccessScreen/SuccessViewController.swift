@@ -58,11 +58,13 @@ final class SuccessViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func didTapGoToStartButton() {
+        AnalyticsService.instance.trackAmplitudeEvent(with: "didTapGoToStartButton", params: nil)
         coordinator?.goToFirstFormViewController()
         coordinator?.removeAllviewControllers()
     }
     
     @objc private func didTapShareButton() {
+        AnalyticsService.instance.trackAmplitudeEvent(with: "didTapShareButton", params: nil)
         guard let response = responseLabel.text else { return }
         let activityViewController = UIActivityViewController(
             activityItems: [response],

@@ -27,6 +27,7 @@
 		40D1A21D2AB03E94000A7A39 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 40D1A21C2AB03E94000A7A39 /* AmplitudeSwift */; };
 		40E30DB02AAC7836005C0F8B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 40E30DAF2AAC7836005C0F8B /* Lottie */; };
 		40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */; };
+		40F1B4B32AB1ECD600A0917A /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F1B4B22AB1ECD600A0917A /* AnalyticsService.swift */; };
 		40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */; };
 		40F6E0362AA22DA800F75858 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0352AA22DA800F75858 /* NetworkClient.swift */; };
 		40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */; };
@@ -97,6 +98,7 @@
 		40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModelProtocol.swift; sourceTree = "<group>"; };
 		40BE590D2AAEF8BA00300A2C /* magic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = magic.json; sourceTree = "<group>"; };
 		40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
+		40F1B4B22AB1ECD600A0917A /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		40F6E0352AA22DA800F75858 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
@@ -242,6 +244,14 @@
 			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
+		40F1B4B12AB1ECBF00A0917A /* AmplitudeService */ = {
+			isa = PBXGroup;
+			children = (
+				40F1B4B22AB1ECD600A0917A /* AnalyticsService.swift */,
+			);
+			path = AmplitudeService;
+			sourceTree = "<group>";
+		};
 		40F2A8FA2AA31DD4009E345B /* ResponseScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +265,7 @@
 		40F6E0342AA22D9100F75858 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				40F1B4B12AB1ECBF00A0917A /* AmplitudeService */,
 				7ECC73F12AAEEC2700A36393 /* EnteringService */,
 				40FD19592AA9BE0F0041FFFF /* RequestFactory */,
 				40FD194E2AA9B9F50041FFFF /* DataProvider */,
@@ -651,6 +662,7 @@
 				7EFFABD62AA74CB80018196F /* BaseCollectionViewCellDelegate.swift in Sources */,
 				40FD195D2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
+				40F1B4B32AB1ECD600A0917A /* AnalyticsService.swift in Sources */,
 				40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
