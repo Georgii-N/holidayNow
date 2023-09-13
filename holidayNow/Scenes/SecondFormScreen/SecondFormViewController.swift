@@ -310,6 +310,6 @@ private extension SecondFormViewController {
     }
     
     func setupTargets() {
-        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)        
     }
 }

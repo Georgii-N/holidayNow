@@ -205,6 +205,7 @@ extension FirstFormViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let text = textField.text
+        
         viewModel?.setupUsername(text)
     }
 }
@@ -291,7 +292,7 @@ private extension FirstFormViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
         customNavigationBar.setupNavigationBar(with: view, controller: self)
-        
+                
         [titleLabel, nameLabel, enterNameTextField, firstFormCollectionView, continueButton].forEach(view.setupView)
     }
     
@@ -318,7 +319,7 @@ private extension FirstFormViewController {
         }
     }
     
-    func setupTargets() {
+    func setupTargets() {                                             
         continueButton.addTarget(self, action: #selector(goToSecondFormVC), for: .touchUpInside)
     }
 }
