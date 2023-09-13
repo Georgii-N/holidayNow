@@ -69,7 +69,7 @@ private extension BaseCollectionViewCell {
     func setupViews() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1
-        layer.cornerRadius = 18
+        layer.cornerRadius = 20
         
         [interestImageView, nameLabel].forEach(setupView)
     }

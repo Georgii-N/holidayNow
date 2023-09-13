@@ -156,7 +156,7 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
 // MARK: - BaseCollectionViewEnterCellDelegate:
 extension SecondFormViewController: BaseCollectionViewEnterCellDelegate {
     func addNewTarget(name: String) {
-        if let indexPath = secondFormCollectionView.indexPathsForSelectedItems?.first {
+        if let indexPath = secondFormCollectionView.indexPathsForSelectedItems?.first(where: { $0.section == 0 }) {
             secondFormCollectionView.deselectItem(at: indexPath, animated: true)
         }
         
@@ -295,10 +295,10 @@ private extension SecondFormViewController {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
             
-            secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
+            secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
+            secondFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -40),
             
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])

@@ -60,6 +60,6 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func removeAllviewControllers() {
-        navigationController.viewControllers.removeAll()
+        navigationController.viewControllers.removeAll { $0 != $0 as? FirstFormViewController }
     }
 }
