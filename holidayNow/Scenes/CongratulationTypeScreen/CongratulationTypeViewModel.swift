@@ -26,7 +26,6 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
     func sentCongratulationType() {
         guard let selectedGreetingsType,
               let selectedGreetingsLength else { return }
-        
         dataProvider?.setType(type: selectedGreetingsType)
         dataProvider?.setcountSentences(countSentences: selectedGreetingsLength)
     }

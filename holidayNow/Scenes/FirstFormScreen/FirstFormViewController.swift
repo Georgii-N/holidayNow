@@ -161,6 +161,7 @@ final class FirstFormViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func goToSecondFormVC() {
+        AnalyticsService.instance.trackAmplitudeEvent(with: "goToSecondFormScreen", params: nil)
         coordinator?.goToSecondFormViewController()
         viewModel?.sentInterests()
     }

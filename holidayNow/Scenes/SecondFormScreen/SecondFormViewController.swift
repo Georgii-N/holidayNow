@@ -133,6 +133,7 @@ final class SecondFormViewController: UIViewController {
     @objc private func switchToCongratulationType() {
         viewModel.sentGreetingsInfo()
         coordinator?.goToCongratulationTypeViewController()
+        AnalyticsService.instance.trackAmplitudeEvent(with: "goToCongratulationType", params: nil)
     }
 }
 

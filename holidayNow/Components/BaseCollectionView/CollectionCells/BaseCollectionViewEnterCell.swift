@@ -111,6 +111,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         
         if text != "" {
             delegate?.addNewTarget(name: text)
+            AnalyticsService.instance.trackAmplitudeEvent(with: "addNewInterest", params: ["name": text])
             delegate?.changeStateWarningLabel(isShow: false)
             
             interestCounter += 1

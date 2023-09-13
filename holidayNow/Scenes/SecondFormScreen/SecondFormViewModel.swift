@@ -68,11 +68,16 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     
     func sentGreetingsInfo() {
         if let selectedHoliday {
+            AnalyticsService.instance.trackAmplitudeEvent(with: "Holiday", params: ["name": selectedHoliday])
             dataProvider?.setHoliday(holiday: selectedHoliday)
         }
         
         if let selectedIntonation {
             dataProvider?.setIntonation(intonation: selectedIntonation)
+            if let selectedHoliday {
+                AnalyticsService.instance.trackAmplitudeEvent(with: "Intonation", params: ["name": selectedIntonation])
+                dataProvider?.setHoliday(holiday: selectedHoliday)
+            }
         }
     }
 }
