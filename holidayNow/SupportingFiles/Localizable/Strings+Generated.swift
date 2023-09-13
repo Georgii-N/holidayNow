@@ -109,6 +109,10 @@ internal enum L10n {
       /// Магии не произошло, попробуйте еще раз:(
       internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз:(")
     }
+    internal enum Waiting {
+      /// Ждем вместе с вами
+      internal static let title = L10n.tr("Localizable", "resultScreen.Waiting.title", fallback: "Ждем вместе с вами")
+    }
     internal enum WaitingText {
       /// Происходит магия Хогвартса...Скоро все будет!
       internal static let var1 = L10n.tr("Localizable", "resultScreen.WaitingText.var1", fallback: "Происходит магия Хогвартса...Скоро все будет!")

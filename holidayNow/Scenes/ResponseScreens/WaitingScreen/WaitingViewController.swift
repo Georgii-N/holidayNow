@@ -18,7 +18,7 @@ final class WaitingViewController: UIViewController {
         return label
     }()
     
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.Waiting.title, isBackButton: true, coordinator: coordinator)
     private lazy var animationView = LottieAnimationView(name: "magic")
     
     
@@ -65,16 +65,18 @@ private extension WaitingViewController {
         view.backgroundColor = .whiteDay
         textLabel.text = waitingViewModel.getRandomText()
         
+        animationView.backgroundColor = .whiteDay
+        
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         [textLabel, animationView].forEach(view.setupView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            animationView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
-            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            animationView.heightAnchor.constraint(equalToConstant: 400),
+            animationView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
+            animationView.heightAnchor.constraint(equalToConstant: 300),
+            animationView.widthAnchor.constraint(equalToConstant: 300),
+            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 20),
             
             textLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 20),
             textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
