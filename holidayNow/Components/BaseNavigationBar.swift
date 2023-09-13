@@ -31,7 +31,6 @@ final class BaseNavigationBar: UIView {
         }
         
         setupViews()
-        setupConstraints()
         setupTargets()
     }
     
@@ -46,10 +45,13 @@ final class BaseNavigationBar: UIView {
         controller.navigationController?.navigationBar.isHidden = true
         
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            topAnchor.constraint(equalTo: view.topAnchor),
             leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 56),
             trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        
+        setupConstraints(view: view)
     }
     
     // MARK: - Objc Methods:
@@ -70,18 +72,17 @@ private extension BaseNavigationBar {
         layer.shadowRadius = 10
     }
     
-    func setupConstraints() {
+    func setupConstraints(view: UIView) {
+        let height: CGFloat = 56
         let isHidden = backButton.isHidden
         
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 50),
-            
-            backButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+        NSLayoutConstraint.activate([            
+            backButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: height / 2),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             backButton.heightAnchor.constraint(equalToConstant: 24),
             backButton.widthAnchor.constraint(equalToConstant: 24),
             
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: isHidden ? leadingAnchor : backButton.trailingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])

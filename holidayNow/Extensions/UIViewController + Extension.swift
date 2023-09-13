@@ -11,6 +11,7 @@ extension UIViewController {
 
 // MARK: - Keyboard Settings:
 extension UIViewController {
+    // Preset ViewControllers:
     func setupObservers() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardDidShow),
@@ -20,6 +21,17 @@ extension UIViewController {
                                                selector: #selector(keyboardDidHide),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
+    }
+    
+    private func addkeyboardHider() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+
+        self.view.addGestureRecognizer(gesture)
+    }
+    
+    // Objc Methods:
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
     }
     
     @objc private func keyboardDidShow(_ notification: Notification) {
@@ -39,10 +51,13 @@ extension UIViewController {
                 view.frame.origin.y = newY
             }
         }
+        
+        addkeyboardHider()
     }
     
     @objc private func keyboardDidHide() {
         view.frame.origin.y = 0
+        view.gestureRecognizers?.removeAll()
     }
 }
 
