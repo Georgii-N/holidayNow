@@ -67,6 +67,7 @@
 
 // MARK: - Result screen:
 "resultScreen.title" = "Результаты";
+"resultScreen.Waiting.title" = "Ждем вместе с вами";
 "resultScreen.repeatButton" = "Попробуйте снова";
 "resultScreen.goToStart" = "В Начало";
 

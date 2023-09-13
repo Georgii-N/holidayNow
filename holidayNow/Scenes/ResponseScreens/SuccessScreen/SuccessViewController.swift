@@ -95,7 +95,7 @@ private extension SuccessViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 220),
             
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -20),
