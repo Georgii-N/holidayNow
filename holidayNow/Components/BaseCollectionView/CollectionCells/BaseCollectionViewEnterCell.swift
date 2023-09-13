@@ -14,7 +14,13 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         case viewsInsets = 40
     }
     
-    private var interestCounter = 0
+    private var interestCounter = 0 {
+        didSet {
+            if interestCounter == 3 {
+                controlStateButton(isBlock: true)
+            }
+        }
+    }
     
     // MARK: - UI:
     private lazy var interestImageView: UIImageView = {
@@ -106,9 +112,12 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         if text != "" {
             delegate?.addNewTarget(name: text)
             delegate?.changeStateWarningLabel(isShow: false)
+            
             interestCounter += 1
+            
             enterNameTextField.text = nil
             enterNameTextField.resignFirstResponder()
+            changeButtonState(isEnable: false)
         }
     }
 }

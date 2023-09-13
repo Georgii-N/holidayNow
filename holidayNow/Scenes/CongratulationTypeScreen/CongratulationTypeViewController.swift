@@ -109,8 +109,6 @@ final class CongratulationTypeViewController: UIViewController {
     
     // MARK: - Private Methods:
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
-        continueButton.unblock()
-
         var minNumber: Int?
         var maxNumber: Int?
         var text: String?
@@ -128,10 +126,6 @@ final class CongratulationTypeViewController: UIViewController {
             minNumber = Resources.Int.poetryMinSliderValue
             maxNumber = Resources.Int.maxSliderValue
             text = L10n.Congratulation.numberOfRows
-        case .none:
-            minNumber = nil
-            maxNumber = nil
-            continueButton.block()
         }
                 
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
@@ -147,11 +141,9 @@ final class CongratulationTypeViewController: UIViewController {
     }
     
     private func startSetupType() {
-        minCountOfSentensesLabel.text = String(Resources.Int.textMinSliderValue)
-        maxCountOfSentensesLabel.text = String(Resources.Int.maxSliderValue)
-        congratulationLenghLabel.text = L10n.Congratulation.sentencesLengh
-        
         textCongratulationButton.changeSelectionState()
+        setupSentensesNumberLabel(with: .text)
+
         viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
         viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
     }
@@ -171,13 +163,11 @@ final class CongratulationTypeViewController: UIViewController {
 extension CongratulationTypeViewController: BaseCongratulationTypeButtonDelegate {
     func synchronizeOtherButtons(title: String, state: Bool, buttonType: BaseCongratulationButtonState) {
         [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
-            if $0.title != title && $0.selectedState == state && buttonType != .none {
+            if $0.title != title && $0.selectedState == state {
                 $0.changeSelectionState()
             }
-            
-            let name = buttonType == .none ? nil : title
-            
-            viewModel.setupGreetingsType(with: name)
+                        
+            viewModel.setupGreetingsType(with: title)
             setupSentensesNumberLabel(with: buttonType)
         }
     }
@@ -236,6 +226,7 @@ private extension CongratulationTypeViewController {
     
     func setupTargets() {
         continueButton.addTarget(self, action: #selector(startMagic), for: .touchUpInside)
-        lenghSlider.addTarget(self, action: #selector(setupCurrentSentensesValue), for: .valueChanged)
+        lenghSlider.addTarget(self, action: #selector(setupCurrentSentensesValue), for: .allEvents)
+        lenghSlider.addTapGesture()
     }
 }

@@ -271,7 +271,7 @@ extension FirstFormViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 35)
+        CGSize(width: collectionView.frame.width, height: 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -300,14 +300,14 @@ private extension FirstFormViewController {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
             
-            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
+            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             
             enterNameTextField.heightAnchor.constraint(equalToConstant: 40),
-            enterNameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30),
+            enterNameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 24),
             
-            firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: 30),
+            firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: 20),
             firstFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            firstFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
+            firstFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -40),
             firstFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)

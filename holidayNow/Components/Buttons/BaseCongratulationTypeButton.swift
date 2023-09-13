@@ -4,7 +4,6 @@ enum BaseCongratulationButtonState {
     case text
     case poetry
     case haiku
-    case none
 }
 
 final class BaseCongratulationTypeButton: UIView {
@@ -80,11 +79,14 @@ final class BaseCongratulationTypeButton: UIView {
         super.touchesEnded(touches, with: event)
         transform = .identity
         backgroundColor = buttonColor
-        changeSelectionState()
         
-        delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "",
-                                          state: isSelected,
-                                          buttonType: isSelected ? buttonState : .none)
+        if !isSelected {
+            changeSelectionState()
+            
+            delegate?.synchronizeOtherButtons(title: titleLabel.text ?? "",
+                                              state: isSelected,
+                                              buttonType: buttonState)
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -107,8 +109,6 @@ final class BaseCongratulationTypeButton: UIView {
             titleLabel.text = L10n.Congratulation.Button.poetry
         case .haiku:
             titleLabel.text = L10n.Congratulation.Button.haiku
-        default:
-            return
         }
         
         layer.cornerRadius = 24

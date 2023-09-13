@@ -58,8 +58,8 @@ final class SuccessViewController: UIViewController {
     
     // MARK: - Objc Methods:
     @objc private func didTapGoToStartButton() {
-        coordinator?.removeAllviewControllers()
         coordinator?.goToFirstFormViewController()
+        coordinator?.removeAllviewControllers()
     }
     
     @objc private func didTapShareButton() {
