@@ -7,6 +7,9 @@ final class FirstFormViewController: UIViewController {
     
     private var viewModel: FirstFormViewModelProtocol?
     
+    // MARK: - Constants and Variables:
+    private var collectionHeightAnchor: NSLayoutConstraint?
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -65,6 +68,7 @@ final class FirstFormViewController: UIViewController {
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: false, coordinator: coordinator)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.FirstForm.continueButton)
     private lazy var warningLabel = BaseWarningLabel()
+    private lazy var screenScrollView = UIScrollView()
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol) {
@@ -91,7 +95,6 @@ final class FirstFormViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
     
     // MARK: - Override Methods:
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -125,6 +128,7 @@ final class FirstFormViewController: UIViewController {
         
         firstFormCollectionView.performBatchUpdates {
             firstFormCollectionView.insertItems(at: [indexPath])
+            increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
         }
         
         firstFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
@@ -291,32 +295,58 @@ extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
 private extension FirstFormViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
+        screenScrollView.bounces = false
+
         customNavigationBar.setupNavigationBar(with: view, controller: self)
                 
-        [titleLabel, nameLabel, enterNameTextField, firstFormCollectionView, continueButton].forEach(view.setupView)
+        [screenScrollView, continueButton].forEach(view.setupView)
+        [titleLabel, nameLabel, enterNameTextField, firstFormCollectionView].forEach(screenScrollView.setupView)
     }
     
-    func setupConstraints() {        
+    func setupConstraints() {
+        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: 400)
+        collectionHeightAnchor?.isActive = true
+                
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
+            screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: 20),
             
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             
             enterNameTextField.heightAnchor.constraint(equalToConstant: 40),
             enterNameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 24),
-            
+        
             firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: 20),
             firstFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            firstFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -40),
             firstFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+            firstFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100),
         ])
         
         [titleLabel, nameLabel, enterNameTextField, continueButton].forEach {
             $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
+        
+        setupContinueButtonConstraints()
+    }
+    
+    func setupContinueButtonConstraints() {
+        let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
+            greaterThanOrEqualTo: screenScrollView.bottomAnchor,
+            constant: -50)
+        let buttonTopAnchor = continueButton.topAnchor.constraint(
+            equalTo: firstFormCollectionView.bottomAnchor,
+            constant: 40)
+        
+        buttonBottomAnchor.priority = .init(900)
+        buttonTopAnchor.priority = .init(1000)
+        
+        buttonTopAnchor.isActive = true
+        buttonBottomAnchor.isActive = true
     }
     
     func setupTargets() {                                             
