@@ -107,11 +107,6 @@ final class CongratulationTypeViewController: UIViewController {
         startSetupType()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("SIZES", textCongratulationButton.bounds.height, poetryCongratulationButton.bounds.height, haikuCongratulationButton.bounds.height)
-    }
-    
     // MARK: - Private Methods:
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
         var minNumber: Int?
