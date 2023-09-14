@@ -88,3 +88,18 @@ extension UIViewController {
         }
     }
 }
+
+// MARK: - Setting Anchors:
+extension UIViewController {
+    func increaseHeightAnchor(from screenHeight: CGFloat, constraints: NSLayoutConstraint) {
+        switch screenHeight {
+        case 800...900:
+            constraints.constant += 40
+        case 600...800:
+            constraints.constant += 50
+        default:
+            constraints.constant += 20
+            return
+        }
+    }
+}
