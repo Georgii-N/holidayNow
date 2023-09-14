@@ -15,6 +15,7 @@
 		40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152F5D2AA1C39E0049E309 /* AppDelegate.swift */; };
 		40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40152F662AA1C3A00049E309 /* Assets.xcassets */; };
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
+		401B91DE2AB2EA6F0008C574 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B91DD2AB2EA6F0008C574 /* AppCoordinatorTests.swift */; };
 		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
 		401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
@@ -77,6 +78,16 @@
 		7EFFABF92AA9CB640018196F /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABF82AA9CB640018196F /* UICollectionView + Extension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		401B91DF2AB2EA6F0008C574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40152F522AA1C39E0049E309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40152F592AA1C39E0049E309;
+			remoteInfo = holidayNow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		400E1D4F2AA7100800CF4BCC /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		400E1D512AA7159A00CF4BCC /* ViewControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryProtocol.swift; sourceTree = "<group>"; };
@@ -88,6 +99,8 @@
 		40152F662AA1C3A00049E309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40152F692AA1C3A00049E309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		401B91DB2AB2EA6F0008C574 /* holidayNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = holidayNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		401B91DD2AB2EA6F0008C574 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -158,6 +171,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		401B91D82AB2EA6F0008C574 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -165,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				40152F5C2AA1C39E0049E309 /* holidayNow */,
+				401B91DC2AB2EA6F0008C574 /* holidayNowTests */,
 				40152F5B2AA1C39E0049E309 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -173,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				40152F5A2AA1C39E0049E309 /* holidayNow.app */,
+				401B91DB2AB2EA6F0008C574 /* holidayNowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +212,14 @@
 				7E42DD442AA1CF89007391AB /* Extensions */,
 			);
 			path = holidayNow;
+			sourceTree = "<group>";
+		};
+		401B91DC2AB2EA6F0008C574 /* holidayNowTests */ = {
+			isa = PBXGroup;
+			children = (
+				401B91DD2AB2EA6F0008C574 /* AppCoordinatorTests.swift */,
+			);
+			path = holidayNowTests;
 			sourceTree = "<group>";
 		};
 		401FD5AA2AA60C3D0041D4F9 /* Coordinators */ = {
@@ -548,6 +578,24 @@
 			productReference = 40152F5A2AA1C39E0049E309 /* holidayNow.app */;
 			productType = "com.apple.product-type.application";
 		};
+		401B91DA2AB2EA6F0008C574 /* holidayNowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 401B91E32AB2EA6F0008C574 /* Build configuration list for PBXNativeTarget "holidayNowTests" */;
+			buildPhases = (
+				401B91D72AB2EA6F0008C574 /* Sources */,
+				401B91D82AB2EA6F0008C574 /* Frameworks */,
+				401B91D92AB2EA6F0008C574 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				401B91E02AB2EA6F0008C574 /* PBXTargetDependency */,
+			);
+			name = holidayNowTests;
+			productName = holidayNowTests;
+			productReference = 401B91DB2AB2EA6F0008C574 /* holidayNowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -560,6 +608,10 @@
 				TargetAttributes = {
 					40152F592AA1C39E0049E309 = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					401B91DA2AB2EA6F0008C574 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 40152F592AA1C39E0049E309;
 					};
 				};
 			};
@@ -581,6 +633,7 @@
 			projectRoot = "";
 			targets = (
 				40152F592AA1C39E0049E309 /* holidayNow */,
+				401B91DA2AB2EA6F0008C574 /* holidayNowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -594,6 +647,13 @@
 				40BE590E2AAEF8BA00300A2C /* magic.json in Resources */,
 				7E42DD4A2AA1D711007391AB /* Localizable.strings in Resources */,
 				40152F672AA1C3A00049E309 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		401B91D92AB2EA6F0008C574 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,7 +750,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		401B91D72AB2EA6F0008C574 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				401B91DE2AB2EA6F0008C574 /* AppCoordinatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		401B91E02AB2EA6F0008C574 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40152F592AA1C39E0049E309 /* holidayNow */;
+			targetProxy = 401B91DF2AB2EA6F0008C574 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */ = {
@@ -884,6 +960,42 @@
 			};
 			name = Release;
 		};
+		401B91E12AB2EA6F0008C574 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B76F947LP3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNowTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/holidayNow.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/holidayNow";
+			};
+			name = Debug;
+		};
+		401B91E22AB2EA6F0008C574 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B76F947LP3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNowTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/holidayNow.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/holidayNow";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -901,6 +1013,15 @@
 			buildConfigurations = (
 				40152F6F2AA1C3A10049E309 /* Debug */,
 				40152F702AA1C3A10049E309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		401B91E32AB2EA6F0008C574 /* Build configuration list for PBXNativeTarget "holidayNowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				401B91E12AB2EA6F0008C574 /* Debug */,
+				401B91E22AB2EA6F0008C574 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
