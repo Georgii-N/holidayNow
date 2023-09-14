@@ -7,6 +7,9 @@ final class SecondFormViewController: UIViewController {
     
     private var viewModel: SecondFormViewModelProtocol
     
+    // MARK: - Constants and Variables:
+    private var collectionHeightAnchor: NSLayoutConstraint?
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -39,6 +42,7 @@ final class SecondFormViewController: UIViewController {
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.SecondForm.turn, isBackButton: true, coordinator: coordinator)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.SecondForm.continueButton)
     private lazy var warningLabel = BaseWarningLabel()
+    private lazy var screenScrollView = UIScrollView()
     
     // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?, viewModel: SecondFormViewModelProtocol) {
@@ -60,6 +64,11 @@ final class SecondFormViewController: UIViewController {
         
         bind()
         continueButton.block()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupContinueButtonConstraints()
     }
     
     deinit {
@@ -93,6 +102,7 @@ final class SecondFormViewController: UIViewController {
         
         secondFormCollectionView.performBatchUpdates {
             secondFormCollectionView.insertItems(at: [indexPath])
+            increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
         }
         
         secondFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
@@ -287,27 +297,57 @@ extension SecondFormViewController: UICollectionViewDelegateFlowLayout {
 private extension SecondFormViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
+        
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
-        [titleLabel, secondFormCollectionView, continueButton].forEach(view.setupView)
+        view.setupView(screenScrollView)
+        [titleLabel, secondFormCollectionView, continueButton].forEach(screenScrollView.setupView)
     }
     
     func setupConstraints() {
+        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: 520)
+        collectionHeightAnchor?.isActive = true
+        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
+            screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: 20),
             
             secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -40),
-            
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100),
         ])
         
         [titleLabel, continueButton].forEach {
             $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
+        
+        setupContinueButtonConstraints()
+    }
+    
+    func setupContinueButtonConstraints() {
+        let numberOfItems = secondFormCollectionView.numberOfItems(inSection: 1)
+        let indexPath = IndexPath(row: numberOfItems - 1, section: 1)
+        
+        guard let lastCell = secondFormCollectionView.cellForItem(at: indexPath) else { return }
+
+        let buttonTopAnchor = continueButton.topAnchor.constraint(
+            greaterThanOrEqualTo: lastCell.bottomAnchor,
+            constant: 40)
+        let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
+            equalTo: view.bottomAnchor,
+            constant: -40)
+        
+        buttonTopAnchor.priority = .defaultHigh
+        buttonBottomAnchor.priority = .defaultLow
+        
+        buttonTopAnchor.isActive = true
+        buttonBottomAnchor.isActive = true
     }
     
     func setupTargets() {

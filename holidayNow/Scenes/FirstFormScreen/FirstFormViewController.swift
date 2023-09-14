@@ -92,6 +92,11 @@ final class FirstFormViewController: UIViewController {
         bind()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupContinueButtonConstraints()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -296,7 +301,6 @@ extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
 private extension FirstFormViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
-        screenScrollView.bounces = false
 
         customNavigationBar.setupNavigationBar(with: view, controller: self)
                 
@@ -305,7 +309,7 @@ private extension FirstFormViewController {
     }
     
     func setupConstraints() {
-        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: 400)
+        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: 450)
         collectionHeightAnchor?.isActive = true
                 
         NSLayoutConstraint.activate([
@@ -331,20 +335,23 @@ private extension FirstFormViewController {
             $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }
-        
-        setupContinueButtonConstraints()
     }
     
     func setupContinueButtonConstraints() {
-        let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
-            greaterThanOrEqualTo: screenScrollView.bottomAnchor,
-            constant: -50)
-        let buttonTopAnchor = continueButton.topAnchor.constraint(
-            equalTo: firstFormCollectionView.bottomAnchor,
-            constant: 40)
+        let numberOfItems = firstFormCollectionView.numberOfItems(inSection: 0)
+        let indexPath = IndexPath(row: numberOfItems - 1, section: 0)
         
-        buttonBottomAnchor.priority = .init(900)
-        buttonTopAnchor.priority = .init(1000)
+        guard let lastCell = firstFormCollectionView.cellForItem(at: indexPath) else { return }
+
+        let buttonTopAnchor = continueButton.topAnchor.constraint(
+            greaterThanOrEqualTo: lastCell.bottomAnchor,
+            constant: 40)
+        let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
+            equalTo: screenScrollView.bottomAnchor,
+            constant: -40)
+        
+        buttonTopAnchor.priority = .defaultHigh
+        buttonBottomAnchor.priority = .defaultLow
         
         buttonTopAnchor.isActive = true
         buttonBottomAnchor.isActive = true
