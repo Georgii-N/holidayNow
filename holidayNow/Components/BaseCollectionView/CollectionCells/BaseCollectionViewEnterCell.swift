@@ -61,7 +61,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         setupConstraints()
         setupTargets()
         
-        changeButtonState(isEnable: false)
+        changeButtonAppearance(isEnable: false)
     }
     
     required init?(coder: NSCoder) {
@@ -78,21 +78,21 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     
     func controlStateButton(isBlock: Bool) {
         if isBlock {
-            enterNameTextField.isUserInteractionEnabled = false
             isUserInteractionEnabled = false
-            changeButtonState(isEnable: false)
+            enterNameTextField.isUserInteractionEnabled = false
+            changeButtonAppearance(isEnable: false)
             enterNameTextField.placeholder = L10n.FirstForm.Interests.noAvailable
         } else {
             if interestCounter != 3 {
-                enterNameTextField.isUserInteractionEnabled = true
                 isUserInteractionEnabled = true
+                enterNameTextField.isUserInteractionEnabled = true
                 enterNameTextField.placeholder = L10n.FirstForm.Interests.addMyOwn
             }
         }
     }
     
     // MARK: - Private Methods:
-    private func changeButtonState(isEnable: Bool) {
+    private func changeButtonAppearance(isEnable: Bool) {
         if isEnable {
             enterButton.backgroundColor = .blackDay
             enterButton.setImage(Resources.Images.CollectionCell.enterButton, for: .normal)
@@ -118,7 +118,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
             
             enterNameTextField.text = nil
             enterNameTextField.resignFirstResponder()
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
         }
     }
 }
@@ -127,10 +127,10 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
 extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.length == 1 && !string.isEmpty || range.length == 1 && string.isEmpty && textField.text?.count == 1 {
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
             delegate?.changeStateWarningLabel(isShow: false)
         } else {
-            changeButtonState(isEnable: true)
+            changeButtonAppearance(isEnable: true)
         }
         
         if let currentText = textField.text {
@@ -157,7 +157,7 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField.hasText {
             delegate?.changeStateWarningLabel(isShow: false)
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
         }
         
         return true

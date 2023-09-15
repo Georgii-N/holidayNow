@@ -154,9 +154,17 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
         
         switch indexPath.section {
         case 0:
-            isAdded ? viewModel.setupHoliday(name: model.name) : viewModel.setupHoliday(name: nil)
+            if isAdded {
+                viewModel.setupHoliday(name: model.name)
+            } else {
+                viewModel.setupHoliday(name: nil)
+            }
         case 1:
-            isAdded ? viewModel.setupIntonation(name: model.name) : viewModel.setupIntonation(name: nil)
+            if isAdded {
+                viewModel.setupIntonation(name: model.name)
+            } else {
+                viewModel.setupIntonation(name: nil)
+            }
         default:
             break
         }
