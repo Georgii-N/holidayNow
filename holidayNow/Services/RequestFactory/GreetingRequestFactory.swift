@@ -1,7 +1,7 @@
 import Foundation
 
 final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
-   
+    
     // MARK: - Dependencies
     private var greetingRequestModel: GreetingRequest
     
@@ -48,9 +48,6 @@ final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
     }
     
     private func createIntonationText() -> String {
-        return "Тональность поздравления: \(greetingRequestModel.intonation ?? "обычная")"
+        "Тональность поздравления: \(greetingRequestModel.intonation ?? "обычная")"
     }
 }
-
-
-

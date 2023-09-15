@@ -10,7 +10,7 @@ final class Observable<Value> {
         }
     }
     
-    var projectedValue: Observable<Value>{
+    var projectedValue: Observable<Value> {
         return self
     }
     

@@ -5,7 +5,7 @@ final class ErrorNetworkViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
-    //MARK: - UI
+    // MARK: - UI
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

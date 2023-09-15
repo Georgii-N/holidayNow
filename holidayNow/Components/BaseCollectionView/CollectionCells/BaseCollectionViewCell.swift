@@ -83,7 +83,7 @@ private extension BaseCollectionViewCell {
             
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: 5),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
 }

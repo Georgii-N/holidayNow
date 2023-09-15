@@ -36,8 +36,7 @@ final class NetworkClient: NetworkClientProtocol {
                     if let decodedText = response.output.removingPercentEncoding {
                         completion(.success(decodedText))
                     }
-                }
-                catch {
+                } catch {
                     completion(.failure(error))
                 }
             }

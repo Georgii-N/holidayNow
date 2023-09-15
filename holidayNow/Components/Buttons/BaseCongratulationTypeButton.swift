@@ -149,7 +149,7 @@ extension BaseCongratulationTypeButton {
             insideCircleView.heightAnchor.constraint(equalToConstant: 10),
             insideCircleView.widthAnchor.constraint(equalToConstant: 10),
             insideCircleView.centerXAnchor.constraint(equalTo: outsideCircleView.centerXAnchor),
-            insideCircleView.centerYAnchor.constraint(equalTo: outsideCircleView.centerYAnchor),
+            insideCircleView.centerYAnchor.constraint(equalTo: outsideCircleView.centerYAnchor)
         ])
     }
 }

@@ -19,7 +19,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     ])
     
     var cellImages = [
-        Resources.Images.ownCell.star,
+        Resources.Images.OwnCell.star,
         Resources.Images.SecondForm.respectful,
         Resources.Images.SecondForm.funny
     ]
@@ -44,7 +44,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         HolidaysTarget(name: L10n.SecondForm.happyBirthday, image: Resources.Images.SecondForm.birthday),
         HolidaysTarget(name: L10n.SecondForm.newYear, image: Resources.Images.SecondForm.newYear),
         HolidaysTarget(name: L10n.SecondForm.mensDay, image: Resources.Images.SecondForm.mensDay),
-        HolidaysTarget(name: L10n.SecondForm.womensDay, image: Resources.Images.SecondForm.womensDay),
+        HolidaysTarget(name: L10n.SecondForm.womensDay, image: Resources.Images.SecondForm.womensDay)
     ])
     
     // MARK: - Lifecycle:

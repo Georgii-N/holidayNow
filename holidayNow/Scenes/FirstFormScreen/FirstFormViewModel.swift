@@ -7,7 +7,7 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     // MARK: - Constants and Variables:
     var cellImages = [
-        Resources.Images.ownCell.star,
+        Resources.Images.OwnCell.star,
         Resources.Images.SecondForm.respectful,
         Resources.Images.SecondForm.funny
     ]

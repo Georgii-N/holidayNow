@@ -115,7 +115,6 @@ final class SecondFormViewController: UIViewController {
                 with: Resources.Identifiers.formInterestCollectionVewCell)
             defaultCell.delegate = self
 
-            
             if isHoliday {
                 let model = viewModel.holidaysObserver.wrappedValue.holidays[indexPath.row]
                 defaultCell.setupInterestModel(model: CellModel(name: model.name, image: model.image))
@@ -159,7 +158,7 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
         case 1:
             isAdded ? viewModel.setupIntonation(name: model.name) : viewModel.setupIntonation(name: nil)
         default:
-            return 
+            break
         }
     }
 }
@@ -206,7 +205,7 @@ extension SecondFormViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            if indexPath.row == viewModel.holidaysObserver.wrappedValue.holidays.count  {
+            if indexPath.row == viewModel.holidaysObserver.wrappedValue.holidays.count {
                 guard let cell = getParticularCell(
                     isDefault: false,
                     indexPath: indexPath,
@@ -319,7 +318,7 @@ private extension SecondFormViewController {
             secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100),
+            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100)
         ])
         
         [titleLabel, continueButton].forEach {

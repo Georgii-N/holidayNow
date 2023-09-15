@@ -114,7 +114,7 @@ private extension SuccessViewController {
             
             shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
-            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
     
@@ -123,6 +123,3 @@ private extension SuccessViewController {
         shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
     }
 }
-
-
-
