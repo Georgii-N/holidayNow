@@ -8,7 +8,7 @@ final class ErrorAPIViewController: UIViewController {
     // MARK: - Constants and Variables
     private var buttonText: String?
     
-    //MARK: - UI
+    // MARK: - UI
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

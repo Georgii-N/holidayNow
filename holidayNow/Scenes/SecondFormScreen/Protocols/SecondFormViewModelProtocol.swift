@@ -9,4 +9,3 @@ protocol SecondFormViewModelProtocol: AnyObject {
     func addNewHoliday(with name: String)
     func sentGreetingsInfo()
 }
-

@@ -190,7 +190,7 @@ private extension BaseCollectionViewEnterCell {
             
             enterNameTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
             enterNameTextField.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.rightInset.rawValue),
-            enterNameTextField.trailingAnchor.constraint(equalTo: enterButton.leadingAnchor, constant: -UIConstants.rightInset.rawValue),
+            enterNameTextField.trailingAnchor.constraint(equalTo: enterButton.leadingAnchor, constant: -UIConstants.rightInset.rawValue)
         ])
     }
     

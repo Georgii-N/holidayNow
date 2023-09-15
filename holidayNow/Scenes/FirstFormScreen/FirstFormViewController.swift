@@ -324,7 +324,7 @@ private extension FirstFormViewController {
             firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: 20),
             firstFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             firstFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            firstFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100),
+            firstFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100)
         ])
         
         [titleLabel, nameLabel, enterNameTextField, continueButton].forEach {

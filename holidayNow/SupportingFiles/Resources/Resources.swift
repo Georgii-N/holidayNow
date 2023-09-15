@@ -42,7 +42,7 @@ enum Resources {
             static let witty = UIImage(named: "psychology") ?? UIImage()
         }
         
-        enum ownCell {
+        enum OwnCell {
             static let star = UIImage(named: "star_border") ?? UIImage()
         }
         

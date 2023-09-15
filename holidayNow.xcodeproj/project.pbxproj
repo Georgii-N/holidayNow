@@ -530,8 +530,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40152F6E2AA1C3A10049E309 /* Build configuration list for PBXNativeTarget "holidayNow" */;
 			buildPhases = (
-				7E42DD512AA1D7B1007391AB /* SwiftGen */,
 				40152F562AA1C39E0049E309 /* Sources */,
+				7ECE85002AB45985001F340D /* SwiftLint */,
+				7E42DD512AA1D7B1007391AB /* SwiftGen */,
 				40152F572AA1C39E0049E309 /* Frameworks */,
 				40152F582AA1C39E0049E309 /* Resources */,
 			);
@@ -617,6 +618,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen; then\n    swiftgen\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		7ECE85002AB45985001F340D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

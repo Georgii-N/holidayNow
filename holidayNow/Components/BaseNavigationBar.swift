@@ -5,7 +5,7 @@ final class BaseNavigationBar: UIView {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
-    //MARK: - UI:
+    // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textAlignment = .left

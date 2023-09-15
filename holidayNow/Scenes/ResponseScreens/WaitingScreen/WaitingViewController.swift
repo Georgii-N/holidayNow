@@ -8,7 +8,7 @@ final class WaitingViewController: UIViewController {
     
     private var waitingViewModel: WaitingViewModelProtocol
     
-    //MARK: - UI:
+    // MARK: - UI:
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -20,7 +20,6 @@ final class WaitingViewController: UIViewController {
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.Waiting.title, isBackButton: true, coordinator: coordinator)
     private lazy var animationView = LottieAnimationView(name: "magic")
-    
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, waitingViewModel: WaitingViewModelProtocol) {

@@ -38,7 +38,7 @@ private extension BaseCollectionViewReusableView {
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 40),
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

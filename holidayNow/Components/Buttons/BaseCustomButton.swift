@@ -8,16 +8,16 @@ final class BaseCustomButton: UIButton {
         case back
     }
     
-    //MARK: - UI:
+    // MARK: - UI:
     private var buttonState: ButtonState
-    private var ButtonText: String
+    private var buttonText: String
     private var buttonColor: UIColor?
     private var buttonTextColor: UIColor?
     
     // MARK: - Lifecycle:
     init(buttonState: ButtonState, buttonText: String) {
         self.buttonState = buttonState
-        self.ButtonText = buttonText
+        self.buttonText = buttonText
         super.init(frame: .zero)
         setupConstraints()
         setupButton()        
@@ -72,7 +72,7 @@ final class BaseCustomButton: UIButton {
         
         layer.cornerRadius = 24
         backgroundColor = buttonColor
-        setTitle(ButtonText, for: .normal)
+        setTitle(buttonText, for: .normal)
         setTitleColor(buttonTextColor, for: .normal)
         titleLabel?.font = .captionMediumBoldFont
     }
