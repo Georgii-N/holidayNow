@@ -4,7 +4,7 @@ final class DataProvider: DataProviderProtocol {
     
     // MARK: - Dependencies
     private var networkClient: NetworkClientProtocol
-    private var greetingRequestFactory: GreetingRequestFactoryProtocol
+    private var greetingRequestFactory: GreetingRequestFactoryProtocol?
     
     // MARK: - Constants and Variables
     private var type: String?
@@ -18,9 +18,8 @@ final class DataProvider: DataProviderProtocol {
     private var responseText: String?
     
     // MARK: - LifeCycle
-    init(networkClient: NetworkClientProtocol, greetingRequestFactory: GreetingRequestFactoryProtocol) {
+    init(networkClient: NetworkClientProtocol) {
         self.networkClient = networkClient
-        self.greetingRequestFactory = greetingRequestFactory
     }
     
     // MARK: - Public Methods
@@ -50,8 +49,8 @@ final class DataProvider: DataProviderProtocol {
     
     func createRequestText(completion: @escaping (Result<String, Error>) -> Void) {
         guard let creatingModel = createGreetingModel() else { return }
-        
-        requestText = greetingRequestFactory.createRequestText(greetingRequestModel: creatingModel)
+        self.greetingRequestFactory = GreetingRequestFactory(greetingRequestModel: creatingModel)
+        requestText = greetingRequestFactory?.createRequestText()
         
         guard let requestText else {
             assertionFailure("requestText is nil")
