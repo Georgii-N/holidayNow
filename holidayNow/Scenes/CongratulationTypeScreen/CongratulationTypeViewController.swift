@@ -31,7 +31,7 @@ final class CongratulationTypeViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
         stackView.spacing = 20
         
         return stackView
@@ -194,26 +194,27 @@ private extension CongratulationTypeViewController {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
             
-            congratulationTypeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            congratulationTypeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             
-            buttonsStack.heightAnchor.constraint(equalToConstant: 240),
-            buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: 30),
+            buttonsStack.heightAnchor.constraint(equalToConstant: 190),
+            buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: 40),
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            congratulationLenghLabel.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 30),
+            congratulationLenghLabel.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 40),
             
             lenghSlider.heightAnchor.constraint(equalToConstant: 5),
-            lenghSlider.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 80),
+            lenghSlider.topAnchor.constraint(equalTo: congratulationLenghLabel.bottomAnchor, constant: 24),
             
-            numberOfSentensesStackView.topAnchor.constraint(equalTo: lenghSlider.bottomAnchor, constant: 20),
+            numberOfSentensesStackView.topAnchor.constraint(equalTo: lenghSlider.bottomAnchor, constant: 24),
             numberOfSentensesStackView.leadingAnchor.constraint(equalTo: lenghSlider.leadingAnchor),
             numberOfSentensesStackView.trailingAnchor.constraint(equalTo: lenghSlider.trailingAnchor),
             
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
         
-        [titleLabel, congratulationTypeLabel, congratulationLenghLabel, textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [titleLabel, congratulationTypeLabel, congratulationLenghLabel, textCongratulationButton,
+         poetryCongratulationButton, haikuCongratulationButton].forEach {
             $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor, constant: 20).isActive = true
             $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         }

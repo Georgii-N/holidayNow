@@ -1,5 +1,5 @@
 // MARK: - Onboarding screen:
-"onboarding.title" = "Magic Text";
+"onboarding.title" = "Holiday Now";
 "onboarding.description" = "Создай своё уникальное праздничное поздравление на базе искусственного интеллекта";
 "onboarding.startButton.title" = "Начать";
 
@@ -23,7 +23,7 @@
 
 // MARK: - FirstForm screen:
 "firstForm.turn" = "Шаг 1/3";
-"firstForm.title" = "Расскажите подробнее о том, кого хотите поздравить";
+"firstForm.title" = "Расскажите кого будем поздравлять";
 "firstForm.name" = "Кого поздравляем";
 "firstForm.namePlaceholder" = "Введите имя";
 "firstForm.warningOptionLimits" = "Максимальное количество опций - 3";
@@ -47,7 +47,7 @@
 
 // MARK: - SecondForm screen:
 "secondForm.turn" = "Шаг 2/3";
-"secondForm.title" = "Расскажите подробнее о празднике и Magic Text начнёт творить своё волшебство";
+"secondForm.title" = "Расскажите подробнее о празднике";
 "secondForm.greetingsName" = "Название праздника";
 "secondForm.happyBirthday" = "День рождения";
 "secondForm.newYear" = "Новый год";

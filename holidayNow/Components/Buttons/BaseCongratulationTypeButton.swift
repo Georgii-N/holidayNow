@@ -135,7 +135,7 @@ extension BaseCongratulationTypeButton {
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 56),
+            heightAnchor.constraint(equalToConstant: 50),
             
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
