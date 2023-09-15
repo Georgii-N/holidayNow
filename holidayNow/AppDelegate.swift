@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
         
         let networkClient = NetworkClient(apiKey: Resources.API.deepAI)
-        let greetingRequestFactory = GreetingRequestFactory()
         
-        let dataProvider = DataProvider(networkClient: networkClient, greetingRequestFactory: greetingRequestFactory)
+        let dataProvider = DataProvider(networkClient: networkClient)
         
         let viewControllerFactory = ViewControllerFactory(dataProvider: dataProvider)
         coordinator = AppCoordinator(navigationController: navigationController, viewControllerFactory: viewControllerFactory)
