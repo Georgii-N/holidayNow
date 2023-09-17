@@ -7,4 +7,7 @@ enum UIConstants {
     static let buttonHeight: CGFloat = 50
     static let inputHeight: CGFloat = 40
     static let barsHeight: CGFloat = 56
+    static let collectionHeight: CGFloat = 450
+    static let onboardingCornerRadius: CGFloat = 25
+    static let firstFormCornerRadius: CGFloat = 20
 }

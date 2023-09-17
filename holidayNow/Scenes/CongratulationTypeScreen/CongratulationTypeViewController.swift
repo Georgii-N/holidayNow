@@ -163,7 +163,7 @@ final class CongratulationTypeViewController: UIViewController {
 extension CongratulationTypeViewController: BaseCongratulationTypeButtonDelegate {
     func synchronizeOtherButtons(title: String, state: Bool, buttonType: BaseCongratulationButtonState) {
         [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
-            if $0.title != title && $0.selectedState == state {
+            if $0.title != title && $0.isSelected == state {
                 $0.changeSelectionState()
             }
                         

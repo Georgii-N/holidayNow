@@ -10,7 +10,7 @@ final class OnboardingViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.image = Resources.Images.Onboarding.onboardingImage
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = UIConstants.onboardingCornerRadius
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .gray
         
