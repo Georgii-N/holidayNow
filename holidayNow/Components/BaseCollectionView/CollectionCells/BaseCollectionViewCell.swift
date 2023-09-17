@@ -69,21 +69,30 @@ private extension BaseCollectionViewCell {
     func setupViews() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1
-        layer.cornerRadius = 20
+        layer.cornerRadius = UIConstants.UICellConstants.cellRadius
         
         [interestImageView, nameLabel].forEach(setupView)
     }
     
     func setupConstraints() {
+        setupInterestsImageViewConstraints()
+        setupNameLabelConstraints()
+    }
+    
+    func setupInterestsImageViewConstraints() {
         NSLayoutConstraint.activate([
-            interestImageView.widthAnchor.constraint(equalToConstant: 20),
-            interestImageView.heightAnchor.constraint(equalToConstant: 20),
+            interestImageView.widthAnchor.constraint(equalToConstant: UIConstants.UICellConstants.imageSideSize),
+            interestImageView.heightAnchor.constraint(equalToConstant: UIConstants.UICellConstants.imageSideSize),
             interestImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            
+            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.UICellConstants.borderInset)
+        ])
+    }
+    
+    func setupNameLabelConstraints() {
+        NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: 5),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.UICellConstants.rightInset),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UIConstants.UICellConstants.borderInset)
         ])
     }
 }
