@@ -14,9 +14,10 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         case viewsInsets = 40
     }
     
+    private let maximumCountOfInterests = 3
     private var interestCounter = 0 {
         didSet {
-            if interestCounter == 3 {
+            if interestCounter == maximumCountOfInterests {
                 controlStateButton(isBlock: true)
             }
         }

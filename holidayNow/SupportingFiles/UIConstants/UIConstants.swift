@@ -6,6 +6,7 @@ enum UIConstants {
     static let elementsInset: CGFloat = 24
     static let blocksInset: CGFloat = 40
     static let cellsSpacing: CGFloat = 10
+    static let congratulationLabelsInset: CGFloat = 5
     
     // Heights:
     static let buttonHeight: CGFloat = 50
@@ -13,6 +14,7 @@ enum UIConstants {
     static let barsHeight: CGFloat = 56
     static let firstFormCollectionHeight: CGFloat = 450
     static let secondFormCollectionHeight: CGFloat = 570
+    static let congratulationTypeStuckHeight: CGFloat = 202
     
     // Radiuses:
     static let onboardingCornerRadius: CGFloat = 25

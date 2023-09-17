@@ -307,37 +307,40 @@ private extension SecondFormViewController {
         setupScreenScrollViewConstraints()
         setupTitleLabelConstraints()
         setupSecondFormCollectionViewConstraints()
+        
+        [screenScrollView, secondFormCollectionView].forEach {
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        }
+        
+        [titleLabel, continueButton].forEach {
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                        constant: UIConstants.sideInset).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                         constant: -UIConstants.sideInset).isActive = true
+        }
     }
     
     func setupScreenScrollViewConstraints() {
-        NSLayoutConstraint.activate([
-            screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
-            screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
+        screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor).isActive = true
+        screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     func setupTitleLabelConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: UIConstants.sideInset),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
-        ])
+        titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor,
+                                        constant: UIConstants.sideInset).isActive = true
     }
     
     func setupSecondFormCollectionViewConstraints() {
         let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
-
+        
         collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.secondFormCollectionHeight)
         collectionHeightAnchor?.isActive = true
         
-        NSLayoutConstraint.activate([
-            secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UIConstants.sideInset),
-            secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -bottomAnchor)
-        ])
+        secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                                      constant: UIConstants.sideInset).isActive = true
+        secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor,
+                                                         constant: -bottomAnchor).isActive = true
     }
     
     func setupContinueButtonConstraints() {
@@ -358,12 +361,9 @@ private extension SecondFormViewController {
         
         buttonTopAnchor.isActive = true
         buttonBottomAnchor.isActive = true
-        
-        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset).isActive = true
-        continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset).isActive = true
     }
     
     func setupTargets() {
-        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)        
+        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)
     }
 }

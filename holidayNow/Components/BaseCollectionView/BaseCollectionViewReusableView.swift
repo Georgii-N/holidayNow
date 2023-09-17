@@ -36,8 +36,8 @@ private extension BaseCollectionViewReusableView {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 40),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            heightAnchor.constraint(equalToConstant: UIConstants.inputHeight),
+            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.sideInset),
             headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
