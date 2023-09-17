@@ -6,7 +6,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     weak var delegate: BaseCollectionViewEnterCellDelegate?
     
     // MARK: - Constant and Variables:
-    enum UIConstants: CGFloat {
+    enum CellUIConstants: CGFloat {
         case imageSideSize = 20
         case buttonWidht = 70
         case leftInset = 10
@@ -61,7 +61,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         setupConstraints()
         setupTargets()
         
-        changeButtonState(isEnable: false)
+        changeButtonAppearance(isEnable: false)
     }
     
     required init?(coder: NSCoder) {
@@ -70,8 +70,8 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     
     // MARK: - Public Methods:
     func setupCellWidht(value: CGFloat) {
-        let totalInsets = UIConstants.leftInset.rawValue + UIConstants.rightInset.rawValue + UIConstants.viewsInsets.rawValue
-        let elementWidht = UIConstants.imageSideSize.rawValue + UIConstants.buttonWidht.rawValue
+        let totalInsets = CellUIConstants.leftInset.rawValue + CellUIConstants.rightInset.rawValue + CellUIConstants.viewsInsets.rawValue
+        let elementWidht = CellUIConstants.imageSideSize.rawValue + CellUIConstants.buttonWidht.rawValue
         
         cellWidht = value - totalInsets - elementWidht
     }
@@ -80,7 +80,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         if isBlock {
             enterNameTextField.isUserInteractionEnabled = false
             isUserInteractionEnabled = false
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
             enterNameTextField.placeholder = L10n.FirstForm.Interests.noAvailable
         } else {
             if interestCounter != 3 {
@@ -92,7 +92,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     }
     
     // MARK: - Private Methods:
-    private func changeButtonState(isEnable: Bool) {
+    private func changeButtonAppearance(isEnable: Bool) {
         if isEnable {
             enterButton.backgroundColor = .blackDay
             enterButton.setImage(Resources.Images.CollectionCell.enterButton, for: .normal)
@@ -118,7 +118,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
             
             enterNameTextField.text = nil
             enterNameTextField.resignFirstResponder()
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
         }
     }
 }
@@ -127,10 +127,10 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
 extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.length == 1 && !string.isEmpty || range.length == 1 && string.isEmpty && textField.text?.count == 1 {
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
             delegate?.changeStateWarningLabel(isShow: false)
         } else {
-            changeButtonState(isEnable: true)
+            changeButtonAppearance(isEnable: true)
         }
         
         if let currentText = textField.text {
@@ -157,7 +157,7 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField.hasText {
             delegate?.changeStateWarningLabel(isShow: false)
-            changeButtonState(isEnable: false)
+            changeButtonAppearance(isEnable: false)
         }
         
         return true
@@ -178,19 +178,19 @@ private extension BaseCollectionViewEnterCell {
         let height = bounds.height
         
         NSLayoutConstraint.activate([
-            interestImageView.widthAnchor.constraint(equalToConstant: UIConstants.imageSideSize.rawValue),
-            interestImageView.heightAnchor.constraint(equalToConstant: UIConstants.imageSideSize.rawValue),
+            interestImageView.widthAnchor.constraint(equalToConstant: CellUIConstants.imageSideSize.rawValue),
+            interestImageView.heightAnchor.constraint(equalToConstant: CellUIConstants.imageSideSize.rawValue),
             interestImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.leftInset.rawValue),
+            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CellUIConstants.leftInset.rawValue),
             
             enterButton.heightAnchor.constraint(equalToConstant: height),
-            enterButton.widthAnchor.constraint(equalToConstant: UIConstants.buttonWidht.rawValue),
+            enterButton.widthAnchor.constraint(equalToConstant: CellUIConstants.buttonWidht.rawValue),
             enterButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             enterButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             enterNameTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            enterNameTextField.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.rightInset.rawValue),
-            enterNameTextField.trailingAnchor.constraint(equalTo: enterButton.leadingAnchor, constant: -UIConstants.rightInset.rawValue)
+            enterNameTextField.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: CellUIConstants.rightInset.rawValue),
+            enterNameTextField.trailingAnchor.constraint(equalTo: enterButton.leadingAnchor, constant: -CellUIConstants.rightInset.rawValue)
         ])
     }
     

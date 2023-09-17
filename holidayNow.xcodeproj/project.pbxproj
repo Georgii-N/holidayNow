@@ -58,6 +58,7 @@
 		7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */; };
 		7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */; };
 		7ECE84F72AB1C79B001F340D /* UISlider + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */; };
+		7EF2BE1C2AB75EF800E29794 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF2BE1B2AB75EF800E29794 /* UIConstants.swift */; };
 		7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABC82AA705410018196F /* FirstFormViewController.swift */; };
 		7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */; };
 		7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */; };
@@ -129,6 +130,7 @@
 		7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringService.swift; sourceTree = "<group>"; };
 		7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWarningLabel.swift; sourceTree = "<group>"; };
 		7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider + Extension.swift"; sourceTree = "<group>"; };
+		7EF2BE1B2AB75EF800E29794 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		7EFFABC82AA705410018196F /* FirstFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewController.swift; sourceTree = "<group>"; };
 		7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModel.swift; sourceTree = "<group>"; };
 		7EFFABCF2AA73B300018196F /* FirstFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			children = (
 				7E42DD472AA1D6E3007391AB /* Localizable */,
 				7E42DD432AA1CF6B007391AB /* Resources */,
+				7EF2BE1D2AB75EFC00E29794 /* UIConstants */,
 				40152F662AA1C3A00049E309 /* Assets.xcassets */,
 				40BE590D2AAEF8BA00300A2C /* magic.json */,
 				40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */,
@@ -439,6 +442,14 @@
 				7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */,
 			);
 			path = EnteringService;
+			sourceTree = "<group>";
+		};
+		7EF2BE1D2AB75EFC00E29794 /* UIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				7EF2BE1B2AB75EF800E29794 /* UIConstants.swift */,
+			);
+			path = UIConstants;
 			sourceTree = "<group>";
 		};
 		7EFFABCA2AA705450018196F /* FirstFormScreen */ = {
@@ -682,6 +693,7 @@
 				40FD195D2AA9BE470041FFFF /* GreetingRequestFactoryProtocol.swift in Sources */,
 				7E3757D72AA612930093A3C5 /* GreetingTarget.swift in Sources */,
 				40F1B4B32AB1ECD600A0917A /* AnalyticsService.swift in Sources */,
+				7EF2BE1C2AB75EF800E29794 /* UIConstants.swift in Sources */,
 				40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,

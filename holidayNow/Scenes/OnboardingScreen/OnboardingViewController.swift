@@ -60,11 +60,8 @@ final class OnboardingViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setupGradient()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     // MARK: - Private Methods:
@@ -97,28 +94,54 @@ private extension OnboardingViewController {
     func setupConstraints() {
         let height = view.frame.height
         
+        setupImageView(with: height)
+        setupDescriptionView(with: height)
+        setupTitleLabel()
+        setupDescriptionLabel()
+        setupStartButton()
+    }
+    
+    func setupImageView(with height: CGFloat) {
         NSLayoutConstraint.activate([
             onboardingImageView.heightAnchor.constraint(equalToConstant: height * 0.7),
             onboardingImageView.topAnchor.constraint(equalTo: view.topAnchor),
             onboardingImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            onboardingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+            onboardingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+    }
+    
+    func setupDescriptionView(with height: CGFloat) {
+        NSLayoutConstraint.activate([
             onboardingDescriptionView.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: -height * 0.2),
             onboardingDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             onboardingDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            onboardingDescriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            onboardingTitleLabel.bottomAnchor.constraint(equalTo: onboardingDescriptionLabel.topAnchor, constant: -24),
-            onboardingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            onboardingTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-        
-            onboardingDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            onboardingDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            onboardingDescriptionLabel.bottomAnchor.constraint(equalTo: onboardingStartButton.topAnchor, constant: -40),
-            
-            onboardingStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            onboardingStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            onboardingStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+            onboardingDescriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+    
+    func setupTitleLabel() {
+        NSLayoutConstraint.activate([
+            onboardingTitleLabel.bottomAnchor.constraint(equalTo: onboardingDescriptionLabel.topAnchor, constant: -UIConstants.elementsInset),
+            onboardingTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            onboardingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            onboardingTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
+            ])
+    }
+    
+    func setupDescriptionLabel() {
+        NSLayoutConstraint.activate([
+            onboardingDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            onboardingDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
+            onboardingDescriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            onboardingDescriptionLabel.bottomAnchor.constraint(equalTo: onboardingStartButton.topAnchor, constant: -UIConstants.blocksInset)
+            ])
+    }
+    
+    func setupStartButton() {
+        NSLayoutConstraint.activate([
+            onboardingStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            onboardingStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
+            onboardingStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset)
         ])
     }
     
