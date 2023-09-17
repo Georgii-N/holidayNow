@@ -248,7 +248,7 @@ extension SecondFormViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout:
 extension SecondFormViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 35)
+        CGSize(width: collectionView.frame.width, height: UIConstants.inputHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -304,29 +304,40 @@ private extension SecondFormViewController {
     }
     
     func setupConstraints() {
-        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: 520)
-        collectionHeightAnchor?.isActive = true
-        
+        setupScreenScrollViewConstraints()
+        setupTitleLabelConstraints()
+        setupSecondFormCollectionViewConstraints()
+    }
+    
+    func setupScreenScrollViewConstraints() {
         NSLayoutConstraint.activate([
             screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: 20),
-            
-            secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+    }
+    
+    func setupTitleLabelConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: UIConstants.sideInset),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
+        ])
+    }
+    
+    func setupSecondFormCollectionViewConstraints() {
+        let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
+
+        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.secondFormCollectionHeight)
+        collectionHeightAnchor?.isActive = true
+        
+        NSLayoutConstraint.activate([
+            secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UIConstants.sideInset),
             secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100)
+            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -bottomAnchor)
         ])
-        
-        [titleLabel, continueButton].forEach {
-            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        }
-        
-        setupContinueButtonConstraints()
     }
     
     func setupContinueButtonConstraints() {
@@ -334,19 +345,22 @@ private extension SecondFormViewController {
         let indexPath = IndexPath(row: numberOfItems - 1, section: 1)
         
         guard let lastCell = secondFormCollectionView.cellForItem(at: indexPath) else { return }
-
+        
         let buttonTopAnchor = continueButton.topAnchor.constraint(
             greaterThanOrEqualTo: lastCell.bottomAnchor,
-            constant: 40)
+            constant: UIConstants.blocksInset)
         let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
             equalTo: view.bottomAnchor,
-            constant: -40)
+            constant: -UIConstants.blocksInset)
         
         buttonTopAnchor.priority = .defaultHigh
         buttonBottomAnchor.priority = .defaultLow
         
         buttonTopAnchor.isActive = true
         buttonBottomAnchor.isActive = true
+        
+        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset).isActive = true
+        continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset).isActive = true
     }
     
     func setupTargets() {

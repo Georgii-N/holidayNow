@@ -363,7 +363,7 @@ private extension FirstFormViewController {
     func setupFirstCollectionViewConstraints() {
         let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
         
-        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.collectionHeight)
+        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.firstFormCollectionHeight)
         collectionHeightAnchor?.isActive = true
         
         NSLayoutConstraint.activate([
