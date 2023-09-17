@@ -94,14 +94,14 @@ private extension OnboardingViewController {
     func setupConstraints() {
         let height = view.frame.height
         
-        setupImageView(with: height)
-        setupDescriptionView(with: height)
-        setupTitleLabel()
-        setupDescriptionLabel()
-        setupStartButton()
+        setupImageViewConstraints(with: height)
+        setupDescriptionViewConstraints(with: height)
+        setupTitleLabelConstraints()
+        setupDescriptionLabelConstraints()
+        setupStartButtonConstraints()
     }
     
-    func setupImageView(with height: CGFloat) {
+    func setupImageViewConstraints(with height: CGFloat) {
         NSLayoutConstraint.activate([
             onboardingImageView.heightAnchor.constraint(equalToConstant: height * 0.7),
             onboardingImageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -110,7 +110,7 @@ private extension OnboardingViewController {
             ])
     }
     
-    func setupDescriptionView(with height: CGFloat) {
+    func setupDescriptionViewConstraints(with height: CGFloat) {
         NSLayoutConstraint.activate([
             onboardingDescriptionView.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: -height * 0.2),
             onboardingDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -119,7 +119,7 @@ private extension OnboardingViewController {
             ])
     }
     
-    func setupTitleLabel() {
+    func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             onboardingTitleLabel.bottomAnchor.constraint(equalTo: onboardingDescriptionLabel.topAnchor, constant: -UIConstants.elementsInset),
             onboardingTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -128,7 +128,7 @@ private extension OnboardingViewController {
             ])
     }
     
-    func setupDescriptionLabel() {
+    func setupDescriptionLabelConstraints() {
         NSLayoutConstraint.activate([
             onboardingDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
             onboardingDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
@@ -137,7 +137,7 @@ private extension OnboardingViewController {
             ])
     }
     
-    func setupStartButton() {
+    func setupStartButtonConstraints() {
         NSLayoutConstraint.activate([
             onboardingStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
             onboardingStartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),

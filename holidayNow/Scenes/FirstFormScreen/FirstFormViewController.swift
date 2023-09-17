@@ -319,14 +319,14 @@ private extension FirstFormViewController {
     }
     
     func setupConstraints() {
-        setupScreenScrollView()
-        setupTitleLabel()
-        setupNameLabel()
-        setupEnterNameLabel()
-        setupFirstCollectionView()
+        setupScreenScrollViewConstraints()
+        setupTitleLabelConstraints()
+        setupNameLabelConstraints()
+        setupEnterNameLabelConstraints()
+        setupFirstCollectionViewConstraints()
     }
     
-    func setupScreenScrollView() {
+    func setupScreenScrollViewConstraints() {
         NSLayoutConstraint.activate([
             screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -335,7 +335,7 @@ private extension FirstFormViewController {
             ])
     }
     
-    func setupTitleLabel() {
+    func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: UIConstants.sideInset),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
@@ -343,7 +343,7 @@ private extension FirstFormViewController {
         ])
     }
     
-    func setupNameLabel() {
+    func setupNameLabelConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UIConstants.blocksInset),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
@@ -351,7 +351,7 @@ private extension FirstFormViewController {
             ])
     }
     
-    func setupEnterNameLabel() {
+    func setupEnterNameLabelConstraints() {
         NSLayoutConstraint.activate([
             enterNameTextField.heightAnchor.constraint(equalToConstant: UIConstants.blocksInset),
             enterNameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: UIConstants.elementsInset),
@@ -360,7 +360,7 @@ private extension FirstFormViewController {
             ])
     }
     
-    func setupFirstCollectionView() {
+    func setupFirstCollectionViewConstraints() {
         let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
         
         collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.collectionHeight)
