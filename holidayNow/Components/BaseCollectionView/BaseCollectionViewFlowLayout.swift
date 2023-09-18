@@ -2,14 +2,15 @@ import UIKit
 
 final class BaseCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
-    // MARK: - Constants and Variables:
-    let cellSpacing: CGFloat = 10
-    let sideSpacing: CGFloat = 20
-    
+    private let cellsSpacing: CGFloat = 10
+
     // MARK: - Override Methods:
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        minimumLineSpacing = cellSpacing
-        sectionInset = UIEdgeInsets(top: sideSpacing, left: sideSpacing, bottom: sideSpacing, right: sideSpacing)
+        minimumLineSpacing = cellsSpacing
+        sectionInset = UIEdgeInsets(top: UIConstants.sideInset,
+                                    left: UIConstants.sideInset,
+                                    bottom: UIConstants.sideInset,
+                                    right: UIConstants.sideInset)
         
         let attributes = super.layoutAttributesForElements(in: rect)
         var leftMargin = sectionInset.left
@@ -25,7 +26,7 @@ final class BaseCollectionViewFlowLayout: UICollectionViewFlowLayout {
             }
             
             layoutAttribute.frame.origin.x = leftMargin
-            leftMargin += layoutAttribute.frame.width + cellSpacing
+            leftMargin += layoutAttribute.frame.width + cellsSpacing
             maxY = max(layoutAttribute.frame.maxY, maxY)
         }
         

@@ -5,6 +5,13 @@ final class BaseNavigationBar: UIView {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
+    // MARK: - Constants and Variables:
+    private enum NavigationUIConstants {
+        static let barsHeight: CGFloat = 56
+        static let navigationBarBackButtonSide: CGFloat = 24
+        static let navigationBarBackButtonLeftInset: CGFloat = 16
+    }
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -41,13 +48,13 @@ final class BaseNavigationBar: UIView {
     // MARK: - Public Methods:
     func setupNavigationBar(with view: UIView, controller: UIViewController) {
         view.setupView(self)
-    
+        
         controller.navigationController?.navigationBar.isHidden = true
         
         NSLayoutConstraint.activate([
             topAnchor.constraint(equalTo: view.topAnchor),
             leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 56),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: NavigationUIConstants.barsHeight),
             trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
@@ -73,17 +80,25 @@ private extension BaseNavigationBar {
     }
     
     func setupConstraints(view: UIView) {
-        let height: CGFloat = 56
         let isHidden = backButton.isHidden
         
-        NSLayoutConstraint.activate([            
-            backButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: height / 2),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            backButton.heightAnchor.constraint(equalToConstant: 24),
-            backButton.widthAnchor.constraint(equalToConstant: 24),
-            
+        setupBackButtonConstraints(with: view)
+        setupTitleLabelConstraints(isButtonHidden: isHidden)
+    }
+    
+    func setupBackButtonConstraints(with view: UIView) {
+        NSLayoutConstraint.activate([
+            backButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: NavigationUIConstants.barsHeight / 2),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: NavigationUIConstants.navigationBarBackButtonLeftInset),
+            backButton.heightAnchor.constraint(equalToConstant: NavigationUIConstants.navigationBarBackButtonSide),
+            backButton.widthAnchor.constraint(equalToConstant: NavigationUIConstants.navigationBarBackButtonSide)
+        ])
+    }
+    
+    func setupTitleLabelConstraints(isButtonHidden: Bool) {
+        NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: isHidden ? leadingAnchor : backButton.trailingAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: isButtonHidden ? leadingAnchor : backButton.trailingAnchor, constant: UIConstants.sideInset),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }

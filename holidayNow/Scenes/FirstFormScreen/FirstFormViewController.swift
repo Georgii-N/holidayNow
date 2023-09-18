@@ -8,6 +8,11 @@ final class FirstFormViewController: UIViewController {
     private var viewModel: FirstFormViewModelProtocol?
     
     // MARK: - Constants and Variables:
+    private enum FirstFormUIConstants {
+        static let collectionHeight: CGFloat = 450
+        static let enterNameRadius: CGFloat = 20
+    }
+    
     private var collectionHeightAnchor: NSLayoutConstraint?
     
     // MARK: - UI:
@@ -36,7 +41,7 @@ final class FirstFormViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.bounds.height))
         textField.leftViewMode = .always
         textField.clearButtonMode = .whileEditing
-        textField.layer.cornerRadius = 20
+        textField.layer.cornerRadius = FirstFormUIConstants.enterNameRadius
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.placeholder = L10n.FirstForm.namePlaceholder
@@ -140,9 +145,29 @@ final class FirstFormViewController: UIViewController {
     }
     
     private func controlCellsAvailability(with number: Int) {
+        let maxCountOfSelectedTargets = 3
+        
+        if number == maxCountOfSelectedTargets {
+            changeCellAvailability(isAvailable: false, with: number)
+        } else {
+            changeCellAvailability(isAvailable: true, with: number)
+        }
+    }
+    
+    private func changeCellAvailability(isAvailable: Bool, with number: Int) {
         let cells = firstFormCollectionView.visibleCells
         
-        if number == 3 {
+        if isAvailable {
+            cells.forEach { cell in
+                if let cell = cell as? BaseCollectionViewEnterCell {
+                    cell.controlStateButton(isBlock: false)
+                }
+                
+                cell.isUserInteractionEnabled = true
+            }
+            
+            controlStateWarningLabel(label: warningLabel, isShow: false)
+        } else {
             cells.forEach { cell in
                 if let cell = cell as? BaseCollectionViewEnterCell {
                     cell.controlStateButton(isBlock: true)
@@ -155,16 +180,6 @@ final class FirstFormViewController: UIViewController {
                                      isShow: true,
                                      from: firstFormCollectionView,
                                      with: L10n.FirstForm.warningOptionLimits)
-        } else {
-            cells.forEach { cell in
-                if let cell = cell as? BaseCollectionViewEnterCell {
-                    cell.controlStateButton(isBlock: false)
-                }
-                
-                cell.isUserInteractionEnabled = true
-            }
-            
-            controlStateWarningLabel(label: warningLabel, isShow: false)
         }
     }
     
@@ -281,7 +296,7 @@ extension FirstFormViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 40)
+        CGSize(width: collectionView.frame.width, height: UIConstants.inputHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -289,7 +304,7 @@ extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
         let headerView = self.collectionView(collectionView,
                                              viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader,
                                              at: indexPath)
-
+        
         return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width,
                                                          height: UIView.layoutFittingExpandedSize.height),
                                                   withHorizontalFittingPriority: .required,
@@ -301,40 +316,64 @@ extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
 private extension FirstFormViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay
-
+        
         customNavigationBar.setupNavigationBar(with: view, controller: self)
-                
+        
         [screenScrollView, continueButton].forEach(view.setupView)
         [titleLabel, nameLabel, enterNameTextField, firstFormCollectionView].forEach(screenScrollView.setupView)
     }
     
     func setupConstraints() {
-        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: 450)
-        collectionHeightAnchor?.isActive = true
-                
-        NSLayoutConstraint.activate([
-            screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
-            screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: 20),
-            
-            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
-            
-            enterNameTextField.heightAnchor.constraint(equalToConstant: 40),
-            enterNameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 24),
+        setupScreenScrollViewConstraints()
+        setupTitleLabelConstraints()
+        setupNameLabelConstraints()
+        setupEnterNameLabelConstraints()
+        setupFirstCollectionViewConstraints()
         
-            firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: 20),
-            firstFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            firstFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            firstFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100)
-        ])
+        [screenScrollView, firstFormCollectionView].forEach {
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        }
         
         [titleLabel, nameLabel, enterNameTextField, continueButton].forEach {
-            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                        constant: UIConstants.sideInset).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                         constant: -UIConstants.sideInset).isActive = true
         }
+    }
+    
+    func setupScreenScrollViewConstraints() {
+        screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor).isActive = true
+        screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    func setupTitleLabelConstraints() {
+        titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor,
+                                        constant: UIConstants.sideInset).isActive = true
+    }
+    
+    func setupNameLabelConstraints() {
+        nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                       constant: UIConstants.blocksInset).isActive = true
+    }
+    
+    func setupEnterNameLabelConstraints() {
+        enterNameTextField.heightAnchor.constraint(equalToConstant: UIConstants.blocksInset).isActive = true
+        enterNameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
+                                                constant: UIConstants.elementsInset).isActive = true
+    }
+    
+    func setupFirstCollectionViewConstraints() {
+        let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
+        
+        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: FirstFormUIConstants.collectionHeight)
+        collectionHeightAnchor?.isActive = true
+        
+        firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor,
+                                                     constant: UIConstants.sideInset).isActive = true
+        firstFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor,
+                                                        constant: -bottomAnchor).isActive = true
     }
     
     func setupContinueButtonConstraints() {
@@ -342,13 +381,13 @@ private extension FirstFormViewController {
         let indexPath = IndexPath(row: numberOfItems - 1, section: 0)
         
         guard let lastCell = firstFormCollectionView.cellForItem(at: indexPath) else { return }
-
+        
         let buttonTopAnchor = continueButton.topAnchor.constraint(
             greaterThanOrEqualTo: lastCell.bottomAnchor,
-            constant: 40)
+            constant: UIConstants.blocksInset)
         let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
             equalTo: screenScrollView.bottomAnchor,
-            constant: -40)
+            constant: -UIConstants.blocksInset)
         
         buttonTopAnchor.priority = .defaultHigh
         buttonBottomAnchor.priority = .defaultLow
@@ -357,7 +396,7 @@ private extension FirstFormViewController {
         buttonBottomAnchor.isActive = true
     }
     
-    func setupTargets() {                                             
+    func setupTargets() {
         continueButton.addTarget(self, action: #selector(goToSecondFormVC), for: .touchUpInside)
     }
 }

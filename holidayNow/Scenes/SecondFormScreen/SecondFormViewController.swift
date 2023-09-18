@@ -8,6 +8,10 @@ final class SecondFormViewController: UIViewController {
     private var viewModel: SecondFormViewModelProtocol
     
     // MARK: - Constants and Variables:
+    private enum SecondFormUIConstants {
+        static let collectionHeight: CGFloat = 570
+    }
+    
     private var collectionHeightAnchor: NSLayoutConstraint?
     
     // MARK: - UI:
@@ -248,7 +252,7 @@ extension SecondFormViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout:
 extension SecondFormViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 35)
+        CGSize(width: collectionView.frame.width, height: UIConstants.inputHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -304,29 +308,43 @@ private extension SecondFormViewController {
     }
     
     func setupConstraints() {
-        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: 520)
-        collectionHeightAnchor?.isActive = true
+        setupScreenScrollViewConstraints()
+        setupTitleLabelConstraints()
+        setupSecondFormCollectionViewConstraints()
         
-        NSLayoutConstraint.activate([
-            screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
-            screenScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            screenScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor, constant: 20),
-            
-            secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            secondFormCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            secondFormCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor, constant: -100)
-        ])
-        
-        [titleLabel, continueButton].forEach {
-            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        [screenScrollView, secondFormCollectionView].forEach {
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         }
         
-        setupContinueButtonConstraints()
+        [titleLabel, continueButton].forEach {
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                        constant: UIConstants.sideInset).isActive = true
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                         constant: -UIConstants.sideInset).isActive = true
+        }
+    }
+    
+    func setupScreenScrollViewConstraints() {
+        screenScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor).isActive = true
+        screenScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    func setupTitleLabelConstraints() {
+        titleLabel.topAnchor.constraint(equalTo: screenScrollView.topAnchor,
+                                        constant: UIConstants.sideInset).isActive = true
+    }
+    
+    func setupSecondFormCollectionViewConstraints() {
+        let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
+        
+        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: SecondFormUIConstants.collectionHeight)
+        collectionHeightAnchor?.isActive = true
+        
+        secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                                      constant: UIConstants.sideInset).isActive = true
+        secondFormCollectionView.bottomAnchor.constraint(equalTo: screenScrollView.bottomAnchor,
+                                                         constant: -bottomAnchor).isActive = true
     }
     
     func setupContinueButtonConstraints() {
@@ -334,13 +352,13 @@ private extension SecondFormViewController {
         let indexPath = IndexPath(row: numberOfItems - 1, section: 1)
         
         guard let lastCell = secondFormCollectionView.cellForItem(at: indexPath) else { return }
-
+        
         let buttonTopAnchor = continueButton.topAnchor.constraint(
             greaterThanOrEqualTo: lastCell.bottomAnchor,
-            constant: 40)
+            constant: UIConstants.blocksInset)
         let buttonBottomAnchor = continueButton.bottomAnchor.constraint(
             equalTo: view.bottomAnchor,
-            constant: -40)
+            constant: -UIConstants.blocksInset)
         
         buttonTopAnchor.priority = .defaultHigh
         buttonBottomAnchor.priority = .defaultLow
@@ -350,6 +368,6 @@ private extension SecondFormViewController {
     }
     
     func setupTargets() {
-        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)        
+        continueButton.addTarget(self, action: #selector(switchToCongratulationType), for: .touchUpInside)
     }
 }

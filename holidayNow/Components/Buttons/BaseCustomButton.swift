@@ -8,6 +8,8 @@ final class BaseCustomButton: UIButton {
         case back
     }
     
+    private let baseCustomButtonRadius: CGFloat = 24
+
     // MARK: - UI:
     private var buttonState: ButtonState
     private var buttonText: String
@@ -70,7 +72,7 @@ final class BaseCustomButton: UIButton {
             buttonTextColor = .black
         }
         
-        layer.cornerRadius = 24
+        layer.cornerRadius = baseCustomButtonRadius
         backgroundColor = buttonColor
         setTitle(buttonText, for: .normal)
         setTitleColor(buttonTextColor, for: .normal)
@@ -81,6 +83,6 @@ final class BaseCustomButton: UIButton {
 // MARK: - Setup Views
 private extension BaseCustomButton {
     func setupConstraints() {
-        heightAnchor.constraint(equalToConstant: 50).isActive = true
+        heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight).isActive = true
     }
 }

@@ -12,16 +12,20 @@ final class BaseCongratulationTypeButton: UIView {
     weak var delegate: BaseCongratulationTypeButtonDelegate?
     
     // MARK: - Constants and Variables:
+    private enum CongratulationButtonUIConstants {
+        static let buttonRadius: CGFloat = 24
+        static let buttonOutsideViewRadius: CGFloat = 10
+        static let buttonInsideViewRadius: CGFloat = 5
+        static let titleRightInset: CGFloat = 50
+        static let insideViewInset: CGFloat = 10
+    }
+    
     var title: String {
         titleLabel.text ?? ""
     }
     
-    var selectedState: Bool {
-        isSelected
-    }
-    
     private let buttonState: BaseCongratulationButtonState
-    private var isSelected = false {
+    private(set) var isSelected = false {
         didSet {
             changeSelectionColor()
         }
@@ -38,7 +42,7 @@ final class BaseCongratulationTypeButton: UIView {
     
     private lazy var outsideCircleView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = CongratulationButtonUIConstants.buttonOutsideViewRadius
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.universalRed.cgColor
         
@@ -47,7 +51,7 @@ final class BaseCongratulationTypeButton: UIView {
     
     private lazy var insideCircleView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = CongratulationButtonUIConstants.buttonInsideViewRadius
         
         return view
     }()
@@ -111,7 +115,7 @@ final class BaseCongratulationTypeButton: UIView {
             titleLabel.text = L10n.Congratulation.Button.haiku
         }
         
-        layer.cornerRadius = 24
+        layer.cornerRadius = CongratulationButtonUIConstants.buttonRadius
         backgroundColor = buttonColor
         
         layer.shadowColor = UIColor.lightGray.cgColor
@@ -134,20 +138,34 @@ extension BaseCongratulationTypeButton {
         }
     }
     private func setupConstraints() {
+        heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight).isActive = true
+        
+        setupTitleLabelConstraints()
+        setupOutsideCircleViewConstraints()
+        setupInsideCircleViewConstraints()
+    }
+    
+    func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 50),
-            
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            
-            outsideCircleView.heightAnchor.constraint(equalToConstant: 20),
-            outsideCircleView.widthAnchor.constraint(equalToConstant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.sideInset),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CongratulationButtonUIConstants.titleRightInset)
+        ])
+    }
+    
+    func setupOutsideCircleViewConstraints() {
+        NSLayoutConstraint.activate([
+            outsideCircleView.heightAnchor.constraint(equalToConstant: UIConstants.sideInset),
+            outsideCircleView.widthAnchor.constraint(equalToConstant: UIConstants.sideInset),
             outsideCircleView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            outsideCircleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            insideCircleView.heightAnchor.constraint(equalToConstant: 10),
-            insideCircleView.widthAnchor.constraint(equalToConstant: 10),
+            outsideCircleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UIConstants.sideInset)
+        ])
+    }
+    
+    func setupInsideCircleViewConstraints() {
+        NSLayoutConstraint.activate([
+            insideCircleView.heightAnchor.constraint(equalToConstant: CongratulationButtonUIConstants.insideViewInset),
+            insideCircleView.widthAnchor.constraint(equalToConstant: CongratulationButtonUIConstants.insideViewInset),
             insideCircleView.centerXAnchor.constraint(equalTo: outsideCircleView.centerXAnchor),
             insideCircleView.centerYAnchor.constraint(equalTo: outsideCircleView.centerYAnchor)
         ])
