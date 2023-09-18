@@ -161,12 +161,12 @@ extension SecondFormViewController: BaseCollectionViewEnterCellDelegate {
         viewModel.addNewHoliday(with: name)
     }
     
-    func changeStateWarningLabel(isShow: Bool) {
+    func changeStateCellWarningLabel(isShow: Bool, isWrongText: Bool) {
         if isShow {
             controlStateWarningLabel(label: warningLabel,
                                      isShow: true,
                                      from: secondFormCollectionView,
-                                     with: L10n.FirstForm.warningCharacterLimits)
+                                     with: isWrongText ? L10n.Warning.wrongWord : L10n.Warning.characterLimits)
         } else {
             controlStateWarningLabel(label: warningLabel,
                                      isShow: false)

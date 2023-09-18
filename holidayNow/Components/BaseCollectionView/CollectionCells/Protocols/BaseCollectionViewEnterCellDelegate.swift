@@ -2,5 +2,5 @@ import Foundation
 
 protocol BaseCollectionViewEnterCellDelegate: AnyObject {
     func addNewTarget(name: String)
-    func changeStateWarningLabel(isShow: Bool)
+    func changeStateCellWarningLabel(isShow: Bool, isWrongText: Bool)
 }

@@ -110,15 +110,19 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         guard let text = enterNameTextField.text else { return }
         
         if text != "" {
-            delegate?.addNewTarget(name: text)
-            AnalyticsService.instance.trackAmplitudeEvent(with: "addNewInterest", params: ["name": text])
-            delegate?.changeStateWarningLabel(isShow: false)
-            
-            interestCounter += 1
-            
-            enterNameTextField.text = nil
-            enterNameTextField.resignFirstResponder()
-            changeButtonAppearance(isEnable: false)
+            if ProhibitedDictionaryService().isWordProhibited(with: text) {
+                delegate?.changeStateCellWarningLabel(isShow: true, isWrongText: true)
+            } else {
+                delegate?.addNewTarget(name: text)
+                AnalyticsService.instance.trackAmplitudeEvent(with: "addNewInterest", params: ["name": text])
+                delegate?.changeStateCellWarningLabel(isShow: false, isWrongText: false)
+                
+                interestCounter += 1
+                
+                enterNameTextField.text = nil
+                enterNameTextField.resignFirstResponder()
+                changeButtonAppearance(isEnable: false)
+            }
         }
     }
 }
@@ -128,7 +132,7 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.length == 1 && !string.isEmpty || range.length == 1 && string.isEmpty && textField.text?.count == 1 {
             changeButtonAppearance(isEnable: false)
-            delegate?.changeStateWarningLabel(isShow: false)
+            delegate?.changeStateCellWarningLabel(isShow: false, isWrongText: false)
         } else {
             changeButtonAppearance(isEnable: true)
         }
@@ -138,7 +142,7 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
             let result = updatedText.count <= 15
             
-            delegate?.changeStateWarningLabel(isShow: !result)
+            delegate?.changeStateCellWarningLabel(isShow: !result, isWrongText: false)
             
             return result
         }
@@ -149,18 +153,23 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         addNewTarget()
-        delegate?.changeStateWarningLabel(isShow: false)
         
         return false
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField.hasText {
-            delegate?.changeStateWarningLabel(isShow: false)
+            delegate?.changeStateCellWarningLabel(isShow: false, isWrongText: false)
             changeButtonAppearance(isEnable: false)
         }
         
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if ProhibitedDictionaryService().isWordProhibited(with: textField.text ?? "") {
+            delegate?.changeStateCellWarningLabel(isShow: true, isWrongText: true)
+        }
     }
 }
 
