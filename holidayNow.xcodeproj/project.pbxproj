@@ -55,6 +55,7 @@
 		7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD5D2AA207A8007391AB /* CongratulationTypeViewController.swift */; };
 		7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */; };
 		7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */; };
+		7EC140FF2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */; };
 		7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */; };
 		7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */; };
 		7ECE84F72AB1C79B001F340D /* UISlider + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */; };
@@ -127,6 +128,7 @@
 		7E42DD5D2AA207A8007391AB /* CongratulationTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewController.swift; sourceTree = "<group>"; };
 		7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButton.swift; sourceTree = "<group>"; };
 		7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButtonDelegate.swift; sourceTree = "<group>"; };
+		7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormCollectionViewProvider.swift; sourceTree = "<group>"; };
 		7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringService.swift; sourceTree = "<group>"; };
 		7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWarningLabel.swift; sourceTree = "<group>"; };
 		7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider + Extension.swift"; sourceTree = "<group>"; };
@@ -436,6 +438,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		7EC141002AB83D5000BBF89B /* CollectionProvider */ = {
+			isa = PBXGroup;
+			children = (
+				7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */,
+			);
+			path = CollectionProvider;
+			sourceTree = "<group>";
+		};
 		7ECC73F12AAEEC2700A36393 /* EnteringService */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				7EFFABD12AA73B330018196F /* Protocols */,
+				7EC141002AB83D5000BBF89B /* CollectionProvider */,
 				7EFFABCD2AA73B080018196F /* FirstFormViewModel.swift */,
 				7EFFABC82AA705410018196F /* FirstFormViewController.swift */,
 			);
@@ -703,6 +714,7 @@
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				40A71EAA2AA892D700346E8D /* ErrorNetworkViewController.swift in Sources */,
+				7EC140FF2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */,
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,

@@ -24,7 +24,11 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     func createFirstFormViewController() -> FirstFormViewController {
         let firstViewModel = FirstFormViewModel(dataProvider: dataProvider)
-        return FirstFormViewController(coordinator: coordinator, viewModel: firstViewModel)
+        let collectionProvider = FirstFormCollectionViewProvider(viewModel: firstViewModel)
+        let viewController = FirstFormViewController(coordinator: coordinator, viewModel: firstViewModel, collectionProvider: collectionProvider)
+        collectionProvider.setViewController(with: viewController)
+        
+        return viewController
     }
     
     func createSecondFormViewController() -> SecondFormViewController {
