@@ -5,7 +5,8 @@ final class FirstFormViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
-    private var viewModel: FirstFormViewModelProtocol?
+    private let viewModel: FirstFormViewModelProtocol?
+    private let collectionProvider: FirstFormCollectionViewProvider
     
     // MARK: - Constants and Variables:
     private enum FirstFormUIConstants {
@@ -62,9 +63,6 @@ final class FirstFormViewController: UIViewController {
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: Resources.Identifiers.collectionReusableView)
         collection.isScrollEnabled = false
-        collection.dataSource = self
-        collection.delegate = self
-        collection.isScrollEnabled = false
         collection.backgroundColor = .whiteDay
         
         return collection
@@ -76,9 +74,10 @@ final class FirstFormViewController: UIViewController {
     private lazy var screenScrollView = UIScrollView()
     
     // MARK: - Lifecycle:
-    init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol) {
+    init(coordinator: CoordinatorProtocol?, viewModel: FirstFormViewModelProtocol, collectionProvider: FirstFormCollectionViewProvider) {
         self.coordinator = coordinator
         self.viewModel = viewModel
+        self.collectionProvider = collectionProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -91,6 +90,7 @@ final class FirstFormViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        setupCollectionProvider()
         setupObservers()
         
         continueButton.block()
@@ -183,6 +183,12 @@ final class FirstFormViewController: UIViewController {
         }
     }
     
+    private func setupCollectionProvider() {
+        firstFormCollectionView.dataSource = collectionProvider
+        firstFormCollectionView.delegate = collectionProvider
+
+    }
+    
     // MARK: - Objc Methods:
     @objc private func goToSecondFormVC() {
         AnalyticsService.instance.trackAmplitudeEvent(with: "goToSecondFormScreen", params: nil)
@@ -232,83 +238,6 @@ extension FirstFormViewController: UITextFieldDelegate {
         let text = textField.text
         
         viewModel?.setupUsername(text)
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension FirstFormViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let interests = viewModel?.interestsObservable.wrappedValue.interests else { return 0 }
-        
-        return interests.count + 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let interests = viewModel?.interestsObservable.wrappedValue.interests else { return UICollectionViewCell() }
-        
-        if indexPath.row == interests.count {
-            // Enter cell:
-            let cell: BaseCollectionViewEnterCell = collectionView.dequeueReusableCell(
-                indexPath: indexPath,
-                with: Resources.Identifiers.formEnterInterestCollectionVewCell)
-            
-            cell.delegate = self
-            cell.setupCellWidht(value: view.frame.width)
-            
-            return cell
-        } else {
-            // Default cell:
-            let cell: BaseCollectionViewCell = collectionView.dequeueReusableCell(
-                indexPath: indexPath,
-                with: Resources.Identifiers.formInterestCollectionVewCell)
-            
-            let model = interests[indexPath.row]
-            
-            cell.delegate = self
-            cell.setupInterestModel(model: CellModel(name: model.name, image: model.image))
-            
-            return cell
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let text = viewModel?.interestsObservable.wrappedValue.name
-        var id: String
-        
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            id = Resources.Identifiers.collectionReusableView
-        default:
-            id = ""
-        }
-        
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: id,
-            for: indexPath) as? BaseCollectionViewReusableView else { return UICollectionReusableView() }
-        
-        headerView.setupLabelName(with: text ?? "")
-        
-        return headerView
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension FirstFormViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: UIConstants.inputHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let indexPath = IndexPath(row: 0, section: section)
-        let headerView = self.collectionView(collectionView,
-                                             viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader,
-                                             at: indexPath)
-        
-        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width,
-                                                         height: UIView.layoutFittingExpandedSize.height),
-                                                  withHorizontalFittingPriority: .required,
-                                                  verticalFittingPriority: .fittingSizeLevel)
     }
 }
 
