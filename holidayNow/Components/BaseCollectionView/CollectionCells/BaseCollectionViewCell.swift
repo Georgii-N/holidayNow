@@ -6,6 +6,11 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     weak var delegate: BaseCollectionViewCellDelegate?
     
     // MARK: - Constants and Variables:
+    private enum BaseCellUIConstants {
+        static let cellRadius: CGFloat = 18
+        static let borderInset: CGFloat = 8
+    }
+    
     private(set) var cellModel: CellModel? {
         didSet {
             guard let cellModel else { return }
@@ -69,7 +74,7 @@ private extension BaseCollectionViewCell {
     func setupViews() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1
-        layer.cornerRadius = UIConstants.UICellConstants.cellRadius
+        layer.cornerRadius = BaseCellUIConstants.cellRadius
         
         [interestImageView, nameLabel].forEach(setupView)
     }
@@ -81,18 +86,18 @@ private extension BaseCollectionViewCell {
     
     func setupInterestsImageViewConstraints() {
         NSLayoutConstraint.activate([
-            interestImageView.widthAnchor.constraint(equalToConstant: UIConstants.UICellConstants.imageSideSize),
-            interestImageView.heightAnchor.constraint(equalToConstant: UIConstants.UICellConstants.imageSideSize),
+            interestImageView.widthAnchor.constraint(equalToConstant: UIConstants.sideSize),
+            interestImageView.heightAnchor.constraint(equalToConstant: UIConstants.sideSize),
             interestImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.UICellConstants.borderInset)
+            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaseCellUIConstants.borderInset)
         ])
     }
     
     func setupNameLabelConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.UICellConstants.rightInset),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UIConstants.UICellConstants.borderInset)
+            nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.smallInset),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaseCellUIConstants.borderInset)
         ])
     }
 }

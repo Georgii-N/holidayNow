@@ -8,6 +8,10 @@ final class SecondFormViewController: UIViewController {
     private var viewModel: SecondFormViewModelProtocol
     
     // MARK: - Constants and Variables:
+    private enum SecondFormUIConstants {
+        static let collectionHeight: CGFloat = 570
+    }
+    
     private var collectionHeightAnchor: NSLayoutConstraint?
     
     // MARK: - UI:
@@ -334,7 +338,7 @@ private extension SecondFormViewController {
     func setupSecondFormCollectionViewConstraints() {
         let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
         
-        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.secondFormCollectionHeight)
+        collectionHeightAnchor = secondFormCollectionView.heightAnchor.constraint(equalToConstant: SecondFormUIConstants.collectionHeight)
         collectionHeightAnchor?.isActive = true
         
         secondFormCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,

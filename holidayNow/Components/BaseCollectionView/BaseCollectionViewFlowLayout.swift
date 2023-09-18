@@ -2,9 +2,11 @@ import UIKit
 
 final class BaseCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
+    private let cellsSpacing: CGFloat = 10
+
     // MARK: - Override Methods:
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        minimumLineSpacing = UIConstants.cellsSpacing
+        minimumLineSpacing = cellsSpacing
         sectionInset = UIEdgeInsets(top: UIConstants.sideInset,
                                     left: UIConstants.sideInset,
                                     bottom: UIConstants.sideInset,
@@ -24,7 +26,7 @@ final class BaseCollectionViewFlowLayout: UICollectionViewFlowLayout {
             }
             
             layoutAttribute.frame.origin.x = leftMargin
-            leftMargin += layoutAttribute.frame.width + UIConstants.cellsSpacing
+            leftMargin += layoutAttribute.frame.width + cellsSpacing
             maxY = max(layoutAttribute.frame.maxY, maxY)
         }
         

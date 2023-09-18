@@ -5,12 +5,15 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Dependencies
     weak var coordinator: CoordinatorProtocol?
     
+    // MARK: Constants and Variables:
+    private let onboardingCornerRadius: CGFloat = 25
+    
     // MARK: - UI:
     private lazy var onboardingImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.image = Resources.Images.Onboarding.onboardingImage
-        imageView.layer.cornerRadius = UIConstants.onboardingCornerRadius
+        imageView.layer.cornerRadius = onboardingCornerRadius
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .gray
         

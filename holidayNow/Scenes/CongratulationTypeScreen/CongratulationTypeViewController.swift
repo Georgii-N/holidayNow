@@ -7,6 +7,12 @@ final class CongratulationTypeViewController: UIViewController {
     
     private var viewModel: CongratulationTypeViewModelProtocol
     
+    // MARK: - Constants and Variables:
+    private enum CongratulationUIConstants {
+        static let stuckHeight: CGFloat = 202
+        static let sliderHeight: CGFloat = 5
+    }
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -225,7 +231,7 @@ private extension CongratulationTypeViewController {
     
     func setupButtonsStackConstraints() {
         NSLayoutConstraint.activate([
-            buttonsStack.heightAnchor.constraint(equalToConstant: UIConstants.congratulationTypeStuckHeight),
+            buttonsStack.heightAnchor.constraint(equalToConstant: CongratulationUIConstants.stuckHeight),
             buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: UIConstants.blocksInset),
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -240,7 +246,7 @@ private extension CongratulationTypeViewController {
     
     func setupLenghtSliderConstraints() {
         NSLayoutConstraint.activate([
-            lenghSlider.heightAnchor.constraint(equalToConstant: UIConstants.congratulationLabelsInset),
+            lenghSlider.heightAnchor.constraint(equalToConstant: CongratulationUIConstants.sliderHeight),
             lenghSlider.topAnchor.constraint(equalTo: congratulationLenghLabel.bottomAnchor, constant: UIConstants.elementsInset)
         ])
     }

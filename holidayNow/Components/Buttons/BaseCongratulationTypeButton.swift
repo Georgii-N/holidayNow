@@ -12,6 +12,14 @@ final class BaseCongratulationTypeButton: UIView {
     weak var delegate: BaseCongratulationTypeButtonDelegate?
     
     // MARK: - Constants and Variables:
+    private enum CongratulationButtonUIConstants {
+        static let buttonRadius: CGFloat = 24
+        static let buttonOutsideViewRadius: CGFloat = 10
+        static let buttonInsideViewRadius: CGFloat = 5
+        static let titleRightInset: CGFloat = 50
+        static let insideViewInset: CGFloat = 10
+    }
+    
     var title: String {
         titleLabel.text ?? ""
     }
@@ -34,7 +42,7 @@ final class BaseCongratulationTypeButton: UIView {
     
     private lazy var outsideCircleView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = UIConstants.congratulationButtonOutsideViewRadius
+        view.layer.cornerRadius = CongratulationButtonUIConstants.buttonOutsideViewRadius
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.universalRed.cgColor
         
@@ -43,7 +51,7 @@ final class BaseCongratulationTypeButton: UIView {
     
     private lazy var insideCircleView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = UIConstants.congratulationButtonInsideViewRadius
+        view.layer.cornerRadius = CongratulationButtonUIConstants.buttonInsideViewRadius
         
         return view
     }()
@@ -107,7 +115,7 @@ final class BaseCongratulationTypeButton: UIView {
             titleLabel.text = L10n.Congratulation.Button.haiku
         }
         
-        layer.cornerRadius = UIConstants.congratilationButtonRadius
+        layer.cornerRadius = CongratulationButtonUIConstants.buttonRadius
         backgroundColor = buttonColor
         
         layer.shadowColor = UIColor.lightGray.cgColor
@@ -141,7 +149,7 @@ extension BaseCongratulationTypeButton {
         NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.sideInset),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UIConstants.congratulationTitleRightInset)
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CongratulationButtonUIConstants.titleRightInset)
         ])
     }
     
@@ -156,8 +164,8 @@ extension BaseCongratulationTypeButton {
     
     func setupInsideCircleViewConstraints() {
         NSLayoutConstraint.activate([
-            insideCircleView.heightAnchor.constraint(equalToConstant: UIConstants.congratulationInsideViewInset),
-            insideCircleView.widthAnchor.constraint(equalToConstant: UIConstants.congratulationInsideViewInset),
+            insideCircleView.heightAnchor.constraint(equalToConstant: CongratulationButtonUIConstants.insideViewInset),
+            insideCircleView.widthAnchor.constraint(equalToConstant: CongratulationButtonUIConstants.insideViewInset),
             insideCircleView.centerXAnchor.constraint(equalTo: outsideCircleView.centerXAnchor),
             insideCircleView.centerYAnchor.constraint(equalTo: outsideCircleView.centerYAnchor)
         ])

@@ -5,6 +5,13 @@ final class BaseNavigationBar: UIView {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
+    // MARK: - Constants and Variables:
+    private enum NavigationUIConstants {
+        static let barsHeight: CGFloat = 56
+        static let navigationBarBackButtonSide: CGFloat = 24
+        static let navigationBarBackButtonLeftInset: CGFloat = 16
+    }
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -47,7 +54,7 @@ final class BaseNavigationBar: UIView {
         NSLayoutConstraint.activate([
             topAnchor.constraint(equalTo: view.topAnchor),
             leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIConstants.barsHeight),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: NavigationUIConstants.barsHeight),
             trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
@@ -81,10 +88,10 @@ private extension BaseNavigationBar {
     
     func setupBackButtonConstraints(with view: UIView) {
         NSLayoutConstraint.activate([
-            backButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIConstants.barsHeight / 2),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.navigationBarBackButtonLeftInset),
-            backButton.heightAnchor.constraint(equalToConstant: UIConstants.navigationBarBackButtonSide),
-            backButton.widthAnchor.constraint(equalToConstant: UIConstants.navigationBarBackButtonSide)
+            backButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: NavigationUIConstants.barsHeight / 2),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: NavigationUIConstants.navigationBarBackButtonLeftInset),
+            backButton.heightAnchor.constraint(equalToConstant: NavigationUIConstants.navigationBarBackButtonSide),
+            backButton.widthAnchor.constraint(equalToConstant: NavigationUIConstants.navigationBarBackButtonSide)
         ])
     }
     

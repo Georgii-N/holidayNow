@@ -6,6 +6,13 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     weak var delegate: BaseCollectionViewEnterCellDelegate?
     
     // MARK: - Constant and Variables:
+    private enum EnterCellUIConstants {
+        static let buttonWidht: CGFloat = 70
+        static let leftInset: CGFloat = 10
+        static let viewsInsets: CGFloat = 40
+        static let cellRadius: CGFloat = 18
+    }
+    
     private let maximumCountOfInterests = 3
     private var interestCounter = 0 {
         didSet {
@@ -35,7 +42,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     
     private lazy var enterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.layer.cornerRadius = UIConstants.UICellConstants.cellRadius
+        button.layer.cornerRadius = EnterCellUIConstants.cellRadius
         button.backgroundColor = .lightGray
         
         return button
@@ -63,8 +70,8 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     
     // MARK: - Public Methods:
     func setupCellWidht(value: CGFloat) {
-        let totalInsets = UIConstants.UICellConstants.leftInset + UIConstants.UICellConstants.rightInset + UIConstants.UICellConstants.viewsInsets
-        let elementWidht = UIConstants.UICellConstants.imageSideSize + UIConstants.UICellConstants.buttonWidht
+        let totalInsets = EnterCellUIConstants.leftInset + UIConstants.smallInset + EnterCellUIConstants.viewsInsets
+        let elementWidht = UIConstants.sideSize + EnterCellUIConstants.buttonWidht
         
         cellWidht = value - totalInsets - elementWidht
     }
@@ -162,7 +169,7 @@ private extension BaseCollectionViewEnterCell {
     func setupViews() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1
-        layer.cornerRadius = UIConstants.UICellConstants.cellRadius
+        layer.cornerRadius = EnterCellUIConstants.cellRadius
         
         [interestImageView, enterNameTextField, enterButton].forEach(setupView)
     }
@@ -177,17 +184,17 @@ private extension BaseCollectionViewEnterCell {
     
     func setupInterestImageViewConstraints() {
         NSLayoutConstraint.activate([
-            interestImageView.widthAnchor.constraint(equalToConstant: UIConstants.UICellConstants.imageSideSize),
-            interestImageView.heightAnchor.constraint(equalToConstant: UIConstants.UICellConstants.imageSideSize),
+            interestImageView.widthAnchor.constraint(equalToConstant: UIConstants.sideSize),
+            interestImageView.heightAnchor.constraint(equalToConstant: UIConstants.sideSize),
             interestImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.UICellConstants.leftInset)
+            interestImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: EnterCellUIConstants.leftInset)
             ])
     }
     
     func setupEnterButtonConstraints(with height: CGFloat) {
         NSLayoutConstraint.activate([
             enterButton.heightAnchor.constraint(equalToConstant: height),
-            enterButton.widthAnchor.constraint(equalToConstant: UIConstants.UICellConstants.buttonWidht),
+            enterButton.widthAnchor.constraint(equalToConstant: EnterCellUIConstants.buttonWidht),
             enterButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             enterButton.trailingAnchor.constraint(equalTo: trailingAnchor)
             ])
@@ -196,8 +203,8 @@ private extension BaseCollectionViewEnterCell {
     func setupEnterNameTextFieldConstraints() {
         NSLayoutConstraint.activate([
             enterNameTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            enterNameTextField.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.UICellConstants.rightInset),
-            enterNameTextField.trailingAnchor.constraint(equalTo: enterButton.leadingAnchor, constant: -UIConstants.UICellConstants.rightInset)
+            enterNameTextField.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.smallInset),
+            enterNameTextField.trailingAnchor.constraint(equalTo: enterButton.leadingAnchor, constant: -UIConstants.smallInset)
         ])
     }
     

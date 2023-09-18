@@ -8,6 +8,8 @@ final class BaseCustomButton: UIButton {
         case back
     }
     
+    private let baseCustomButtonRadius: CGFloat = 24
+
     // MARK: - UI:
     private var buttonState: ButtonState
     private var buttonText: String
@@ -70,7 +72,7 @@ final class BaseCustomButton: UIButton {
             buttonTextColor = .black
         }
         
-        layer.cornerRadius = UIConstants.baseCustomButtonRadius
+        layer.cornerRadius = baseCustomButtonRadius
         backgroundColor = buttonColor
         setTitle(buttonText, for: .normal)
         setTitleColor(buttonTextColor, for: .normal)

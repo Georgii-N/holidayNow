@@ -8,6 +8,11 @@ final class FirstFormViewController: UIViewController {
     private var viewModel: FirstFormViewModelProtocol?
     
     // MARK: - Constants and Variables:
+    private enum FirstFormUIConstants {
+        static let collectionHeight: CGFloat = 450
+        static let enterNameRadius: CGFloat = 20
+    }
+    
     private var collectionHeightAnchor: NSLayoutConstraint?
     
     // MARK: - UI:
@@ -36,7 +41,7 @@ final class FirstFormViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.bounds.height))
         textField.leftViewMode = .always
         textField.clearButtonMode = .whileEditing
-        textField.layer.cornerRadius = UIConstants.firstFormCornerRadius
+        textField.layer.cornerRadius = FirstFormUIConstants.enterNameRadius
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.placeholder = L10n.FirstForm.namePlaceholder
@@ -362,7 +367,7 @@ private extension FirstFormViewController {
     func setupFirstCollectionViewConstraints() {
         let bottomAnchor = UIConstants.sideInset + UIConstants.buttonHeight + UIConstants.sideInset
         
-        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: UIConstants.firstFormCollectionHeight)
+        collectionHeightAnchor = firstFormCollectionView.heightAnchor.constraint(equalToConstant: FirstFormUIConstants.collectionHeight)
         collectionHeightAnchor?.isActive = true
         
         firstFormCollectionView.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor,
