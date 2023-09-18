@@ -12,6 +12,7 @@ final class FirstFormViewController: UIViewController {
     private enum FirstFormUIConstants {
         static let collectionHeight: CGFloat = 450
         static let enterNameRadius: CGFloat = 20
+        static let enterNameWarningInset: CGFloat = 10
     }
     
     private var collectionHeightAnchor: NSLayoutConstraint?
@@ -70,7 +71,8 @@ final class FirstFormViewController: UIViewController {
     
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.FirstForm.turn, isBackButton: false, coordinator: coordinator)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.FirstForm.continueButton)
-    private lazy var warningLabel = BaseWarningLabel()
+    private lazy var cellWarningLabel = BaseWarningLabel()
+    private lazy var enterNameWarningLabel = UILabel()
     private lazy var screenScrollView = UIScrollView()
     
     // MARK: - Lifecycle:
@@ -166,7 +168,7 @@ final class FirstFormViewController: UIViewController {
                 cell.isUserInteractionEnabled = true
             }
             
-            controlStateWarningLabel(label: warningLabel, isShow: false)
+            controlStateWarningLabel(label: cellWarningLabel, isShow: false)
         } else {
             cells.forEach { cell in
                 if let cell = cell as? BaseCollectionViewEnterCell {
@@ -176,11 +178,26 @@ final class FirstFormViewController: UIViewController {
                 cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
             }
             
-            controlStateWarningLabel(label: warningLabel,
+            controlStateWarningLabel(label: cellWarningLabel,
                                      isShow: true,
                                      from: firstFormCollectionView,
-                                     with: L10n.FirstForm.warningOptionLimits)
+                                     with: L10n.Warning.optionLimits)
         }
+    }
+    
+    private func showEnterNameWarningLabel() {
+        enterNameWarningLabel.font = .captionSmallRegularFont
+        enterNameWarningLabel.textColor = .universalRed
+        enterNameWarningLabel.textAlignment = .left
+        enterNameWarningLabel.text = L10n.Warning.wrongWord
+        
+        view.setupView(enterNameWarningLabel)
+        
+        NSLayoutConstraint.activate([
+            enterNameWarningLabel.topAnchor.constraint(equalTo: enterNameTextField.bottomAnchor, constant: FirstFormUIConstants.enterNameWarningInset),
+            enterNameWarningLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            enterNameWarningLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: UIConstants.sideInset)
+        ])
     }
     
     private func setupCollectionProvider() {
@@ -213,14 +230,14 @@ extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
         viewModel?.addNewOwnInterest(name: name)
     }
     
-    func changeStateWarningLabel(isShow: Bool) {
+    func changeStateCellWarningLabel(isShow: Bool, isWrongText: Bool) {
         if isShow {
-            controlStateWarningLabel(label: warningLabel,
+            controlStateWarningLabel(label: cellWarningLabel,
                                      isShow: true,
                                      from: firstFormCollectionView,
-                                     with: L10n.FirstForm.warningCharacterLimits)
+                                     with: isWrongText ? L10n.Warning.wrongWord : L10n.Warning.characterLimits)
         } else {
-            controlStateWarningLabel(label: warningLabel,
+            controlStateWarningLabel(label: cellWarningLabel,
                                      isShow: false)
         }
     }
@@ -237,7 +254,12 @@ extension FirstFormViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let text = textField.text
         
-        viewModel?.setupUsername(text)
+        if ProhibitedDictionaryService().isWordProhibited(with: text ?? "") {
+            showEnterNameWarningLabel()
+        } else {
+            enterNameWarningLabel.removeFromSuperview()
+            viewModel?.setupUsername(text)
+        }
     }
 }
 

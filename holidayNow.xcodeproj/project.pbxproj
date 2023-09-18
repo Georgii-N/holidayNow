@@ -57,6 +57,7 @@
 		7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */; };
 		7EC140FF2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */; };
 		7EC141022AB83EAB00BBF89B /* SecondFormCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC141012AB83EAB00BBF89B /* SecondFormCollectionProvider.swift */; };
+		7EC141052AB87AF700BBF89B /* ProhibitedDictionaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC141042AB87AF700BBF89B /* ProhibitedDictionaryService.swift */; };
 		7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */; };
 		7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */; };
 		7ECE84F72AB1C79B001F340D /* UISlider + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */; };
@@ -131,6 +132,7 @@
 		7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButtonDelegate.swift; sourceTree = "<group>"; };
 		7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormCollectionViewProvider.swift; sourceTree = "<group>"; };
 		7EC141012AB83EAB00BBF89B /* SecondFormCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormCollectionProvider.swift; sourceTree = "<group>"; };
+		7EC141042AB87AF700BBF89B /* ProhibitedDictionaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProhibitedDictionaryService.swift; sourceTree = "<group>"; };
 		7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringService.swift; sourceTree = "<group>"; };
 		7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWarningLabel.swift; sourceTree = "<group>"; };
 		7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider + Extension.swift"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				40FD194E2AA9B9F50041FFFF /* DataProvider */,
 				40FD19552AA9BABA0041FFFF /* NetworkClient */,
 				40FD19562AA9BAD80041FFFF /* ViewControllerFactory */,
+				7EC141042AB87AF700BBF89B /* ProhibitedDictionaryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
 				7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */,
+				7EC141052AB87AF700BBF89B /* ProhibitedDictionaryService.swift in Sources */,
 				40FD195B2AA9BE220041FFFF /* GreetingRequestFactory.swift in Sources */,
 				401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */,
 				7EFFABE12AA87CF30018196F /* BaseCollectionViewReusableView.swift in Sources */,
