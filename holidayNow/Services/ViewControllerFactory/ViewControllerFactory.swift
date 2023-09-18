@@ -33,7 +33,11 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     func createSecondFormViewController() -> SecondFormViewController {
         let secondViewModel = SecondFormViewModel(dataProvider: dataProvider)
-        return SecondFormViewController(coordinator: coordinator, viewModel: secondViewModel)
+        let collectionProvider = SecondFormCollectionProvider(viewModel: secondViewModel)
+        let viewController = SecondFormViewController(coordinator: coordinator, viewModel: secondViewModel, collectionProvider: collectionProvider)
+        collectionProvider.setupViewController(with: viewController)
+        
+        return viewController
     }
     
     // Response screens

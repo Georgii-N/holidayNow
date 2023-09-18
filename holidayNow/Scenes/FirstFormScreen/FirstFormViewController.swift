@@ -6,7 +6,7 @@ final class FirstFormViewController: UIViewController {
     weak var coordinator: CoordinatorProtocol?
     
     private let viewModel: FirstFormViewModelProtocol?
-    private let collectionProvider: FirstFormCollectionViewProvider?
+    private let collectionProvider: FirstFormCollectionViewProvider
     
     // MARK: - Constants and Variables:
     private enum FirstFormUIConstants {

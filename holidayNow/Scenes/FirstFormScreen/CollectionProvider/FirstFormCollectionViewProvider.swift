@@ -4,7 +4,8 @@ final class FirstFormCollectionViewProvider: NSObject {
     
     // MARK: - Dependencies:
     private let viewModel: FirstFormViewModelProtocol?
-    private var viewController: FirstFormViewController?
+    
+    weak private var viewController: FirstFormViewController?
     
     // MARK: - Lifecycle:
     init(viewModel: FirstFormViewModelProtocol) {
@@ -17,6 +18,7 @@ final class FirstFormCollectionViewProvider: NSObject {
     }
 }
 
+// MARK: - UICollectionViewDataSource:
 extension FirstFormCollectionViewProvider: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let interests = viewModel?.interestsObservable.wrappedValue.interests else { return 0 }

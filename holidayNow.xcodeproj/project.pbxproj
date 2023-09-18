@@ -56,6 +56,7 @@
 		7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */; };
 		7E42DD632AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */; };
 		7EC140FF2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */; };
+		7EC141022AB83EAB00BBF89B /* SecondFormCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC141012AB83EAB00BBF89B /* SecondFormCollectionProvider.swift */; };
 		7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */; };
 		7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */; };
 		7ECE84F72AB1C79B001F340D /* UISlider + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */; };
@@ -129,6 +130,7 @@
 		7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButton.swift; sourceTree = "<group>"; };
 		7E42DD622AA21842007391AB /* BaseCongratulationTypeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCongratulationTypeButtonDelegate.swift; sourceTree = "<group>"; };
 		7EC140FE2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormCollectionViewProvider.swift; sourceTree = "<group>"; };
+		7EC141012AB83EAB00BBF89B /* SecondFormCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormCollectionProvider.swift; sourceTree = "<group>"; };
 		7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringService.swift; sourceTree = "<group>"; };
 		7ECC73F42AAF0C0100A36393 /* BaseWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWarningLabel.swift; sourceTree = "<group>"; };
 		7ECE84F62AB1C79B001F340D /* UISlider + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider + Extension.swift"; sourceTree = "<group>"; };
@@ -446,6 +448,14 @@
 			path = CollectionProvider;
 			sourceTree = "<group>";
 		};
+		7EC141032AB83EAD00BBF89B /* CollectionProvider */ = {
+			isa = PBXGroup;
+			children = (
+				7EC141012AB83EAB00BBF89B /* SecondFormCollectionProvider.swift */,
+			);
+			path = CollectionProvider;
+			sourceTree = "<group>";
+		};
 		7ECC73F12AAEEC2700A36393 /* EnteringService */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				7EFFABEA2AA992580018196F /* Protocols */,
+				7EC141032AB83EAD00BBF89B /* CollectionProvider */,
 				7EFFABE62AA992270018196F /* SecondFormViewModel.swift */,
 				7EFFABE32AA8D1620018196F /* SecondFormViewController.swift */,
 			);
@@ -720,6 +731,7 @@
 				7E42DD5B2AA1F21C007391AB /* OnboardingViewController.swift in Sources */,
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
 				7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */,
+				7EC141022AB83EAB00BBF89B /* SecondFormCollectionProvider.swift in Sources */,
 				40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */,
 				40FD19522AA9BA2E0041FFFF /* DataProvider.swift in Sources */,
 				40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */,
