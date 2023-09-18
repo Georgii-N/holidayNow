@@ -39,7 +39,7 @@ final class WaitingViewModel: WaitingViewModelProtocol {
                 
             case .failure(let error):
                 self.isResponseSuccess = false
-                assertionFailure(error.localizedDescription)
+                print(error.localizedDescription)
             }
         }
     }
