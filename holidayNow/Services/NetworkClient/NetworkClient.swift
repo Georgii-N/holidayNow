@@ -13,12 +13,13 @@ final class NetworkClient: NetworkClientProtocol {
     // MARK: - Public Methods
     func fetchGreeting(text: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: Resources.URLs.defaultURL) else {
-            assertionFailure("Invalid URL")
+            print("Invalid URL")
             return
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.timeoutInterval = 10
         request.addValue(apiKey, forHTTPHeaderField: "api-key")
         
         let postString = "text=\(text)"

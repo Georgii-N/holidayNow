@@ -53,7 +53,7 @@ final class DataProvider: DataProviderProtocol {
         requestText = greetingRequestFactory?.createRequestText()
         
         guard let requestText else {
-            assertionFailure("requestText is nil")
+            print("requestText is nil")
             return
         }
         
@@ -64,7 +64,7 @@ final class DataProvider: DataProviderProtocol {
                 self.responseText = responseText
                 completion(.success(responseText))
             case .failure(let error):
-                assertionFailure(error.localizedDescription)
+                print(error.localizedDescription)
                 completion(.failure(error))
             }
         }
@@ -72,7 +72,7 @@ final class DataProvider: DataProviderProtocol {
     
     func getResultText() -> String {
         guard let responseText else {
-            assertionFailure("responseText does not exist in dataProvider")
+            print("responseText does not exist in dataProvider")
             return "Something went wrong...Please try later."}
         
         return responseText
@@ -95,7 +95,7 @@ final class DataProvider: DataProviderProtocol {
                                    interests: self.interests,
                                    intonation: self.intonation)
         } else {
-            assertionFailure("greetingModel is invalid")
+            print("greetingModel is invalid")
             return nil
         }
     }

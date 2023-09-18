@@ -41,10 +41,12 @@ final class ErrorNetworkViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupTargets()
     }
     
     // MARK: - Objc Methods:
     @objc private func didTapActionButton() {
+        coordinator?.removeAllviewControllers()
         coordinator?.goToFirstFormViewController()
     }
 }
