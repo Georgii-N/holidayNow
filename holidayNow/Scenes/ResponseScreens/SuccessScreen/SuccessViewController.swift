@@ -9,7 +9,7 @@ final class SuccessViewController: UIViewController {
     // MARK: - Constants and Variables:
     private enum SuccessUIConstants {
         static let imageViewHeight: CGFloat = 220
-        static let buttonInsetFromCenter: CGFloat = 100
+        static let buttonInsetFromCenter: CGFloat = 10
     }
     
     // MARK: - UI:
