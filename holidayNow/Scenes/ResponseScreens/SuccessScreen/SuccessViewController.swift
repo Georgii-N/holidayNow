@@ -6,6 +6,12 @@ final class SuccessViewController: UIViewController {
     weak var coordinator: CoordinatorProtocol?
     private var successViewModel: SuccessViewModelProtocol
     
+    // MARK: - Constants and Variables:
+    private enum SuccessUIConstants {
+        static let imageViewHeight: CGFloat = 220
+        static let buttonInsetFromCenter: CGFloat = 100
+    }
+    
     // MARK: - UI:
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -95,12 +101,12 @@ private extension SuccessViewController {
             imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 220),
+            imageView.heightAnchor.constraint(equalToConstant: SuccessUIConstants.imageViewHeight),
             
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -20),
+            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.blocksInset),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
+            scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.elementsInset),
             
             responseLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
             responseLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -108,13 +114,13 @@ private extension SuccessViewController {
             responseLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             responseLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
-            backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -10),
+            backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
+            backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -SuccessUIConstants.buttonInsetFromCenter),
             
-            shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
-            shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
-            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
+            shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: SuccessUIConstants.buttonInsetFromCenter),
+            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
         ])
     }
     
