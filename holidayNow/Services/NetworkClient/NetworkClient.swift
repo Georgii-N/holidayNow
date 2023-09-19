@@ -6,6 +6,7 @@ enum NetworkClientError: Error {
     case urlSessionError
     case parsingError
     
+    // MARK: - Public Methods:
     func toString() -> String {
             switch self {
             case .httpStatusCode(let statusCode):
@@ -30,7 +31,7 @@ final class NetworkClient: NetworkClientProtocol {
         self.apiKey = apiKey
     }
     
-    // MARK: - Public Methods
+    // MARK: - Public Methods:
     func fetchGreeting(text: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: Resources.URLs.defaultURL) else {
             print("Invalid URL")

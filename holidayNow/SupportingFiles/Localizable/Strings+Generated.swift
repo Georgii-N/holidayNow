@@ -174,8 +174,8 @@ internal enum L10n {
     internal static let characterLimits = L10n.tr("Localizable", "warning.characterLimits", fallback: "Максимальное количество символов - 15")
     /// Максимальное количество опций - 3
     internal static let optionLimits = L10n.tr("Localizable", "warning.optionLimits", fallback: "Максимальное количество опций - 3")
-    /// Некоректный текст
-    internal static let wrongWord = L10n.tr("Localizable", "warning.wrongWord", fallback: "Некоректный текст")
+    /// Некорректный текст
+    internal static let wrongWord = L10n.tr("Localizable", "warning.wrongWord", fallback: "Некорректный текст")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

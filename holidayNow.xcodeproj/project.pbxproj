@@ -21,7 +21,6 @@
 		40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA32AA88F3700346E8D /* WaitingViewController.swift */; };
 		40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */; };
 		40A71EAA2AA892D700346E8D /* ErrorNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA92AA892D700346E8D /* ErrorNetworkViewController.swift */; };
-		40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */; };
 		40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */; };
 		40BE590E2AAEF8BA00300A2C /* magic.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BE590D2AAEF8BA00300A2C /* magic.json */; };
 		40CBF02B2AB87F310007F006 /* HandlingErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF02A2AB87F310007F006 /* HandlingErrorService.swift */; };
@@ -99,7 +98,6 @@
 		40A71EA32AA88F3700346E8D /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
 		40A71EA92AA892D700346E8D /* ErrorNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNetworkViewController.swift; sourceTree = "<group>"; };
-		40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPIViewController.swift; sourceTree = "<group>"; };
 		40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModelProtocol.swift; sourceTree = "<group>"; };
 		40BE590D2AAEF8BA00300A2C /* magic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = magic.json; sourceTree = "<group>"; };
 		40CBF02A2AB87F310007F006 /* HandlingErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingErrorService.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				40A71EA92AA892D700346E8D /* ErrorNetworkViewController.swift */,
-				40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */,
 			);
 			path = ErrorScreens;
 			sourceTree = "<group>";
@@ -698,7 +695,6 @@
 				400E1D5F2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift in Sources */,
 				40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */,
 				40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */,
-				40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */,
 				7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				7EFFABC92AA705410018196F /* FirstFormViewController.swift in Sources */,
 				7E2494142AAB0A8B002B1D48 /* UIResponder + Extension.swift in Sources */,

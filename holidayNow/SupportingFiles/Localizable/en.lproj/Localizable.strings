@@ -1,7 +1,7 @@
 // MARK: - Warnings:
 "warning.optionLimits" = "Максимальное количество опций - 3";
 "warning.characterLimits" = "Максимальное количество символов - 15";
-"warning.wrongWord" = "Некоректный текст";
+"warning.wrongWord" = "Некорректный текст";
 
 // MARK: - Onboarding screen:
 "onboarding.title" = "Holiday Now";

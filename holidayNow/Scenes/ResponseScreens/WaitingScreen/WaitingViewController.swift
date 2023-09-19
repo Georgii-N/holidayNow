@@ -8,6 +8,12 @@ final class WaitingViewController: UIViewController {
     
     private var waitingViewModel: WaitingViewModelProtocol
     
+    // MARK: - Constants and Variables:
+    private enum CongratulationUIConstants {
+        static let animationViewSide: CGFloat = 300
+        static let textLabelHeight: CGFloat = 100
+    }
+    
     // MARK: - UI:
     private lazy var textLabel: UILabel = {
         let label = UILabel()
@@ -73,16 +79,24 @@ private extension WaitingViewController {
     }
     
     func setupConstraints() {
+        setupAnimationViewConstraints()
+        setupTextLabelConstraints()
+    }
+    
+    func setupAnimationViewConstraints() {
         NSLayoutConstraint.activate([
-            animationView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 20),
-            animationView.heightAnchor.constraint(equalToConstant: 300),
-            animationView.widthAnchor.constraint(equalToConstant: 300),
-            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 20),
-            
-            textLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 20),
-            textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            textLabel.heightAnchor.constraint(equalToConstant: 100)
+            animationView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: UIConstants.sideInset),
+            animationView.heightAnchor.constraint(equalToConstant: CongratulationUIConstants.animationViewSide),
+            animationView.widthAnchor.constraint(equalToConstant: CongratulationUIConstants.animationViewSide),
+            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: UIConstants.sideInset)])
+    }
+    
+    func setupTextLabelConstraints() {
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: UIConstants.blocksInset),
+            textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
+            textLabel.heightAnchor.constraint(equalToConstant: CongratulationUIConstants.textLabelHeight)
         ])
     }
     

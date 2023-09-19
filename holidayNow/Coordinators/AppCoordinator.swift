@@ -3,8 +3,8 @@ import UIKit
 final class AppCoordinator: CoordinatorProtocol {
     
     // MARK: - Constants and Variables
-    internal var navigationController: UINavigationController
-    internal var viewControllerFactory: ViewControllerFactoryProtocol
+    private var navigationController: UINavigationController
+    private var viewControllerFactory: ViewControllerFactoryProtocol
     
     // MARK: - LifeCycle:
     init(navigationController: UINavigationController, viewControllerFactory: ViewControllerFactoryProtocol) {
@@ -47,11 +47,6 @@ final class AppCoordinator: CoordinatorProtocol {
     func goToErrorNetworkViewController() {
         let errorNetworkViewController = viewControllerFactory.createErrorNetworkViewController()
         navigationController.pushViewController(errorNetworkViewController, animated: true)
-    }
-    
-    func goToErrorAPIViewController() {
-        let errorAPIViewController = viewControllerFactory.createErrorAPIViewController()
-        navigationController.pushViewController(errorAPIViewController, animated: true)
     }
     
     // Pop:
