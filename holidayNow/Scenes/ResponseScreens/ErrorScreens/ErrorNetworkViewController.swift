@@ -5,6 +5,12 @@ final class ErrorNetworkViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
+    // MARK: - Constants and Variables:
+    private enum ErrorNetworkUIConstants {
+        static let imageViewHeight: CGFloat = 220
+        static let textLabelHeight: CGFloat = 100
+    }
+    
     // MARK: - UI
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -61,21 +67,35 @@ private extension ErrorNetworkViewController {
     }
     
     func setupConstraints() {
+        setupImageViewConstraints()
+        setupTextLabelConstraints()
+        setupActionButtonConstraints()
+    }
+    
+    func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 220),
-            
-            textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            textLabel.heightAnchor.constraint(equalToConstant: 100),
-            
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
+            imageView.heightAnchor.constraint(equalToConstant: ErrorNetworkUIConstants.imageViewHeight)
+            ])
+    }
+    
+    func setupTextLabelConstraints() {
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.sideInset),
+            textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
+            textLabel.heightAnchor.constraint(equalToConstant: ErrorNetworkUIConstants.textLabelHeight)
+            ])
+    }
+    
+    func setupActionButtonConstraints() {
+        NSLayoutConstraint.activate([
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
+            ])
     }
     
     func setupTargets() {

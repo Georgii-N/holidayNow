@@ -97,31 +97,55 @@ private extension SuccessViewController {
     }
     
     func setupConstraints() {
+        setupImageViewConstraints()
+        setupScrollViewConstraints()
+        setupResponseLabelConstraints()
+        setupBackToStartButtonConstraints()
+        setupBackToShareButtonConstraints()
+    }
+    
+    func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: SuccessUIConstants.imageViewHeight),
-            
+            imageView.heightAnchor.constraint(equalToConstant: SuccessUIConstants.imageViewHeight)
+            ])
+    }
+    
+    func setupScrollViewConstraints() {
+        NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.blocksInset),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
-            scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.elementsInset),
-            
+            scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.elementsInset)
+            ])
+    }
+    
+    func setupResponseLabelConstraints() {
+        NSLayoutConstraint.activate([
             responseLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
             responseLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             responseLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             responseLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            responseLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
+            responseLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            ])
+    }
+    
+    func setupBackToStartButtonConstraints() {
+        NSLayoutConstraint.activate([
             backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
             backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
-            backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -SuccessUIConstants.buttonInsetFromCenter),
-            
+            backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -SuccessUIConstants.buttonInsetFromCenter)
+            ])
+    }
+    
+    func setupBackToShareButtonConstraints() {
+        NSLayoutConstraint.activate([
             shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
             shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: SuccessUIConstants.buttonInsetFromCenter),
             shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
-        ])
+            ])
     }
     
     func setupTargets() {
