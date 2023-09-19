@@ -169,6 +169,7 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if ProhibitedDictionaryService().isWordProhibited(with: textField.text ?? "") {
             delegate?.changeStateCellWarningLabel(isShow: true, isWrongText: true)
+            changeButtonAppearance(isEnable: false)
         }
     }
 }

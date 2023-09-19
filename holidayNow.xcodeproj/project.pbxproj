@@ -281,12 +281,12 @@
 			isa = PBXGroup;
 			children = (
 				40F1B4B12AB1ECBF00A0917A /* AmplitudeService */,
+				40FD194E2AA9B9F50041FFFF /* DataProvider */,
 				7ECC73F12AAEEC2700A36393 /* EnteringService */,
 				40FD19592AA9BE0F0041FFFF /* RequestFactory */,
-				40FD194E2AA9B9F50041FFFF /* DataProvider */,
 				40FD19552AA9BABA0041FFFF /* NetworkClient */,
 				40FD19562AA9BAD80041FFFF /* ViewControllerFactory */,
-				7EC141042AB87AF700BBF89B /* ProhibitedDictionaryService.swift */,
+				7EC141062AB9A6A700BBF89B /* ProhibitedDictionaryService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -465,6 +465,14 @@
 				7EC141012AB83EAB00BBF89B /* SecondFormCollectionProvider.swift */,
 			);
 			path = CollectionProvider;
+			sourceTree = "<group>";
+		};
+		7EC141062AB9A6A700BBF89B /* ProhibitedDictionaryService */ = {
+			isa = PBXGroup;
+			children = (
+				7EC141042AB87AF700BBF89B /* ProhibitedDictionaryService.swift */,
+			);
+			path = ProhibitedDictionaryService;
 			sourceTree = "<group>";
 		};
 		7ECC73F12AAEEC2700A36393 /* EnteringService */ = {
