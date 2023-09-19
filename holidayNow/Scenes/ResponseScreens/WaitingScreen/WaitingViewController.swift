@@ -50,8 +50,10 @@ final class WaitingViewController: UIViewController {
             else { return }
             
             if isSuccess {
+                AnalyticsService.instance.trackAmplitudeEvent(name: .goToSuccessScreen, params: nil)
                 self.resumeOnMainThread(coordinator.goToSuccessResultViewController, with: ())
             } else {
+                AnalyticsService.instance.trackAmplitudeEvent(name: .goToErrorScreen, params: nil)
                 self.resumeOnMainThread(coordinator.goToErrorNetworkViewController, with: ())
             }
         }

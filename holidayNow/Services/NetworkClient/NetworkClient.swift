@@ -5,6 +5,19 @@ enum NetworkClientError: Error {
     case urlRequestError(Error)
     case urlSessionError
     case parsingError
+    
+    func toString() -> String {
+            switch self {
+            case .httpStatusCode(let statusCode):
+                return "HTTP Status Code: \(statusCode)"
+            case .urlRequestError(let error):
+                return "URL Request Error: \(error.localizedDescription)"
+            case .urlSessionError:
+                return "URL Session Error"
+            case .parsingError:
+                return "Parsing Error"
+            }
+        }
 }
 
 final class NetworkClient: NetworkClientProtocol {
