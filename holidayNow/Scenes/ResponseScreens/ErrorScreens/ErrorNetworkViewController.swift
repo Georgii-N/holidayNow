@@ -11,7 +11,7 @@ final class ErrorNetworkViewController: UIViewController {
         static let textLabelHeight: CGFloat = 100
     }
     
-    // MARK: - UI
+    // MARK: - UI:
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -33,7 +33,7 @@ final class ErrorNetworkViewController: UIViewController {
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
     private lazy var actionButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.ResultScreen.repeatButton)
     
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle:
     init(coordinator: CoordinatorProtocol?) {
         super.init(nibName: nil, bundle: nil)
         self.coordinator = coordinator
@@ -57,7 +57,7 @@ final class ErrorNetworkViewController: UIViewController {
     }
 }
 
-// MARK: - Setup Views
+// MARK: - Setup Views:
 private extension ErrorNetworkViewController {
     func setupViews() {
         view.backgroundColor = .whiteDay

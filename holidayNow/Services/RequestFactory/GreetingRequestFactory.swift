@@ -2,14 +2,14 @@ import Foundation
 
 final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
     
-    // MARK: - Dependencies
+    // MARK: - Dependencies:
     private var greetingRequestModel: GreetingRequest
     
     init(greetingRequestModel: GreetingRequest) {
         self.greetingRequestModel = greetingRequestModel
     }
     
-    // MARK: - Public Methods
+    // MARK: - Public Methods:
     func createRequestText() -> String {
         let type = createTypeText()
         let countSentences = createCountSentencesText()

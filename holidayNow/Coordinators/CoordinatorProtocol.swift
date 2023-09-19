@@ -10,7 +10,6 @@ protocol CoordinatorProtocol: AnyObject {
     func goToWaitingViewController()
     func goToSuccessResultViewController()
     func goToErrorNetworkViewController()
-    func goToErrorAPIViewController()
     
     func goBack()
     func removeAllviewControllers()

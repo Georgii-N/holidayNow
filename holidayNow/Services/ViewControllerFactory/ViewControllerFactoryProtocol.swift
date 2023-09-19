@@ -9,5 +9,4 @@ protocol ViewControllerFactoryProtocol {
     func createWaitingViewController() -> WaitingViewController
     func createSuccessViewController() -> SuccessViewController
     func createErrorNetworkViewController() -> ErrorNetworkViewController
-    func createErrorAPIViewController() -> ErrorAPIViewController
 }

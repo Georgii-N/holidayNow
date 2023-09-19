@@ -2,11 +2,11 @@ import Foundation
 
 final class DataProvider: DataProviderProtocol {
     
-    // MARK: - Dependencies
+    // MARK: - Dependencies:
     private var networkClient: NetworkClientProtocol
     private var greetingRequestFactory: GreetingRequestFactoryProtocol?
     
-    // MARK: - Constants and Variables
+    // MARK: - Constants and Variables:
     private var type: String?
     private var countSentences: Int?
     private var name: String?
@@ -17,12 +17,12 @@ final class DataProvider: DataProviderProtocol {
     private var requestText: String?
     private var responseText: String?
     
-    // MARK: - LifeCycle
+    // MARK: - LifeCycle:
     init(networkClient: NetworkClientProtocol) {
         self.networkClient = networkClient
     }
     
-    // MARK: - Public Methods
+    // MARK: - Public Methods:
     func setType(type: String) {
         self.type = type
     }
@@ -78,7 +78,7 @@ final class DataProvider: DataProviderProtocol {
         return responseText
     }
     
-    // MARK: - Private Methods
+    // MARK: - Private Methods:
     private func isReadyForConversion() -> Bool {
         return type != nil &&
         countSentences != nil &&

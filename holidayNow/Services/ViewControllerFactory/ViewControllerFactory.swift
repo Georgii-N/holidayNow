@@ -58,9 +58,4 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
         let errorNetworkViewController = ErrorNetworkViewController(coordinator: coordinator)
         return errorNetworkViewController
     }
-    
-    func createErrorAPIViewController() -> ErrorAPIViewController {
-        let errorAPIViewController = ErrorAPIViewController(coordinator: coordinator)
-        return errorAPIViewController
-    }
 }
