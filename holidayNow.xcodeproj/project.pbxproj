@@ -24,6 +24,7 @@
 		40A71EAC2AA8931700346E8D /* ErrorAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */; };
 		40A71EAE2AA8B2C700346E8D /* WaitingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */; };
 		40BE590E2AAEF8BA00300A2C /* magic.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BE590D2AAEF8BA00300A2C /* magic.json */; };
+		40CBF02B2AB87F310007F006 /* HandlingErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF02A2AB87F310007F006 /* HandlingErrorService.swift */; };
 		40D1A21D2AB03E94000A7A39 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 40D1A21C2AB03E94000A7A39 /* AmplitudeSwift */; };
 		40E30DB02AAC7836005C0F8B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 40E30DAF2AAC7836005C0F8B /* Lottie */; };
 		40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */; };
@@ -101,6 +102,7 @@
 		40A71EAB2AA8931700346E8D /* ErrorAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPIViewController.swift; sourceTree = "<group>"; };
 		40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModelProtocol.swift; sourceTree = "<group>"; };
 		40BE590D2AAEF8BA00300A2C /* magic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = magic.json; sourceTree = "<group>"; };
+		40CBF02A2AB87F310007F006 /* HandlingErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingErrorService.swift; sourceTree = "<group>"; };
 		40F147172AA8486E006EC7EE /* BaseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
 		40F1B4B22AB1ECD600A0917A /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,14 @@
 			path = ErrorScreens;
 			sourceTree = "<group>";
 		};
+		40CBF0292AB87F1D0007F006 /* HandlingErrorService */ = {
+			isa = PBXGroup;
+			children = (
+				40CBF02A2AB87F310007F006 /* HandlingErrorService.swift */,
+			);
+			path = HandlingErrorService;
+			sourceTree = "<group>";
+		};
 		40F147142AA8478B006EC7EE /* WaitingScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +306,7 @@
 		40FD19552AA9BABA0041FFFF /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
+				40CBF0292AB87F1D0007F006 /* HandlingErrorService */,
 				40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */,
 				40F6E0352AA22DA800F75858 /* NetworkClient.swift */,
 			);
@@ -736,6 +747,7 @@
 				7E42DD5E2AA207A8007391AB /* CongratulationTypeViewController.swift in Sources */,
 				7ECC73F32AAEEC5E00A36393 /* EnteringService.swift in Sources */,
 				7EC141022AB83EAB00BBF89B /* SecondFormCollectionProvider.swift in Sources */,
+				40CBF02B2AB87F310007F006 /* HandlingErrorService.swift in Sources */,
 				40F147182AA8486E006EC7EE /* BaseNavigationBar.swift in Sources */,
 				40FD19522AA9BA2E0041FFFF /* DataProvider.swift in Sources */,
 				40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */,

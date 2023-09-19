@@ -1,5 +1,25 @@
 import Foundation
 
+enum NetworkClientError: Error {
+    case httpStatusCode(Int)
+    case urlRequestError(Error)
+    case urlSessionError
+    case parsingError
+    
+    func toString() -> String {
+            switch self {
+            case .httpStatusCode(let statusCode):
+                return "HTTP Status Code: \(statusCode)"
+            case .urlRequestError(let error):
+                return "URL Request Error: \(error.localizedDescription)"
+            case .urlSessionError:
+                return "URL Session Error: \(self.localizedDescription)"
+            case .parsingError:
+                return "Parsing Error: \(self.localizedDescription)"
+            }
+        }
+}
+
 final class NetworkClient: NetworkClientProtocol {
     
     // MARK: - Constants and Variables:
@@ -26,11 +46,21 @@ final class NetworkClient: NetworkClientProtocol {
         request.httpBody = postString.data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(NetworkClientError.urlSessionError))
+                return
+            }
+
+            guard 200 ..< 300 ~= response.statusCode else {
+                completion(.failure(NetworkClientError.httpStatusCode(response.statusCode)))
                 return
             }
             
+            if let error = error {
+                completion(.failure(NetworkClientError.urlRequestError(error)))
+                return
+            }
+
             if let data = data {
                 do {
                     let response = try JSONDecoder().decode(Response.self, from: data)
@@ -38,7 +68,7 @@ final class NetworkClient: NetworkClientProtocol {
                         completion(.success(decodedText))
                     }
                 } catch {
-                    completion(.failure(error))
+                    completion(.failure(NetworkClientError.parsingError))
                 }
             }
         }
