@@ -13,9 +13,9 @@ enum NetworkClientError: Error {
             case .urlRequestError(let error):
                 return "URL Request Error: \(error.localizedDescription)"
             case .urlSessionError:
-                return "URL Session Error"
+                return "URL Session Error: \(self.localizedDescription)"
             case .parsingError:
-                return "Parsing Error"
+                return "Parsing Error: \(self.localizedDescription)"
             }
         }
 }
