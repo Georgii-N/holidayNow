@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ramen_dining.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,7 +1,90 @@
-/* 
-  Localizable.strings
-  holidayNow
+// MARK: - Warnings:
+"warning.optionLimits" = "Максимальное количество опций - 3";
+"warning.characterLimits" = "Максимальное количество символов - 15";
+"warning.wrongWord" = "Некорректный текст";
 
-  Created by Евгений on 01.09.2023.
-  
-*/
+// MARK: - Onboarding screen:
+"onboarding.title" = "Holiday Now";
+"onboarding.description" = "Создай своё уникальное праздничное поздравление на базе искусственного интеллекта";
+"onboarding.startButton.title" = "Начать";
+
+// MARK: - ResultScreen:
+"success.result" = "Успех! Ваше праздничное поздравление создано";
+"success.backToStartButton.title" = "Начать заново";
+"success.shareButton.title" = "Поделиться";
+
+// MARK: - CongratulationType screen:
+"congratulation.turn" = "Шаг 3/3";
+"congratulation.title" = "Выберите тип поздравления и Magic Text начнёт творить волшебство";
+"congratulation.chooseType" = "Тип поздравления";
+"congratulation.button.text" = "Обычное поздравление";
+"congratulation.button.poetry" = "Стихотворение";
+"congratulation.button.haiku" = "Хокку";
+"congratulation.sentencesLengh" = "Количество предложений";
+"congratulation.numberOfRows" = "Количество строк";
+"congratulation.short" = "Короткое";
+"congratulation.long" = "Длинное";
+"congratulation.startMagic" = "Запустить магию";
+
+// MARK: - FirstForm screen:
+"firstForm.turn" = "Шаг 1/3";
+"firstForm.title" = "Расскажите кого будем поздравлять";
+"firstForm.name" = "Кого поздравляем";
+"firstForm.namePlaceholder" = "Введите имя";
+"firstForm.interests.title" = "Интересы";
+"firstForm.interests.cooking" = "Готовка";
+"firstForm.interests.sport" = "Спорт";
+"firstForm.interests.movies" = "Фильмы";
+"firstForm.interests.travelling" = "Путешествия";
+"firstForm.interests.boardGames" = "Настольные игры";
+"firstForm.interests.nature" = "Природа";
+"firstForm.interests.music" = "Музыка";
+"firstForm.interests.theatre" = "Театр";
+"firstForm.interests.videoGames" = "Видео игры";
+"firstForm.interests.animals" = "Животные";
+"firstForm.interests.tastyFoods" = "Вкусная еда";
+"firstForm.interests.programming" = "Программирование";
+"firstForm.interests.addMyOwn" = "Добавить своё";
+"firstForm.interests.noAvailable" = "Больше недоступно";
+"firstForm.continueButton" = "Далее";
+
+// MARK: - SecondForm screen:
+"secondForm.turn" = "Шаг 2/3";
+"secondForm.title" = "Расскажите подробнее о празднике";
+"secondForm.greetingsName" = "Название праздника";
+"secondForm.happyBirthday" = "День рождения";
+"secondForm.newYear" = "Новый год";
+"secondForm.mensDay" = "23 февраля";
+"secondForm.womensDay" = "8 марта";
+"secondForm.greetingsIntonation" = "Интонация поздравления";
+"secondForm.cute" = "Милое";
+"secondForm.gentle" = "Нежное";
+"secondForm.kind" = "Доброе";
+"secondForm.sensual" = "Чувственное";
+"secondForm.respectful" = "Уважительное";
+"secondForm.funny" = "Весёлое";
+"secondForm.creative" = "Креативное";
+"secondForm.bold" = "Дерзкое";
+"secondForm.witty" = "Остроумное";
+"secondForm.continueButton" = "Далее";
+
+// MARK: - Result screen:
+"resultScreen.title" = "Результаты";
+"resultScreen.Waiting.title" = "Ждем вместе с вами";
+"resultScreen.repeatButton" = "Попробуйте снова";
+"resultScreen.goToStart" = "В Начало";
+"resultScreen.WaitingText.var1" = "Происходит магия Хогвартса...Скоро все будет!";
+"resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструменты";
+"resultScreen.WaitingText.var3" = "Нейросеть уже проснулась...Ждем результата...";
+"resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз:(";
+"resultScreen.APIErrorText.var1" = "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(";
+
+// MARK: - Greeting Factory:
+"greetingFactory.nameText" = "Поздравь на русском языке человека с именем: ";
+"greetingFactory.holidayText" = "с праздником: ";
+"greetingFactory.typeText" = "Тип поздравления: ";
+"greetingFactory.sentensesCountText" = "Количество предложений: ";
+"greetingFactory.interestsText" = "Сделай акцент на интересах человека: ";
+"greetingFactory.intonationText" = "Поздравление должно быть: ";
+"greetingFactory.stumbText" = "обычное";
+
