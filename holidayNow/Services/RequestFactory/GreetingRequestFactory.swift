@@ -19,7 +19,7 @@ final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
         let intonation = createIntonationText()
         
         let result = name + holiday + type + countSentences + interests + intonation
-        print("RESULTS", result)
+
         return result
     }
     
