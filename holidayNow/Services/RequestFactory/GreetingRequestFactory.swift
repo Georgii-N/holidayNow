@@ -19,35 +19,35 @@ final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
         let intonation = createIntonationText()
         
         let result = name + holiday + type + countSentences + interests + intonation
-
+        print("RESULTS", result)
         return result
     }
     
     // MARK: - Private Methods:
     private func createTypeText() -> String {
-        "Тип поздравления: \(greetingRequestModel.type). "
+        L10n.GreetingFactory.typeText + greetingRequestModel.type
     }
     
     private func createCountSentencesText() -> String {
-        "Количество предложений: \(greetingRequestModel.countSentences). "
+        L10n.GreetingFactory.sentensesCountText + " \(greetingRequestModel.countSentences) "
     }
     
     private func createNameText() -> String {
-        "Поздравь на русском языке человека с именем: \(greetingRequestModel.name) "
+        L10n.GreetingFactory.nameText + "\(greetingRequestModel.name) "
     }
     
     private func createHolidayText() -> String {
-        "с праздником: \(greetingRequestModel.holiday) "
+        L10n.GreetingFactory.holidayText + "\(greetingRequestModel.holiday) "
     }
     
     private func createInterestsText() -> String {
         if let interestsString = greetingRequestModel.interests {
-            return "Сделай акцент на интересах человека: \(interestsString.joined(separator: ", ")). "
+            return L10n.GreetingFactory.interestsText + "\(interestsString.joined(separator: ", ")). "
         }
         return ""
     }
     
     private func createIntonationText() -> String {
-        "Поздравление должно быть: \(greetingRequestModel.intonation ?? "обычная")"
+        L10n.GreetingFactory.intonationText + "\(greetingRequestModel.intonation ?? L10n.GreetingFactory.stumbText)"
     }
 }

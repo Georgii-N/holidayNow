@@ -80,6 +80,22 @@ internal enum L10n {
       internal static let videoGames = L10n.tr("Localizable", "firstForm.interests.videoGames", fallback: "Видео игры")
     }
   }
+  internal enum GreetingFactory {
+    /// с праздником: 
+    internal static let holidayText = L10n.tr("Localizable", "greetingFactory.holidayText", fallback: "с праздником: ")
+    /// Сделай акцент на интересах человека: 
+    internal static let interestsText = L10n.tr("Localizable", "greetingFactory.interestsText", fallback: "Сделай акцент на интересах человека: ")
+    /// Поздравление должно быть: 
+    internal static let intonationText = L10n.tr("Localizable", "greetingFactory.intonationText", fallback: "Поздравление должно быть: ")
+    /// Поздравь на русском языке человека с именем: 
+    internal static let nameText = L10n.tr("Localizable", "greetingFactory.nameText", fallback: "Поздравь на русском языке человека с именем: ")
+    /// Количество предложений: 
+    internal static let sentensesCountText = L10n.tr("Localizable", "greetingFactory.sentensesCountText", fallback: "Количество предложений: ")
+    /// обычное
+    internal static let stumbText = L10n.tr("Localizable", "greetingFactory.stumbText", fallback: "обычное")
+    /// Тип поздравления: 
+    internal static let typeText = L10n.tr("Localizable", "greetingFactory.typeText", fallback: "Тип поздравления: ")
+  }
   internal enum Onboarding {
     /// Создай своё уникальное праздничное поздравление на базе искусственного интеллекта
     internal static let description = L10n.tr("Localizable", "onboarding.description", fallback: "Создай своё уникальное праздничное поздравление на базе искусственного интеллекта")
