@@ -11,43 +11,43 @@ final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
     
     // MARK: - Public Methods:
     func createRequestText() -> String {
-        let type = createTypeText()
-        let countSentences = createCountSentencesText()
         let name = createNameText()
         let holiday = createHolidayText()
+        let type = createTypeText()
+        let countSentences = createCountSentencesText()
         let interests = createInterestsText()
         let intonation = createIntonationText()
         
-        let result = type + countSentences + name + holiday + interests + intonation
-        
+        let result = name + holiday + type + countSentences + interests + intonation
+
         return result
     }
     
     // MARK: - Private Methods:
     private func createTypeText() -> String {
-        "Тип поздравления: \(greetingRequestModel.type)"
+        L10n.GreetingFactory.typeText + greetingRequestModel.type
     }
     
     private func createCountSentencesText() -> String {
-        "Количество предложений: \(greetingRequestModel.countSentences)."
+        L10n.GreetingFactory.sentensesCountText + " \(greetingRequestModel.countSentences) "
     }
     
     private func createNameText() -> String {
-        "Поздравь на русском языке \(greetingRequestModel.name)"
+        L10n.GreetingFactory.nameText + "\(greetingRequestModel.name) "
     }
     
     private func createHolidayText() -> String {
-        "с праздником: \(greetingRequestModel.holiday)"
+        L10n.GreetingFactory.holidayText + "\(greetingRequestModel.holiday) "
     }
     
     private func createInterestsText() -> String {
         if let interestsString = greetingRequestModel.interests {
-            return "Интересы: \(interestsString.joined(separator: ", "))"
+            return L10n.GreetingFactory.interestsText + "\(interestsString.joined(separator: ", ")). "
         }
         return ""
     }
     
     private func createIntonationText() -> String {
-        "Тональность поздравления: \(greetingRequestModel.intonation ?? "обычная")"
+        L10n.GreetingFactory.intonationText + "\(greetingRequestModel.intonation ?? L10n.GreetingFactory.stumbText)"
     }
 }

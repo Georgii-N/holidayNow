@@ -73,11 +73,18 @@
 "resultScreen.Waiting.title" = "Ждем вместе с вами";
 "resultScreen.repeatButton" = "Попробуйте снова";
 "resultScreen.goToStart" = "В Начало";
-
 "resultScreen.WaitingText.var1" = "Происходит магия Хогвартса...Скоро все будет!";
 "resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструменты";
 "resultScreen.WaitingText.var3" = "Нейросеть уже проснулась...Ждем результата...";
-
 "resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз:(";
-
 "resultScreen.APIErrorText.var1" = "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(";
+
+// MARK: - Greeting Factory:
+"greetingFactory.nameText" = "Поздравь на русском языке человека с именем: ";
+"greetingFactory.holidayText" = "с праздником: ";
+"greetingFactory.typeText" = "Тип поздравления: ";
+"greetingFactory.sentensesCountText" = "Количество предложений: ";
+"greetingFactory.interestsText" = "Сделай акцент на интересах человека: ";
+"greetingFactory.intonationText" = "Поздравление должно быть: ";
+"greetingFactory.stumbText" = "обычное";
+

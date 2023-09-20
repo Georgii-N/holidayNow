@@ -350,11 +350,11 @@
 		7E42DD3E2AA1CEBD007391AB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				7EFB776D2ABAF60700E596BD /* Animation */,
 				7E42DD472AA1D6E3007391AB /* Localizable */,
 				7E42DD432AA1CF6B007391AB /* Resources */,
 				7EF2BE1D2AB75EFC00E29794 /* UIConstants */,
 				40152F662AA1C3A00049E309 /* Assets.xcassets */,
-				40BE590D2AAEF8BA00300A2C /* magic.json */,
 				40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */,
 				40152F6B2AA1C3A00049E309 /* Info.plist */,
 			);
@@ -489,6 +489,14 @@
 				7EF2BE1B2AB75EF800E29794 /* UIConstants.swift */,
 			);
 			path = UIConstants;
+			sourceTree = "<group>";
+		};
+		7EFB776D2ABAF60700E596BD /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				40BE590D2AAEF8BA00300A2C /* magic.json */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		7EFFABCA2AA705450018196F /* FirstFormScreen */ = {
