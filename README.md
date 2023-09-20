@@ -21,6 +21,8 @@
 - Зависимости:
   - Amplitude Swift
   - Lottie
+  - SwiftGen
+  - Swiftlint
  
 ### Планы на развитие:
 - Полная интеграция Combine
