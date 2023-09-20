@@ -47,9 +47,9 @@
 ### ScreenCast:
 
 <div align="center">
-    <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/4fce21ee-05a2-492b-aff4-683d68a888db" width="170" alt="FirstForm">&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/a2a0af14-1491-4dc5-a000-34c36f26d4ee" width="170" alt="FirstForm">&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/b9ddf8c1-6db0-4652-b23f-d63b47c44df6" width="170" alt="SecondForm">&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/6ca3f3e8-cce8-4d59-b334-1cb15422bbe8" width="170" alt="CongratsType">&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/9a3dde23-30a1-4b28-80ac-e86f991ad784" width="170" alt="Success">
+    <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/4fce21ee-05a2-492b-aff4-683d68a888db" width="150" alt="FirstForm">&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/a2a0af14-1491-4dc5-a000-34c36f26d4ee" width="150" alt="FirstForm">&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/b9ddf8c1-6db0-4652-b23f-d63b47c44df6" width="150" alt="SecondForm">&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/6ca3f3e8-cce8-4d59-b334-1cb15422bbe8" width="150" alt="CongratsType">&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/Georgii-N/holidayNow/assets/62737451/9a3dde23-30a1-4b28-80ac-e86f991ad784" width="150" alt="Success">
 </div>
