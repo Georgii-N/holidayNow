@@ -40,9 +40,10 @@
 + AutoLayout programmaticaly
 + UserDefaults
 + Amplitude
-+ Localizable Russian
++ SwiftGen Localizable
 + AI API
 + Self-size collections
++ Swiftlint
 
 ---
 
