@@ -11,43 +11,43 @@ final class GreetingRequestFactory: GreetingRequestFactoryProtocol {
     
     // MARK: - Public Methods:
     func createRequestText() -> String {
-        let type = createTypeText()
-        let countSentences = createCountSentencesText()
         let name = createNameText()
         let holiday = createHolidayText()
+        let type = createTypeText()
+        let countSentences = createCountSentencesText()
         let interests = createInterestsText()
         let intonation = createIntonationText()
         
-        let result = type + countSentences + name + holiday + interests + intonation
-        
+        let result = name + holiday + type + countSentences + interests + intonation
+
         return result
     }
     
     // MARK: - Private Methods:
     private func createTypeText() -> String {
-        "Тип поздравления: \(greetingRequestModel.type)"
+        "Тип поздравления: \(greetingRequestModel.type). "
     }
     
     private func createCountSentencesText() -> String {
-        "Количество предложений: \(greetingRequestModel.countSentences)."
+        "Количество предложений: \(greetingRequestModel.countSentences). "
     }
     
     private func createNameText() -> String {
-        "Поздравь на русском языке \(greetingRequestModel.name)"
+        "Поздравь на русском языке человека с именем: \(greetingRequestModel.name) "
     }
     
     private func createHolidayText() -> String {
-        "с праздником: \(greetingRequestModel.holiday)"
+        "с праздником: \(greetingRequestModel.holiday) "
     }
     
     private func createInterestsText() -> String {
         if let interestsString = greetingRequestModel.interests {
-            return "Интересы: \(interestsString.joined(separator: ", "))"
+            return "Сделай акцент на интересах человека: \(interestsString.joined(separator: ", ")). "
         }
         return ""
     }
     
     private func createIntonationText() -> String {
-        "Тональность поздравления: \(greetingRequestModel.intonation ?? "обычная")"
+        "Поздравление должно быть: \(greetingRequestModel.intonation ?? "обычная")"
     }
 }
