@@ -1,5 +1,6 @@
 import UIKit
 import AmplitudeSwift
+import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,5 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        requestTrackingAuthorization()
+    }
+    
+    private func requestTrackingAuthorization() {
+        guard #available(iOS 14.5, *) else { return }
+        ATTrackingManager.requestTrackingAuthorization { status in
+            DispatchQueue.main.async {
+                switch status {
+                case .authorized:
+                    print("Доступ одобрен.")
+                case .denied, .restricted:
+                    print("Пользователь запретил доступ.")
+                case .notDetermined:
+                    print("Пользователь ещё не получил запрос на авторизацию.")
+                @unknown default:
+                    break
+                }
+            }
+        }
     }
 }
