@@ -167,8 +167,6 @@ final class FirstFormViewController: UIViewController {
                 
                 cell.isUserInteractionEnabled = true
             }
-            
-            controlStateWarningLabel(label: cellWarningLabel, isShow: false)
         } else {
             cells.forEach { cell in
                 if let cell = cell as? BaseCollectionViewEnterCell {
@@ -177,12 +175,13 @@ final class FirstFormViewController: UIViewController {
                 
                 cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
             }
-            
-            controlStateWarningLabel(label: cellWarningLabel,
-                                     isShow: true,
-                                     from: firstFormCollectionView,
-                                     with: L10n.Warning.optionLimits)
         }
+        
+        controlStateWarningLabel(label: cellWarningLabel,
+                                 isShow: true,
+                                 from: firstFormCollectionView,
+                                 with: L10n.Warning.optionLimits,
+                                 plus: number)
     }
     
     private func showEnterNameWarningLabel() {
@@ -236,9 +235,6 @@ extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
                                      isShow: true,
                                      from: firstFormCollectionView,
                                      with: isWrongText ? L10n.Warning.wrongWord : L10n.Warning.characterLimits)
-        } else {
-            controlStateWarningLabel(label: cellWarningLabel,
-                                     isShow: false)
         }
     }
 }

@@ -1,5 +1,5 @@
 // MARK: - Warnings:
-"warning.optionLimits" = "Максимальное количество опций - 3";
+"warning.optionLimits" = "Максимальное количество интересов - ";
 "warning.characterLimits" = "Максимальное количество символов - 15";
 "warning.wrongWord" = "Некорректный текст";
 

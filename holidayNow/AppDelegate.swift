@@ -3,7 +3,7 @@ import AmplitudeSwift
 import AppTrackingTransparency
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+    class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var coordinator: AppCoordinator?
