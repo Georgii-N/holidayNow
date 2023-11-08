@@ -186,8 +186,8 @@ internal enum L10n {
     }
   }
   internal enum Warning {
-    /// Максимальное количество символов - 15
-    internal static let characterLimits = L10n.tr("Localizable", "warning.characterLimits", fallback: "Максимальное количество символов - 15")
+    /// Максимальное количество символов - 20
+    internal static let characterLimits = L10n.tr("Localizable", "warning.characterLimits", fallback: "Максимальное количество символов - 20")
     /// Максимальное количество интересов - 
     internal static let optionLimits = L10n.tr("Localizable", "warning.optionLimits", fallback: "Максимальное количество интересов - ")
     /// Некорректный текст

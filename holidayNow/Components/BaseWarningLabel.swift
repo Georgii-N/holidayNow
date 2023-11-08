@@ -22,6 +22,5 @@ final class BaseWarningLabel: UILabel {
 extension BaseWarningLabel {
     private func setupViews() {
         font = .captionSmallRegularFont
-        textColor = .blackDay
     }
 }

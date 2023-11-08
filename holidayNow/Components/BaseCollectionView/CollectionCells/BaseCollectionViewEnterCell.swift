@@ -14,6 +14,7 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
     }
     
     private let maximumCountOfInterests = 3
+    private let maximumInputLetters = 20
     private var interestCounter = 0 {
         didSet {
             if interestCounter == maximumCountOfInterests {
@@ -140,9 +141,9 @@ extension BaseCollectionViewEnterCell: UITextFieldDelegate {
         if let currentText = textField.text {
             guard let stringRange = Range(range, in: currentText) else { return false }
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            let result = updatedText.count <= 15
+            let result = updatedText.count <= maximumInputLetters
             
-            delegate?.changeStateCellWarningLabel(isShow: !result, isWrongText: false)
+            delegate?.changeStateCellWarningLabel(isShow: !result, isWrongText: result)
             
             return result
         }
