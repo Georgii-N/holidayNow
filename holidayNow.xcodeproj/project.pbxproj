@@ -303,8 +303,8 @@
 		40FD19552AA9BABA0041FFFF /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
+				7EF1D2992AFB753800FF2892 /* Protocols */,
 				40CBF0292AB87F1D0007F006 /* HandlingErrorService */,
-				40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */,
 				40F6E0352AA22DA800F75858 /* NetworkClient.swift */,
 			);
 			path = NetworkClient;
@@ -481,6 +481,14 @@
 				7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */,
 			);
 			path = EnteringService;
+			sourceTree = "<group>";
+		};
+		7EF1D2992AFB753800FF2892 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7EF2BE1D2AB75EFC00E29794 /* UIConstants */ = {
