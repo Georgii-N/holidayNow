@@ -180,6 +180,11 @@ final class FirstFormViewController: UIViewController {
                                  plus: number)
     }
     
+    private func isTextFieldHasText(with text: String?) {
+        enterNameTextField.layer.borderWidth = text == "" ? 1 : 2
+        enterNameTextField.layer.borderColor = text == "" ? UIColor.lightGray.cgColor : UIColor.black.cgColor
+    }
+    
     private func showEnterNameWarningLabel() {
         enterNameWarningLabel.font = .captionSmallRegularFont
         enterNameWarningLabel.textColor = .universalRed
@@ -249,6 +254,7 @@ extension FirstFormViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let text = textField.text
+        isTextFieldHasText(with: text)
         
         if ProhibitedDictionaryService().isWordProhibited(with: text ?? "") {
             showEnterNameWarningLabel()

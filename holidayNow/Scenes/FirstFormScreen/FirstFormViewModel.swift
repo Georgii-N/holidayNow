@@ -56,11 +56,7 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     // MARK: - Public Methods:
     func setupUsername(_ name: String?) {
-        if name == nil || name == "" {
-            userName = nil
-        } else {
-            userName = name
-        }
+        userName = name == "" ? nil : name
     }
     
     func controlInterestState(isAdd: Bool, interest: GreetingTarget) {
