@@ -77,11 +77,17 @@ extension UIViewController {
             guard let lastCell = collection.cellForItem(at: indexPath) as? BaseCollectionViewEnterCell else { return }
             
             if isShow {
-                guard let number,
-                      let text else { return }
-                
+                guard let text else { return }
+            
                 view.setupView(label)
-                label.text = text + "\(number)/3"
+                
+                if let number {
+                    label.text = text + "\(number)/3"
+                    label.textColor = .blackDay
+                } else {
+                    label.text = text
+                    label.textColor = .universalRed
+                }
                 
                 NSLayoutConstraint.activate([
                     label.topAnchor.constraint(equalTo: lastCell.bottomAnchor, constant: UIConstants.mediumInset),

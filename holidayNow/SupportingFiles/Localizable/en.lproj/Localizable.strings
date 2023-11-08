@@ -1,6 +1,6 @@
 // MARK: - Warnings:
 "warning.optionLimits" = "Максимальное количество интересов - ";
-"warning.characterLimits" = "Максимальное количество символов - 15";
+"warning.characterLimits" = "Максимальное количество символов - 20";
 "warning.wrongWord" = "Некорректный текст";
 
 // MARK: - Onboarding screen:

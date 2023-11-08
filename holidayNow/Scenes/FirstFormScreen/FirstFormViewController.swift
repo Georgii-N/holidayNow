@@ -13,8 +13,10 @@ final class FirstFormViewController: UIViewController {
         static let collectionHeight: CGFloat = 450
         static let enterNameRadius: CGFloat = 20
         static let enterNameWarningInset: CGFloat = 10
+        static let textFieldLeftViewWidth: CGFloat = 15
     }
     
+    private let maxCountOfSelectedInterests = 3
     private var collectionHeightAnchor: NSLayoutConstraint?
     
     // MARK: - UI:
@@ -40,7 +42,7 @@ final class FirstFormViewController: UIViewController {
     private lazy var enterNameTextField: UITextField = {
         let textField = UITextField()
         textField.delegate = self
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.bounds.height))
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: FirstFormUIConstants.textFieldLeftViewWidth, height: textField.bounds.height))
         textField.leftViewMode = .always
         textField.clearButtonMode = .whileEditing
         textField.layer.cornerRadius = FirstFormUIConstants.enterNameRadius
@@ -147,9 +149,7 @@ final class FirstFormViewController: UIViewController {
     }
     
     private func controlCellsAvailability(with number: Int) {
-        let maxCountOfSelectedTargets = 3
-        
-        if number == maxCountOfSelectedTargets {
+        if number == maxCountOfSelectedInterests {
             changeCellAvailability(isAvailable: false, with: number)
         } else {
             changeCellAvailability(isAvailable: true, with: number)
@@ -161,18 +161,14 @@ final class FirstFormViewController: UIViewController {
         
         if isAvailable {
             cells.forEach { cell in
-                if let cell = cell as? BaseCollectionViewEnterCell {
-                    cell.controlStateButton(isBlock: false)
-                }
-                
+                guard let cell = cell as? BaseCollectionViewEnterCell else { return }
+                cell.controlStateButton(isBlock: false)
                 cell.isUserInteractionEnabled = true
             }
         } else {
             cells.forEach { cell in
-                if let cell = cell as? BaseCollectionViewEnterCell {
-                    cell.controlStateButton(isBlock: true)
-                }
-                
+                guard let cell = cell as? BaseCollectionViewEnterCell else { return }
+                cell.controlStateButton(isBlock: true)
                 cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
             }
         }
@@ -235,6 +231,10 @@ extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
                                      isShow: true,
                                      from: firstFormCollectionView,
                                      with: isWrongText ? L10n.Warning.wrongWord : L10n.Warning.characterLimits)
+        } else {
+            guard let selectedInterest = viewModel?.selectedInterestsObservable.wrappedValue else { return }
+            controlStateWarningLabel(label: cellWarningLabel, isShow: false)
+            controlCellsAvailability(with: selectedInterest.count)
         }
     }
 }
