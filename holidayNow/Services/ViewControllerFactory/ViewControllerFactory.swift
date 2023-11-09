@@ -49,7 +49,7 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     func createSuccessViewController() -> SuccessViewController {
         let resultText = dataProvider.getResultText()
-        let successViewModel = SuccessViewModel(textResult: resultText)
+        let successViewModel = SuccessViewModel(textResult: resultText, dataProvider: dataProvider)
         let successViewController = SuccessViewController(coordinator: coordinator, successViewModel: successViewModel)
         return successViewController
     }
@@ -57,5 +57,12 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     func createErrorNetworkViewController() -> ErrorNetworkViewController {
         let errorNetworkViewController = ErrorNetworkViewController(coordinator: coordinator)
         return errorNetworkViewController
+    }
+    
+    func createEditViewController() -> EditViewController {
+        let resultText = dataProvider.getResultText()
+        let editViewModel = EditViewModel(resultText: resultText, dataProvider: dataProvider)
+        let editViewController = EditViewController(coordinator: coordinator, editViewModel: editViewModel)
+        return editViewController
     }
 }

@@ -118,8 +118,8 @@ internal enum L10n {
       internal static let var1 = L10n.tr("Localizable", "resultScreen.APIErrorText.var1", fallback: "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(")
     }
     internal enum NetworkErrorText {
-      /// Магии не произошло, попробуйте еще раз:(
-      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз:(")
+      /// Магии не произошло, попробуйте еще раз :(
+      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз :(")
     }
     internal enum Waiting {
       /// Ждем вместе с вами
@@ -179,6 +179,18 @@ internal enum L10n {
     internal enum BackToStartButton {
       /// Начать заново
       internal static let title = L10n.tr("Localizable", "success.backToStartButton.title", fallback: "Начать заново")
+    }
+    internal enum EditButton {
+      internal enum Edit {
+        /// Редактировать
+        internal static let title = L10n.tr("Localizable", "success.editButton.edit.title", fallback: "Редактировать")
+      }
+    }
+    internal enum SaveButton {
+      internal enum Save {
+        /// Сохранять
+        internal static let title = L10n.tr("Localizable", "success.saveButton.save.title", fallback: "Сохранять")
+      }
     }
     internal enum ShareButton {
       /// Поделиться

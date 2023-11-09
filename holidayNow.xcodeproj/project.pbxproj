@@ -17,6 +17,9 @@
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
 		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
 		401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */; };
+		403218582AFCB12F0023EBAB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403218572AFCB12F0023EBAB /* EditViewController.swift */; };
+		4032185A2AFCBA250023EBAB /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403218592AFCBA250023EBAB /* EditViewModel.swift */; };
+		4032185C2AFCBA410023EBAB /* EditViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
 		40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA32AA88F3700346E8D /* WaitingViewController.swift */; };
 		40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */; };
@@ -94,6 +97,9 @@
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		403218572AFCB12F0023EBAB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		403218592AFCBA250023EBAB /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
+		4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModelProtocol.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		40A71EA32AA88F3700346E8D /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
@@ -209,6 +215,16 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		403218562AFCB1120023EBAB /* EditScreen */ = {
+			isa = PBXGroup;
+			children = (
+				403218572AFCB12F0023EBAB /* EditViewController.swift */,
+				403218592AFCBA250023EBAB /* EditViewModel.swift */,
+				4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */,
+			);
+			path = EditScreen;
+			sourceTree = "<group>";
+		};
 		405373A02AA23D9B00704904 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +288,7 @@
 			children = (
 				40F147142AA8478B006EC7EE /* WaitingScreen */,
 				40A71EA72AA8928700346E8D /* SuccessScreen */,
+				403218562AFCB1120023EBAB /* EditScreen */,
 				40A71EA82AA892A700346E8D /* ErrorScreens */,
 			);
 			path = ResponseScreens;
@@ -590,9 +607,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40152F6E2AA1C3A10049E309 /* Build configuration list for PBXNativeTarget "holidayNow" */;
 			buildPhases = (
-				40152F562AA1C39E0049E309 /* Sources */,
 				7ECE85002AB45985001F340D /* SwiftLint */,
 				7E42DD512AA1D7B1007391AB /* SwiftGen */,
+				40152F562AA1C39E0049E309 /* Sources */,
 				40152F572AA1C39E0049E309 /* Frameworks */,
 				40152F582AA1C39E0049E309 /* Resources */,
 			);
@@ -710,6 +727,7 @@
 				7EFFABF92AA9CB640018196F /* UICollectionView + Extension.swift in Sources */,
 				400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */,
 				7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */,
+				4032185A2AFCBA250023EBAB /* EditViewModel.swift in Sources */,
 				400E1D5F2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift in Sources */,
 				40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */,
 				40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */,
@@ -729,6 +747,7 @@
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
+				403218582AFCB12F0023EBAB /* EditViewController.swift in Sources */,
 				7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */,
 				7EC141052AB87AF700BBF89B /* ProhibitedDictionaryService.swift in Sources */,
 				40FD195B2AA9BE220041FFFF /* GreetingRequestFactory.swift in Sources */,
@@ -754,6 +773,7 @@
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				40A71EAA2AA892D700346E8D /* ErrorNetworkViewController.swift in Sources */,
+				4032185C2AFCBA410023EBAB /* EditViewModelProtocol.swift in Sources */,
 				7EC140FF2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */,

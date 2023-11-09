@@ -12,6 +12,8 @@
 "success.result" = "Успех! Ваше праздничное поздравление создано";
 "success.backToStartButton.title" = "Начать заново";
 "success.shareButton.title" = "Поделиться";
+"success.editButton.edit.title" = "Редактировать";
+"success.saveButton.save.title" = "Сохранять";
 
 // MARK: - CongratulationType screen:
 "congratulation.turn" = "Шаг 3/3";
@@ -76,7 +78,7 @@
 "resultScreen.WaitingText.var1" = "Происходит магия Хогвартса...Скоро все будет!";
 "resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструменты";
 "resultScreen.WaitingText.var3" = "Нейросеть уже проснулась...Ждем результата...";
-"resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз:(";
+"resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз :(";
 "resultScreen.APIErrorText.var1" = "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(";
 
 // MARK: - Greeting Factory:
