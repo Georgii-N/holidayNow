@@ -207,8 +207,8 @@ private extension CongratulationTypeViewController {
         
         [titleLabel, congratulationTypeLabel, congratulationLenghLabel, textCongratulationButton,
          poetryCongratulationButton, haikuCongratulationButton].forEach {
-            $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor, constant: UIConstants.sideInset).isActive = true
-            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset).isActive = true
+            $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor).isActive = true
+            $0.trailingAnchor.constraint(equalTo: buttonsStack.trailingAnchor).isActive = true
         }
         
         [lenghSlider, continueButton].forEach {
@@ -232,8 +232,8 @@ private extension CongratulationTypeViewController {
     func setupButtonsStackConstraints() {
         NSLayoutConstraint.activate([
             buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: UIConstants.blocksInset),
-            buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
         ])
     }
     
