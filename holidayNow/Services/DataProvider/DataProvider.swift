@@ -47,6 +47,10 @@ final class DataProvider: DataProviderProtocol {
         self.intonation = intonation
     }
     
+    func setResultTextAfterEdit(resultText: String) {
+        self.responseText = resultText
+    }
+    
     func createRequestText(completion: @escaping (Result<String, Error>) -> Void) {
         guard let creatingModel = createGreetingModel() else { return }
         self.greetingRequestFactory = GreetingRequestFactory(greetingRequestModel: creatingModel)

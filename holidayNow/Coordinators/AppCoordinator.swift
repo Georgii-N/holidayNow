@@ -49,6 +49,12 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController.pushViewController(errorNetworkViewController, animated: true)
     }
     
+    func presentEditViewController(presenter: UIViewController) {
+        let editViewController = viewControllerFactory.createEditViewController()
+        editViewController.delegate = presenter as? EditViewControllerDelegate
+        presenter.present(editViewController, animated: true)
+    }
+    
     // Pop:
     func goBack() {
         navigationController.popViewController(animated: true)

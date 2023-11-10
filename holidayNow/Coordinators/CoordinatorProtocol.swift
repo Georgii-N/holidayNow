@@ -11,6 +11,8 @@ protocol CoordinatorProtocol: AnyObject {
     func goToSuccessResultViewController()
     func goToErrorNetworkViewController()
     
+    func presentEditViewController(presenter: UIViewController)
+    
     func goBack()
     func removeAllviewControllers()
 }

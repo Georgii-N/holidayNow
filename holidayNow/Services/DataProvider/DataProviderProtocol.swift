@@ -9,5 +9,7 @@ protocol DataProviderProtocol: AnyObject {
     func setIntonation(intonation: String)
     
     func createRequestText(completion: @escaping (Result<String, Error>) -> Void)
+    
+    func setResultTextAfterEdit(resultText: String)
     func getResultText() -> String
 }
