@@ -13,6 +13,8 @@ final class CongratulationTypeViewController: UIViewController {
         static let sliderHeight: CGFloat = 5
     }
     
+    private let animationDuration = 0.3
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -109,8 +111,17 @@ final class CongratulationTypeViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presetGreetingsInfo()
         startSetupType()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.sentCongratulationType()
     }
     
     // MARK: - Private Methods:
@@ -137,7 +148,7 @@ final class CongratulationTypeViewController: UIViewController {
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
         maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
        
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: animationDuration) {
             self.lenghSlider.minimumValue = Float(minNumber ?? 0)
             self.lenghSlider.maximumValue = Float(maxNumber ?? 0)
             self.lenghSlider.layoutIfNeeded()
@@ -147,16 +158,38 @@ final class CongratulationTypeViewController: UIViewController {
     }
     
     private func startSetupType() {
-        textCongratulationButton.changeSelectionState()
-        setupSentensesNumberLabel(with: .text)
-
-        viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
-        viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
+        if viewModel.selectedGreetingsType == nil {
+            textCongratulationButton.changeSelectionState()
+            viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
+        }
+        
+        if viewModel.selectedGreetingsLength == nil {
+            setupSentensesNumberLabel(with: .text)
+            viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
+        }
+    }
+    
+    private func presetGreetingsInfo() {
+        let greetingType = viewModel.selectedGreetingsType
+        let greetingLength = viewModel.selectedGreetingsLength
+        
+        if greetingType != nil || greetingLength != nil {
+            [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach { button in
+                if button.title == greetingType {
+                    button.changeSelectionState()
+                    synchronizeOtherButtons(title: greetingType ?? "", state: button.isSelected, buttonType: button.buttonState)
+                }
+            }
+            
+            if let greetingLength {
+                lenghSlider.value = Float(greetingLength)
+                print(greetingLength, lenghSlider.value)
+            }
+        }
     }
     
     // MARK: - Objc Methods:
     @objc private func startMagic() {
-        viewModel.sentCongratulationType()
         coordinator?.goToWaitingViewController()
     }
     

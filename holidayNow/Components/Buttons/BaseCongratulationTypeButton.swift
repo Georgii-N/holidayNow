@@ -24,7 +24,7 @@ final class BaseCongratulationTypeButton: UIView {
         titleLabel.text ?? ""
     }
     
-    private let buttonState: BaseCongratulationButtonState
+    private(set) var buttonState: BaseCongratulationButtonState
     private(set) var isSelected = false {
         didSet {
             changeSelectionColor()

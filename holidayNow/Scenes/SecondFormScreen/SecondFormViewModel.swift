@@ -50,6 +50,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
+        checkToExistingGreeting()
     }
     
     // MARK: - Public Methods:
@@ -81,11 +82,9 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         }
     }
     
-    func checkToExistingGreeting() {
-        if let existingHoliday = dataProvider?.holiday,
-           let existingIntonation = dataProvider?.intonation {
-            selectedHoliday = existingHoliday
-            selectedIntonation = existingIntonation
-        }
+    // MARK: - Private Methods:
+    private func checkToExistingGreeting() {
+        selectedHoliday = dataProvider?.holiday
+        selectedIntonation = dataProvider?.intonation
     }
 }

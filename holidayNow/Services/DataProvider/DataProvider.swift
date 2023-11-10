@@ -7,10 +7,10 @@ final class DataProvider: DataProviderProtocol {
     private var greetingRequestFactory: GreetingRequestFactoryProtocol?
     
     // MARK: - Constants and Variables:
-    private(set) var type: String?
-    private(set) var countSentences: Int?
     private(set) var holiday: String?
     private(set) var intonation: String?
+    private(set) var type: String?
+    private(set) var countSentences: Int?
     private var name: String?
     private var interests: [String]?
     

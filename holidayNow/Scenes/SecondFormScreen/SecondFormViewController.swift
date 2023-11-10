@@ -67,12 +67,10 @@ final class SecondFormViewController: UIViewController {
         setupObservers()
         
         bind()
-        viewModel.checkToExistingGreeting()
         continueButton.block()
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         setupContinueButtonConstraints()
         presetGreetingsInfo()
     }
@@ -138,7 +136,7 @@ final class SecondFormViewController: UIViewController {
         let selectedHoliday = viewModel.selectedHolidayObservable.wrappedValue ?? ""
         let selectedIntonation = viewModel.selectedIntonation ?? ""
         
-        if let holiday = viewModel.selectedHolidayObservable.wrappedValue {
+        if selectedHoliday != "" || selectedIntonation != "" {
             cells.forEach { cell in
                 guard let cell = cell as? BaseCollectionViewCell else { return }
                 let name = cell.cellModel?.name

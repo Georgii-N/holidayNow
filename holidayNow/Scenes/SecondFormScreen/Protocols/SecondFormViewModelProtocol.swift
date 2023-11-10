@@ -9,5 +9,4 @@ protocol SecondFormViewModelProtocol: AnyObject {
     func setupIntonation(name: String?)
     func addNewHoliday(with name: String)
     func sentGreetingsInfo()
-    func checkToExistingGreeting()
 }

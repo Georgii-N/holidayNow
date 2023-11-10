@@ -3,6 +3,8 @@ import Foundation
 protocol DataProviderProtocol: AnyObject {
     var holiday: String? { get }
     var intonation: String? { get }
+    var type: String? { get }
+    var countSentences: Int? { get }
 
     func setType(type: String)
     func setcountSentences(countSentences: Int)
