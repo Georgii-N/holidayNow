@@ -25,7 +25,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     ]
     
     private var ownCellCounter = 0
-    private var selectedIntonation: String?
+    private(set) var selectedIntonation: String?
     
     // MARK: - Observable Values:
     var selectedHolidayObservable: Observable<String?> {
@@ -78,6 +78,14 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
                 AnalyticsService.instance.trackAmplitudeEvent(name: .intonation, params: [.name: selectedIntonation])
                 dataProvider?.setHoliday(holiday: selectedHoliday)
             }
+        }
+    }
+    
+    func checkToExistingGreeting() {
+        if let existingHoliday = dataProvider?.holiday,
+           let existingIntonation = dataProvider?.intonation {
+            selectedHoliday = existingHoliday
+            selectedIntonation = existingIntonation
         }
     }
 }

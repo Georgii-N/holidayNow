@@ -77,6 +77,7 @@ final class SuccessViewController: UIViewController {
         AnalyticsService.instance.trackAmplitudeEvent(name: .didTapGoToStartButton, params: nil)
         coordinator?.goToFirstFormViewController()
         coordinator?.removeAllviewControllers()
+        successViewModel.resetGreeting()
     }
     
     @objc private func didTapShareButton() {

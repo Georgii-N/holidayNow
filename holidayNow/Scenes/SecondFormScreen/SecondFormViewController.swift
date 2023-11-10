@@ -67,12 +67,19 @@ final class SecondFormViewController: UIViewController {
         setupObservers()
         
         bind()
+        viewModel.checkToExistingGreeting()
         continueButton.block()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupContinueButtonConstraints()
+        presetGreetingsInfo()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.sentGreetingsInfo()
     }
     
     deinit {
@@ -126,9 +133,26 @@ final class SecondFormViewController: UIViewController {
         secondFormCollectionView.delegate = collectionProvider
     }
     
+    private func presetGreetingsInfo() {
+        let cells = secondFormCollectionView.visibleCells
+        let selectedHoliday = viewModel.selectedHolidayObservable.wrappedValue ?? ""
+        let selectedIntonation = viewModel.selectedIntonation ?? ""
+        
+        if let holiday = viewModel.selectedHolidayObservable.wrappedValue {
+            cells.forEach { cell in
+                guard let cell = cell as? BaseCollectionViewCell else { return }
+                let name = cell.cellModel?.name
+                
+                if name == selectedHoliday || name == selectedIntonation {
+                    guard let indexPath = secondFormCollectionView.indexPath(for: cell) else { return }
+                    secondFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+                }
+            }
+        }
+    }
+    
     // MARK: - Objc Methods:
     @objc private func switchToCongratulationType() {
-        viewModel.sentGreetingsInfo()
         coordinator?.goToCongratulationTypeViewController()
         AnalyticsService.instance.trackAmplitudeEvent(name: .goToCongratulationType, params: nil)
     }
