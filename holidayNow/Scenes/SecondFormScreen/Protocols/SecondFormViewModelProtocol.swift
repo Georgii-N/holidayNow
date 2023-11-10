@@ -1,6 +1,7 @@
 import Foundation
 
 protocol SecondFormViewModelProtocol: AnyObject {
+    var selectedIntonation: String? { get }
     var intonations: Intonation { get }
     var selectedHolidayObservable: Observable<String?> { get }
     var holidaysObserver: Observable<Holiday> { get }

@@ -12,5 +12,6 @@ extension UISlider {
         let newValue = (CGFloat((maximumValue - minimumValue)) * (pointTapped.x / (viewWidht))) + CGFloat(minimumValue)
     
         setValue(Float(newValue), animated: true)
+        sendActions(for: .valueChanged)
     }
 }

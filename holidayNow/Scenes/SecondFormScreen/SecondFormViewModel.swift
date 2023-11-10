@@ -25,7 +25,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     ]
     
     private var ownCellCounter = 0
-    private var selectedIntonation: String?
+    private(set) var selectedIntonation: String?
     
     // MARK: - Observable Values:
     var selectedHolidayObservable: Observable<String?> {
@@ -50,6 +50,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
+        checkToExistingGreeting()
     }
     
     // MARK: - Public Methods:
@@ -79,5 +80,11 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
                 dataProvider?.setHoliday(holiday: selectedHoliday)
             }
         }
+    }
+    
+    // MARK: - Private Methods:
+    private func checkToExistingGreeting() {
+        selectedHoliday = dataProvider?.holiday
+        selectedIntonation = dataProvider?.intonation
     }
 }

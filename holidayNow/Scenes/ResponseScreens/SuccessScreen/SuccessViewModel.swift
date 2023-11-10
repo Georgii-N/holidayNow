@@ -23,4 +23,8 @@ final class SuccessViewModel: SuccessViewModelProtocol {
     func getResultText() {
         self.textResult = dataProvider.getResultText()
     }
+    
+    func resetGreeting() {
+        dataProvider.resetGreeting()
+    }
 }

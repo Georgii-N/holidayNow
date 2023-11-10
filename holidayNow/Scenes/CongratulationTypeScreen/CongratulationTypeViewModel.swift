@@ -6,12 +6,13 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
     weak var dataProvider: DataProviderProtocol?
     
     // MARK: Constants and Variables:
-    private var selectedGreetingsType: String?
-    private var selectedGreetingsLength: Int?
+    private(set) var selectedGreetingsType: String?
+    private(set) var selectedGreetingsLength: Int?
     
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
+        checkToExistingGreeting()
     }
     
     // MARK: - Public Methods:
@@ -28,5 +29,11 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
               let selectedGreetingsLength else { return }
         dataProvider?.setType(type: selectedGreetingsType)
         dataProvider?.setcountSentences(countSentences: selectedGreetingsLength)
+    }
+    
+    // MARK: - Private Methods:
+    private func checkToExistingGreeting() {
+        selectedGreetingsType = dataProvider?.type
+        selectedGreetingsLength = dataProvider?.countSentences
     }
 }

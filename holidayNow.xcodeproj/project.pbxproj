@@ -220,10 +220,9 @@
 		403218562AFCB1120023EBAB /* EditScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E6A22822AFE57150024799B /* Protocols */,
 				403218572AFCB12F0023EBAB /* EditViewController.swift */,
-				4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */,
 				403218592AFCBA250023EBAB /* EditViewModel.swift */,
-				4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */,
 			);
 			path = EditScreen;
 			sourceTree = "<group>";
@@ -245,9 +244,9 @@
 		40A71EA72AA8928700346E8D /* SuccessScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E6A22802AFE56F90024799B /* Protocols */,
 				40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */,
 				400E1D5C2AA75A4800CF4BCC /* SuccessViewModel.swift */,
-				400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */,
 			);
 			path = SuccessScreen;
 			sourceTree = "<group>";
@@ -271,9 +270,9 @@
 		40F147142AA8478B006EC7EE /* WaitingScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E6A22812AFE57070024799B /* Protocols */,
 				40A71EA32AA88F3700346E8D /* WaitingViewController.swift */,
 				40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */,
-				40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */,
 			);
 			path = WaitingScreen;
 			sourceTree = "<group>";
@@ -314,7 +313,7 @@
 		40FD194E2AA9B9F50041FFFF /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */,
+				7E6A22832AFE5C4B0024799B /* Protocols */,
 				40FD19512AA9BA2E0041FFFF /* DataProvider.swift */,
 			);
 			path = DataProvider;
@@ -469,6 +468,39 @@
 				7E42DD602AA2092F007391AB /* BaseCongratulationTypeButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		7E6A22802AFE56F90024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E6A22812AFE57070024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E6A22822AFE57150024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */,
+				4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E6A22832AFE5C4B0024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7EC141002AB83D5000BBF89B /* CollectionProvider */ = {
