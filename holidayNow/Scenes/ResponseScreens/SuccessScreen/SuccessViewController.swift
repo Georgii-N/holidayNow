@@ -56,10 +56,6 @@ final class SuccessViewController: UIViewController {
         bind()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        successViewModel.getResultText()
-    }
-    
     // MARK: - Private Methods:
     private func bind() {
         successViewModel.textResultObservable.bind { [weak self] _ in
@@ -91,6 +87,13 @@ final class SuccessViewController: UIViewController {
             applicationActivities: nil)
         
         present(activityViewController, animated: true)
+    }
+}
+
+// MARK: - Setup Views:
+extension SuccessViewController: EditViewControllerDelegate {
+    func updateText() {
+        successViewModel.getResultText()
     }
 }
 

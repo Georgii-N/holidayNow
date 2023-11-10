@@ -19,7 +19,7 @@ final class EditViewModel: EditViewModelProtocol {
         resultText
     }
     
-    func setResultTextAfterEdit() {
-        dataProvider.setResultTextAfterEdit(resultText: self.resultText)
+    func setResultTextAfterEdit(text: String) {
+        dataProvider.setResultTextAfterEdit(resultText: text)
     }
 }

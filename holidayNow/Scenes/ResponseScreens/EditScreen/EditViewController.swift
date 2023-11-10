@@ -4,6 +4,7 @@ final class EditViewController: UIViewController {
 
     // MARK: - Dependencies
     weak var coordinator: CoordinatorProtocol?
+    weak var delegate: EditViewControllerDelegate?
     private var editViewModel: EditViewModelProtocol
     
     // MARK: - UI:
@@ -14,7 +15,7 @@ final class EditViewController: UIViewController {
         responseTextView.textAlignment = .center
         responseTextView.text = editViewModel.getResultText()
         responseTextView.isEditable = true
-        responseTextView.isScrollEnabled = true
+        responseTextView.isScrollEnabled = false
         return responseTextView
     }()
     
@@ -41,13 +42,37 @@ final class EditViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        addKeyboardObservers()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // MARK: - Private Methods:
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - Objc Methods:
     @objc private func didTapSaveButton() {
-        editViewModel.setResultTextAfterEdit()
+        responseTextView.resignFirstResponder()
+        editViewModel.setResultTextAfterEdit(text: responseTextView.text)
+        delegate?.updateText()
         self.dismiss(animated: true)
     }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+            scrollView.contentInset.bottom = keyboardSize.height
+        }
+    }
+
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        scrollView.contentInset.bottom = 0
+    }
+
 }
 
 // MARK: - Setup Views:
@@ -56,7 +81,7 @@ private extension EditViewController {
         view.backgroundColor = .whiteDay
         
         [saveButton, scrollView].forEach(view.setupView)
-        scrollView.addSubview(responseTextView)
+        scrollView.setupView(responseTextView)
     }
     
     func setupConstraints() {

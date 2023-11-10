@@ -20,6 +20,7 @@
 		403218582AFCB12F0023EBAB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403218572AFCB12F0023EBAB /* EditViewController.swift */; };
 		4032185A2AFCBA250023EBAB /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403218592AFCBA250023EBAB /* EditViewModel.swift */; };
 		4032185C2AFCBA410023EBAB /* EditViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */; };
+		4052868B2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
 		40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA32AA88F3700346E8D /* WaitingViewController.swift */; };
 		40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */; };
@@ -100,6 +101,7 @@
 		403218572AFCB12F0023EBAB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		403218592AFCBA250023EBAB /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModelProtocol.swift; sourceTree = "<group>"; };
+		4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewControllerDelegate.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		40A71EA32AA88F3700346E8D /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				403218572AFCB12F0023EBAB /* EditViewController.swift */,
+				4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */,
 				403218592AFCBA250023EBAB /* EditViewModel.swift */,
 				4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */,
 			);
@@ -743,6 +746,7 @@
 				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,
 				7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */,
 				7ECE84F72AB1C79B001F340D /* UISlider + Extension.swift in Sources */,
+				4052868B2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift in Sources */,
 				40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */,
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
