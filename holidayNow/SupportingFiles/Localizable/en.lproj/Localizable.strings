@@ -13,7 +13,7 @@
 "success.backToStartButton.title" = "Начать заново";
 "success.shareButton.title" = "Поделиться";
 "success.editButton.edit.title" = "Редактировать";
-"success.saveButton.save.title" = "Сохранять";
+"success.saveButton.save.title" = "Сохранить";
 
 // MARK: - CongratulationType screen:
 "congratulation.turn" = "Шаг 3/3";
