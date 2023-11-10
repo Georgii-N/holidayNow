@@ -231,7 +231,6 @@ private extension CongratulationTypeViewController {
     
     func setupButtonsStackConstraints() {
         NSLayoutConstraint.activate([
-            buttonsStack.heightAnchor.constraint(equalToConstant: CongratulationUIConstants.stuckHeight),
             buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: UIConstants.blocksInset),
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor)

@@ -188,8 +188,8 @@ internal enum L10n {
     }
     internal enum SaveButton {
       internal enum Save {
-        /// Сохранять
-        internal static let title = L10n.tr("Localizable", "success.saveButton.save.title", fallback: "Сохранять")
+        /// Сохранить
+        internal static let title = L10n.tr("Localizable", "success.saveButton.save.title", fallback: "Сохранить")
       }
     }
     internal enum ShareButton {

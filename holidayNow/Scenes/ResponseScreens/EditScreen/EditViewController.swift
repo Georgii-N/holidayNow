@@ -19,10 +19,7 @@ final class EditViewController: UIViewController {
         return responseTextView
     }()
     
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
-    }()
+    private lazy var scrollView = UIScrollView()
     
     private lazy var saveButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.SaveButton.Save.title)
     
