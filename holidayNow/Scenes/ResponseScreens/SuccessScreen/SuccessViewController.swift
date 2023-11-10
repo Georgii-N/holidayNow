@@ -35,7 +35,7 @@ final class SuccessViewController: UIViewController {
     private lazy var editButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.EditButton.Edit.title)
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: false, coordinator: coordinator)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, successViewModel: SuccessViewModelProtocol) {
