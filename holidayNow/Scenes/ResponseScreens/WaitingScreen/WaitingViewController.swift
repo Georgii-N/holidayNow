@@ -9,6 +9,8 @@ final class WaitingViewController: UIViewController {
     private var waitingViewModel: WaitingViewModelProtocol
     
     // MARK: - Constants and Variables:
+    var onCompletion: (() -> Void)?
+    
     private enum CongratulationUIConstants {
         static let animationViewSide: CGFloat = 300
         static let textLabelHeight: CGFloat = 100
@@ -44,6 +46,11 @@ final class WaitingViewController: UIViewController {
         setupConstraints()
         setupAnimation()
         bind()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        onCompletion?()
     }
     
     // MARK: - Private Methods:

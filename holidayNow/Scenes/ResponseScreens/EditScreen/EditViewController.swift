@@ -69,7 +69,6 @@ final class EditViewController: UIViewController {
     @objc private func keyboardWillHide(_ notification: Notification) {
         scrollView.contentInset.bottom = 0
     }
-
 }
 
 // MARK: - Setup Views:
