@@ -118,8 +118,9 @@ internal enum L10n {
       internal static let var1 = L10n.tr("Localizable", "resultScreen.APIErrorText.var1", fallback: "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(")
     }
     internal enum NetworkErrorText {
-      /// Магии не произошло, попробуйте еще раз :(
-      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз :(")
+      /// Магии не произошло, попробуйте еще раз
+      ///  :(
+      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз\n :(")
     }
     internal enum Waiting {
       /// Ждем вместе с вами
