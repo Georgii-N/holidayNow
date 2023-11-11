@@ -37,6 +37,5 @@ final class EnteringService {
     
     func incrementCountOfOpening() {
         countOfOpen += 1
-        print("countOfOpening: \(countOfOpening)")
     }
 }
