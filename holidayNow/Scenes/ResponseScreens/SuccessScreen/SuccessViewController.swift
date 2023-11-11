@@ -1,5 +1,4 @@
 import UIKit
-import StoreKit
 
 final class SuccessViewController: UIViewController {
     
