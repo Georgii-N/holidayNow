@@ -27,6 +27,7 @@ import AppTrackingTransparency
                 enteringService.setupNewValue()
             } else {
                 coordinator.goToFirstFormViewController()
+                enteringService.incrementCountOfOpening()
             }
         }
         

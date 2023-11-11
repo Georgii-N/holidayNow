@@ -1,4 +1,5 @@
 import UIKit
+import StoreKit
 
 final class FirstFormViewController: UIViewController {
     
@@ -99,6 +100,7 @@ final class FirstFormViewController: UIViewController {
         
         continueButton.block()
         bind()
+        rateApp()
     }
     
     override func viewDidLayoutSubviews() {
@@ -203,7 +205,14 @@ final class FirstFormViewController: UIViewController {
     private func setupCollectionProvider() {
         firstFormCollectionView.dataSource = collectionProvider
         firstFormCollectionView.delegate = collectionProvider
-
+    }
+    
+    private func rateApp() {
+        let enteringService = EnteringService()
+        
+        if enteringService.countOfOpening > 2 {
+            SKStoreReviewController.requestReview()
+        }
     }
     
     // MARK: - Objc Methods:

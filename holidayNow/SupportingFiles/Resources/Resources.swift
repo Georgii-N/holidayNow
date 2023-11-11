@@ -86,5 +86,6 @@ enum Resources {
     
     enum UserDefaults {
         static let key = "isFirstEnter"
+        static let openingKey = "countOfOpen"
     }
 }
