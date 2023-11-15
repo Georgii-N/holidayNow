@@ -231,6 +231,19 @@ extension FirstFormViewController: BaseCollectionViewCellDelegate {
         viewModel?.controlInterestState(isAdd: isAdded, interest: GreetingTarget(name: model.name,
                                                                                  image: model.image))
     }
+    
+    func startEditingNonDefaultButtons() {
+        let indexPaths = firstFormCollectionView.indexPathsForVisibleItems
+        
+        indexPaths.forEach { indexPath in
+            guard let cell = firstFormCollectionView.cellForItem(at: indexPath) as? BaseCollectionViewCell,
+            let cellModel = cell.cellModel else { return }
+            
+            if cellModel.isDefault == false {
+                cell.startEditingButton()
+            }
+        }
+    }
 }
 
 // MARK: - BaseCollectionViewEnterCellDelegate:

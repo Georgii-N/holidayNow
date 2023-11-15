@@ -179,6 +179,19 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
             break
         }
     }
+    
+    func startEditingNonDefaultButtons() {
+        let indexPaths = secondFormCollectionView.indexPathsForVisibleItems
+        
+        indexPaths.forEach { indexPath in
+            guard let cell = secondFormCollectionView.cellForItem(at: indexPath) as? BaseCollectionViewCell,
+                  let cellModel = cell.cellModel else { return }
+            
+            if cellModel.isDefault == false {
+                cell.startEditingButton()
+            }
+        }
+    }
 }
 
 // MARK: - BaseCollectionViewEnterCellDelegate:

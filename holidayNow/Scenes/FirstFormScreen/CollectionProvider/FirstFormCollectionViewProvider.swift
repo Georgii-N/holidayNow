@@ -28,6 +28,7 @@ extension FirstFormCollectionViewProvider: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let interests = viewModel?.interestsObservable.wrappedValue.interests else { return UICollectionViewCell() }
+        let countOfDefaultInterests = 12
         
         if indexPath.row == interests.count {
             // Enter cell:
@@ -46,9 +47,10 @@ extension FirstFormCollectionViewProvider: UICollectionViewDataSource {
                 with: Resources.Identifiers.formInterestCollectionVewCell)
             
             let model = interests[indexPath.row]
+            let isDefaultInterest = indexPath.row + 1 <= countOfDefaultInterests
             
             cell.delegate = viewController
-            cell.setupInterestModel(model: CellModel(name: model.name, image: model.image))
+            cell.setupInterestModel(model: CellModel(name: model.name, image: model.image, isDefault: isDefaultInterest))
             
             return cell
         }

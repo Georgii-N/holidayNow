@@ -9,6 +9,8 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     private enum BaseCellUIConstants {
         static let cellRadius: CGFloat = 18
         static let borderInset: CGFloat = 8
+        static let narrowBorderWidth: CGFloat = 1
+        static let wideBorderWidth: CGFloat = 2
     }
     
     private(set) var cellModel: CellModel? {
@@ -35,6 +37,16 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var removeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.layer.cornerRadius = 10
+        button.setTitle("-", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(cgColor: layer.borderColor ?? UIColor.gray.cgColor)
+        
+        return button
+    }()
+    
     private lazy var interestImageView = UIImageView()
     
     // MARK: - Lifecycle:
@@ -42,6 +54,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        setupGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -53,18 +66,47 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         cellModel = model
     }
     
+    func startEditingButton() {
+        addRemoveButton()
+        addEditingAnimation()
+    }
+    
     // MARK: - Private Methods:
     private func changeCellState() {
         if isSelected {
             layer.borderColor = UIColor.black.cgColor
-            layer.borderWidth = 2
+            layer.borderWidth = BaseCellUIConstants.wideBorderWidth
+            removeButton.backgroundColor = UIColor.black
             interestImageView.image = interestImageView.image?.withTintColor(.black, renderingMode: .alwaysOriginal)
             nameLabel.textColor = .black
         } else {
             layer.borderColor = UIColor.lightGray.cgColor
-            layer.borderWidth = 1
+            layer.borderWidth = BaseCellUIConstants.narrowBorderWidth
+            removeButton.backgroundColor = UIColor.lightGray
             interestImageView.image = interestImageView.image?.withTintColor(.gray, renderingMode: .alwaysOriginal)
             nameLabel.textColor = .gray
+        }
+    }
+    
+    private func addRemoveButton() {
+        setupView(removeButton)
+        
+        NSLayoutConstraint.activate([
+            removeButton.heightAnchor.constraint(equalToConstant: 20),
+            removeButton.widthAnchor.constraint(equalToConstant: 20),
+            removeButton.centerYAnchor.constraint(equalTo: topAnchor, constant: 3),
+            removeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+        ])
+    }
+    
+    // MARK: - Objc Methods:
+    @objc private func editCell() {
+        guard let cellModel else { return }
+        let animations = layer.animationKeys()
+        let isHasAnimations = animations != nil
+        
+        if !cellModel.isDefault && !isHasAnimations {
+            delegate?.startEditingNonDefaultButtons()
         }
     }
 }
@@ -72,9 +114,9 @@ final class BaseCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup Views:
 private extension BaseCollectionViewCell {
     func setupViews() {
-        layer.borderColor = UIColor.lightGray.cgColor
-        layer.borderWidth = 1
-        layer.cornerRadius = BaseCellUIConstants.cellRadius
+       layer.borderColor = UIColor.lightGray.cgColor
+       layer.borderWidth = BaseCellUIConstants.narrowBorderWidth
+       layer.cornerRadius = BaseCellUIConstants.cellRadius
         
         [interestImageView, nameLabel].forEach(setupView)
     }
@@ -99,5 +141,24 @@ private extension BaseCollectionViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.smallInset),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaseCellUIConstants.borderInset)
         ])
+    }
+    
+    func setupGesture() {
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(editCell))
+        addGestureRecognizer(gesture)
+    }
+}
+
+// MARK: - Setup Animation:
+extension BaseCollectionViewCell {
+    func addEditingAnimation() {
+        let wobbleAnimation = CAKeyframeAnimation(keyPath: "transform.rotation")
+        wobbleAnimation.values = [0.0, -0.025, 0.0, 0.025, 0.0]
+        wobbleAnimation.keyTimes = [0.0, 0.25, 0.5, 0.75, 1.0]
+        wobbleAnimation.duration = 0.25
+        wobbleAnimation.isAdditive = true
+        wobbleAnimation.repeatCount = .greatestFiniteMagnitude
+        
+        layer.add(wobbleAnimation, forKey: "wobble")
     }
 }
