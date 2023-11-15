@@ -43,6 +43,7 @@
 		7E0213762AA9F8A000B29565 /* CongratulationTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */; };
 		7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */; };
 		7E2494142AAB0A8B002B1D48 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */; };
+		7E2507FD2B0504F000382C18 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2507FC2B0504F000382C18 /* HapticsManager.swift */; };
 		7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */; };
 		7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */; };
 		7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */; };
@@ -122,6 +123,7 @@
 		7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModel.swift; sourceTree = "<group>"; };
 		7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModelProtocol.swift; sourceTree = "<group>"; };
 		7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
+		7E2507FC2B0504F000382C18 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				40FD19552AA9BABA0041FFFF /* NetworkClient */,
 				40FD19562AA9BAD80041FFFF /* ViewControllerFactory */,
 				7EC141062AB9A6A700BBF89B /* ProhibitedDictionaryService */,
+				7E2507FC2B0504F000382C18 /* HapticsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
+				7E2507FD2B0504F000382C18 /* HapticsManager.swift in Sources */,
 				7EFFABF52AA994A90018196F /* IntonationsTarget.swift in Sources */,
 				7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
@@ -982,9 +986,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6V6RWV729;
+				DEVELOPMENT_TEAM = V7HYWRF575;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -996,7 +1001,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1012,9 +1017,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6V6RWV729;
+				DEVELOPMENT_TEAM = V7HYWRF575;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1026,7 +1032,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

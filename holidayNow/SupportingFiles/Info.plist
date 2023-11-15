@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>NSUserTrackingUsageDescription</key>
-        <string>Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения</string>
-    </dict>
+<dict/>
 </plist>

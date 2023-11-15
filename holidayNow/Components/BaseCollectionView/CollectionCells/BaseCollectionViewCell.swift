@@ -117,6 +117,10 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    private func makeVibro() {
+        HapticsManager().vibrate()
+    }
+    
     // MARK: - Objc Methods:
     @objc private func editCell() {
         guard let cellModel else { return }
@@ -125,6 +129,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         
         if !cellModel.isDefault && !isHasAnimations {
             delegate?.startEditingNonDefaultCells()
+            makeVibro()
         }
     }
     
