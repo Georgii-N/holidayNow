@@ -54,11 +54,17 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        setupTargets()
         setupGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stopAnimation()
     }
     
     // MARK: - Public Methods:
@@ -69,6 +75,11 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     func startEditingButton() {
         addRemoveButton()
         addEditingAnimation()
+    }
+    
+    func stopAnimation() {
+        removeButton.removeFromSuperview()
+        layer.removeAllAnimations()
     }
     
     // MARK: - Private Methods:
@@ -85,6 +96,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
             removeButton.backgroundColor = UIColor.lightGray
             interestImageView.image = interestImageView.image?.withTintColor(.gray, renderingMode: .alwaysOriginal)
             nameLabel.textColor = .gray
+            stopAnimation()
         }
     }
     
@@ -106,8 +118,12 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         let isHasAnimations = animations != nil
         
         if !cellModel.isDefault && !isHasAnimations {
-            delegate?.startEditingNonDefaultButtons()
+            delegate?.startEditingNonDefaultCells()
         }
+    }
+    
+    @objc private func removeCell() {
+        delegate?.remove(cell: self)
     }
 }
 
@@ -141,6 +157,10 @@ private extension BaseCollectionViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: interestImageView.trailingAnchor, constant: UIConstants.smallInset),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaseCellUIConstants.borderInset)
         ])
+    }
+    
+    func setupTargets() {
+        removeButton.addTarget(self, action: #selector(removeCell), for: .touchUpInside)
     }
     
     func setupGesture() {

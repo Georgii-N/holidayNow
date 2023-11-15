@@ -180,7 +180,7 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
         }
     }
     
-    func startEditingNonDefaultButtons() {
+    func startEditingNonDefaultCells() {
         let indexPaths = secondFormCollectionView.indexPathsForVisibleItems
         
         indexPaths.forEach { indexPath in
@@ -191,6 +191,10 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
                 cell.startEditingButton()
             }
         }
+    }
+    
+    func remove(cell: BaseCollectionViewCell) {
+        guard let indexPath = secondFormCollectionView.indexPath(for: cell) else { return }
     }
 }
 

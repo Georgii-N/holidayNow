@@ -19,6 +19,8 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
         didSet {
             if interestCounter == maximumCountOfInterests {
                 controlStateButton(isBlock: true)
+            } else {
+                controlStateButton(isBlock: false)
             }
         }
     }
@@ -90,6 +92,10 @@ final class BaseCollectionViewEnterCell: UICollectionViewCell {
                 enterNameTextField.placeholder = L10n.FirstForm.Interests.addMyOwn
             }
         }
+    }
+    
+    func decrementAddedInterestsCounter() {
+        interestCounter -= 1
     }
     
     // MARK: - Private Methods:
