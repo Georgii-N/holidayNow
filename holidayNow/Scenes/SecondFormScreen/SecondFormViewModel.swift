@@ -24,7 +24,8 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         Resources.Images.SecondForm.funny
     ]
     
-    private var ownCellCounter = 0
+    private(set) var ownCellCounter = 0
+    private(set) var indexToRemoveCell: Int?
     private(set) var selectedIntonation: String?
     
     // MARK: - Observable Values:
@@ -61,10 +62,22 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     func setupIntonation(name: String?) {
         selectedIntonation = name
     }
-    
+
     func addNewHoliday(with name: String) {
         holidays.holidays.append(HolidaysTarget(name: name, image: cellImages[ownCellCounter]))
         ownCellCounter += 1
+    }
+    
+    func removeOwnInterest(from index: Int) {
+        let holidayName = holidays.holidays[index].name
+        
+        ownCellCounter -= 1
+        indexToRemoveCell = index
+        holidays.holidays.remove(at: index)
+        
+        if holidayName == selectedHoliday {
+            selectedHoliday = nil
+        }
     }
     
     func sentGreetingsInfo() {

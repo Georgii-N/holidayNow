@@ -98,32 +98,52 @@ final class SecondFormViewController: UIViewController {
         
         viewModel.selectedHolidayObservable.bind { [weak self] _ in
             guard let self else { return }
-            if self.secondFormCollectionView.indexPathsForSelectedItems?.count == 0 {
-                self.resumeOnMainThread(self.continueButton.block, with: ())
-            } else {
-                self.resumeOnMainThread(self.checkSelectedCell, with: ())
-            }
+            self.resumeOnMainThread(self.checkSelectedHoliday, with: ())
         }
     }
     
     private func updateCollection() {
-        let indexPath = IndexPath(row: viewModel.holidaysObserver.wrappedValue.holidays.count - 1, section: 0)
-        
+        let countOfExistedHolidays = viewModel.holidaysObserver.wrappedValue.holidays.count
+        let visibleHolidays = secondFormCollectionView.numberOfItems(inSection: 0)
+        let isCellAdded = visibleHolidays == countOfExistedHolidays
+        let indexToRemoveCell = viewModel.indexToRemoveCell ?? 0
+        let indexPath = IndexPath(row: isCellAdded ? visibleHolidays - 1 : indexToRemoveCell, section: 0)
+
         secondFormCollectionView.performBatchUpdates {
-            secondFormCollectionView.insertItems(at: [indexPath])
-            increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
+            if isCellAdded {
+                secondFormCollectionView.insertItems(at: [indexPath])
+                increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
+                controlCellsAnimations(isStart: false)
+            } else {
+                secondFormCollectionView.deleteItems(at: [indexPath])
+                let enterCellIndexPath = IndexPath(row: secondFormCollectionView.numberOfItems(inSection: 0) - 1, section: 0)
+                guard let cell = secondFormCollectionView.cellForItem(at: enterCellIndexPath) as? BaseCollectionViewEnterCell else { return }
+                cell.decrementAddedInterestsCounter()
+            }
         }
         
-        secondFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+        if isCellAdded {
+            secondFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+        }
     }
     
-    private func checkSelectedCell() {
-        guard let selectedIndexes = secondFormCollectionView.indexPathsForSelectedItems else { return }
-        if selectedIndexes.contains(where: { $0.section == 0 }) {
-            continueButton.unblock()
-        } else {
-            continueButton.block()
+    private func controlCellsAnimations(isStart: Bool) {
+        let indexPaths = secondFormCollectionView.indexPathsForVisibleItems
+        
+        indexPaths.forEach { indexPath in
+            guard let cell = secondFormCollectionView.cellForItem(at: indexPath) as? BaseCollectionViewCell,
+                  let cellModel = cell.cellModel else { return }
+            
+            if isStart == true && cellModel.isDefault == false {
+                cell.startEditingButton()
+            } else {
+                cell.stopAnimation()
+            }
         }
+    }
+    
+    private func checkSelectedHoliday() {
+        viewModel.selectedHolidayObservable.wrappedValue != nil ? continueButton.unblock() : continueButton.block()
     }
     
     private func setupCollectionProvider() {
@@ -178,6 +198,15 @@ extension SecondFormViewController: BaseCollectionViewCellDelegate {
         default:
             break
         }
+    }
+    
+    func startEditingNonDefaultCells() {
+        controlCellsAnimations(isStart: true)
+    }
+    
+    func remove(cell: BaseCollectionViewCell) {
+        guard let indexPath = secondFormCollectionView.indexPath(for: cell) else { return }
+        viewModel.removeOwnInterest(from: indexPath.row)
     }
 }
 

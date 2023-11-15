@@ -6,7 +6,7 @@ final class FirstFormViewController: UIViewController {
     // MARK: - Dependencies:
     weak var coordinator: CoordinatorProtocol?
     
-    private let viewModel: FirstFormViewModelProtocol?
+    private let viewModel: FirstFormViewModelProtocol
     private let collectionProvider: FirstFormCollectionViewProvider
     
     // MARK: - Constants and Variables:
@@ -119,12 +119,12 @@ final class FirstFormViewController: UIViewController {
     
     // MARK: - Private Methods:
     private func bind() {
-        viewModel?.interestsObservable.bind { [weak self] _ in
+        viewModel.interestsObservable.bind { [weak self] _ in
             guard let self else { return }
             self.resumeOnMainThread(self.updateCollection, with: ())
         }
         
-        viewModel?.userNameObservable.bind { [weak self] newValue in
+        viewModel.userNameObservable.bind { [weak self] newValue in
             guard let self else { return }
             if newValue == nil {
                 self.resumeOnMainThread(self.continueButton.block, with: ())
@@ -133,21 +133,35 @@ final class FirstFormViewController: UIViewController {
             }
         }
         
-        viewModel?.selectedInterestsObservable.bind { [weak self] interests in
+        viewModel.ownCellCounterObservable.bind { [weak self] newValue in
             guard let self else { return }
-            self.resumeOnMainThread(self.controlCellsAvailability, with: interests.count)
+            self.resumeOnMainThread(self.controlCellsAvailability, with: newValue)
         }
     }
     
     private func updateCollection() {
-        let indexPath = IndexPath(row: firstFormCollectionView.visibleCells.count - 1, section: 0)
+        let countOfExistedInterests = viewModel.interestsObservable.wrappedValue.interests.count
+        let visibleInterests = firstFormCollectionView.visibleCells.count
+        let isCellAdded = visibleInterests == countOfExistedInterests
+        let indexToRemoveCell = viewModel.indexToRemoveCell ?? 0
+        let indexPath = IndexPath(row: isCellAdded ? visibleInterests - 1 : indexToRemoveCell, section: 0)
         
         firstFormCollectionView.performBatchUpdates {
-            firstFormCollectionView.insertItems(at: [indexPath])
-            increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
+            if isCellAdded {
+                firstFormCollectionView.insertItems(at: [indexPath])
+                increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
+                controlCellsAnimations(isStart: false)
+            } else {
+                firstFormCollectionView.deleteItems(at: [indexPath])
+                let enterCellIndexPath = IndexPath(row: firstFormCollectionView.visibleCells.count - 1, section: 0)
+                guard let cell = firstFormCollectionView.cellForItem(at: enterCellIndexPath) as? BaseCollectionViewEnterCell else { return }
+                cell.decrementAddedInterestsCounter()
+            }
         }
         
-        firstFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+        if isCellAdded {
+            firstFormCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+        }
     }
     
     private func controlCellsAvailability(with number: Int) {
@@ -155,6 +169,21 @@ final class FirstFormViewController: UIViewController {
             changeCellAvailability(isAvailable: false, with: number)
         } else {
             changeCellAvailability(isAvailable: true, with: number)
+        }
+    }
+    
+    private func controlCellsAnimations(isStart: Bool) {
+        let indexPaths = firstFormCollectionView.indexPathsForVisibleItems
+        
+        indexPaths.forEach { indexPath in
+            guard let cell = firstFormCollectionView.cellForItem(at: indexPath) as? BaseCollectionViewCell,
+                  let cellModel = cell.cellModel else { return }
+            
+            if isStart == true && cellModel.isDefault == false {
+                cell.startEditingButton()
+            } else {
+                cell.stopAnimation()
+            }
         }
     }
     
@@ -219,7 +248,7 @@ final class FirstFormViewController: UIViewController {
     @objc private func goToSecondFormVC() {
         AnalyticsService.instance.trackAmplitudeEvent(name: .goToSecondFormScreen, params: nil)
         coordinator?.goToSecondFormViewController()
-        viewModel?.sentInterests()
+        viewModel.sentInterests()
     }
 }
 
@@ -228,15 +257,24 @@ extension FirstFormViewController: BaseCollectionViewCellDelegate {
     func changeTargetState(isAdded: Bool, cell: BaseCollectionViewCell) {
         guard let model = cell.cellModel else { return }
         
-        viewModel?.controlInterestState(isAdd: isAdded, interest: GreetingTarget(name: model.name,
+        viewModel.controlInterestState(isAdd: isAdded, interest: GreetingTarget(name: model.name,
                                                                                  image: model.image))
+    }
+    
+    func startEditingNonDefaultCells() {
+        controlCellsAnimations(isStart: true)
+    }
+    
+    func remove(cell: BaseCollectionViewCell) {
+        guard let indexPath = firstFormCollectionView.indexPath(for: cell) else { return }
+        viewModel.removeOwnInterest(from: indexPath.row)
     }
 }
 
 // MARK: - BaseCollectionViewEnterCellDelegate:
 extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
     func addNewTarget(name: String) {
-        viewModel?.addNewOwnInterest(name: name)
+        viewModel.addNewOwnInterest(name: name)
     }
     
     func changeStateCellWarningLabel(isShow: Bool, isWrongText: Bool) {
@@ -246,9 +284,9 @@ extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
                                      from: firstFormCollectionView,
                                      with: isWrongText ? L10n.Warning.wrongWord : L10n.Warning.characterLimits)
         } else {
-            guard let selectedInterest = viewModel?.selectedInterestsObservable.wrappedValue else { return }
+            let countOfSelectedCell = viewModel.ownCellCounterObservable.wrappedValue
             controlStateWarningLabel(label: cellWarningLabel, isShow: false)
-            controlCellsAvailability(with: selectedInterest.count)
+            controlCellsAvailability(with: countOfSelectedCell)
         }
     }
 }
@@ -257,7 +295,6 @@ extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
 extension FirstFormViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return false
     }
     
@@ -269,7 +306,7 @@ extension FirstFormViewController: UITextFieldDelegate {
             showEnterNameWarningLabel()
         } else {
             enterNameWarningLabel.removeFromSuperview()
-            viewModel?.setupUsername(text)
+            viewModel.setupUsername(text)
         }
     }
 }
