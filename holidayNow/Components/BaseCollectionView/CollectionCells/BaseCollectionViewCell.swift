@@ -7,8 +7,14 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Constants and Variables:
     private enum BaseCellUIConstants {
-        static let cellRadius: CGFloat = 18
+        static let cellCornerRadius: CGFloat = 18
+        static let buttonCornerRadius: CGFloat = 10
+        
         static let borderInset: CGFloat = 8
+        static let buttonRightInset: CGFloat = -10
+        static let buttonTopInset: CGFloat = 3
+        
+        static let buttonSide: CGFloat = 20
         static let narrowBorderWidth: CGFloat = 1
         static let wideBorderWidth: CGFloat = 2
     }
@@ -39,7 +45,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     
     private lazy var removeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = BaseCellUIConstants.buttonCornerRadius
         button.setTitle("-", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(cgColor: layer.borderColor ?? UIColor.gray.cgColor)
@@ -104,10 +110,10 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         setupView(removeButton)
         
         NSLayoutConstraint.activate([
-            removeButton.heightAnchor.constraint(equalToConstant: 20),
-            removeButton.widthAnchor.constraint(equalToConstant: 20),
-            removeButton.centerYAnchor.constraint(equalTo: topAnchor, constant: 3),
-            removeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+            removeButton.heightAnchor.constraint(equalToConstant: BaseCellUIConstants.buttonSide),
+            removeButton.widthAnchor.constraint(equalToConstant: BaseCellUIConstants.buttonSide),
+            removeButton.centerYAnchor.constraint(equalTo: topAnchor, constant: BaseCellUIConstants.buttonTopInset),
+            removeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: BaseCellUIConstants.buttonRightInset)
         ])
     }
     
@@ -132,7 +138,7 @@ private extension BaseCollectionViewCell {
     func setupViews() {
        layer.borderColor = UIColor.lightGray.cgColor
        layer.borderWidth = BaseCellUIConstants.narrowBorderWidth
-       layer.cornerRadius = BaseCellUIConstants.cellRadius
+       layer.cornerRadius = BaseCellUIConstants.cellCornerRadius
         
         [interestImageView, nameLabel].forEach(setupView)
     }
