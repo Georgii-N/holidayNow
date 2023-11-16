@@ -24,8 +24,9 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         Resources.Images.SecondForm.funny
     ]
     
-    private var ownCellCounter = 0
-    private var selectedIntonation: String?
+    private(set) var ownCellCounter = 0
+    private(set) var indexToRemoveCell: Int?
+    private(set) var selectedIntonation: String?
     
     // MARK: - Observable Values:
     var selectedHolidayObservable: Observable<String?> {
@@ -50,6 +51,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
+        checkToExistingGreeting()
     }
     
     // MARK: - Public Methods:
@@ -66,6 +68,18 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
         ownCellCounter += 1
     }
     
+    func removeOwnInterest(from index: Int) {
+        let holidayName = holidays.holidays[index].name
+        
+        ownCellCounter -= 1
+        indexToRemoveCell = index
+        holidays.holidays.remove(at: index)
+        
+        if holidayName == selectedHoliday {
+            selectedHoliday = nil
+        }
+    }
+    
     func sentGreetingsInfo() {
         if let selectedHoliday {
             AnalyticsService.instance.trackAmplitudeEvent(name: .holiday, params: [.name: selectedHoliday])
@@ -78,6 +92,19 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
                 AnalyticsService.instance.trackAmplitudeEvent(name: .intonation, params: [.name: selectedIntonation])
                 dataProvider?.setHoliday(holiday: selectedHoliday)
             }
+        }
+    }
+    
+    // MARK: - Private Methods:
+    private func checkToExistingGreeting() {
+        selectedHoliday = dataProvider?.holiday
+        selectedIntonation = dataProvider?.intonation
+        
+        guard let selectedHoliday else { return }
+        let isDefaultHoliday = holidays.holidays.contains { $0.name == selectedHoliday }
+
+        if !isDefaultHoliday {
+            addNewHoliday(with: selectedHoliday)
         }
     }
 }

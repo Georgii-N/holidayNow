@@ -13,6 +13,9 @@ final class CongratulationTypeViewController: UIViewController {
         static let sliderHeight: CGFloat = 5
     }
     
+    private let animationDuration = 0.3
+    private var isFirstEntry = true
+    
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -90,7 +93,6 @@ final class CongratulationTypeViewController: UIViewController {
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: true, coordinator: coordinator)
     private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
     private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
-    private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.startMagic)
     
     // MARK: - Lifecycle:
@@ -110,10 +112,28 @@ final class CongratulationTypeViewController: UIViewController {
         setupConstraints()
         setupTargets()
         
-        startSetupType()
+        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isFirstEntry {
+            presetGreetingsInfo()
+            startSetupType()
+            isFirstEntry = false
+        }
     }
     
     // MARK: - Private Methods:
+    private func bind() {
+        viewModel.isReadyToMakeRequestObservable.bind { [weak self] newValue in
+            guard let self else { return }
+            if newValue {
+                startMagic()
+            }
+        }
+    }
+    
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
         var minNumber: Int?
         var maxNumber: Int?
@@ -128,16 +148,12 @@ final class CongratulationTypeViewController: UIViewController {
             minNumber = Resources.Int.poetryMinSliderValue
             maxNumber = Resources.Int.maxSliderValue
             text = L10n.Congratulation.numberOfRows
-        case .haiku:
-            minNumber = Resources.Int.poetryMinSliderValue
-            maxNumber = Resources.Int.maxSliderValue
-            text = L10n.Congratulation.numberOfRows
         }
                 
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
         maxCountOfSentensesLabel.text = maxNumber == nil ? "" : String(maxNumber ?? 0)
        
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: animationDuration) {
             self.lenghSlider.minimumValue = Float(minNumber ?? 0)
             self.lenghSlider.maximumValue = Float(maxNumber ?? 0)
             self.lenghSlider.layoutIfNeeded()
@@ -147,17 +163,42 @@ final class CongratulationTypeViewController: UIViewController {
     }
     
     private func startSetupType() {
-        textCongratulationButton.changeSelectionState()
-        setupSentensesNumberLabel(with: .text)
-
-        viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
-        viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
+        if viewModel.selectedGreetingsType == nil {
+            textCongratulationButton.changeSelectionState()
+            viewModel.setupGreetingsType(with: L10n.Congratulation.Button.text)
+        }
+        
+        if viewModel.selectedGreetingsLength == nil {
+            setupSentensesNumberLabel(with: .text)
+            viewModel.setupGreetingsLength(with: Resources.Int.textMinSliderValue)
+        }
+    }
+    
+    private func presetGreetingsInfo() {
+        let greetingType = viewModel.selectedGreetingsType
+        let greetingLength = viewModel.selectedGreetingsLength
+        
+        if greetingType != nil || greetingLength != nil {
+            [textCongratulationButton, poetryCongratulationButton].forEach { button in
+                if button.title == greetingType {
+                    button.changeSelectionState()
+                    synchronizeOtherButtons(title: greetingType ?? "", state: button.isSelected, buttonType: button.buttonState)
+                }
+            }
+            
+            if let greetingLength {
+                lenghSlider.value = Float(greetingLength)
+            }
+        }
+    }
+    
+    private func startMagic() {
+        coordinator?.goToWaitingViewController()
     }
     
     // MARK: - Objc Methods:
-    @objc private func startMagic() {
+    @objc func setGreetingType() {
         viewModel.sentCongratulationType()
-        coordinator?.goToWaitingViewController()
     }
     
     @objc private func setupCurrentSentensesValue() {
@@ -168,7 +209,7 @@ final class CongratulationTypeViewController: UIViewController {
 // MARK: - CongratulationTypeButtonDelegate:
 extension CongratulationTypeViewController: BaseCongratulationTypeButtonDelegate {
     func synchronizeOtherButtons(title: String, state: Bool, buttonType: BaseCongratulationButtonState) {
-        [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [textCongratulationButton, poetryCongratulationButton].forEach {
             if $0.title != title && $0.isSelected == state {
                 $0.changeSelectionState()
             }
@@ -185,7 +226,7 @@ private extension CongratulationTypeViewController {
         view.backgroundColor = .white
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
-        [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [textCongratulationButton, poetryCongratulationButton].forEach {
             buttonsStack.addArrangedSubview($0)
             $0.delegate = self
         }
@@ -206,9 +247,9 @@ private extension CongratulationTypeViewController {
         setupContinueButtonConstraints()
         
         [titleLabel, congratulationTypeLabel, congratulationLenghLabel, textCongratulationButton,
-         poetryCongratulationButton, haikuCongratulationButton].forEach {
-            $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor, constant: UIConstants.sideInset).isActive = true
-            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset).isActive = true
+         poetryCongratulationButton].forEach {
+            $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor).isActive = true
+            $0.trailingAnchor.constraint(equalTo: buttonsStack.trailingAnchor).isActive = true
         }
         
         [lenghSlider, continueButton].forEach {
@@ -231,10 +272,9 @@ private extension CongratulationTypeViewController {
     
     func setupButtonsStackConstraints() {
         NSLayoutConstraint.activate([
-            buttonsStack.heightAnchor.constraint(equalToConstant: CongratulationUIConstants.stuckHeight),
             buttonsStack.topAnchor.constraint(equalTo: congratulationTypeLabel.bottomAnchor, constant: UIConstants.blocksInset),
-            buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
         ])
     }
     
@@ -266,7 +306,7 @@ private extension CongratulationTypeViewController {
     }
     
     func setupTargets() {
-        continueButton.addTarget(self, action: #selector(startMagic), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(setGreetingType), for: .touchUpInside)
         lenghSlider.addTarget(self, action: #selector(setupCurrentSentensesValue), for: .allEvents)
         lenghSlider.addTapGesture()
     }

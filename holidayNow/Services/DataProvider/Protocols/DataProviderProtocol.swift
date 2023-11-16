@@ -1,6 +1,11 @@
 import Foundation
 
 protocol DataProviderProtocol: AnyObject {
+    var holiday: String? { get }
+    var intonation: String? { get }
+    var type: String? { get }
+    var countSentences: Int? { get }
+
     func setType(type: String)
     func setcountSentences(countSentences: Int)
     func setName(name: String)
@@ -9,5 +14,8 @@ protocol DataProviderProtocol: AnyObject {
     func setIntonation(intonation: String)
     
     func createRequestText(completion: @escaping (Result<String, Error>) -> Void)
+    
+    func setResultTextAfterEdit(resultText: String)
     func getResultText() -> String
+    func resetGreeting()
 }

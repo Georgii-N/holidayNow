@@ -17,6 +17,10 @@
 		40152F6A2AA1C3A00049E309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40152F682AA1C3A00049E309 /* LaunchScreen.storyboard */; };
 		401FD5A92AA60C080041D4F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */; };
 		401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */; };
+		403218582AFCB12F0023EBAB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403218572AFCB12F0023EBAB /* EditViewController.swift */; };
+		4032185A2AFCBA250023EBAB /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403218592AFCBA250023EBAB /* EditViewModel.swift */; };
+		4032185C2AFCBA410023EBAB /* EditViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */; };
+		4052868B2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */; };
 		405373A22AA23DBA00704904 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405373A12AA23DBA00704904 /* Response.swift */; };
 		40A71EA42AA88F3700346E8D /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA32AA88F3700346E8D /* WaitingViewController.swift */; };
 		40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */; };
@@ -39,6 +43,7 @@
 		7E0213762AA9F8A000B29565 /* CongratulationTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */; };
 		7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */; };
 		7E2494142AAB0A8B002B1D48 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */; };
+		7E2507FD2B0504F000382C18 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2507FC2B0504F000382C18 /* HapticsManager.swift */; };
 		7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */; };
 		7E3757D02AA60F250093A3C5 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */; };
 		7E3757D42AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */; };
@@ -94,6 +99,10 @@
 		40152F6B2AA1C3A00049E309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401FD5A82AA60C080041D4F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		401FD5AC2AA60C910041D4F9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		403218572AFCB12F0023EBAB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		403218592AFCBA250023EBAB /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
+		4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModelProtocol.swift; sourceTree = "<group>"; };
+		4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewControllerDelegate.swift; sourceTree = "<group>"; };
 		405373A12AA23DBA00704904 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		40A71EA32AA88F3700346E8D /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
@@ -114,6 +123,7 @@
 		7E0213752AA9F8A000B29565 /* CongratulationTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModel.swift; sourceTree = "<group>"; };
 		7E0213772AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationTypeViewModelProtocol.swift; sourceTree = "<group>"; };
 		7E2494132AAB0A8B002B1D48 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
+		7E2507FC2B0504F000382C18 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		7E3757CC2AA5FD030093A3C5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E3757CF2AA60F250093A3C5 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		7E3757D32AA60F7B0093A3C5 /* BaseCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -209,6 +219,16 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		403218562AFCB1120023EBAB /* EditScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E6A22822AFE57150024799B /* Protocols */,
+				403218572AFCB12F0023EBAB /* EditViewController.swift */,
+				403218592AFCBA250023EBAB /* EditViewModel.swift */,
+			);
+			path = EditScreen;
+			sourceTree = "<group>";
+		};
 		405373A02AA23D9B00704904 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,9 +246,9 @@
 		40A71EA72AA8928700346E8D /* SuccessScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E6A22802AFE56F90024799B /* Protocols */,
 				40F2A8FB2AA31E9B009E345B /* SuccessViewController.swift */,
 				400E1D5C2AA75A4800CF4BCC /* SuccessViewModel.swift */,
-				400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */,
 			);
 			path = SuccessScreen;
 			sourceTree = "<group>";
@@ -252,9 +272,9 @@
 		40F147142AA8478B006EC7EE /* WaitingScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E6A22812AFE57070024799B /* Protocols */,
 				40A71EA32AA88F3700346E8D /* WaitingViewController.swift */,
 				40A71EA52AA891AB00346E8D /* WaitingViewModel.swift */,
-				40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */,
 			);
 			path = WaitingScreen;
 			sourceTree = "<group>";
@@ -272,6 +292,7 @@
 			children = (
 				40F147142AA8478B006EC7EE /* WaitingScreen */,
 				40A71EA72AA8928700346E8D /* SuccessScreen */,
+				403218562AFCB1120023EBAB /* EditScreen */,
 				40A71EA82AA892A700346E8D /* ErrorScreens */,
 			);
 			path = ResponseScreens;
@@ -287,6 +308,7 @@
 				40FD19552AA9BABA0041FFFF /* NetworkClient */,
 				40FD19562AA9BAD80041FFFF /* ViewControllerFactory */,
 				7EC141062AB9A6A700BBF89B /* ProhibitedDictionaryService */,
+				7E2507FC2B0504F000382C18 /* HapticsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -294,7 +316,7 @@
 		40FD194E2AA9B9F50041FFFF /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */,
+				7E6A22832AFE5C4B0024799B /* Protocols */,
 				40FD19512AA9BA2E0041FFFF /* DataProvider.swift */,
 			);
 			path = DataProvider;
@@ -303,8 +325,8 @@
 		40FD19552AA9BABA0041FFFF /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
+				7EF1D2992AFB753800FF2892 /* Protocols */,
 				40CBF0292AB87F1D0007F006 /* HandlingErrorService */,
-				40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */,
 				40F6E0352AA22DA800F75858 /* NetworkClient.swift */,
 			);
 			path = NetworkClient;
@@ -451,6 +473,39 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		7E6A22802AFE56F90024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				400E1D5E2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E6A22812AFE57070024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40A71EAD2AA8B2C700346E8D /* WaitingViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E6A22822AFE57150024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4052868A2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift */,
+				4032185B2AFCBA400023EBAB /* EditViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E6A22832AFE5C4B0024799B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40FD194F2AA9BA0F0041FFFF /* DataProviderProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		7EC141002AB83D5000BBF89B /* CollectionProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +536,14 @@
 				7ECC73F22AAEEC5E00A36393 /* EnteringService.swift */,
 			);
 			path = EnteringService;
+			sourceTree = "<group>";
+		};
+		7EF1D2992AFB753800FF2892 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40FD19532AA9BAA70041FFFF /* NetworkClientProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7EF2BE1D2AB75EFC00E29794 /* UIConstants */ = {
@@ -590,9 +653,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40152F6E2AA1C3A10049E309 /* Build configuration list for PBXNativeTarget "holidayNow" */;
 			buildPhases = (
-				40152F562AA1C39E0049E309 /* Sources */,
 				7ECE85002AB45985001F340D /* SwiftLint */,
 				7E42DD512AA1D7B1007391AB /* SwiftGen */,
+				40152F562AA1C39E0049E309 /* Sources */,
 				40152F572AA1C39E0049E309 /* Frameworks */,
 				40152F582AA1C39E0049E309 /* Resources */,
 			);
@@ -710,6 +773,7 @@
 				7EFFABF92AA9CB640018196F /* UICollectionView + Extension.swift in Sources */,
 				400E1D502AA7100800CF4BCC /* ViewControllerFactory.swift in Sources */,
 				7E3757CD2AA5FD030093A3C5 /* BaseCollectionViewCell.swift in Sources */,
+				4032185A2AFCBA250023EBAB /* EditViewModel.swift in Sources */,
 				400E1D5F2AA75BA200CF4BCC /* SuccessViewModelProtocol.swift in Sources */,
 				40FD19502AA9BA0F0041FFFF /* DataProviderProtocol.swift in Sources */,
 				40F2A8FC2AA31E9B009E345B /* SuccessViewController.swift in Sources */,
@@ -725,10 +789,12 @@
 				7EFFABDB2AA7AA090018196F /* BaseCollectionViewEnterCellDelegate.swift in Sources */,
 				7ECC73F52AAF0C0100A36393 /* BaseWarningLabel.swift in Sources */,
 				7ECE84F72AB1C79B001F340D /* UISlider + Extension.swift in Sources */,
+				4052868B2AFDEBA6000B81B2 /* EditViewControllerDelegate.swift in Sources */,
 				40A71EA62AA891AB00346E8D /* WaitingViewModel.swift in Sources */,
 				7EFFABCE2AA73B080018196F /* FirstFormViewModel.swift in Sources */,
 				405373A22AA23DBA00704904 /* Response.swift in Sources */,
 				7E42DD572AA1E3F9007391AB /* BaseCustomButton.swift in Sources */,
+				403218582AFCB12F0023EBAB /* EditViewController.swift in Sources */,
 				7EFFABDF2AA84B130018196F /* UIViewController + Extension.swift in Sources */,
 				7EC141052AB87AF700BBF89B /* ProhibitedDictionaryService.swift in Sources */,
 				40FD195B2AA9BE220041FFFF /* GreetingRequestFactory.swift in Sources */,
@@ -748,12 +814,14 @@
 				40FD19582AA9BB700041FFFF /* GreetingRequest.swift in Sources */,
 				7E3757D92AA62A4D0093A3C5 /* Interest.swift in Sources */,
 				7EFFABD92AA766190018196F /* BaseCollectionViewEnterCell.swift in Sources */,
+				7E2507FD2B0504F000382C18 /* HapticsManager.swift in Sources */,
 				7EFFABF52AA994A90018196F /* IntonationsTarget.swift in Sources */,
 				7E0213782AA9F8B800B29565 /* CongratulationTypeViewModelProtocol.swift in Sources */,
 				7EFFABD02AA73B300018196F /* FirstFormViewModelProtocol.swift in Sources */,
 				7E42DD612AA2092F007391AB /* BaseCongratulationTypeButton.swift in Sources */,
 				40152F5E2AA1C39E0049E309 /* AppDelegate.swift in Sources */,
 				40A71EAA2AA892D700346E8D /* ErrorNetworkViewController.swift in Sources */,
+				4032185C2AFCBA410023EBAB /* EditViewModelProtocol.swift in Sources */,
 				7EC140FF2AB8385500BBF89B /* FirstFormCollectionViewProvider.swift in Sources */,
 				7E42DD552AA1DA63007391AB /* UIFont + Extension.swift in Sources */,
 				401FD5AD2AA60C910041D4F9 /* CoordinatorProtocol.swift in Sources */,
@@ -918,9 +986,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6V6RWV729;
+				DEVELOPMENT_TEAM = V7HYWRF575;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -931,8 +1000,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -948,9 +1017,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6V6RWV729;
+				DEVELOPMENT_TEAM = V7HYWRF575;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -961,8 +1031,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

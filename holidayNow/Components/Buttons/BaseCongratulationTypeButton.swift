@@ -3,7 +3,6 @@ import UIKit
 enum BaseCongratulationButtonState {
     case text
     case poetry
-    case haiku
 }
 
 final class BaseCongratulationTypeButton: UIView {
@@ -24,7 +23,7 @@ final class BaseCongratulationTypeButton: UIView {
         titleLabel.text ?? ""
     }
     
-    private let buttonState: BaseCongratulationButtonState
+    private(set) var buttonState: BaseCongratulationButtonState
     private(set) var isSelected = false {
         didSet {
             changeSelectionColor()
@@ -111,8 +110,6 @@ final class BaseCongratulationTypeButton: UIView {
             titleLabel.text = L10n.Congratulation.Button.text
         case .poetry:
             titleLabel.text = L10n.Congratulation.Button.poetry
-        case .haiku:
-            titleLabel.text = L10n.Congratulation.Button.haiku
         }
         
         layer.cornerRadius = CongratulationButtonUIConstants.buttonRadius

@@ -20,6 +20,7 @@ final class SecondFormCollectionProvider: NSObject {
     // MARK: - Private Methods:
     private func getParticularCell(isDefault: Bool, indexPath: IndexPath, isHoliday: Bool) -> UICollectionViewCell {
         guard let viewController else { return UICollectionViewCell() }
+        let countOfDefaultHolidays = 4
         
         if isDefault {
             let defaultCell: BaseCollectionViewCell = viewController.secondFormCollectionView.dequeueReusableCell(
@@ -29,12 +30,13 @@ final class SecondFormCollectionProvider: NSObject {
             
             if isHoliday {
                 let model = viewModel.holidaysObserver.wrappedValue.holidays[indexPath.row]
-                defaultCell.setupInterestModel(model: CellModel(name: model.name, image: model.image))
+                let isDefaultHoliday = indexPath.row + 1 <= countOfDefaultHolidays
+                defaultCell.setupInterestModel(model: CellModel(name: model.name, image: model.image, isDefault: isDefaultHoliday))
                 
                 return defaultCell
             } else {
                 let model = viewModel.intonations.intonations[indexPath.row]
-                defaultCell.setupInterestModel(model: CellModel(name: model.name, image: model.image))
+                defaultCell.setupInterestModel(model: CellModel(name: model.name, image: model.image, isDefault: true))
                 
                 return defaultCell
             }

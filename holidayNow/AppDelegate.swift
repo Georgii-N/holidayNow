@@ -3,7 +3,7 @@ import AmplitudeSwift
 import AppTrackingTransparency
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+    class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var coordinator: AppCoordinator?
@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 enteringService.setupNewValue()
             } else {
                 coordinator.goToFirstFormViewController()
+                enteringService.incrementCountOfOpening()
             }
         }
         

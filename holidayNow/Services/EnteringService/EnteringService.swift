@@ -6,6 +6,10 @@ final class EnteringService {
     private let userDefaults = UserDefaults.standard
     
     // MARK: - Constants and Variables:
+    var countOfOpening: Int {
+        countOfOpen
+    }
+    
     var isFirstEntering: Bool? {
         isFirstEnter
     }
@@ -18,8 +22,20 @@ final class EnteringService {
         }
     }
     
+    private var countOfOpen: Int {
+        get {
+            userDefaults.value(forKey: Resources.UserDefaults.openingKey) as? Int ?? 0
+        } set {
+            userDefaults.set(newValue, forKey: Resources.UserDefaults.openingKey)
+        }
+    }
+    
     // MARK: - Public Methods:
     func setupNewValue() {
         isFirstEnter = true
+    }
+    
+    func incrementCountOfOpening() {
+        countOfOpen += 1
     }
 }

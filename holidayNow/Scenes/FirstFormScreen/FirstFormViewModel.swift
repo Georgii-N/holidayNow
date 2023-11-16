@@ -12,8 +12,9 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
         Resources.Images.SecondForm.funny
     ]
     
+    private(set) var indexToRemoveCell: Int?
     private var ownCellCounter = 0
-    
+   
     // MARK: - Observable Values:
     var userNameObservable: Observable<String?> {
         $userName
@@ -48,7 +49,7 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     @Observable
     private(set) var selectedInterests: [GreetingTarget] = []
-
+    
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
@@ -56,11 +57,7 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     // MARK: - Public Methods:
     func setupUsername(_ name: String?) {
-        if name == nil || name == "" {
-            userName = nil
-        } else {
-            userName = name
-        }
+        userName = name == "" ? nil : name
     }
     
     func controlInterestState(isAdd: Bool, interest: GreetingTarget) {
@@ -75,9 +72,15 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     
     func addNewOwnInterest(name: String) {
         let index = interests.interests.count
-        
         interests.interests.insert(GreetingTarget(name: name, image: cellImages[ownCellCounter]), at: index)
         ownCellCounter += 1
+    }
+    
+    func removeOwnInterest(from index: Int) {
+        ownCellCounter -= 1
+        indexToRemoveCell = index
+        controlInterestState(isAdd: false, interest: interests.interests[index])
+        interests.interests.remove(at: index)
     }
     
     func sentInterests() {

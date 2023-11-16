@@ -66,8 +66,9 @@ extension UIViewController {
     func controlStateWarningLabel(label: UILabel,
                                   isShow: Bool,
                                   from collection: UICollectionView? = .none,
-                                  with text: String? = .none) {
-        if !isShow {
+                                  with text: String? = .none,
+                                  plus number: Int? = .none) {
+        if !isShow || number == 0 {
             label.removeFromSuperview()
         } else {
             guard let collection else { return }
@@ -76,13 +77,22 @@ extension UIViewController {
             guard let lastCell = collection.cellForItem(at: indexPath) as? BaseCollectionViewEnterCell else { return }
             
             if isShow {
+                guard let text else { return }
+            
                 view.setupView(label)
-                label.text = text
+                
+                if let number {
+                    label.text = text + "\(number)/3"
+                    label.textColor = .blackDay
+                } else {
+                    label.text = text
+                    label.textColor = .universalRed
+                }
                 
                 NSLayoutConstraint.activate([
-                    label.topAnchor.constraint(equalTo: lastCell.bottomAnchor, constant: 10),
-                    label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                    label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+                    label.topAnchor.constraint(equalTo: lastCell.bottomAnchor, constant: UIConstants.mediumInset),
+                    label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideSize),
+                    label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideSize)
                 ])
             }
         }
@@ -91,14 +101,25 @@ extension UIViewController {
 
 // MARK: - Setting Anchors:
 extension UIViewController {
-    func increaseHeightAnchor(from screenHeight: CGFloat, constraints: NSLayoutConstraint) {
+    private enum ExtensionsUIConstants {
+        static let largeScreenHeight: ClosedRange<CGFloat> = 800...900
+        static let mediumScreenHeight: ClosedRange<CGFloat> = 600...800
+        
+        static let largeScreenInset: CGFloat = 40
+        static let mediumScreenInset: CGFloat = 50
+        static let smallScreenInset: CGFloat = 20
+    }
+    
+    func changeCollectionViewHeightAnchor(isIncrease: Bool, from screenHeight: CGFloat, constraints: NSLayoutConstraint) {
+        let multiplicator: CGFloat = isIncrease ? 1 : -1
+        
         switch screenHeight {
-        case 800...900:
-            constraints.constant += 40
-        case 600...800:
-            constraints.constant += 50
+        case ExtensionsUIConstants.largeScreenHeight:
+            constraints.constant += (ExtensionsUIConstants.largeScreenInset * multiplicator)
+        case ExtensionsUIConstants.mediumScreenHeight:
+            constraints.constant += (ExtensionsUIConstants.mediumScreenInset * multiplicator)
         default:
-            constraints.constant += 20
+            constraints.constant += (ExtensionsUIConstants.smallScreenInset * multiplicator)
             return
         }
     }

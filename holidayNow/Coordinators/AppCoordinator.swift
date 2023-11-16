@@ -36,6 +36,10 @@ final class AppCoordinator: CoordinatorProtocol {
     // Response Screens
     func goToWaitingViewController() {
         let waitingViewController = viewControllerFactory.createWaitingViewController()
+        
+        waitingViewController.onCompletion = { [weak self] in
+                self?.removeWaitingViewController()
+            }
         navigationController.pushViewController(waitingViewController, animated: true)
     }
     
@@ -49,6 +53,12 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController.pushViewController(errorNetworkViewController, animated: true)
     }
     
+    func presentEditViewController(presenter: UIViewController) {
+        let editViewController = viewControllerFactory.createEditViewController()
+        editViewController.delegate = presenter as? EditViewControllerDelegate
+        presenter.present(editViewController, animated: true)
+    }
+    
     // Pop:
     func goBack() {
         navigationController.popViewController(animated: true)
@@ -57,4 +67,12 @@ final class AppCoordinator: CoordinatorProtocol {
     func removeAllviewControllers() {
         navigationController.viewControllers.removeAll { $0 != $0 as? FirstFormViewController }
     }
+    
+    // MARK: - Private Methods:
+    private func removeWaitingViewController() {
+        if let waitingViewController = navigationController.viewControllers.first(where: { $0 is WaitingViewController }) {
+            navigationController.viewControllers.removeAll { $0 === waitingViewController }
+        }
+    }
+
 }

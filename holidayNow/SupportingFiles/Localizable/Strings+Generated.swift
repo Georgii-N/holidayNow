@@ -28,8 +28,6 @@ internal enum L10n {
     /// Шаг 3/3
     internal static let turn = L10n.tr("Localizable", "congratulation.turn", fallback: "Шаг 3/3")
     internal enum Button {
-      /// Хокку
-      internal static let haiku = L10n.tr("Localizable", "congratulation.button.haiku", fallback: "Хокку")
       /// Стихотворение
       internal static let poetry = L10n.tr("Localizable", "congratulation.button.poetry", fallback: "Стихотворение")
       /// Обычное поздравление
@@ -118,8 +116,9 @@ internal enum L10n {
       internal static let var1 = L10n.tr("Localizable", "resultScreen.APIErrorText.var1", fallback: "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(")
     }
     internal enum NetworkErrorText {
-      /// Магии не произошло, попробуйте еще раз:(
-      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз:(")
+      /// Магии не произошло, попробуйте еще раз
+      ///  :(
+      internal static let var1 = L10n.tr("Localizable", "resultScreen.NetworkErrorText.var1", fallback: "Магии не произошло, попробуйте еще раз\n :(")
     }
     internal enum Waiting {
       /// Ждем вместе с вами
@@ -180,16 +179,28 @@ internal enum L10n {
       /// Начать заново
       internal static let title = L10n.tr("Localizable", "success.backToStartButton.title", fallback: "Начать заново")
     }
+    internal enum EditButton {
+      internal enum Edit {
+        /// Редактировать
+        internal static let title = L10n.tr("Localizable", "success.editButton.edit.title", fallback: "Редактировать")
+      }
+    }
+    internal enum SaveButton {
+      internal enum Save {
+        /// Сохранить
+        internal static let title = L10n.tr("Localizable", "success.saveButton.save.title", fallback: "Сохранить")
+      }
+    }
     internal enum ShareButton {
       /// Поделиться
       internal static let title = L10n.tr("Localizable", "success.shareButton.title", fallback: "Поделиться")
     }
   }
   internal enum Warning {
-    /// Максимальное количество символов - 15
-    internal static let characterLimits = L10n.tr("Localizable", "warning.characterLimits", fallback: "Максимальное количество символов - 15")
-    /// Максимальное количество опций - 3
-    internal static let optionLimits = L10n.tr("Localizable", "warning.optionLimits", fallback: "Максимальное количество опций - 3")
+    /// Максимальное количество символов - 20
+    internal static let characterLimits = L10n.tr("Localizable", "warning.characterLimits", fallback: "Максимальное количество символов - 20")
+    /// Максимальное количество интересов - 
+    internal static let optionLimits = L10n.tr("Localizable", "warning.optionLimits", fallback: "Максимальное количество интересов - ")
     /// Некорректный текст
     internal static let wrongWord = L10n.tr("Localizable", "warning.wrongWord", fallback: "Некорректный текст")
   }

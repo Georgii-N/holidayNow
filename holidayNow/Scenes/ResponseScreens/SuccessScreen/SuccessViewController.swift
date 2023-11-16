@@ -10,6 +10,7 @@ final class SuccessViewController: UIViewController {
     private enum SuccessUIConstants {
         static let imageViewHeight: CGFloat = 220
         static let buttonInsetFromCenter: CGFloat = 10
+        static let editButtonCornerRadius: CGFloat = 25
     }
     
     // MARK: - UI:
@@ -21,28 +22,29 @@ final class SuccessViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .white
-        scrollView.isScrollEnabled = true
-
-        return scrollView
+    private lazy var responseTextView: UITextView = {
+        let responseTextView = UITextView()
+        responseTextView.font = .bodyMediumRegularFont
+        responseTextView.textColor = .blackDay
+        responseTextView.text = successViewModel.textResultObservable.wrappedValue
+        responseTextView.textAlignment = .center
+        responseTextView.isEditable = false
+        responseTextView.isScrollEnabled = true
+        return responseTextView
     }()
     
-    private lazy var responseLabel: UILabel = {
-        let responseLabel = UILabel()
-        responseLabel.font = .bodyMediumRegularFont
-        responseLabel.textColor = .blackDay
-        responseLabel.numberOfLines = 0
-        responseLabel.text = successViewModel.textResultObservable.wrappedValue
-        responseLabel.textAlignment = .center
-        
-        return responseLabel
+    private lazy var editButton: UIButton = {
+        let editButton = UIButton(type: .custom)
+        editButton.setImage(Resources.Images.ResponseScreens.editIcon, for: .normal)
+        editButton.backgroundColor = .lightGray
+        editButton.layer.cornerRadius = SuccessUIConstants.editButtonCornerRadius
+        editButton.tintColor = .blackDay
+        return editButton
     }()
     
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
-    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: false, coordinator: coordinator)
+    private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
     
     // MARK: - LifeCycle:
     init(coordinator: CoordinatorProtocol?, successViewModel: SuccessViewModelProtocol) {
@@ -60,23 +62,48 @@ final class SuccessViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        bind()
+    }
+    
+    // MARK: - Private Methods:
+    private func bind() {
+        successViewModel.textResultObservable.bind { [weak self] _ in
+            guard let self else { return }
+            self.resumeOnMainThread(self.updateResultText, with: ())
+        }
+    }
+    
+    private func updateResultText() {
+        self.responseTextView.text = successViewModel.textResultObservable.wrappedValue
     }
     
     // MARK: - Objc Methods:
+    @objc private func didTapEditButton() {
+        coordinator?.presentEditViewController(presenter: self)
+    }
+    
     @objc private func didTapGoToStartButton() {
         AnalyticsService.instance.trackAmplitudeEvent(name: .didTapGoToStartButton, params: nil)
         coordinator?.goToFirstFormViewController()
         coordinator?.removeAllviewControllers()
+        successViewModel.resetGreeting()
     }
     
     @objc private func didTapShareButton() {
         AnalyticsService.instance.trackAmplitudeEvent(name: .didTapShareButton, params: nil)
-        guard let response = responseLabel.text else { return }
+        guard let response = responseTextView.text else { return }
         let activityViewController = UIActivityViewController(
             activityItems: [response],
             applicationActivities: nil)
         
         present(activityViewController, animated: true)
+    }
+}
+
+// MARK: - Setup Views:
+extension SuccessViewController: EditViewControllerDelegate {
+    func updateText() {
+        successViewModel.getResultText()
     }
 }
 
@@ -89,17 +116,16 @@ private extension SuccessViewController {
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
         [imageView,
-         scrollView,
+         editButton,
+         responseTextView,
          backToStartButton,
          shareButton].forEach(view.setupView)
-        
-        scrollView.setupView(responseLabel)
     }
     
     func setupConstraints() {
         setupImageViewConstraints()
-        setupScrollViewConstraints()
-        setupResponseLabelConstraints()
+        setupResponseTextViewConstraints()
+        setupEditButtonConstraints()
         setupBackToStartButtonConstraints()
         setupBackToShareButtonConstraints()
     }
@@ -110,26 +136,26 @@ private extension SuccessViewController {
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: SuccessUIConstants.imageViewHeight)
-            ])
+        ])
     }
     
-    func setupScrollViewConstraints() {
+    func setupEditButtonConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.blocksInset),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
-            scrollView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.elementsInset)
-            ])
+            editButton.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.blocksInset),
+            editButton.widthAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            editButton.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            editButton.trailingAnchor.constraint(equalTo: shareButton.trailingAnchor)
+            
+        ])
     }
     
-    func setupResponseLabelConstraints() {
+    func setupResponseTextViewConstraints() {
         NSLayoutConstraint.activate([
-            responseLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            responseLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            responseLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            responseLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            responseLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-            ])
+            responseTextView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.blocksInset),
+            responseTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
+            responseTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
+            responseTextView.bottomAnchor.constraint(equalTo: editButton.topAnchor, constant: -UIConstants.elementsInset)
+        ])
     }
     
     func setupBackToStartButtonConstraints() {
@@ -137,7 +163,7 @@ private extension SuccessViewController {
             backToStartButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
             backToStartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
             backToStartButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -SuccessUIConstants.buttonInsetFromCenter)
-            ])
+        ])
     }
     
     func setupBackToShareButtonConstraints() {
@@ -145,10 +171,11 @@ private extension SuccessViewController {
             shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIConstants.blocksInset),
             shareButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: SuccessUIConstants.buttonInsetFromCenter),
             shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
-            ])
+        ])
     }
     
     func setupTargets() {
+        editButton.addTarget(self, action: #selector(didTapEditButton), for: .touchUpInside)
         backToStartButton.addTarget(self, action: #selector(didTapGoToStartButton), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
     }

@@ -1,6 +1,6 @@
 // MARK: - Warnings:
-"warning.optionLimits" = "Максимальное количество опций - 3";
-"warning.characterLimits" = "Максимальное количество символов - 15";
+"warning.optionLimits" = "Максимальное количество интересов - ";
+"warning.characterLimits" = "Максимальное количество символов - 20";
 "warning.wrongWord" = "Некорректный текст";
 
 // MARK: - Onboarding screen:
@@ -12,6 +12,8 @@
 "success.result" = "Успех! Ваше праздничное поздравление создано";
 "success.backToStartButton.title" = "Начать заново";
 "success.shareButton.title" = "Поделиться";
+"success.editButton.edit.title" = "Редактировать";
+"success.saveButton.save.title" = "Сохранить";
 
 // MARK: - CongratulationType screen:
 "congratulation.turn" = "Шаг 3/3";
@@ -19,7 +21,6 @@
 "congratulation.chooseType" = "Тип поздравления";
 "congratulation.button.text" = "Обычное поздравление";
 "congratulation.button.poetry" = "Стихотворение";
-"congratulation.button.haiku" = "Хокку";
 "congratulation.sentencesLengh" = "Количество предложений";
 "congratulation.numberOfRows" = "Количество строк";
 "congratulation.short" = "Короткое";
@@ -76,7 +77,7 @@
 "resultScreen.WaitingText.var1" = "Происходит магия Хогвартса...Скоро все будет!";
 "resultScreen.WaitingText.var2" = "Скоро все будет...\n ИИ готовит инструменты";
 "resultScreen.WaitingText.var3" = "Нейросеть уже проснулась...Ждем результата...";
-"resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз:(";
+"resultScreen.NetworkErrorText.var1" = "Магии не произошло, попробуйте еще раз\n :(";
 "resultScreen.APIErrorText.var1" = "Искуственный интеллект устал и уснул, не может подобрать поздравление. Попробуйте позже!:(";
 
 // MARK: - Greeting Factory:

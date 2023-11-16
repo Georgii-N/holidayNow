@@ -7,12 +7,12 @@ final class DataProvider: DataProviderProtocol {
     private var greetingRequestFactory: GreetingRequestFactoryProtocol?
     
     // MARK: - Constants and Variables:
-    private var type: String?
-    private var countSentences: Int?
+    private(set) var holiday: String?
+    private(set) var intonation: String?
+    private(set) var type: String?
+    private(set) var countSentences: Int?
     private var name: String?
-    private var holiday: String?
     private var interests: [String]?
-    private var intonation: String?
     
     private var requestText: String?
     private var responseText: String?
@@ -47,6 +47,10 @@ final class DataProvider: DataProviderProtocol {
         self.intonation = intonation
     }
     
+    func setResultTextAfterEdit(resultText: String) {
+        self.responseText = resultText
+    }
+    
     func createRequestText(completion: @escaping (Result<String, Error>) -> Void) {
         guard let creatingModel = createGreetingModel() else { return }
         self.greetingRequestFactory = GreetingRequestFactory(greetingRequestModel: creatingModel)
@@ -76,6 +80,17 @@ final class DataProvider: DataProviderProtocol {
             return "Something went wrong...Please try later."}
         
         return responseText
+    }
+    
+    func resetGreeting() {
+        type = nil
+        countSentences = nil
+        name = nil
+        holiday = nil
+        interests = nil
+        intonation = nil
+        requestText = nil
+        responseText = nil
     }
     
     // MARK: - Private Methods:
