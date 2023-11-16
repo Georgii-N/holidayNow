@@ -53,6 +53,7 @@ enum Resources {
             static let responseWaitingFirst = UIImage(named: "response_waiting_ver1") ?? UIImage()
             static let responseWaitingSecond = UIImage(named: "response_waiting_ver2") ?? UIImage()
             static let contentCopyIcon = UIImage(named: "content_copy") ?? UIImage()
+            static let editIcon = UIImage(systemName: "pencil") ?? UIImage()
         }
         
         enum CollectionCell {
