@@ -133,9 +133,9 @@ final class FirstFormViewController: UIViewController {
             }
         }
         
-        viewModel.ownCellCounterObservable.bind { [weak self] newValue in
+        viewModel.selectedInterestsObservable.bind { [weak self] selectedInterest in
             guard let self else { return }
-            self.resumeOnMainThread(self.controlCellsAvailability, with: newValue)
+            self.resumeOnMainThread(self.controlCellsAvailability, with: selectedInterest.count)
         }
     }
     
@@ -193,15 +193,17 @@ final class FirstFormViewController: UIViewController {
         
         if isAvailable {
             cells.forEach { cell in
+                cell.isUserInteractionEnabled = true
+                
                 guard let cell = cell as? BaseCollectionViewEnterCell else { return }
                 cell.controlStateButton(isBlock: false)
-                cell.isUserInteractionEnabled = true
             }
         } else {
             cells.forEach { cell in
+                cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
+
                 guard let cell = cell as? BaseCollectionViewEnterCell else { return }
                 cell.controlStateButton(isBlock: true)
-                cell.isUserInteractionEnabled = cell.isSelected == true ? true : false
             }
         }
         
@@ -285,7 +287,7 @@ extension FirstFormViewController: BaseCollectionViewEnterCellDelegate {
                                      from: firstFormCollectionView,
                                      with: isWrongText ? L10n.Warning.wrongWord : L10n.Warning.characterLimits)
         } else {
-            let countOfSelectedCell = viewModel.ownCellCounterObservable.wrappedValue
+            let countOfSelectedCell = viewModel.selectedInterestsObservable.wrappedValue.count
             controlStateWarningLabel(label: cellWarningLabel, isShow: false)
             controlCellsAvailability(with: countOfSelectedCell)
         }

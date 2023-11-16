@@ -13,26 +13,23 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
     ]
     
     private(set) var indexToRemoveCell: Int?
-    private var selectedInterests: [GreetingTarget] = []
-    
+    private var ownCellCounter = 0
+   
     // MARK: - Observable Values:
     var userNameObservable: Observable<String?> {
         $userName
-    }
-    
-    var ownCellCounterObservable: Observable<Int> {
-        $ownCellCounter
     }
     
     var interestsObservable: Observable<Interest> {
         $interests
     }
     
-    @Observable
-    private var userName: String?
+    var selectedInterestsObservable: Observable<[GreetingTarget]> {
+        $selectedInterests
+    }
     
     @Observable
-    private(set) var ownCellCounter = 0
+    private var userName: String?
     
     @Observable
     private(set) var interests = Interest(name: L10n.FirstForm.Interests.title, interests: [
@@ -49,6 +46,9 @@ final class FirstFormViewModel: FirstFormViewModelProtocol {
         GreetingTarget(name: L10n.FirstForm.Interests.tastyFoods, image: Resources.Images.FirstForm.tastyFood),
         GreetingTarget(name: L10n.FirstForm.Interests.programming, image: Resources.Images.FirstForm.programming)
     ])
+    
+    @Observable
+    private(set) var selectedInterests: [GreetingTarget] = []
     
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
