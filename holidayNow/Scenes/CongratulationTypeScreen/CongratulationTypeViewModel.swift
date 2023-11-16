@@ -9,6 +9,14 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
     private(set) var selectedGreetingsType: String?
     private(set) var selectedGreetingsLength: Int?
     
+    // MARK: - Observable Values:
+    var isReadyToMakeRequestObservable: Observable<Bool> {
+        $isReadyToMakeRequest
+    }
+    
+    @Observable
+    private var isReadyToMakeRequest = false
+    
     // MARK: - Lifecycle:
     init(dataProvider: DataProviderProtocol) {
         self.dataProvider = dataProvider
@@ -29,6 +37,7 @@ final class CongratulationTypeViewModel: CongratulationTypeViewModelProtocol {
               let selectedGreetingsLength else { return }
         dataProvider?.setType(type: selectedGreetingsType)
         dataProvider?.setcountSentences(countSentences: selectedGreetingsLength)
+        isReadyToMakeRequest = true
     }
     
     // MARK: - Private Methods:

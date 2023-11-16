@@ -111,6 +111,8 @@ final class CongratulationTypeViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupTargets()
+        
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,12 +124,16 @@ final class CongratulationTypeViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        viewModel.sentCongratulationType()
+    // MARK: - Private Methods:
+    private func bind() {
+        viewModel.isReadyToMakeRequestObservable.bind { [weak self] newValue in
+            guard let self else { return }
+            if newValue {
+                startMagic()
+            }
+        }
     }
     
-    // MARK: - Private Methods:
     private func setupSentensesNumberLabel(with type: BaseCongratulationButtonState) {
         var minNumber: Int?
         var maxNumber: Int?
@@ -186,9 +192,13 @@ final class CongratulationTypeViewController: UIViewController {
         }
     }
     
-    // MARK: - Objc Methods:
-    @objc private func startMagic() {
+    private func startMagic() {
         coordinator?.goToWaitingViewController()
+    }
+    
+    // MARK: - Objc Methods:
+    @objc func setGreetingType() {
+        viewModel.sentCongratulationType()
     }
     
     @objc private func setupCurrentSentensesValue() {
@@ -296,7 +306,7 @@ private extension CongratulationTypeViewController {
     }
     
     func setupTargets() {
-        continueButton.addTarget(self, action: #selector(startMagic), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(setGreetingType), for: .touchUpInside)
         lenghSlider.addTarget(self, action: #selector(setupCurrentSentensesValue), for: .allEvents)
         lenghSlider.addTapGesture()
     }
