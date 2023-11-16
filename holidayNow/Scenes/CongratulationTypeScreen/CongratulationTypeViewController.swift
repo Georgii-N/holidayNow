@@ -93,7 +93,6 @@ final class CongratulationTypeViewController: UIViewController {
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.Congratulation.turn, isBackButton: true, coordinator: coordinator)
     private lazy var textCongratulationButton = BaseCongratulationTypeButton(buttonState: .text)
     private lazy var poetryCongratulationButton = BaseCongratulationTypeButton(buttonState: .poetry)
-    private lazy var haikuCongratulationButton = BaseCongratulationTypeButton(buttonState: .haiku)
     private lazy var continueButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Congratulation.startMagic)
     
     // MARK: - Lifecycle:
@@ -143,10 +142,6 @@ final class CongratulationTypeViewController: UIViewController {
             minNumber = Resources.Int.poetryMinSliderValue
             maxNumber = Resources.Int.maxSliderValue
             text = L10n.Congratulation.numberOfRows
-        case .haiku:
-            minNumber = Resources.Int.poetryMinSliderValue
-            maxNumber = Resources.Int.maxSliderValue
-            text = L10n.Congratulation.numberOfRows
         }
                 
         minCountOfSentensesLabel.text = minNumber == nil ? "" : String(minNumber ?? 0)
@@ -178,7 +173,7 @@ final class CongratulationTypeViewController: UIViewController {
         let greetingLength = viewModel.selectedGreetingsLength
         
         if greetingType != nil || greetingLength != nil {
-            [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach { button in
+            [textCongratulationButton, poetryCongratulationButton].forEach { button in
                 if button.title == greetingType {
                     button.changeSelectionState()
                     synchronizeOtherButtons(title: greetingType ?? "", state: button.isSelected, buttonType: button.buttonState)
@@ -204,7 +199,7 @@ final class CongratulationTypeViewController: UIViewController {
 // MARK: - CongratulationTypeButtonDelegate:
 extension CongratulationTypeViewController: BaseCongratulationTypeButtonDelegate {
     func synchronizeOtherButtons(title: String, state: Bool, buttonType: BaseCongratulationButtonState) {
-        [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [textCongratulationButton, poetryCongratulationButton].forEach {
             if $0.title != title && $0.isSelected == state {
                 $0.changeSelectionState()
             }
@@ -221,7 +216,7 @@ private extension CongratulationTypeViewController {
         view.backgroundColor = .white
         customNavigationBar.setupNavigationBar(with: view, controller: self)
         
-        [textCongratulationButton, poetryCongratulationButton, haikuCongratulationButton].forEach {
+        [textCongratulationButton, poetryCongratulationButton].forEach {
             buttonsStack.addArrangedSubview($0)
             $0.delegate = self
         }
@@ -242,7 +237,7 @@ private extension CongratulationTypeViewController {
         setupContinueButtonConstraints()
         
         [titleLabel, congratulationTypeLabel, congratulationLenghLabel, textCongratulationButton,
-         poetryCongratulationButton, haikuCongratulationButton].forEach {
+         poetryCongratulationButton].forEach {
             $0.leadingAnchor.constraint(equalTo: buttonsStack.leadingAnchor).isActive = true
             $0.trailingAnchor.constraint(equalTo: buttonsStack.trailingAnchor).isActive = true
         }

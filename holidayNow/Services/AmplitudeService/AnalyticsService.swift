@@ -14,7 +14,6 @@ enum AnalyticsEvents {
         case intonation
         case addNewInterest
         
-        case choosenHaiku
         case choosenPoetry
         case choosenText
         
