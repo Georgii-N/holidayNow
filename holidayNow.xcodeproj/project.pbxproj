@@ -986,7 +986,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7HYWRF575;
+				DEVELOPMENT_TEAM = V6V6RWV729;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения";
@@ -1001,7 +1001,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow1";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1017,7 +1017,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7HYWRF575;
+				DEVELOPMENT_TEAM = V6V6RWV729;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = holidayNow/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Можно ли использовать данные о вашей активности? Если вы разрешите, то сможем использовать их для улучшения работы приложения";
@@ -1032,7 +1032,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow1";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.georgiy-N.holidayNow";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
