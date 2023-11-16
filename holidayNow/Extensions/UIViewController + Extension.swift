@@ -110,14 +110,16 @@ extension UIViewController {
         static let smallScreenInset: CGFloat = 20
     }
     
-    func increaseHeightAnchor(from screenHeight: CGFloat, constraints: NSLayoutConstraint) {
+    func changeCollectionViewHeightAnchor(isIncrease: Bool, from screenHeight: CGFloat, constraints: NSLayoutConstraint) {
+        let multiplicator: CGFloat = isIncrease ? 1 : -1
+        
         switch screenHeight {
         case ExtensionsUIConstants.largeScreenHeight:
-            constraints.constant += ExtensionsUIConstants.largeScreenInset
+            constraints.constant += (ExtensionsUIConstants.largeScreenInset * multiplicator)
         case ExtensionsUIConstants.mediumScreenHeight:
-            constraints.constant += ExtensionsUIConstants.mediumScreenInset
+            constraints.constant += (ExtensionsUIConstants.mediumScreenInset * multiplicator)
         default:
-            constraints.constant += ExtensionsUIConstants.smallScreenInset
+            constraints.constant += (ExtensionsUIConstants.smallScreenInset * multiplicator)
             return
         }
     }
