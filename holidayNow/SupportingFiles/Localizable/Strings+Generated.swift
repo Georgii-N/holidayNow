@@ -28,8 +28,6 @@ internal enum L10n {
     /// Шаг 3/3
     internal static let turn = L10n.tr("Localizable", "congratulation.turn", fallback: "Шаг 3/3")
     internal enum Button {
-      /// Хокку
-      internal static let haiku = L10n.tr("Localizable", "congratulation.button.haiku", fallback: "Хокку")
       /// Стихотворение
       internal static let poetry = L10n.tr("Localizable", "congratulation.button.poetry", fallback: "Стихотворение")
       /// Обычное поздравление

@@ -21,7 +21,6 @@
 "congratulation.chooseType" = "Тип поздравления";
 "congratulation.button.text" = "Обычное поздравление";
 "congratulation.button.poetry" = "Стихотворение";
-"congratulation.button.haiku" = "Хокку";
 "congratulation.sentencesLengh" = "Количество предложений";
 "congratulation.numberOfRows" = "Количество строк";
 "congratulation.short" = "Короткое";
