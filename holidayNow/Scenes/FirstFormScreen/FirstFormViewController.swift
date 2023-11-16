@@ -149,13 +149,14 @@ final class FirstFormViewController: UIViewController {
         firstFormCollectionView.performBatchUpdates {
             if isCellAdded {
                 firstFormCollectionView.insertItems(at: [indexPath])
-                increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
                 controlCellsAnimations(isStart: false)
+                changeCollectionViewHeightAnchor(isIncrease: true, from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
             } else {
                 firstFormCollectionView.deleteItems(at: [indexPath])
                 let enterCellIndexPath = IndexPath(row: firstFormCollectionView.visibleCells.count - 1, section: 0)
                 guard let cell = firstFormCollectionView.cellForItem(at: enterCellIndexPath) as? BaseCollectionViewEnterCell else { return }
                 cell.decrementAddedInterestsCounter()
+                changeCollectionViewHeightAnchor(isIncrease: false, from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
             }
         }
         

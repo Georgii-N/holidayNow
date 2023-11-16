@@ -112,13 +112,14 @@ final class SecondFormViewController: UIViewController {
         secondFormCollectionView.performBatchUpdates {
             if isCellAdded {
                 secondFormCollectionView.insertItems(at: [indexPath])
-                increaseHeightAnchor(from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
                 controlCellsAnimations(isStart: false)
+                changeCollectionViewHeightAnchor(isIncrease: true, from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
             } else {
                 secondFormCollectionView.deleteItems(at: [indexPath])
                 let enterCellIndexPath = IndexPath(row: secondFormCollectionView.numberOfItems(inSection: 0) - 1, section: 0)
                 guard let cell = secondFormCollectionView.cellForItem(at: enterCellIndexPath) as? BaseCollectionViewEnterCell else { return }
                 cell.decrementAddedInterestsCounter()
+                changeCollectionViewHeightAnchor(isIncrease: false, from: view.frame.height, constraints: collectionHeightAnchor ?? NSLayoutConstraint())
             }
         }
         
