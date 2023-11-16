@@ -14,6 +14,7 @@ final class CongratulationTypeViewController: UIViewController {
     }
     
     private let animationDuration = 0.3
+    private var isFirstEntry = true
     
     // MARK: - UI:
     private lazy var titleLabel: UILabel = {
@@ -115,8 +116,11 @@ final class CongratulationTypeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presetGreetingsInfo()
-        startSetupType()
+        if isFirstEntry {
+            presetGreetingsInfo()
+            startSetupType()
+            isFirstEntry = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -183,7 +187,6 @@ final class CongratulationTypeViewController: UIViewController {
             
             if let greetingLength {
                 lenghSlider.value = Float(greetingLength)
-                print(greetingLength, lenghSlider.value)
             }
         }
     }

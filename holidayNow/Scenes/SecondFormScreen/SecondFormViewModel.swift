@@ -62,7 +62,7 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     func setupIntonation(name: String?) {
         selectedIntonation = name
     }
-
+    
     func addNewHoliday(with name: String) {
         holidays.holidays.append(HolidaysTarget(name: name, image: cellImages[ownCellCounter]))
         ownCellCounter += 1
@@ -99,5 +99,12 @@ final class SecondFormViewModel: SecondFormViewModelProtocol {
     private func checkToExistingGreeting() {
         selectedHoliday = dataProvider?.holiday
         selectedIntonation = dataProvider?.intonation
+        
+        guard let selectedHoliday else { return }
+        let isDefaultHoliday = holidays.holidays.contains { $0.name == selectedHoliday }
+
+        if !isDefaultHoliday {
+            addNewHoliday(with: selectedHoliday)
+        }
     }
 }
