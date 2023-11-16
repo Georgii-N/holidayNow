@@ -10,6 +10,7 @@ final class SuccessViewController: UIViewController {
     private enum SuccessUIConstants {
         static let imageViewHeight: CGFloat = 220
         static let buttonInsetFromCenter: CGFloat = 10
+        static let editButtonCornerRadius: CGFloat = 25
     }
     
     // MARK: - UI:
@@ -32,7 +33,15 @@ final class SuccessViewController: UIViewController {
         return responseTextView
     }()
     
-    private lazy var editButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.EditButton.Edit.title)
+    private lazy var editButton: UIButton = {
+        let editButton = UIButton(type: .custom)
+        editButton.setImage(Resources.Images.ResponseScreens.editIcon, for: .normal)
+        editButton.backgroundColor = .lightGray
+        editButton.layer.cornerRadius = SuccessUIConstants.editButtonCornerRadius
+        editButton.tintColor = .blackDay
+        return editButton
+    }()
+    
     private lazy var backToStartButton = BaseCustomButton(buttonState: .back, buttonText: L10n.Success.BackToStartButton.title)
     private lazy var shareButton = BaseCustomButton(buttonState: .normal, buttonText: L10n.Success.ShareButton.title)
     private lazy var customNavigationBar = BaseNavigationBar(title: L10n.ResultScreen.title, isBackButton: true, coordinator: coordinator)
@@ -132,18 +141,20 @@ private extension SuccessViewController {
     
     func setupEditButtonConstraints() {
         NSLayoutConstraint.activate([
-            editButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.sideInset),
-            editButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
-            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset)
+            editButton.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.blocksInset),
+            editButton.widthAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            editButton.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            editButton.trailingAnchor.constraint(equalTo: shareButton.trailingAnchor)
+            
         ])
     }
     
     func setupResponseTextViewConstraints() {
         NSLayoutConstraint.activate([
-            responseTextView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: UIConstants.blocksInset),
+            responseTextView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UIConstants.blocksInset),
             responseTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIConstants.sideInset),
             responseTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIConstants.sideInset),
-            responseTextView.bottomAnchor.constraint(equalTo: backToStartButton.topAnchor, constant: -UIConstants.elementsInset)
+            responseTextView.bottomAnchor.constraint(equalTo: editButton.topAnchor, constant: -UIConstants.elementsInset)
         ])
     }
     
